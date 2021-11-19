@@ -6,8 +6,10 @@ enum {IDLE, MOVING, AIR}
 onready var animation_player = $AnimationPlayer
 onready var items_container = $CanvasLayer/ItemsContainer
 onready var sprite = $Sprite
+onready var boots_sprite = $BootsSprite
 onready var jump_timer = $JumpTimer
 
+export(bool) var double_jump: bool = false
 export(bool) var controlled = true
 export var speed: int
 
@@ -19,7 +21,9 @@ var gravity: float = 0.25
 var velocity: Vector2
 var displacement: Vector2
 
+
 var inventory: Array
+var jumped: bool = false
 
 func _physics_process(delta):
 	
@@ -33,17 +37,27 @@ func _physics_process(delta):
 	if is_on_floor():
 		velocity.y = 0
 		jump_timer.start()
+		jumped = false
+		
+		
+	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and not jumped:
+		velocity.y = -3
+		jumped = true
 		
 	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
 		jump_timer.stop()
 		velocity.y = -3
+	
+
 	
 	if is_on_ceiling():
 		velocity.y = gravity
 	
 	if is_moving():
 		sprite.offset.x = 2 * int(displacement.x < 0)
+		boots_sprite.offset.x = 2 * int(displacement.x < 0)
 		sprite.flip_h = displacement.x < 0
+		boots_sprite.flip_h = displacement.x < 0
 	
 	play_animation_from_state(get_state())
 	

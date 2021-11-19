@@ -9,6 +9,8 @@ onready var items = $World/Items
 onready var locked_doors = $World/LockedDoors
 onready var moving_platforns = $World/MovingPlatforms
 onready var second_jumps = $World/SecondJumps
+onready var wall_guns = $World/WallGuns
+onready var double_jump = $World/DoubleJump
 onready var player = $World/Player
 
 
@@ -47,6 +49,10 @@ func _ready():
 		var second_jump_node: Area2D = child
 		second_jump_node.connect("body_entered", self, "_on_second_jump_body_entered", [child])
 	
+	for child in wall_guns.get_children():
+		var wall_gun: WallGun = child
+		wall_gun.connect("shot_bullet", self, "_on_wall_gun_shot_bullet")
+	
 	animation_player.play("first_scene")
 
 
@@ -82,3 +88,21 @@ func _on_second_jump_body_entered(body, arg_second_jump: SecondJump):
 	if not arg_second_jump.disabled:
 		arg_second_jump.disable()
 		player.jump_timer.start()
+
+
+func _on_DoubleJump_body_entered(body):
+	double_jump.queue_free()
+	player.double_jump = true
+	player.boots_sprite.show()
+
+
+func _on_Spikes24_body_entered(body):
+	player.respawn()
+
+func _on_wall_gun_shot_bullet(arg_bullet: Bullet):
+	arg_bullet.connect("body_entered", self, "_on_bullet_body_entered", [arg_bullet])
+
+func _on_bullet_body_entered(body, arg_bullet: Bullet):
+	if body is Player:
+		body.respawn()
+	arg_bullet.queue_free()

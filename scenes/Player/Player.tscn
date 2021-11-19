@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/light.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/player_with_double_jump_boots.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -42,6 +43,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 1, 0.5 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../BootsSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "air"
@@ -69,6 +82,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 3, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../BootsSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -111,6 +136,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 1, 0.5 ), Vector2( 1, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../BootsSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 2 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.3
@@ -151,6 +188,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 3, 3.5 ), Vector2( 4, 3.5 ), Vector2( 3, 3 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("../BootsSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
 
 [sub_resource type="RectangleShape2D" id=5]
 resource_local_to_scene = true
@@ -189,6 +238,11 @@ anims/move = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+hframes = 3
+
+[node name="BootsSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
 hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles.png-e880063c4f5e080e3128e5f8e26c5cbb.stex"
+path="res://.import/player_with_double_jump_boots.png-f3313a2028b80c71af5ddb1143d918bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/tiles.png"
-dest_files=[ "res://.import/tiles.png-e880063c4f5e080e3128e5f8e26c5cbb.stex" ]
+source_file="res://assets/textures/player_with_double_jump_boots.png"
+dest_files=[ "res://.import/player_with_double_jump_boots.png-f3313a2028b80c71af5ddb1143d918bb.stex" ]
 
 [params]
 

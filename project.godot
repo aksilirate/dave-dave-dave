@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Area2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://scenes/Bullet/Bullet.gd"
+}, {
+"base": "Area2D",
 "class": "Checkpoint",
 "language": "GDScript",
 "path": "res://scenes/Checkpoint/Checkpoint.gd"
@@ -43,15 +48,22 @@ _global_script_classes=[ {
 "class": "SecondJump",
 "language": "GDScript",
 "path": "res://scenes/SecondJump/SecondJump.gd"
+}, {
+"base": "Node2D",
+"class": "WallGun",
+"language": "GDScript",
+"path": "res://WallGun.gd"
 } ]
 _global_script_class_icons={
+"Bullet": "",
 "Checkpoint": "",
 "Item": "",
 "ItemArea": "",
 "LockedDoor": "",
 "MovingPlatform": "",
 "Player": "",
-"SecondJump": ""
+"SecondJump": "",
+"WallGun": ""
 }
 
 [application]
