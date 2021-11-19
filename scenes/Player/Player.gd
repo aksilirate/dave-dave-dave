@@ -6,6 +6,7 @@ enum {IDLE, MOVING, AIR}
 onready var animation_player = $AnimationPlayer
 onready var items_container = $CanvasLayer/ItemsContainer
 onready var sprite = $Sprite
+onready var jump_timer = $JumpTimer
 
 export(bool) var controlled = true
 export var speed: int
@@ -22,7 +23,7 @@ var inventory: Array
 
 func _physics_process(delta):
 	
-	displacement = move_and_slide(velocity * speed, Vector2.UP, false, 4, PI/4, false)
+	displacement = move_and_slide_with_snap(velocity * speed, Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
 	
 	if controlled:
 		velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -31,8 +32,11 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		velocity.y = 0
-		if Input.get_action_strength("jump") and controlled:
-			velocity.y = -3
+		jump_timer.start()
+		
+	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
+		jump_timer.stop()
+		velocity.y = -3
 	
 	if is_on_ceiling():
 		velocity.y = gravity
@@ -99,6 +103,7 @@ func update_inventory():
 		texture_rect.name = item.name
 		texture_rect.texture = load(item.texture_path)
 		items_container.add_child(texture_rect)
+		texture_rect.modulate = item.color
 		texture_rect.set_size(Vector2(1,1))
 		
 		

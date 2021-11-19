@@ -1,3 +1,4 @@
+class_name MovingPlatform
 extends Node2D
 
 const IDLE_DURATION = 1.0
@@ -5,6 +6,7 @@ const IDLE_DURATION = 1.0
 onready var kinematic_body = $KinematicBody2D
 onready var position_2d = $Position2D
 onready var tween = $Tween
+onready var detection_area = $KinematicBody2D/Area2D
 
 export(int) var speed = 50
 export(bool) var start_with_player = false

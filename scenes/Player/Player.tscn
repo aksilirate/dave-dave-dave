@@ -206,3 +206,8 @@ rect_scale = Vector2( 4, 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="JumpTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.2
+one_shot = true
