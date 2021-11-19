@@ -85,8 +85,8 @@ func add_item_to_inventory(item: Item):
 	inventory.push_back(item)
 	update_inventory()
 	
-func remove_item_from_inventory(item_name: String):
-	inventory.erase(item_name)
+func remove_item_from_inventory(item: Item):
+	inventory.erase(item)
 	update_inventory()
 
 func update_inventory():
