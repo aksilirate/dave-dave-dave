@@ -4,6 +4,7 @@ extends KinematicBody2D
 enum {IDLE, MOVING, AIR}
 
 onready var animation_player = $AnimationPlayer
+onready var items_container = $CanvasLayer/ItemsContainer
 onready var sprite = $Sprite
 
 export(bool) var controlled = true
@@ -17,7 +18,7 @@ var gravity: float = 0.25
 var velocity: Vector2
 var displacement: Vector2
 
-
+var inventory: Array
 
 func _physics_process(delta):
 	
@@ -78,3 +79,30 @@ func play_animation_from_state(state: int):
 	
 func respawn():
 	global_position = respawn_location
+
+
+func add_item_to_inventory(item: Item):
+	inventory.push_back(item)
+	update_inventory()
+	
+func remove_item_from_inventory(item_name: String):
+	inventory.erase(item_name)
+	update_inventory()
+
+func update_inventory():
+	for child in items_container.get_children():
+		child.queue_free()
+		
+	for element in inventory:
+		var item: Item = element
+		var texture_rect = TextureRect.new()
+		texture_rect.name = item.name
+		texture_rect.texture = load(item.texture_path)
+		items_container.add_child(texture_rect)
+		texture_rect.set_size(Vector2(1,1))
+		
+		
+		
+		
+		
+		

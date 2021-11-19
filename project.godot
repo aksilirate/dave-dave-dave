@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Checkpoint/Checkpoint.gd"
 }, {
+"base": "Object",
+"class": "Item",
+"language": "GDScript",
+"path": "res://classes/Item.gd"
+}, {
+"base": "Reference",
+"class": "ItemArea",
+"language": "GDScript",
+"path": "res://scenes/ItemArea/ItemArea.gd"
+}, {
+"base": "StaticBody2D",
+"class": "LockedDoor",
+"language": "GDScript",
+"path": "res://scenes/LockedDoor/LockedDoor.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -21,6 +36,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Checkpoint": "",
+"Item": "",
+"ItemArea": "",
+"LockedDoor": "",
 "Player": ""
 }
 
