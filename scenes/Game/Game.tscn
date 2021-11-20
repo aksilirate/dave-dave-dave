@@ -2592,20 +2592,14 @@ position = Vector2( 16320, -5600 )
 [node name="SecondJump34" parent="World/SecondJumps" instance=ExtResource( 17 )]
 position = Vector2( 13040, -3760 )
 
-[node name="SecondJump40" parent="World/SecondJumps" instance=ExtResource( 17 )]
-position = Vector2( 13280, -3760 )
-
 [node name="SecondJump44" parent="World/SecondJumps" instance=ExtResource( 17 )]
-position = Vector2( 13520, -3760 )
+position = Vector2( 13360, -3760 )
 
 [node name="SecondJump45" parent="World/SecondJumps" instance=ExtResource( 17 )]
-position = Vector2( 13760, -3760 )
+position = Vector2( 13680, -3760 )
 
 [node name="SecondJump46" parent="World/SecondJumps" instance=ExtResource( 17 )]
 position = Vector2( 14000, -3760 )
-
-[node name="SecondJump47" parent="World/SecondJumps" instance=ExtResource( 17 )]
-position = Vector2( 14240, -3760 )
 
 [node name="SecondJump28" parent="World/SecondJumps" instance=ExtResource( 17 )]
 position = Vector2( 16480, -5840 )
@@ -3331,9 +3325,9 @@ flip_h = true
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
 position = Vector2( -1650, 599.999 )
-controlled = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
+visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

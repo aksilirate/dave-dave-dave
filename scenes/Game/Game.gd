@@ -71,7 +71,7 @@ func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 		player.respawn_location = arg_checkpoint.global_position
 
 func _on_spikes_body_entered(body):
-	player.respawn()
+	player.animation_player.play("death")
 
 
 func _on_item_body_entered(body, arg_item_area: ItemArea):
@@ -97,14 +97,14 @@ func _on_DoubleJump_body_entered(body):
 
 
 func _on_Spikes24_body_entered(body):
-	player.respawn()
+	player.animation_player.play("death")
 
 func _on_wall_gun_shot_bullet(arg_bullet: Bullet):
 	arg_bullet.connect("body_entered", self, "_on_bullet_body_entered", [arg_bullet])
 
 func _on_bullet_body_entered(body, arg_bullet: Bullet):
 	if body is Player:
-		body.respawn()
+		player.animation_player.play("death")
 	arg_bullet.queue_free()
 
 func _on_diamond_body_entered(body, arg_diamond):
@@ -127,6 +127,6 @@ func _physics_process(delta):
 		var second_jump: Area2D = child
 		for body in second_jump.get_overlapping_bodies():
 			if body is Player:
-				if not second_jump.disabled and Input.is_action_just_pressed("jump"):
+				if not second_jump.disabled and Input.is_action_pressed("jump"):
 					second_jump.disable()
 					player.jump_timer.start()

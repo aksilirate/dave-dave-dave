@@ -31,6 +31,9 @@ var jumped: bool = false
 
 func _physics_process(delta):
 	
+	if is_playing_death_animation():
+		return
+	
 	displacement = move_and_slide_with_snap(velocity  * speed, Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
 	
 	if controlled:
@@ -97,6 +100,8 @@ func get_state() -> int:
 	
 	
 func play_animation_from_state(state: int):
+	if is_playing_death_animation():
+		return
 	match state:
 		IDLE:
 			animation_player.play("idle")
@@ -139,4 +144,5 @@ func update_diamonds_collected(arg_total_diamonds) -> void:
 	diamonds_label.text = str(diamonds_collected) + "/" + str(arg_total_diamonds)
 		
 		
-		
+func is_playing_death_animation() -> bool:
+	return animation_player.current_animation == "death" and animation_player.is_playing()
