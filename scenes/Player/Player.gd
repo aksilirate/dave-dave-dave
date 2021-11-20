@@ -28,14 +28,16 @@ var inventory: Array
 var double_jumped: bool = false
 var jumped: bool = false
 
+
 func _physics_process(delta):
 	
-	displacement = move_and_slide_with_snap(velocity * speed, Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
+	displacement = move_and_slide_with_snap(velocity  * speed, Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
 	
 	if controlled:
 		velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
-	velocity.y += gravity
+	velocity.y = min(velocity.y + gravity, gravity * 10)
+	
 	
 	if is_on_floor():
 		velocity.y = 0
@@ -99,7 +101,10 @@ func play_animation_from_state(state: int):
 		IDLE:
 			animation_player.play("idle")
 		MOVING:
-			animation_player.play("move")
+			if Input.get_action_strength("move_right") - Input.get_action_strength("move_left"):
+				animation_player.play("move")
+			else:
+				animation_player.play("idle")
 		AIR:
 			animation_player.play("air")
 	

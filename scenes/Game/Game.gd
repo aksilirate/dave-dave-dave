@@ -11,6 +11,7 @@ onready var moving_platforns = $World/MovingPlatforms
 onready var second_jumps = $World/SecondJumps
 onready var wall_guns = $World/WallGuns
 onready var diamonds = $World/Diamonds
+onready var mover_blocks = $World/MoverBlocks
 onready var double_jump = $World/DoubleJump
 onready var player = $World/Player
 
@@ -58,7 +59,7 @@ func _ready():
 	for child in diamonds.get_children():
 		var diamond: Area2D = child
 		diamond.connect("body_entered", self, "_on_diamond_body_entered", [diamond])
-	
+		
 	total_diamonds = diamonds.get_child_count()
 	player.update_diamonds_collected(total_diamonds)
 	animation_player.play("first_scene")
@@ -119,3 +120,15 @@ func _on_diamond_body_entered(body, arg_diamond):
 	arg_diamond.queue_free()
 	player.diamonds_collected += 1
 	player.update_diamonds_collected(total_diamonds)
+
+
+
+func _physics_process(delta):
+	for child in mover_blocks.get_children():
+		var mover_block: MoverBlock = child
+		for body in mover_block.get_overlapping_bodies():
+			if body is Player:
+				player.velocity.y = min(0, player.velocity.y)
+				player.jump_timer.start()
+				player.move_and_slide(mover_block.get_velocity())
+
