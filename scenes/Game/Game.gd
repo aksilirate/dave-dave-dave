@@ -10,6 +10,7 @@ onready var locked_doors = $World/LockedDoors
 onready var moving_platforns = $World/MovingPlatforms
 onready var second_jumps = $World/SecondJumps
 onready var wall_guns = $World/WallGuns
+onready var diamonds = $World/Diamonds
 onready var double_jump = $World/DoubleJump
 onready var player = $World/Player
 
@@ -18,6 +19,7 @@ var deactivated_checkpoints: Array = []
 
 var active_checkpoint: Checkpoint
 
+var total_diamonds: int
 
 func _on_FreedomArea_body_entered(body):
 	animation_player.play("end")
@@ -53,6 +55,12 @@ func _ready():
 		var wall_gun: WallGun = child
 		wall_gun.connect("shot_bullet", self, "_on_wall_gun_shot_bullet")
 	
+	for child in diamonds.get_children():
+		var diamond: Area2D = child
+		diamond.connect("body_entered", self, "_on_diamond_body_entered", [diamond])
+	
+	total_diamonds = diamonds.get_child_count()
+	player.update_diamonds_collected(total_diamonds)
 	animation_player.play("first_scene")
 
 
@@ -106,3 +114,8 @@ func _on_bullet_body_entered(body, arg_bullet: Bullet):
 	if body is Player:
 		body.respawn()
 	arg_bullet.queue_free()
+
+func _on_diamond_body_entered(body, arg_diamond):
+	arg_diamond.queue_free()
+	player.diamonds_collected += 1
+	player.update_diamonds_collected(total_diamonds)

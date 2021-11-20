@@ -4,10 +4,11 @@ extends KinematicBody2D
 enum {IDLE, MOVING, AIR}
 
 onready var animation_player = $AnimationPlayer
-onready var items_container = $CanvasLayer/ItemsContainer
+onready var items_container = $CanvasLayer/HBoxContainer/ItemsContainer
 onready var sprite = $Sprite
 onready var boots_sprite = $BootsSprite
 onready var jump_timer = $JumpTimer
+onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 
 export(bool) var double_jump: bool = false
 export(bool) var controlled = true
@@ -21,6 +22,7 @@ var gravity: float = 0.25
 var velocity: Vector2
 var displacement: Vector2
 
+var diamonds_collected: int
 
 var inventory: Array
 var jumped: bool = false
@@ -121,7 +123,8 @@ func update_inventory():
 		texture_rect.set_size(Vector2(1,1))
 		
 		
-		
+func update_diamonds_collected(arg_total_diamonds) -> void:
+	diamonds_label.text = str(diamonds_collected) + "/" + str(arg_total_diamonds)
 		
 		
 		
