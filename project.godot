@@ -77,6 +77,10 @@ _global_script_class_icons={
 config/name="Dave Dave Dave"
 run/main_scene="res://scenes/Game/Game.tscn"
 
+[autoload]
+
+Audio="*res://singletons/Audio.gd"
+
 [display]
 
 window/stretch/aspect="keep"

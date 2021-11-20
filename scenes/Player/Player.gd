@@ -50,14 +50,17 @@ func _physics_process(delta):
 		
 	
 	if not jumped and jump_timer.is_stopped() and Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and not double_jumped:
+		Audio.play("res://assets/sounds/jump.wav")
 		velocity.y = -3
 		double_jumped = true
 	
 	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and jumped and not double_jumped:
+		Audio.play("res://assets/sounds/jump.wav")
 		velocity.y = -3
 		double_jumped = true
 	
 	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
+		Audio.play("res://assets/sounds/jump.wav")
 		jump_timer.stop()
 		jumped = true
 		velocity.y = -3

@@ -67,14 +67,17 @@ func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 		if active_checkpoint != null:
 			active_checkpoint.deactivate()
 		
+		Audio.play("res://assets/sounds/checkpoint_reached.wav")
 		active_checkpoint = arg_checkpoint
 		player.respawn_location = arg_checkpoint.global_position
 
 func _on_spikes_body_entered(body):
+	Audio.play("res://assets/sounds/death.wav")
 	player.animation_player.play("death")
 
 
 func _on_item_body_entered(body, arg_item_area: ItemArea):
+	Audio.play("res://assets/sounds/collect_item.wav")
 	var item = Item.new()
 	item.name = arg_item_area.item_name
 	item.texture_path = arg_item_area.sprite.texture.get_path()
@@ -97,6 +100,7 @@ func _on_DoubleJump_body_entered(body):
 
 
 func _on_Spikes24_body_entered(body):
+	Audio.play("res://assets/sounds/death.wav")
 	player.animation_player.play("death")
 
 func _on_wall_gun_shot_bullet(arg_bullet: Bullet):
@@ -104,10 +108,12 @@ func _on_wall_gun_shot_bullet(arg_bullet: Bullet):
 
 func _on_bullet_body_entered(body, arg_bullet: Bullet):
 	if body is Player:
+		Audio.play("res://assets/sounds/death.wav")
 		player.animation_player.play("death")
 	arg_bullet.queue_free()
 
 func _on_diamond_body_entered(body, arg_diamond):
+	Audio.play("res://assets/sounds/collect_diamond.wav")
 	arg_diamond.queue_free()
 	player.diamonds_collected += 1
 	player.update_diamonds_collected(total_diamonds)

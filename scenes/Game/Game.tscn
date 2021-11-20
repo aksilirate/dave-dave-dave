@@ -3527,10 +3527,8 @@ flip_h = true
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
 position = Vector2( -1650, 599.999 )
-double_jump = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
