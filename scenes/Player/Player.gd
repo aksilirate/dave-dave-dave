@@ -25,6 +25,7 @@ var displacement: Vector2
 var diamonds_collected: int
 
 var inventory: Array
+var double_jumped: bool = false
 var jumped: bool = false
 
 func _physics_process(delta):
@@ -40,14 +41,20 @@ func _physics_process(delta):
 		velocity.y = 0
 		jump_timer.start()
 		jumped = false
+		double_jumped = false
 		
-		
-	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and not jumped:
+	
+	if not jumped and jump_timer.is_stopped() and Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and not double_jumped:
 		velocity.y = -3
-		jumped = true
-		
+		double_jumped = true
+	
+	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and jumped and not double_jumped:
+		velocity.y = -3
+		double_jumped = true
+	
 	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
 		jump_timer.stop()
+		jumped = true
 		velocity.y = -3
 	
 
