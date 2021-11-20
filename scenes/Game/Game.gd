@@ -47,10 +47,6 @@ func _ready():
 #	for child in moving_platforns.get_children():
 #		var moving_platform: MovingPlatform = child
 #		var detection_area: Area2D = moving_platform.detection_area
-
-	for child in second_jumps.get_children():
-		var second_jump_node: Area2D = child
-		second_jump_node.connect("body_entered", self, "_on_second_jump_body_entered", [child])
 	
 	for child in wall_guns.get_children():
 		var wall_gun: WallGun = child
@@ -93,11 +89,6 @@ func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
 			player.remove_item_from_inventory(item)
 			arg_locked_door.queue_free()
 
-func _on_second_jump_body_entered(body, arg_second_jump: SecondJump):
-	if not arg_second_jump.disabled:
-		arg_second_jump.disable()
-		player.jump_timer.start()
-
 
 func _on_DoubleJump_body_entered(body):
 	double_jump.queue_free()
@@ -131,4 +122,11 @@ func _physics_process(delta):
 				player.velocity.y = min(0, player.velocity.y)
 				player.jump_timer.start()
 				player.move_and_slide(mover_block.get_velocity())
-
+				
+	for child in second_jumps.get_children():
+		var second_jump: Area2D = child
+		for body in second_jump.get_overlapping_bodies():
+			if body is Player:
+				if not second_jump.disabled and Input.is_action_just_pressed("jump"):
+					second_jump.disable()
+					player.jump_timer.start()
