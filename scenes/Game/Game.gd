@@ -14,7 +14,7 @@ onready var diamonds = $World/Diamonds
 onready var mover_blocks = $World/MoverBlocks
 onready var double_jump = $World/DoubleJump
 onready var player = $World/Player
-
+onready var haste_potions = $World/HastePotions
 
 var deactivated_checkpoints: Array = []
 
@@ -55,7 +55,11 @@ func _ready():
 	for child in diamonds.get_children():
 		var diamond: Area2D = child
 		diamond.connect("body_entered", self, "_on_diamond_body_entered", [diamond])
-		
+	
+	for child in haste_potions.get_children():
+		var haste_potion: HastePotion = child
+		haste_potion.connect("body_entered", self, "_on_haste_potion_body_entered", [haste_potion])
+	
 	total_diamonds = diamonds.get_child_count()
 	player.update_diamonds_collected(total_diamonds)
 	animation_player.play("first_scene")
@@ -70,7 +74,9 @@ func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 		Audio.play("res://assets/sounds/checkpoint_reached.wav")
 		active_checkpoint = arg_checkpoint
 		player.respawn_location = arg_checkpoint.global_position
-
+		
+		
+		
 func _on_spikes_body_entered(body):
 	Audio.play("res://assets/sounds/death.wav")
 	player.animation_player.play("death")
@@ -119,6 +125,10 @@ func _on_diamond_body_entered(body, arg_diamond):
 	player.diamonds_collected += 1
 	player.update_diamonds_collected(total_diamonds)
 
+
+func _on_haste_potion_body_entered(body, arg_haste_potion: HastePotion):
+	player.haste = arg_haste_potion.haste_time
+	arg_haste_potion.consume()
 
 
 func _physics_process(delta):

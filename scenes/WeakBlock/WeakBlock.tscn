@@ -35,6 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "destruction"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -79,7 +80,7 @@ extents = Vector2( 4, 1 )
 
 [node name="WeakBlock" type="StaticBody2D"]
 scale = Vector2( 10, 10 )
-collision_layer = 2
+collision_layer = 3
 collision_mask = 0
 script = ExtResource( 1 )
 
@@ -93,7 +94,6 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.90735e-07, -1.90735e-07 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -106,8 +106,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1.90735e-07, -5 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [connection signal="timeout" from="RebuildTimer" to="." method="_on_RebuildTimer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

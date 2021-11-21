@@ -24,3 +24,8 @@ func _on_Area2D_body_entered(body):
 
 func _on_RebuildTimer_timeout():
 	enable()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "destruction":
+		Audio.play("res://assets/sounds/weak_block_break.wav")

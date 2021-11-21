@@ -10,6 +10,7 @@ onready var boots_sprite = $BootsSprite
 onready var jump_timer = $JumpTimer
 onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 onready var jump_audio_cooldown = $JumpAudioCooldown
+onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
 
 export(bool) var double_jump: bool = false
 export(bool) var controlled = true
@@ -29,13 +30,25 @@ var inventory: Array
 var double_jumped: bool = false
 var jumped: bool = false
 
+var haste: float 
 
 func _physics_process(delta):
+	
+	haste -= delta
+	haste = max(0, haste)
+	haste_progress_bar.value = haste * 10
+	
+	sprite.modulate = Color("#00f8f8")
+	if haste > 0:
+		sprite.modulate = Color("#f800f8")
+	
+	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
 	
 	if is_playing_death_animation():
 		return
 	
-	displacement = move_and_slide_with_snap(velocity  * speed, Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
+	
+	displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
 	
 	if controlled:
 		velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -149,6 +162,14 @@ func update_inventory():
 		texture_rect.modulate = item.color
 		texture_rect.set_size(Vector2(1,1))
 		
+		
+func apply_haste(haste_time: int):
+	haste = haste_time
+	haste_progress_bar.max_value = haste_time * 10
+
+func get_speed() -> int:
+	return (speed + (300 * int(haste > 0)))
+
 		
 func update_diamonds_collected(arg_total_diamonds) -> void:
 	diamonds_label.text = str(diamonds_collected) + "/" + str(arg_total_diamonds)

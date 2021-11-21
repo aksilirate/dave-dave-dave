@@ -4,4 +4,5 @@ extends AudioStreamPlayer
 
 
 func _on_AnmbientPlayer_finished():
-	pitch_scale += 0.03
+	play()
+	pitch_scale += 0.05

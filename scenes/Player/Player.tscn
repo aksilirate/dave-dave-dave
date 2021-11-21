@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=2]
@@ -289,6 +289,11 @@ extents = Vector2( 3, 3.5 )
 size = 8
 font_data = ExtResource( 6 )
 
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.972549, 0, 0.972549, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 10, 10 )
 collision_layer = 3
@@ -371,6 +376,18 @@ __meta__ = {
 margin_left = 39.0
 margin_right = 39.0
 margin_bottom = 43.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HasteProgressBar" type="ProgressBar" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.0
+custom_styles/fg = SubResource( 8 )
+custom_styles/bg = SubResource( 9 )
+percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
