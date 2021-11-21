@@ -89,6 +89,7 @@ func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
 	for element in player.inventory:
 		var item: Item = element
 		if item.name == arg_locked_door.required_item:
+			Audio.play("res://assets/sounds/open_door.wav")
 			player.remove_item_from_inventory(item)
 			arg_locked_door.queue_free()
 

@@ -9,6 +9,7 @@ onready var sprite = $Sprite
 onready var boots_sprite = $BootsSprite
 onready var jump_timer = $JumpTimer
 onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
+onready var jump_audio_cooldown = $JumpAudioCooldown
 
 export(bool) var double_jump: bool = false
 export(bool) var controlled = true
@@ -50,17 +51,23 @@ func _physics_process(delta):
 		
 	
 	if not jumped and jump_timer.is_stopped() and Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and not double_jumped:
-		Audio.play("res://assets/sounds/jump.wav")
+		if jump_audio_cooldown.is_stopped():
+			jump_audio_cooldown.start()
+			Audio.play("res://assets/sounds/jump.wav")
 		velocity.y = -3
 		double_jumped = true
 	
 	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and jumped and not double_jumped:
-		Audio.play("res://assets/sounds/jump.wav")
+		if jump_audio_cooldown.is_stopped():
+			jump_audio_cooldown.start()
+			Audio.play("res://assets/sounds/jump.wav")
 		velocity.y = -3
 		double_jumped = true
 	
 	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
-		Audio.play("res://assets/sounds/jump.wav")
+		if jump_audio_cooldown.is_stopped():
+			jump_audio_cooldown.start()
+			Audio.play("res://assets/sounds/jump.wav")
 		jump_timer.stop()
 		jumped = true
 		velocity.y = -3
