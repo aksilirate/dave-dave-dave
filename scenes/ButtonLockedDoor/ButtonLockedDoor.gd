@@ -13,6 +13,7 @@ func _ready():
 	animation_player.play("closed")
 
 func _on_Area2D_body_entered(body):
+	Audio.play("res://assets/sounds/button_press.wav")
 	time_left = open_duration
 	update()
 	second_timer.start()

@@ -1970,14 +1970,14 @@ points = PoolVector2Array( 1, 4, 1, 5, 2, 5, 2, 7, 3, 7, 3, 8, 0, 8, 0, 4 )
 1/shapes = [  ]
 1/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=71]
+extents = Vector2( 4, 2.5 )
+
 [sub_resource type="RectangleShape2D" id=72]
 extents = Vector2( 3, 1.5 )
 
 [sub_resource type="RectangleShape2D" id=73]
 extents = Vector2( 3, 1.5 )
-
-[sub_resource type="RectangleShape2D" id=71]
-extents = Vector2( 4, 2.5 )
 
 [sub_resource type="Animation" id=74]
 length = 0.001
@@ -2516,17 +2516,8 @@ collision_mask = 0
 position = Vector2( 9720, -3360 )
 open_duration = 31
 
-[node name="CollisionShape2D" parent="World/ButtonLockedDoor/DoorUp" index="0"]
-shape = SubResource( 72 )
-
-[node name="CollisionShape2D" parent="World/ButtonLockedDoor/DoorDown" index="0"]
-shape = SubResource( 73 )
-
 [node name="Button" parent="World/ButtonLockedDoor" index="4"]
 position = Vector2( -344, 93 )
-
-[node name="CollisionShape2D" parent="World/ButtonLockedDoor/Button" index="1"]
-shape = SubResource( 71 )
 
 [node name="ButtonLockedDoor2" parent="World" instance=ExtResource( 27 )]
 position = Vector2( 19480, -9760 )
@@ -2537,17 +2528,8 @@ anims/RESET = SubResource( 74 )
 anims/closed = SubResource( 75 )
 anims/opened = SubResource( 76 )
 
-[node name="CollisionShape2D" parent="World/ButtonLockedDoor2/DoorUp" index="0"]
-shape = SubResource( 72 )
-
-[node name="CollisionShape2D" parent="World/ButtonLockedDoor2/DoorDown" index="0"]
-shape = SubResource( 73 )
-
 [node name="Button" parent="World/ButtonLockedDoor2" index="4"]
 position = Vector2( -252, 51.9999 )
-
-[node name="CollisionShape2D" parent="World/ButtonLockedDoor2/Button" index="1"]
-shape = SubResource( 71 )
 
 [node name="Sprites" type="Node2D" parent="World"]
 
