@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "WallGun",
 "language": "GDScript",
-"path": "res://WallGun.gd"
+"path": "res://scenes/WallGun/WallGun.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -75,7 +75,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Dave Dave Dave"
-run/main_scene="res://scenes/Game/Game.tscn"
+run/main_scene="res://scenes/TitleScreen/TitleScreen.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 [autoload]
 
@@ -119,4 +120,4 @@ common/enable_pause_aware_picking=true
 
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://resources/default_env.tres"

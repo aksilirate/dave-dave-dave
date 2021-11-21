@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://WallGun.gd" type="Script" id=1]
+[ext_resource path="res://scenes/WallGun/WallGun.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/wall_gun.png" type="Texture" id=2]
 
 [node name="WallGun" type="Node2D"]
