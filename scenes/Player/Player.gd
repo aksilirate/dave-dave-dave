@@ -12,6 +12,9 @@ onready var jump_timer = $JumpTimer
 onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 onready var jump_audio_cooldown = $JumpAudioCooldown
 onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
+onready var time_label = $CanvasLayer/VBoxContainer/TimeLabel
+onready var death_count_label = $CanvasLayer/VBoxContainer/DeathCountLabel
+
 
 export(bool) var double_jump: bool = false
 export(bool) var has_crown: bool = false
@@ -36,6 +39,16 @@ var haste: float
 
 var deaths: int = 0
 var time: float = 0
+
+
+func _process(delta):
+	time += delta
+	var mils = fmod(time,1)*1000
+	var sec = fmod(time, 60)
+	var mins = fmod(time, 60*60) / 60
+	var hours = fmod(fmod(time, 3600*60) / 3600, 24)
+	time_label.text = "%02d:%02d:%02d.%03d" % [hours, mins, sec, mils]
+
 
 func _physics_process(delta):
 	
@@ -187,3 +200,7 @@ func is_playing_death_animation() -> bool:
 
 func play_footstep():
 	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
+
+func increase_death_count():
+	deaths += 1
+	death_count_label.text = "deaths: " + str(deaths)

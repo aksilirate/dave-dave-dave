@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/textures/diamond.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/textures/player_with_crown.png" type="Texture" id=7]
+[ext_resource path="res://resources/default_theme.tres" type="Theme" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -247,6 +248,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "increase_death_count"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -517,6 +532,38 @@ percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -244.0
+margin_top = 30.0
+margin_right = -20.0
+margin_bottom = 170.0
+theme = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_right = 224.0
+margin_bottom = 16.0
+text = "00:00:00"
+align = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 224.0
+margin_bottom = 36.0
+text = "------"
+align = 1
+
+[node name="DeathCountLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 224.0
+margin_bottom = 56.0
+text = "deaths: 0"
+align = 1
 
 [node name="JumpTimer" type="Timer" parent="."]
 process_mode = 0
