@@ -13,8 +13,10 @@ onready var wall_guns = $World/WallGuns
 onready var diamonds = $World/Diamonds
 onready var mover_blocks = $World/MoverBlocks
 onready var double_jump = $World/DoubleJump
+onready var crown = $World/Crown
 onready var player = $World/Player
 onready var haste_potions = $World/HastePotions
+onready var green_gates = $World/GreenGates
 
 var deactivated_checkpoints: Array = []
 
@@ -60,6 +62,10 @@ func _ready():
 		var haste_potion: HastePotion = child
 		haste_potion.connect("body_entered", self, "_on_haste_potion_body_entered", [haste_potion])
 	
+	for child in green_gates.get_children():
+		var green_gate: Area2D = child
+		green_gate.connect("body_entered", self, "_on_green_gate_body_entered")
+	
 	total_diamonds = diamonds.get_child_count()
 	player.update_diamonds_collected(total_diamonds)
 	animation_player.play("first_scene")
@@ -101,9 +107,16 @@ func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
 
 
 func _on_DoubleJump_body_entered(body):
+	Audio.play("res://assets/sounds/collect_item.wav")
 	double_jump.queue_free()
 	player.double_jump = true
 	player.boots_sprite.show()
+
+func _on_Crown_body_entered(body):
+	Audio.play("res://assets/sounds/collect_item.wav")
+	crown.queue_free()
+	player.has_crown = true
+	player.crown_sprite.show()
 
 
 func _on_Spikes24_body_entered(body):
@@ -130,6 +143,10 @@ func _on_haste_potion_body_entered(body, arg_haste_potion: HastePotion):
 	player.haste = arg_haste_potion.haste_time
 	arg_haste_potion.consume()
 
+func _on_green_gate_body_entered(body):
+	if not player.has_crown:
+		Audio.play("res://assets/sounds/death.wav")
+		player.animation_player.play("death")
 
 func _physics_process(delta):
 	for child in mover_blocks.get_children():
@@ -147,3 +164,5 @@ func _physics_process(delta):
 				if not second_jump.disabled and Input.is_action_pressed("jump"):
 					second_jump.disable()
 					player.jump_timer.start()
+
+

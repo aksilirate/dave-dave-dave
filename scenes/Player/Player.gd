@@ -7,12 +7,14 @@ onready var animation_player = $AnimationPlayer
 onready var items_container = $CanvasLayer/HBoxContainer/ItemsContainer
 onready var sprite = $Sprite
 onready var boots_sprite = $BootsSprite
+onready var crown_sprite = $CrownSprite
 onready var jump_timer = $JumpTimer
 onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 onready var jump_audio_cooldown = $JumpAudioCooldown
 onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
 
 export(bool) var double_jump: bool = false
+export(bool) var has_crown: bool = false
 export(bool) var controlled = true
 export var speed: int
 
