@@ -338,6 +338,11 @@ visible = false
 texture = ExtResource( 4 )
 hframes = 3
 
+[node name="CrownSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+hframes = 3
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 0.5 )
 shape = SubResource( 5 )
