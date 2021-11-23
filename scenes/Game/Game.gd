@@ -162,6 +162,7 @@ func _physics_process(delta):
 		for body in second_jump.get_overlapping_bodies():
 			if body is Player:
 				if not second_jump.disabled and Input.is_action_pressed("jump"):
+					Audio.play("res://assets/sounds/second_jump.wav", -10)
 					second_jump.disable()
 					player.jump_timer.start()
 

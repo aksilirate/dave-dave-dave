@@ -493,11 +493,11 @@ hframes = 2
 
 [node name="Button" type="StaticBody2D" parent="."]
 position = Vector2( -24, 4 )
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
 
 [node name="Area2D" type="Area2D" parent="Button"]
-collision_layer = 2
+collision_layer = 6
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Button/Area2D"]

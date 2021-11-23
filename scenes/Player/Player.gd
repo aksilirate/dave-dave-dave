@@ -184,3 +184,6 @@ func update_diamonds_collected(arg_total_diamonds) -> void:
 		
 func is_playing_death_animation() -> bool:
 	return animation_player.current_animation == "death" and animation_player.is_playing()
+
+func play_footstep():
+	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
