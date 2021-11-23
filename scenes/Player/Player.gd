@@ -5,9 +5,9 @@ enum {IDLE, MOVING, AIR}
 
 onready var animation_player = $AnimationPlayer
 onready var items_container = $CanvasLayer/HBoxContainer/ItemsContainer
-onready var sprite = $Sprite
-onready var boots_sprite = $BootsSprite
-onready var crown_sprite = $CrownSprite
+onready var sprite = $Sprites/Sprite
+onready var boots_sprite = $Sprites/BootsSprite
+onready var crown_sprite = $Sprites/CrownSprite
 onready var jump_timer = $JumpTimer
 onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 onready var jump_audio_cooldown = $JumpAudioCooldown
@@ -33,6 +33,9 @@ var double_jumped: bool = false
 var jumped: bool = false
 
 var haste: float 
+
+var deaths: int = 0
+var time: float = 0
 
 func _physics_process(delta):
 	
@@ -95,8 +98,10 @@ func _physics_process(delta):
 	if is_moving():
 		sprite.offset.x = 2 * int(displacement.x < 0)
 		boots_sprite.offset.x = 2 * int(displacement.x < 0)
+		crown_sprite.offset.x = 2 * int(displacement.x < 0)
 		sprite.flip_h = displacement.x < 0
 		boots_sprite.flip_h = displacement.x < 0
+		crown_sprite.flip_h = displacement.x < 0
 	
 	play_animation_from_state(get_state())
 	
