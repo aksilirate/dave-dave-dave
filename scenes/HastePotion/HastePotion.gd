@@ -2,7 +2,7 @@ class_name HastePotion
 extends Area2D
 
 
-export(int) var haste_time 
+export(float) var haste_time 
 
 onready var collision_shape = $CollisionShape2D
 onready var respawn_timer = $RespawnTimer
