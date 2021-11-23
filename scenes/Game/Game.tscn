@@ -4398,10 +4398,10 @@ position = Vector2( 11837, -9403.56 )
 position = Vector2( 11917, -9403.56 )
 
 [node name="Spikes85" parent="World/Spikes" instance=ExtResource( 6 )]
-position = Vector2( 17890, -8600 )
+position = Vector2( 17887.3, -8606.11 )
 
 [node name="Spikes88" parent="World/Spikes" instance=ExtResource( 6 )]
-position = Vector2( 17810, -8600 )
+position = Vector2( 17807.3, -8606.11 )
 
 [node name="Spikes94" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14636.6, -11004.5 )
@@ -4416,10 +4416,10 @@ position = Vector2( 14156.6, -11004.5 )
 rotation = 3.14159
 
 [node name="Spikes86" parent="World/Spikes" instance=ExtResource( 6 )]
-position = Vector2( 17970, -8600 )
+position = Vector2( 17967.3, -8606.11 )
 
 [node name="Spikes87" parent="World/Spikes" instance=ExtResource( 6 )]
-position = Vector2( 18050, -8600 )
+position = Vector2( 18047.3, -8606.11 )
 
 [node name="Spikes89" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19326.9, -9646.15 )
@@ -4876,16 +4876,16 @@ position = Vector2( 16080, -9360 )
 position = Vector2( 16876.9, -9685.37 )
 
 [node name="SpikeBlock54" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 17920, -8960 )
+position = Vector2( 17917.3, -8966.11 )
 
 [node name="SpikeBlock55" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 17920, -8800 )
+position = Vector2( 17917.3, -8806.11 )
 
 [node name="SpikeBlock57" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 18160, -8640 )
+position = Vector2( 18157.3, -8646.11 )
 
 [node name="SpikeBlock56" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 18160, -8800 )
+position = Vector2( 18157.3, -8806.11 )
 
 [node name="SpikeBlock31" parent="World/Spikes" instance=ExtResource( 20 )]
 position = Vector2( 16316.8, -9925.19 )
@@ -4948,13 +4948,13 @@ position = Vector2( 17996.9, -9765.73 )
 position = Vector2( 18157, -9445.83 )
 
 [node name="SpikeBlock58" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 18640, -8880 )
+position = Vector2( 18637.3, -8886.11 )
 
 [node name="SpikeBlock60" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 18400, -8960 )
+position = Vector2( 18397.3, -8966.11 )
 
 [node name="SpikeBlock59" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 18880, -8960 )
+position = Vector2( 18877.3, -8966.11 )
 
 [node name="SpikeBlock65" parent="World/Spikes" instance=ExtResource( 20 )]
 position = Vector2( 20397.2, -8566.66 )
@@ -5023,7 +5023,7 @@ position = Vector2( 20957.2, -9846.67 )
 position = Vector2( 19036.9, -9686.06 )
 
 [node name="SpikeBlock62" parent="World/Spikes" instance=ExtResource( 20 )]
-position = Vector2( 19200, -9120 )
+position = Vector2( 19197.3, -9126.11 )
 
 [node name="SpikeBlock50" parent="World/Spikes" instance=ExtResource( 20 )]
 position = Vector2( 18317, -9445.83 )
@@ -7068,11 +7068,9 @@ position = Vector2( -920, 280 )
 flip_h = true
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 12140, -6040 )
-double_jump = true
+position = Vector2( -1650, 600 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
