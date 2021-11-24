@@ -68,7 +68,8 @@ func _ready():
 	
 	total_diamonds = diamonds.get_child_count()
 	player.update_diamonds_collected(total_diamonds)
-	animation_player.play("first_scene")
+	if not Save.loaded:
+		animation_player.play("first_scene")
 
 
 func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
