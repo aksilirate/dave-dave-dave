@@ -56,7 +56,7 @@ func _physics_process(delta):
 	haste = max(0, haste)
 	haste_progress_bar.value = haste * 10
 	
-	sprite.modulate = Color("#00f8f8")
+	sprite.modulate = Color("#00f8f8") if deaths < 1000 else Color("#f80000")
 	if haste > 0:
 		sprite.modulate = Color("#f800f8")
 	
