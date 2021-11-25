@@ -161,7 +161,7 @@ func _physics_process(delta):
 		var second_jump: Area2D = child
 		for body in second_jump.get_overlapping_bodies():
 			if body is Player:
-				if not second_jump.disabled and Input.is_action_pressed("jump"):
+				if not second_jump.disabled and Input.is_action_pressed("jump") and body.controlled:
 					Audio.play("res://assets/sounds/second_jump.wav", -10)
 					second_jump.disable()
 					player.jump_timer.start()
