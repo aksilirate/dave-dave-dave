@@ -66,12 +66,14 @@ func _physics_process(delta):
 		return
 	
 	
-	displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), Vector2.DOWN * int(is_on_floor()), Vector2.UP, false, 4, PI/4, false)
+	displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), 
+						Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor()), 
+						Vector2.UP if gravity > 0 else Vector2.DOWN , false, 4, PI/4, false)
 	
 	if controlled:
 		velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
-	velocity.y = min(velocity.y + gravity, gravity * 10)
+	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
 	
 	
 	if is_on_floor():
@@ -85,14 +87,14 @@ func _physics_process(delta):
 		if jump_audio_cooldown.is_stopped():
 			jump_audio_cooldown.start()
 			Audio.play("res://assets/sounds/jump.wav")
-		velocity.y = -3
+		velocity.y = -3 if gravity > 0 else 3
 		double_jumped = true
 	
 	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and jumped and not double_jumped:
 		if jump_audio_cooldown.is_stopped():
 			jump_audio_cooldown.start()
 			Audio.play("res://assets/sounds/jump.wav")
-		velocity.y = -3
+		velocity.y = -3 if gravity > 0 else 3
 		double_jumped = true
 	
 	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
@@ -101,7 +103,7 @@ func _physics_process(delta):
 			Audio.play("res://assets/sounds/jump.wav")
 		jump_timer.stop()
 		jumped = true
-		velocity.y = -3
+		velocity.y = -3 if gravity > 0 else 3
 	
 
 	
@@ -109,12 +111,12 @@ func _physics_process(delta):
 		velocity.y = gravity
 	
 	if is_moving():
-		sprite.offset.x = 2 * int(displacement.x < 0)
-		boots_sprite.offset.x = 2 * int(displacement.x < 0)
-		crown_sprite.offset.x = 2 * int(displacement.x < 0)
-		sprite.flip_h = displacement.x < 0
-		boots_sprite.flip_h = displacement.x < 0
-		crown_sprite.flip_h = displacement.x < 0
+		sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
+		boots_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
+		crown_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
+		sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
+		boots_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
+		crown_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
 	
 	play_animation_from_state(get_state())
 	

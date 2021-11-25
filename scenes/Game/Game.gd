@@ -2,7 +2,6 @@ extends Node
 
 
 onready var animation_player = $AnimationPlayer
-
 onready var checkpoints = $World/Checkpoints
 onready var spikes = $World/Spikes
 onready var items = $World/Items
@@ -70,7 +69,7 @@ func _ready():
 	player.update_diamonds_collected(total_diamonds)
 	if not Save.loaded:
 		animation_player.play("first_scene")
-
+	
 
 func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 	if active_checkpoint != arg_checkpoint:
@@ -168,3 +167,8 @@ func _physics_process(delta):
 					player.jump_timer.start()
 
 
+
+
+func _on_Rotation_body_entered(body):
+	player.rotation_degrees = 180 * int(player.gravity > 0)
+	player.gravity *= -1
