@@ -17,7 +17,7 @@ onready var player = $World/Player
 onready var haste_potions = $World/HastePotions
 onready var green_gates = $World/GreenGates
 
-var deleted_items_paths: Array = []
+var deleted_nodes_paths: Array = []
 
 var deactivated_checkpoints: Array = []
 
@@ -38,8 +38,10 @@ func _ready():
 			deactivated_checkpoints.push_back(deactivated_checkpoint)
 			deactivated_checkpoint.deactivate()
 		
-		deleted_items_paths = Save.get_deleted_items_paths()
-		
+		deleted_nodes_paths = Save.get_deleted_nodes_paths()
+		for node_path in deleted_nodes_paths:
+			get_node(node_path).queue_free()
+			
 		active_checkpoint = get_node(Save.get_active_checkpoint_path())
 		active_checkpoint.activate()
 		player.respawn_location = active_checkpoint.global_position
@@ -49,34 +51,39 @@ func _ready():
 	
 	for child in checkpoints.get_children():
 		var checkpoint_node: Checkpoint = child
+# warning-ignore:return_value_discarded
 		checkpoint_node.connect("activated", self, "_on_checkpoint_activated", [checkpoint_node])
 		
 	for child in spikes.get_children():
 		var spikes_node: Area2D = child
+# warning-ignore:return_value_discarded
 		spikes_node.connect("body_entered", self, "_on_spikes_body_entered")
 		
 	for child in items.get_children():
 		var item_node: Area2D = child
+# warning-ignore:return_value_discarded
 		item_node.connect("body_entered", self, "_on_item_body_entered", [item_node])
-		if deleted_items_paths.has(item_node.get_path()):
-			item_node.queue_free()
 		
 		
 	for child in locked_doors.get_children():
 		var locked_door_node: LockedDoor = child
 		var locked_door_area_node: Area2D = locked_door_node.open_area
+# warning-ignore:return_value_discarded
 		locked_door_area_node.connect("body_entered", self, "_on_locked_door_area_body_entered", [child])
 	
 	for child in wall_guns.get_children():
 		var wall_gun: WallGun = child
+# warning-ignore:return_value_discarded
 		wall_gun.connect("shot_bullet", self, "_on_wall_gun_shot_bullet")
 	
 	for child in diamonds.get_children():
 		var diamond: Area2D = child
+# warning-ignore:return_value_discarded
 		diamond.connect("body_entered", self, "_on_diamond_body_entered", [diamond])
 	
 	for child in haste_potions.get_children():
 		var haste_potion: HastePotion = child
+# warning-ignore:return_value_discarded
 		haste_potion.connect("body_entered", self, "_on_haste_potion_body_entered", [haste_potion])
 	
 	for child in green_gates.get_children():
@@ -111,7 +118,7 @@ func _on_item_body_entered(body, arg_item_area: ItemArea):
 	item.texture_path = arg_item_area.sprite.texture.get_path()
 	item.color = arg_item_area.modulate
 	player.add_item_to_inventory(item)
-	deleted_items_paths.push_back(arg_item_area.get_path())
+	deleted_nodes_paths.push_back(arg_item_area.get_path())
 	arg_item_area.queue_free()
 	
 func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
@@ -120,17 +127,20 @@ func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
 		if item.name == arg_locked_door.required_item:
 			Audio.play("res://assets/sounds/open_door.wav")
 			player.remove_item_from_inventory(item)
+			deleted_nodes_paths.push_back(arg_locked_door.get_path())
 			arg_locked_door.queue_free()
 
 
 func _on_DoubleJump_body_entered(body):
 	Audio.play("res://assets/sounds/collect_item.wav")
+	deleted_nodes_paths.push_back(double_jump.get_path())
 	double_jump.queue_free()
 	player.double_jump = true
 	player.boots_sprite.show()
 
 func _on_Crown_body_entered(body):
 	Audio.play("res://assets/sounds/collect_item.wav")
+	deleted_nodes_paths.push_back(crown.get_path())
 	crown.queue_free()
 	player.has_crown = true
 	player.crown_sprite.show()
@@ -151,6 +161,7 @@ func _on_bullet_body_entered(body, arg_bullet: Bullet):
 
 func _on_diamond_body_entered(body, arg_diamond):
 	Audio.play("res://assets/sounds/collect_diamond.wav")
+	deleted_nodes_paths.push_back(arg_diamond.get_path())
 	arg_diamond.queue_free()
 	player.diamonds_collected += 1
 	player.update_diamonds_collected(total_diamonds)
@@ -198,7 +209,7 @@ func save_game() -> void:
 		deactivated_checkpoints_paths.push_back(deactivated_checkpoint.get_path())
 	Save.set_deactivated_checkpoints_paths(deactivated_checkpoints_paths)
 	
-	Save.set_deleted_items_paths(deleted_items_paths)
+	Save.set_deleted_nodes_paths(deleted_nodes_paths)
 	Save.set_active_checkpoint_path(active_checkpoint.get_path())
 	Save.set_player_deaths(player.deaths)
 	Save.set_player_time(player.time)

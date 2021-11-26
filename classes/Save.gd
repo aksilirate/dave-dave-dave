@@ -48,10 +48,10 @@ static func set_active_checkpoint_path(active_checkpoint_path: String) -> void:
 	config.save(SAVE_PATH)
 
 
-static func set_deleted_items_paths(deleted_items_paths: Array) -> void:
+static func set_deleted_nodes_paths(deleted_nodes_paths: Array) -> void:
 	var config = ConfigFile.new()
 	config.load(SAVE_PATH)
-	config.set_value("game", "deleted_items_paths", deleted_items_paths)
+	config.set_value("game", "deleted_nodes_paths", deleted_nodes_paths)
 	config.save(SAVE_PATH)
 
 
@@ -100,12 +100,12 @@ static func get_active_checkpoint_path() -> String:
 	return config.get_value("game", "active_checkpoint_path")
 
 
-static func get_deleted_items_paths() -> Array:
+static func get_deleted_nodes_paths() -> Array:
 	var config = ConfigFile.new()
 	if config.load(SAVE_PATH) != OK:
 		return []
 
-	return config.get_value("game", "deleted_items_paths")
+	return config.get_value("game", "deleted_nodes_paths")
 
 
 static func delete():
