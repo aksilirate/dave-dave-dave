@@ -17,6 +17,8 @@ onready var player = $World/Player
 onready var haste_potions = $World/HastePotions
 onready var green_gates = $World/GreenGates
 
+var deleted_items_paths: Array = []
+
 var deactivated_checkpoints: Array = []
 
 var active_checkpoint: Checkpoint
@@ -35,7 +37,9 @@ func _ready():
 			var deactivated_checkpoint: Checkpoint = get_node(path)
 			deactivated_checkpoints.push_back(deactivated_checkpoint)
 			deactivated_checkpoint.deactivate()
-			
+		
+		deleted_items_paths = Save.get_deleted_items_paths()
+		
 		active_checkpoint = get_node(Save.get_active_checkpoint_path())
 		active_checkpoint.activate()
 		player.respawn_location = active_checkpoint.global_position
@@ -54,7 +58,10 @@ func _ready():
 	for child in items.get_children():
 		var item_node: Area2D = child
 		item_node.connect("body_entered", self, "_on_item_body_entered", [item_node])
-	
+		if deleted_items_paths.has(item_node.get_path()):
+			item_node.queue_free()
+		
+		
 	for child in locked_doors.get_children():
 		var locked_door_node: LockedDoor = child
 		var locked_door_area_node: Area2D = locked_door_node.open_area
@@ -104,6 +111,7 @@ func _on_item_body_entered(body, arg_item_area: ItemArea):
 	item.texture_path = arg_item_area.sprite.texture.get_path()
 	item.color = arg_item_area.modulate
 	player.add_item_to_inventory(item)
+	deleted_items_paths.push_back(arg_item_area.get_path())
 	arg_item_area.queue_free()
 	
 func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
@@ -189,8 +197,11 @@ func save_game() -> void:
 		var deactivated_checkpoint: Checkpoint = element
 		deactivated_checkpoints_paths.push_back(deactivated_checkpoint.get_path())
 	Save.set_deactivated_checkpoints_paths(deactivated_checkpoints_paths)
-
+	
+	Save.set_deleted_items_paths(deleted_items_paths)
 	Save.set_active_checkpoint_path(active_checkpoint.get_path())
+	Save.set_player_deaths(player.deaths)
+	Save.set_player_time(player.time)
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
 	

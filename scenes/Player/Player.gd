@@ -44,8 +44,11 @@ var time: float = 0
 
 func _ready():
 	if Save.exists():
+		deaths = Save.get_player_deaths()
+		time = Save.get_player_time()
 		global_position = Save.get_player_global_position()
 		inventory = Save.get_player_inventory()
+		update_deaths_label()
 		update_inventory()
 		
 		
@@ -213,4 +216,7 @@ func play_footstep():
 
 func increase_death_count():
 	deaths += 1
+	update_deaths_label()
+	
+func update_deaths_label() -> void:
 	death_count_label.text = "deaths: " + str(deaths)
