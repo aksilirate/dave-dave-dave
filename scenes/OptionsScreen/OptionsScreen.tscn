@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
+[ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
 
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,3 +25,21 @@ margin_left = 60.0
 margin_top = 60.0
 margin_right = 84.0
 margin_bottom = 84.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -56.0
+margin_right = 160.0
+margin_bottom = -40.0
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

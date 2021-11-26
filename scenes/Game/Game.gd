@@ -28,6 +28,21 @@ func _on_FreedomArea_body_entered(body):
 
 
 func _ready():
+	
+	if Save.exists():
+		var deactivated_checkpoints_paths: Array = Save.get_deactivated_checkpoints_paths()
+		for path in deactivated_checkpoints_paths:
+			var deactivated_checkpoint: Checkpoint = get_node(path)
+			deactivated_checkpoints.push_back(deactivated_checkpoint)
+			deactivated_checkpoint.deactivate()
+			
+		active_checkpoint = get_node(Save.get_active_checkpoint_path())
+		active_checkpoint.activate()
+		player.respawn_location = active_checkpoint.global_position
+		
+	else:
+		animation_player.play("first_scene")
+	
 	for child in checkpoints.get_children():
 		var checkpoint_node: Checkpoint = child
 		checkpoint_node.connect("activated", self, "_on_checkpoint_activated", [checkpoint_node])
@@ -44,10 +59,6 @@ func _ready():
 		var locked_door_node: LockedDoor = child
 		var locked_door_area_node: Area2D = locked_door_node.open_area
 		locked_door_area_node.connect("body_entered", self, "_on_locked_door_area_body_entered", [child])
-	
-#	for child in moving_platforns.get_children():
-#		var moving_platform: MovingPlatform = child
-#		var detection_area: Area2D = moving_platform.detection_area
 	
 	for child in wall_guns.get_children():
 		var wall_gun: WallGun = child
@@ -67,8 +78,6 @@ func _ready():
 	
 	total_diamonds = diamonds.get_child_count()
 	player.update_diamonds_collected(total_diamonds)
-	if not Save.loaded:
-		animation_player.play("first_scene")
 	
 
 func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
@@ -172,3 +181,20 @@ func _physics_process(delta):
 func _on_Rotation_body_entered(body):
 	player.rotation_degrees = 180 * int(player.gravity > 0)
 	player.gravity *= -1
+
+
+func save_game() -> void:
+	var deactivated_checkpoints_paths: Array = []
+	for element in deactivated_checkpoints:
+		var deactivated_checkpoint: Checkpoint = element
+		deactivated_checkpoints_paths.push_back(deactivated_checkpoint.get_path())
+	Save.set_deactivated_checkpoints_paths(deactivated_checkpoints_paths)
+
+	Save.set_active_checkpoint_path(active_checkpoint.get_path())
+	Save.set_player_global_position(player.global_position)
+	Save.set_player_inventory(player.inventory)
+	
+
+func _on_SaveExitButton_pressed():
+	save_game()
+	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")

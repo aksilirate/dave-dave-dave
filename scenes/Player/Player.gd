@@ -41,6 +41,14 @@ var deaths: int = 0
 var time: float = 0
 
 
+
+func _ready():
+	if Save.exists():
+		global_position = Save.get_player_global_position()
+		inventory = Save.get_player_inventory()
+		update_inventory()
+		
+		
 func _process(delta):
 	time += delta
 	var mils = fmod(time,1)*1000
