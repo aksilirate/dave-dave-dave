@@ -104,6 +104,7 @@ func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 		active_checkpoint = arg_checkpoint
 		player.respawn_location = arg_checkpoint.global_position
 		
+		save_game()
 		
 		
 func _on_spikes_body_entered(body):
@@ -220,3 +221,7 @@ func save_game() -> void:
 func _on_SaveExitButton_pressed():
 	save_game()
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
+
+
+func _on_FreedomAreaSpace_body_entered(body):
+	pass # Replace with function body.
