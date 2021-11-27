@@ -94,6 +94,7 @@ boot_splash/bg_color=Color( 0, 0, 0, 1 )
 [autoload]
 
 Audio="*res://singletons/Audio.gd"
+Options="*res://singletons/Options.gd"
 
 [display]
 

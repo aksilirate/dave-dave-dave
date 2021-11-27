@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/textures/ui/check_box_off.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/ui/check_box_on.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -29,4 +31,6 @@ Button/styles/focus = SubResource( 3 )
 Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = SubResource( 6 )
+CheckBox/icons/checked = ExtResource( 3 )
+CheckBox/icons/unchecked = ExtResource( 2 )
 Label/fonts/font = SubResource( 7 )

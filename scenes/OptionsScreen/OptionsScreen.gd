@@ -8,3 +8,4 @@ func _on_BackButton_pressed():
 
 func _on_FullscreenCheckBox_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
+	Options.set_fullscreen(button_pressed)
