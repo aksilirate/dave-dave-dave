@@ -4,54 +4,42 @@ const SAVE_PATH: String = "user://save.cfg"
 var config = ConfigFile.new()
 
 
+func _ready():
+	config.load(SAVE_PATH)
+
 func exists() -> bool:
 	var file = File.new()
 	return file.file_exists(SAVE_PATH)
 
 # Saving
 func set_player_deaths(player_deaths: int) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("player", "deaths", player_deaths)
-	config.save(SAVE_PATH)
 
 func set_player_time(player_time: float) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("player", "time", player_time)
-	config.save(SAVE_PATH)
 
 func set_player_global_position(player_global_position: Vector2) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("player", "global_position", player_global_position)
-	config.save(SAVE_PATH)
 
 func set_player_inventory(player_inventory: Array) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("player", "inventory", player_inventory)
-	config.save(SAVE_PATH)
 
 
 func set_player_diamonds_collected(diamonds_collected: int) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("player", "diamonds_collected", diamonds_collected)
-	config.save(SAVE_PATH)
 
 
 func set_deactivated_checkpoints_paths(deactivated_checkpoints_paths: Array) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("game", "deactivated_checkpoints_paths", deactivated_checkpoints_paths)
-	config.save(SAVE_PATH)
 	
 
 func set_active_checkpoint_path(active_checkpoint_path: String) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("game", "active_checkpoint_path", active_checkpoint_path)
-	config.save(SAVE_PATH)
 
 
 func set_deleted_nodes_paths(deleted_nodes_paths: Array) -> void:
-	config.load(SAVE_PATH)
 	config.set_value("game", "deleted_nodes_paths", deleted_nodes_paths)
-	config.save(SAVE_PATH)
+	
 
 
 # Getting
@@ -108,6 +96,8 @@ func get_deleted_nodes_paths() -> Array:
 
 	return config.get_value("game", "deleted_nodes_paths")
 
+func write():
+	config.save(SAVE_PATH)
 
 func delete():
 	var dir = Directory.new()
