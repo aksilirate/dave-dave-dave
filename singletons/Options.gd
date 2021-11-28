@@ -46,15 +46,20 @@ func get_fullscreen() -> bool:
 	var config = ConfigFile.new()
 	if config.load(PATH) != OK:
 		return false
-
 	return config.get_value("video", "fullscreen")
 	
 func get_music_volume_db() -> float:
 	var config = ConfigFile.new()
 	if config.load(PATH) != OK:
 		return 0.0
-
 	return config.get_value("audio", "music_volume_db", 0)
+
+func get_sfx_volume_percentage() -> float:
+	var config = ConfigFile.new()
+	if config.load(PATH) != OK:
+		return 0.0
+	return config.get_value("audio", "volume_percentage", 1.0)
+
 
 func delete():
 	var dir = Directory.new()

@@ -102,4 +102,5 @@ __meta__ = {
 
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
 [connection signal="value_changed" from="MusicHSlider" to="MusicHSlider" method="_on_MusicHSlider_value_changed"]
+[connection signal="value_changed" from="SFXHSlider" to="SFXHSlider" method="_on_SFXHSlider_value_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
