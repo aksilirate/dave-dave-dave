@@ -2,7 +2,8 @@ extends Node
 
 const PATH: String = "user://options.cfg"
 
-
+var music_volume_db: float
+var sfx_volume_db: float
 
 
 

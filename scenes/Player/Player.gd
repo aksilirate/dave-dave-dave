@@ -46,6 +46,7 @@ func _ready():
 	if Save.exists():
 		deaths = Save.get_player_deaths()
 		time = Save.get_player_time()
+		diamonds_collected = Save.get_player_diamonds_collected()
 		global_position = Save.get_player_global_position()
 		inventory = Save.get_player_inventory()
 		update_deaths_label()

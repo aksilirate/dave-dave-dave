@@ -54,11 +54,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Player/Player.gd"
 }, {
-"base": "Reference",
-"class": "Save",
-"language": "GDScript",
-"path": "res://classes/Save.gd"
-}, {
 "base": "Area2D",
 "class": "SecondJump",
 "language": "GDScript",
@@ -79,7 +74,6 @@ _global_script_class_icons={
 "MoverBlock": "",
 "MovingPlatform": "",
 "Player": "",
-"Save": "",
 "SecondJump": "",
 "WallGun": ""
 }
@@ -95,6 +89,7 @@ boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 Audio="*res://singletons/Audio.gd"
 Options="*res://singletons/Options.gd"
+Save="*res://singletons/Save.gd"
 
 [display]
 

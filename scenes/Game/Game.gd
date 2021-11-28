@@ -41,7 +41,7 @@ func _ready():
 		deleted_nodes_paths = Save.get_deleted_nodes_paths()
 		for node_path in deleted_nodes_paths:
 			get_node(node_path).queue_free()
-			
+		
 		active_checkpoint = get_node(Save.get_active_checkpoint_path())
 		active_checkpoint.activate()
 		player.respawn_location = active_checkpoint.global_position
@@ -214,6 +214,7 @@ func save_game() -> void:
 	Save.set_active_checkpoint_path(active_checkpoint.get_path())
 	Save.set_player_deaths(player.deaths)
 	Save.set_player_time(player.time)
+	Save.set_player_diamonds_collected(player.diamonds_collected)
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
 	
@@ -222,6 +223,8 @@ func _on_SaveExitButton_pressed():
 	save_game()
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
+func return_to_title_screen():
+	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
 func _on_FreedomAreaSpace_body_entered(body):
 	pass # Replace with function body.

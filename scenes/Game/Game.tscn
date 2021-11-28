@@ -236,6 +236,20 @@ tracks/6/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/7/type = "method"
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "return_to_title_screen"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "first_scene"
@@ -5117,10 +5131,8 @@ text = "freedom is close"
 position = Vector2( 24880, -2680 )
 
 [node name="TextLabel" parent="World/Signs/Sign24" index="2"]
-margin_left = -45.0
-margin_top = -53.0
-margin_right = 243.0
-margin_bottom = -7.00003
+margin_top = -31.0
+margin_bottom = 15.0
 text = "dave was
 made by humans"
 
@@ -5135,6 +5147,25 @@ position = Vector2( 24400, -12920 )
 
 [node name="TextLabel" parent="World/Signs/Sign32" index="2"]
 text = "<--- don't go there"
+
+[node name="Sign33" parent="World/Signs" instance=ExtResource( 4 )]
+position = Vector2( 22080, -12920 )
+
+[node name="TextLabel" parent="World/Signs/Sign33" index="2"]
+text = "please stop"
+
+[node name="Sign34" parent="World/Signs" instance=ExtResource( 4 )]
+position = Vector2( 19840, -12920 )
+
+[node name="TextLabel" parent="World/Signs/Sign34" index="2"]
+text = "don't do it"
+
+[node name="Sign35" parent="World/Signs" instance=ExtResource( 4 )]
+position = Vector2( 17920, -12920 )
+
+[node name="TextLabel" parent="World/Signs/Sign35" index="2"]
+text = "it's for your
+own good"
 
 [node name="Sign2" parent="World/Signs" instance=ExtResource( 4 )]
 position = Vector2( 10520, -1240 )
@@ -5321,6 +5352,11 @@ modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 13390, -8240 )
 required_item = "green_key"
 
+[node name="LockedDoor11" parent="World/LockedDoors" instance=ExtResource( 13 )]
+modulate = Color( 0.501961, 0.501961, 0, 1 )
+position = Vector2( 22000, -4400 )
+required_item = "brown_key"
+
 [node name="LockedDoor9" parent="World/LockedDoors" instance=ExtResource( 13 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 17870, -8240 )
@@ -5368,6 +5404,11 @@ item_name = "blue_key"
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 15880, -6920 )
 item_name = "green_key"
+
+[node name="BrownKey" parent="World/Items" instance=ExtResource( 14 )]
+modulate = Color( 0.501961, 0.501961, 0, 1 )
+position = Vector2( 21840, -4400 )
+item_name = "brown_key"
 
 [node name="PurpleKey" parent="World/Items" instance=ExtResource( 14 )]
 modulate = Color( 0.972549, 0, 0.972549, 1 )
@@ -6526,6 +6567,12 @@ position = Vector2( 24638.8, -3927.84 )
 
 [node name="SpikeBlock134" parent="World/Spikes" instance=ExtResource( 20 )]
 position = Vector2( 24799, -3287.89 )
+
+[node name="SpikeBlock207" parent="World/Spikes" instance=ExtResource( 20 )]
+position = Vector2( 21998.7, -4167 )
+
+[node name="SpikeBlock208" parent="World/Spikes" instance=ExtResource( 20 )]
+position = Vector2( 21998.7, -4037 )
 
 [node name="SpikeBlock135" parent="World/Spikes" instance=ExtResource( 20 )]
 position = Vector2( 24798.9, -3607.89 )
@@ -9118,7 +9165,7 @@ visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
-position = Vector2( 23530, 10680 )
+position = Vector2( 10640, 3600 )
 double_jump = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -9232,6 +9279,9 @@ __meta__ = {
 [editable path="World/Signs/Sign24"]
 [editable path="World/Signs/Sign25"]
 [editable path="World/Signs/Sign32"]
+[editable path="World/Signs/Sign33"]
+[editable path="World/Signs/Sign34"]
+[editable path="World/Signs/Sign35"]
 [editable path="World/Signs/Sign2"]
 [editable path="World/Signs/Sign4"]
 [editable path="World/Signs/Sign10"]
