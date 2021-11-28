@@ -14,7 +14,7 @@ onready var jump_audio_cooldown = $JumpAudioCooldown
 onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
 onready var time_label = $CanvasLayer/VBoxContainer/TimeLabel
 onready var death_count_label = $CanvasLayer/VBoxContainer/DeathCountLabel
-
+onready var camera = $Camera2D
 
 export(bool) var double_jump: bool = false
 export(bool) var has_crown: bool = false

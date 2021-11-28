@@ -27,7 +27,7 @@ var total_diamonds: int
 
 func _on_FreedomArea_body_entered(body):
 	animation_player.play("end")
-
+	Save.delete()
 
 func _ready():
 	
@@ -203,6 +203,7 @@ func _physics_process(delta):
 func _on_Rotation_body_entered(body):
 	player.rotation_degrees = 180 * int(player.gravity > 0)
 	player.gravity *= -1
+	player.camera.zoom.y = 2.5 if player.gravity > 0 else -2.5
 
 
 func save_game() -> void:
@@ -230,4 +231,5 @@ func return_to_title_screen():
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
 func _on_FreedomAreaSpace_body_entered(body):
-	pass # Replace with function body.
+	animation_player.play("diamonds_end")
+	Save.delete()
