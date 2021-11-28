@@ -46,6 +46,12 @@ func _ready():
 	if Save.exists():
 		deaths = Save.get_player_deaths()
 		time = Save.get_player_time()
+		double_jump = Save.get_player_double_jump()
+		if double_jump:
+			boots_sprite.show()
+		has_crown = Save.get_player_crown()
+		if has_crown:
+			crown_sprite.show()
 		diamonds_collected = Save.get_player_diamonds_collected()
 		global_position = Save.get_player_global_position()
 		inventory = Save.get_player_inventory()

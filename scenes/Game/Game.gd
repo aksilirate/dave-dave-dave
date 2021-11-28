@@ -16,6 +16,9 @@ onready var crown = $World/Crown
 onready var player = $World/Player
 onready var haste_potions = $World/HastePotions
 onready var green_gates = $World/GreenGates
+onready var tile_map = $World/TileMap
+onready var tile_map_2 = $World/TileMap2
+onready var secret_tiles = $World/SecretTiles
 
 var deleted_nodes_paths: Array = []
 
@@ -218,6 +221,8 @@ func save_game() -> void:
 		Save.set_active_checkpoint_path(active_checkpoint.get_path())
 	Save.set_player_deaths(player.deaths)
 	Save.set_player_time(player.time)
+	Save.set_player_double_jump(player.double_jump)
+	Save.set_player_crown(player.has_crown)
 	Save.set_player_diamonds_collected(player.diamonds_collected)
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
@@ -233,3 +238,17 @@ func return_to_title_screen():
 func _on_FreedomAreaSpace_body_entered(body):
 	animation_player.play("diamonds_end")
 	Save.delete()
+
+
+func _on_DiamondGate_body_entered(body):
+	if player.diamonds_collected != total_diamonds:
+		Audio.play("res://assets/sounds/death.wav")
+		player.animation_player.play("death")
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "death":
+		if player.deaths > 2000:
+			tile_map.modulate = Color("#f80000")
+			tile_map_2.modulate = Color("#f80000")
+			secret_tiles.modulate = Color("#f80000")
