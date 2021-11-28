@@ -43,7 +43,7 @@ func _ready():
 			get_node(node_path).queue_free()
 		
 		var saved_active_check_point_path = Save.get_active_checkpoint_path()
-		if saved_active_check_point_path != null:
+		if saved_active_check_point_path != null and saved_active_check_point_path != "":
 			active_checkpoint = get_node(saved_active_check_point_path)
 			active_checkpoint.activate()
 			player.respawn_location = active_checkpoint.global_position

@@ -87,7 +87,7 @@ func get_active_checkpoint_path() -> String:
 	if config.load(SAVE_PATH) != OK:
 		return ""
 
-	return config.get_value("game", "active_checkpoint_path")
+	return config.get_value("game", "active_checkpoint_path", "")
 
 
 func get_deleted_nodes_paths() -> Array:

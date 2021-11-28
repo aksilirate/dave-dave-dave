@@ -81,7 +81,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dave Dave Dave"
-run/main_scene="res://scenes/TitleScreen/TitleScreen.tscn"
+run/main_scene="res://scenes/PreTitle/PreTitle.tscn"
 boot_splash/image="res://assets/application/blank.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
