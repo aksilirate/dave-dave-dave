@@ -1,5 +1,7 @@
 extends Node
 
+signal music_volume_updated
+
 const PATH: String = "user://options.cfg"
 
 var music_volume_db: float
@@ -23,6 +25,14 @@ func set_fullscreen(fullscreen: bool) -> void:
 	config.set_value("video", "fullscreen", fullscreen)
 	config.save(PATH)
 
+
+func set_music_volume_db(value_db):
+	var config = ConfigFile.new()
+	config.load(PATH)
+	config.set_value("audio", "music_volume_db", value_db)
+	config.save(PATH)
+	music_volume_db = value_db
+	emit_signal("music_volume_updated")
 
 
 # Getting
