@@ -1,6 +1,7 @@
 extends Node
 
 signal music_volume_updated(arg_volume_db)
+signal sfx_volume_updated(volume_percentage)
 
 const PATH: String = "user://options.cfg"
 
@@ -24,13 +25,21 @@ func set_fullscreen(fullscreen: bool) -> void:
 	config.save(PATH)
 
 
-func set_music_volume_db(value_db):
+func set_music_volume_db(volume_db):
 	var config = ConfigFile.new()
 	config.load(PATH)
-	config.set_value("audio", "music_volume_db", value_db)
+	config.set_value("audio", "music_volume_db", volume_db)
 	config.save(PATH)
-	emit_signal("music_volume_updated", value_db)
+	emit_signal("music_volume_updated", volume_db)
 
+
+func set_sfx_volume_percentage(volume_percentage):
+	var config = ConfigFile.new()
+	config.load(PATH)
+	config.set_value("audio", "volume_percentage", volume_percentage)
+	config.save(PATH)
+	emit_signal("sfx_volume_updated", volume_percentage)
+	
 
 # Getting
 func get_fullscreen() -> bool:

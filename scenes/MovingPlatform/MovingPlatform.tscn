@@ -19,6 +19,7 @@ playback/repeat = true
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 scale = Vector2( 10, 10 )
 collision_layer = 3
+motion/sync_to_physics = true
 
 [node name="Area2D" type="Area2D" parent="KinematicBody2D"]
 collision_layer = 2
