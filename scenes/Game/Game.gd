@@ -20,6 +20,7 @@ onready var tile_map = $World/TileMap
 onready var tile_map_2 = $World/TileMap2
 onready var secret_tiles = $World/SecretTiles
 onready var red_man_3 = $World/RedMan3
+onready var ambient_player = $AnmbientPlayer
 
 var deleted_nodes_paths: Array = []
 
@@ -30,7 +31,10 @@ var active_checkpoint: Checkpoint
 var total_diamonds: int
 
 func _on_FreedomArea_body_entered(body):
-	animation_player.play("end")
+	if player.deaths >= 1000:
+		animation_player.play("end_red")
+	else:
+		animation_player.play("end")
 	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -38,6 +42,7 @@ func _on_FreedomArea_body_entered(body):
 	Save.delete()
 
 func _ready():
+	player.animation_player.connect("animation_finished", self, "_on_player_animation_finished")
 	
 	if Save.exists():
 		var deactivated_checkpoints_paths: Array = Save.get_deactivated_checkpoints_paths()
@@ -250,7 +255,10 @@ func return_to_title_screen():
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
 func _on_FreedomAreaSpace_body_entered(body):
-	animation_player.play("diamonds_end")
+	if player.deaths >= 1000:
+		animation_player.play("diamonds_end_red")
+	else:
+		animation_player.play("diamonds_end")
 	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -264,9 +272,13 @@ func _on_DiamondGate_body_entered(body):
 		player.animation_player.play("death")
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_player_animation_finished(anim_name):
 	if anim_name == "death":
-		if player.deaths > 2000:
+		if player.deaths >= 500:
+			var reverse_ambient_audio = preload("res://assets/sounds/ambient_reversed.wav")
+			if ambient_player.stream != reverse_ambient_audio:
+				ambient_player.stream = reverse_ambient_audio
+		if player.deaths >= 2000:
 			tile_map.modulate = Color("#f80000")
 			tile_map_2.modulate = Color("#f80000")
 			secret_tiles.modulate = Color("#f80000")

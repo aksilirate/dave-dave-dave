@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ambient_reversed.wav-879725dde88878e258ff179ceb2289b3.sample"
+
+[deps]
+
+source_file="res://assets/sounds/ambient_reversed.wav"
+dest_files=[ "res://.import/ambient_reversed.wav-879725dde88878e258ff179ceb2289b3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
