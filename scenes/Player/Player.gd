@@ -61,11 +61,7 @@ func _ready():
 		
 func _process(delta):
 	time += delta
-	var mils = fmod(time,1)*1000
-	var sec = fmod(time, 60)
-	var mins = fmod(time, 60*60) / 60
-	var hours = fmod(fmod(time, 3600*60) / 3600, 24)
-	time_label.text = "%02d:%02d:%02d.%03d" % [hours, mins, sec, mils]
+	time_label.text = Time.get_formatted(time)
 
 
 func _physics_process(delta):

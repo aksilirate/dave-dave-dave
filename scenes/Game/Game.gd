@@ -19,6 +19,7 @@ onready var green_gates = $World/GreenGates
 onready var tile_map = $World/TileMap
 onready var tile_map_2 = $World/TileMap2
 onready var secret_tiles = $World/SecretTiles
+onready var red_man_3 = $World/RedMan3
 
 var deleted_nodes_paths: Array = []
 
@@ -30,6 +31,9 @@ var total_diamonds: int
 
 func _on_FreedomArea_body_entered(body):
 	animation_player.play("end")
+	Stats.set_deaths(player.deaths)
+	Stats.set_time(player.time)
+	Stats.write()
 	Save.delete()
 
 func _ready():
@@ -133,9 +137,13 @@ func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
 		if item.name == arg_locked_door.required_item:
 			Audio.play("res://assets/sounds/open_door.wav")
 			player.remove_item_from_inventory(item)
+			if arg_locked_door.name == "GrayLockedDoor":
+				animation_player.play("open cage scene")
+				deleted_nodes_paths.push_back(red_man_3.get_path())
 			deleted_nodes_paths.push_back(arg_locked_door.get_path())
 			arg_locked_door.queue_free()
-
+			
+			
 
 func _on_DoubleJump_body_entered(body):
 	Audio.play("res://assets/sounds/collect_item.wav")
@@ -227,7 +235,11 @@ func save_game() -> void:
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
 	Save.write()
-
+	Stats.set_deaths(player.deaths)
+	Stats.set_time(player.time)
+	Stats.write()
+	
+	
 func _on_SaveExitButton_pressed():
 	save_game()
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
@@ -237,6 +249,9 @@ func return_to_title_screen():
 
 func _on_FreedomAreaSpace_body_entered(body):
 	animation_player.play("diamonds_end")
+	Stats.set_deaths(player.deaths)
+	Stats.set_time(player.time)
+	Stats.write()
 	Save.delete()
 
 

@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/SecondJump/SecondJump.gd"
 }, {
+"base": "Reference",
+"class": "Time",
+"language": "GDScript",
+"path": "res://classes/Time.gd"
+}, {
 "base": "Node2D",
 "class": "WallGun",
 "language": "GDScript",
@@ -75,6 +80,7 @@ _global_script_class_icons={
 "MovingPlatform": "",
 "Player": "",
 "SecondJump": "",
+"Time": "",
 "WallGun": ""
 }
 
@@ -91,6 +97,7 @@ Options="*res://singletons/Options.gd"
 Audio="*res://singletons/Audio.gd"
 Save="*res://singletons/Save.gd"
 Mod="*res://singletons/Mod.gd"
+Stats="*res://singletons/Stats.gd"
 
 [display]
 
