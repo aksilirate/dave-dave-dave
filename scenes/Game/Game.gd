@@ -31,6 +31,7 @@ var total_diamonds: int
 
 func _on_FreedomArea_body_entered(body):
 	animation_player.play("end")
+	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
 	Stats.write()
@@ -235,6 +236,7 @@ func save_game() -> void:
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
 	Save.write()
+	Stats.set_completed(false)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
 	Stats.write()
@@ -249,6 +251,7 @@ func return_to_title_screen():
 
 func _on_FreedomAreaSpace_body_entered(body):
 	animation_player.play("diamonds_end")
+	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
 	Stats.write()

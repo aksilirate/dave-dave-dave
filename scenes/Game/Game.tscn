@@ -9888,7 +9888,6 @@ anims/idle = SubResource( 105 )
 anims/move = SubResource( 106 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
