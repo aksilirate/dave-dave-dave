@@ -12,8 +12,8 @@ onready var jump_timer = $JumpTimer
 onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 onready var jump_audio_cooldown = $JumpAudioCooldown
 onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
-onready var time_label = $CanvasLayer/VBoxContainer/TimeLabel
-onready var death_count_label = $CanvasLayer/VBoxContainer/DeathCountLabel
+onready var time_label = $CanvasLayer/HBoxContainer2/VBoxContainer/TimeLabel
+onready var death_count_label = $CanvasLayer/HBoxContainer2/VBoxContainer/DeathCountLabel
 onready var camera = $Camera2D
 
 export(bool) var double_jump: bool = false

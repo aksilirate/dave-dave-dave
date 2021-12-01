@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=2]
+[gd_scene load_steps=157 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=2]
@@ -42,6 +42,9 @@
 [ext_resource path="res://assets/textures/end_1_red.png" type="Texture" id=40]
 [ext_resource path="res://assets/textures/end_2_red.png" type="Texture" id=41]
 [ext_resource path="res://addons/joystick_control/assets/joystick.gd" type="Script" id=42]
+[ext_resource path="res://addons/joystick_control/assets/background.png" type="Texture" id=43]
+[ext_resource path="res://scenes/Game/TouchProcess.gd" type="Script" id=44]
+[ext_resource path="res://scenes/Game/CanvasModulate.gd" type="Script" id=45]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -5875,6 +5878,9 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="CircleShape2D" id=111]
+radius = 90.0
+
 [node name="Game" type="Node"]
 script = ExtResource( 5 )
 __meta__ = {
@@ -10754,6 +10760,7 @@ position = Vector2( -14210, 8280 )
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
 visible = false
 color = Color( 0, 0, 0, 1 )
+script = ExtResource( 45 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -10811,6 +10818,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TouchProcess" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 44 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="PauseMenu" type="ColorRect" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
@@ -10858,14 +10873,43 @@ __meta__ = {
 }
 
 [node name="Joystick" type="Control" parent="CanvasLayer"]
-margin_left = 140.0
-margin_top = 470.0
-margin_right = 180.0
-margin_bottom = 510.0
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 177.0
+margin_top = -136.0
+margin_right = 217.0
+margin_bottom = -96.0
+rect_scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 42 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+proximity = 190.0
+action_left = "move_left"
+action_right = "move_right"
+action_up = ""
+action_down = ""
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -195.0
+margin_top = -171.0
+margin_right = -195.0
+margin_bottom = -171.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Control"]
+normal = ExtResource( 43 )
+pressed = ExtResource( 43 )
+shape = SubResource( 111 )
+action = "jump"
+visibility_mode = 1
 
 [connection signal="finished" from="AnmbientPlayer" to="AnmbientPlayer" method="_on_AnmbientPlayer_finished"]
 [connection signal="body_entered" from="World/FreedomArea" to="." method="_on_FreedomArea_body_entered"]
@@ -10875,6 +10919,7 @@ __meta__ = {
 [connection signal="body_entered" from="World/Crown" to="." method="_on_Crown_body_entered"]
 [connection signal="body_entered" from="World/Rotation" to="." method="_on_Rotation_body_entered"]
 [connection signal="body_entered" from="World/DiamondGate" to="." method="_on_DiamondGate_body_entered"]
+[connection signal="gui_input" from="CanvasLayer/TouchProcess" to="CanvasLayer/TouchProcess" method="_on_TouchProcess_gui_input"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/ResumeButton" to="CanvasLayer" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/OptionsButton" to="CanvasLayer" method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/SaveExitButton" to="." method="_on_SaveExitButton_pressed"]

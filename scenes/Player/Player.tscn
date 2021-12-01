@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/textures/player_with_crown.png" type="Texture" id=7]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=8]
+[ext_resource path="res://assets/textures/ui/settings.png" type="Texture" id=9]
+[ext_resource path="res://scenes/Player/MenuButton.gd" type="Script" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -208,7 +210,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "death"
 length = 0.5
 tracks/0/type = "value"
@@ -264,8 +266,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -329,7 +330,7 @@ tracks/4/keys = {
 "values": [ Vector2( 1, 0.5 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -407,11 +408,11 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 resource_local_to_scene = true
 extents = Vector2( 3, 3.5 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 8
 font_data = ExtResource( 6 )
 
@@ -456,9 +457,9 @@ playback_process_mode = 0
 method_call_mode = 1
 anims/RESET = SubResource( 1 )
 anims/air = SubResource( 2 )
-anims/death = SubResource( 7 )
-anims/idle = SubResource( 3 )
-anims/move = SubResource( 4 )
+anims/death = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/move = SubResource( 5 )
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -481,7 +482,7 @@ hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 0.5 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -500,7 +501,7 @@ __meta__ = {
 margin_right = 32.0
 margin_bottom = 43.0
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "0/10"
 
 [node name="DiamondTextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/DiamondsLabel"]
@@ -533,37 +534,62 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -244.0
+margin_left = -289.0
 margin_top = 30.0
-margin_right = -20.0
-margin_bottom = 170.0
+margin_right = -40.0
+margin_bottom = 90.0
+custom_constants/separation = 45
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer2"]
+margin_left = 105.0
+margin_right = 249.0
+margin_bottom = 60.0
 theme = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TimeLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_right = 224.0
+[node name="TimeLabel" type="Label" parent="CanvasLayer/HBoxContainer2/VBoxContainer"]
+margin_right = 144.0
 margin_bottom = 16.0
 text = "00:00:00"
 align = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer2/VBoxContainer"]
 margin_top = 20.0
-margin_right = 224.0
+margin_right = 144.0
 margin_bottom = 36.0
 text = "------"
 align = 1
 
-[node name="DeathCountLabel" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="DeathCountLabel" type="Label" parent="CanvasLayer/HBoxContainer2/VBoxContainer"]
 margin_top = 40.0
-margin_right = 224.0
+margin_right = 144.0
 margin_bottom = 56.0
 text = "deaths: 0"
 align = 1
+
+[node name="MenuButton" type="TextureButton" parent="CanvasLayer/HBoxContainer2"]
+visible = false
+margin_left = 189.0
+margin_right = 249.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 60, 60 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="JumpTimer" type="Timer" parent="."]
 process_mode = 0

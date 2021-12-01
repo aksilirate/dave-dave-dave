@@ -21,15 +21,15 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
+[sub_resource type="StyleBoxEmpty" id=7]
+
 [sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="StyleBoxEmpty" id=9]
-
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=9]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 8, 8 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 1 )
 
 [resource]
@@ -48,7 +48,7 @@ CheckBox/icons/unchecked = ExtResource( 2 )
 HSlider/icons/grabber = ExtResource( 7 )
 HSlider/icons/grabber_disabled = ExtResource( 5 )
 HSlider/icons/grabber_highlight = ExtResource( 6 )
-HSlider/styles/grabber_area = SubResource( 8 )
-HSlider/styles/grabber_area_highlight = SubResource( 9 )
-HSlider/styles/slider = SubResource( 10 )
-Label/fonts/font = SubResource( 7 )
+HSlider/styles/grabber_area = SubResource( 7 )
+HSlider/styles/grabber_area_highlight = SubResource( 8 )
+HSlider/styles/slider = SubResource( 9 )
+Label/fonts/font = SubResource( 10 )

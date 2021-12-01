@@ -57,6 +57,12 @@ func _init():
 	
 	if Engine.editor_hint: _setup_visual_hints(container)
 
+func _ready():
+	if OS.get_name() != "Android":
+		hide()
+	else:
+		show()
+
 func _set_radius(value:float):
 	radius = value 
 	if Engine.editor_hint: radius_v.radius = radius
