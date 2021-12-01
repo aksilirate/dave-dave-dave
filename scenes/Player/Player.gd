@@ -87,7 +87,7 @@ func _physics_process(delta):
 	if controlled:
 		velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 		if OS.get_name() == "Android":
-			velocity.x = (min(Input.get_action_strength("move_right") * 2, 1) - min(Input.get_action_strength("move_left") * 2, 1) )
+			velocity.x = ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left"))
 		
 	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
 	

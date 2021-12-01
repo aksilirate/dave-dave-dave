@@ -84,6 +84,63 @@ _global_script_class_icons={
 "WallGun": ""
 }
 
+[admob]
+
+config={
+"banner": {
+"position": 0,
+"show_instantly": true,
+"size": "MEDIUM_RECTANGLE",
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/6300978111"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/2934735716"
+}
+}
+},
+"debug": {
+"is_test_europe_user_consent": false
+},
+"general": {
+"is_enabled": true,
+"is_for_child_directed_treatment": false,
+"max_ad_content_rating": "T"
+},
+"interstitial": {
+"unit_ids": {
+"Android": {
+"death_interstitial": "ca-app-pub-4551498128752062/3030511570",
+"standard": "ca-app-pub-3940256099942544/1033173712"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/4411468910"
+}
+}
+},
+"rewarded": {
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/5224354917"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/1712485313"
+}
+}
+},
+"rewarded_interstitial": {
+"unit_ids": {
+"Android": {
+"standard": "ca-app-pub-3940256099942544/5354046379"
+},
+"iOS": {
+"standard": "ca-app-pub-3940256099942544/6978759866"
+}
+}
+}
+}
+
 [application]
 
 config/name="Dave Dave Dave"
@@ -101,6 +158,7 @@ default_bus_layout="res://resources/default_bus_layout.tres"
 [autoload]
 
 Steamworks="*res://singletons/Steamworks.gd"
+MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
 Options="*res://singletons/Options.gd"
 Audio="*res://singletons/Audio.gd"
 Save="*res://singletons/Save.gd"
@@ -114,7 +172,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/joystick_control/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/admob/plugin.cfg", "res://addons/joystick_control/plugin.cfg" )
 
 [input]
 

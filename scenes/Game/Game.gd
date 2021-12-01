@@ -19,6 +19,7 @@ onready var green_gates = $World/GreenGates
 onready var tile_map = $World/TileMap
 onready var tile_map_2 = $World/TileMap2
 onready var secret_tiles = $World/SecretTiles
+onready var red_man = $World/RedMan
 onready var red_man_3 = $World/RedMan3
 onready var ambient_player = $AnmbientPlayer
 
@@ -35,6 +36,7 @@ func _on_FreedomArea_body_entered(body):
 		animation_player.play("end_red")
 	else:
 		animation_player.play("end")
+	Steamworks.unlock_achievement("FREEDOM_WAS_A_LIE")
 	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -45,6 +47,8 @@ func _ready():
 	player.animation_player.connect("animation_finished", self, "_on_player_animation_finished")
 	
 	if Save.exists():
+		red_man.queue_free()
+		
 		var deactivated_checkpoints_paths: Array = Save.get_deactivated_checkpoints_paths()
 		for path in deactivated_checkpoints_paths:
 			var deactivated_checkpoint: Checkpoint = get_node(path)
@@ -153,6 +157,7 @@ func _on_locked_door_area_body_entered(body, arg_locked_door: LockedDoor):
 
 func _on_DoubleJump_body_entered(body):
 	Audio.play("res://assets/sounds/collect_item.wav")
+	Steamworks.unlock_achievement("DOUBLE_JUMP")
 	deleted_nodes_paths.push_back(double_jump.get_path())
 	double_jump.queue_free()
 	player.double_jump = true
@@ -160,6 +165,7 @@ func _on_DoubleJump_body_entered(body):
 
 func _on_Crown_body_entered(body):
 	Audio.play("res://assets/sounds/collect_item.wav")
+	Steamworks.unlock_achievement("A_CROWN")
 	deleted_nodes_paths.push_back(crown.get_path())
 	crown.queue_free()
 	player.has_crown = true
@@ -185,6 +191,8 @@ func _on_diamond_body_entered(body, arg_diamond):
 	arg_diamond.queue_free()
 	player.diamonds_collected += 1
 	Steamworks.unlock_achievement("FIRST_DIAMOND")
+	if player.diamonds_collected == total_diamonds:
+		Steamworks.unlock_achievement("DIAMOND_RUSH")
 	player.update_diamonds_collected(total_diamonds)
 
 
@@ -260,6 +268,7 @@ func _on_FreedomAreaSpace_body_entered(body):
 		animation_player.play("diamonds_end_red")
 	else:
 		animation_player.play("diamonds_end")
+	Steamworks.unlock_achievement("FREEDOM")
 	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -275,6 +284,15 @@ func _on_DiamondGate_body_entered(body):
 
 func _on_player_animation_finished(anim_name):
 	if anim_name == "death":
+		
+		if OS.get_name() == "Android":
+			if not MobileAds.get_is_rewarded_loaded():
+				MobileAds.load_interstitial()
+			else:
+				if not player.deaths % 50:
+					MobileAds.show_interstitial()
+					MobileAds.load_interstitial()
+					
 		if player.deaths >= 500:
 			var reverse_ambient_audio = preload("res://assets/sounds/ambient_reversed.wav")
 			if ambient_player.stream != reverse_ambient_audio:
@@ -283,3 +301,12 @@ func _on_player_animation_finished(anim_name):
 			tile_map.modulate = Color("#f80000")
 			tile_map_2.modulate = Color("#f80000")
 			secret_tiles.modulate = Color("#f80000")
+
+
+		
+			
+
+
+func _on_Sign17_body_entered(body):
+	if body is Player:
+		Steamworks.unlock_achievement("WHO_IS_DAVE")
