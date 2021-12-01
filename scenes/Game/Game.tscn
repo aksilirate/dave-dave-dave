@@ -43,7 +43,6 @@
 [ext_resource path="res://assets/textures/end_2_red.png" type="Texture" id=41]
 [ext_resource path="res://addons/joystick_control/assets/joystick.gd" type="Script" id=42]
 [ext_resource path="res://addons/joystick_control/assets/background.png" type="Texture" id=43]
-[ext_resource path="res://scenes/Game/TouchProcess.gd" type="Script" id=44]
 [ext_resource path="res://scenes/Game/CanvasModulate.gd" type="Script" id=45]
 
 [sub_resource type="Animation" id=1]
@@ -5878,7 +5877,11 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="CircleShape2D" id=111]
+[sub_resource type="RectangleShape2D" id=111]
+resource_local_to_scene = true
+extents = Vector2( 3, 3.5 )
+
+[sub_resource type="CircleShape2D" id=112]
 radius = 90.0
 
 [node name="Game" type="Node"]
@@ -6104,95 +6107,100 @@ position = Vector2( -12560, 7680 )
 position = Vector2( 11340, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite3" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 13450, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite6" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 13720, -4570 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite7" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 14000, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite9" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 14835, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite10" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 15075, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
-frame = 1
 playing = true
 
 [node name="Sprite17" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 15680, -8420 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
+frame = 1
 playing = true
 
 [node name="Sprite14" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 16035, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
-frame = 1
 playing = true
 
 [node name="Sprite15" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 16275, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite16" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 16525, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite2" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 11600, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite4" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 11840, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
+frame = 1
 playing = true
 
 [node name="Sprite8" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 12080, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
-frame = 1
 playing = true
 
 [node name="Sprite11" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 12320, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
-frame = 1
 playing = true
 
 [node name="Sprite12" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 12560, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 101 )
-frame = 1
 playing = true
 
 [node name="Sprite5" type="Sprite" parent="World/Sprites"]
@@ -10757,6 +10765,9 @@ idle_playing = true
 [node name="Player" parent="World" instance=ExtResource( 1 )]
 position = Vector2( -14210, 8280 )
 
+[node name="CollisionShape2D" parent="World/Player" index="4"]
+shape = SubResource( 111 )
+
 [node name="CanvasModulate" type="CanvasModulate" parent="World"]
 visible = false
 color = Color( 0, 0, 0, 1 )
@@ -10770,14 +10781,16 @@ script = ExtResource( 32 )
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PauseMenu" type="ColorRect" parent="CanvasLayer/BadEnding"]
+[node name="BlackBackground" type="ColorRect" parent="CanvasLayer/BadEnding"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 35 )
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -10814,14 +10827,6 @@ time..."
 align = 1
 valign = 1
 percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TouchProcess" type="Control" parent="CanvasLayer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 44 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -10873,7 +10878,6 @@ __meta__ = {
 }
 
 [node name="Joystick" type="Control" parent="CanvasLayer"]
-visible = false
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 177.0
@@ -10885,6 +10889,7 @@ script = ExtResource( 42 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+radius = 68.53
 proximity = 190.0
 action_left = "move_left"
 action_right = "move_right"
@@ -10907,7 +10912,7 @@ __meta__ = {
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer/Control"]
 normal = ExtResource( 43 )
 pressed = ExtResource( 43 )
-shape = SubResource( 111 )
+shape = SubResource( 112 )
 action = "jump"
 visibility_mode = 1
 
@@ -10919,7 +10924,7 @@ visibility_mode = 1
 [connection signal="body_entered" from="World/Crown" to="." method="_on_Crown_body_entered"]
 [connection signal="body_entered" from="World/Rotation" to="." method="_on_Rotation_body_entered"]
 [connection signal="body_entered" from="World/DiamondGate" to="." method="_on_DiamondGate_body_entered"]
-[connection signal="gui_input" from="CanvasLayer/TouchProcess" to="CanvasLayer/TouchProcess" method="_on_TouchProcess_gui_input"]
+[connection signal="pressed" from="World/Player/CanvasLayer/HBoxContainer2/MenuButton" to="CanvasLayer" method="_on_MenuButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/ResumeButton" to="CanvasLayer" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/OptionsButton" to="CanvasLayer" method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/PauseMenu/VBoxContainer/SaveExitButton" to="." method="_on_SaveExitButton_pressed"]
@@ -11009,3 +11014,4 @@ visibility_mode = 1
 [editable path="World/RedMan"]
 [editable path="World/RedMan2"]
 [editable path="World/RedMan3"]
+[editable path="World/Player"]

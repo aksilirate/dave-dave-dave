@@ -537,9 +537,9 @@ __meta__ = {
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -289.0
+margin_left = -319.0
 margin_top = 30.0
-margin_right = -40.0
+margin_right = -70.0
 margin_bottom = 90.0
 custom_constants/separation = 45
 alignment = 2
@@ -548,8 +548,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HBoxContainer2"]
-margin_left = 105.0
-margin_right = 249.0
+margin_right = 144.0
 margin_bottom = 60.0
 theme = ExtResource( 8 )
 __meta__ = {
@@ -577,7 +576,6 @@ text = "deaths: 0"
 align = 1
 
 [node name="MenuButton" type="TextureButton" parent="CanvasLayer/HBoxContainer2"]
-visible = false
 margin_left = 189.0
 margin_right = 249.0
 margin_bottom = 60.0
