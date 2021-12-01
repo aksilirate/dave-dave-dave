@@ -1,16 +1,17 @@
 extends Node
 
-const PATH: String = "user://stats.cfg"
+var path: String = "user://stats.cfg"
 var config = ConfigFile.new()
 
 
-
 func _ready():
-	config.load(PATH)
+	if Steamworks.is_owned():
+		path = Steamworks.get_user_path() + "/GameData/stats.cfg"
+	config.load(path)
 
 func exists() -> bool:
 	var file = File.new()
-	return file.file_exists(PATH)
+	return file.file_exists(path)
 	
 
 func set_completed(completed: bool) -> void:
@@ -24,20 +25,20 @@ func set_time(time: float) -> void:
 	config.set_value("stats", "time", time)
 
 func get_completed() -> bool:
-	if config.load(PATH) != OK:
+	if config.load(path) != OK:
 		return false
 	return config.get_value("stats", "completed", false)
 
 func get_deaths() -> int:
-	if config.load(PATH) != OK:
+	if config.load(path) != OK:
 		return 0
 	return config.get_value("stats", "deaths")
 	
 func get_time() -> float:
-	if config.load(PATH) != OK:
+	if config.load(path) != OK:
 		return 0.0
 	return config.get_value("stats", "time")
 	
 	
 func write():
-	config.save(PATH)
+	config.save(path)

@@ -1,15 +1,17 @@
 extends Node
 
-const SAVE_PATH: String = "user://save.cfg"
+var path: String = "user://save.cfg"
 var config = ConfigFile.new()
 
 
 func _ready():
-	config.load(SAVE_PATH)
+	if Steamworks.is_owned():
+		path = Steamworks.get_user_path() + "/GameData/save.cfg"
+	config.load(path)
 
 func exists() -> bool:
 	var file = File.new()
-	return file.file_exists(SAVE_PATH)
+	return file.file_exists(path)
 
 # Saving
 func set_player_deaths(player_deaths: int) -> void:
@@ -50,40 +52,40 @@ func set_deleted_nodes_paths(deleted_nodes_paths: Array) -> void:
 
 # Getting
 func get_player_deaths() -> int:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return 0
 	return config.get_value("player", "deaths")
 
 func get_player_time() -> float:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return 0.0
 	return config.get_value("player", "time")
 
 func get_player_double_jump() -> bool:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return false
 	return config.get_value("player", "double_jump", false)
 
 
 func get_player_crown() -> bool:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return false
 	return config.get_value("player", "crown", false)
 
 func get_player_global_position() -> Vector2:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return Vector2.ZERO
 	return config.get_value("player", "global_position")
 	
 func get_player_inventory() -> Array:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return []
 
 	return config.get_value("player", "inventory")
 
 
 func get_player_diamonds_collected() -> int:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return 0
 
 	return config.get_value("player", "diamonds_collected")
@@ -91,28 +93,28 @@ func get_player_diamonds_collected() -> int:
 
 
 func get_deactivated_checkpoints_paths() -> Array:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return []
 
 	return config.get_value("game", "deactivated_checkpoints_paths")
 	
 	
 func get_active_checkpoint_path() -> String:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return ""
 
 	return config.get_value("game", "active_checkpoint_path", "")
 
 
 func get_deleted_nodes_paths() -> Array:
-	if config.load(SAVE_PATH) != OK:
+	if config.load(path) != OK:
 		return []
 
 	return config.get_value("game", "deleted_nodes_paths")
 
 func write():
-	config.save(SAVE_PATH)
+	config.save(path)
 
 func delete():
 	var dir = Directory.new()
-	dir.remove(SAVE_PATH)
+	dir.remove(path)

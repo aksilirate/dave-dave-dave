@@ -184,6 +184,7 @@ func _on_diamond_body_entered(body, arg_diamond):
 	deleted_nodes_paths.push_back(arg_diamond.get_path())
 	arg_diamond.queue_free()
 	player.diamonds_collected += 1
+	Steamworks.unlock_achievement("FIRST_DIAMOND")
 	player.update_diamonds_collected(total_diamonds)
 
 
