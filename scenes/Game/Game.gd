@@ -23,6 +23,8 @@ onready var red_man = $World/RedMan
 onready var red_man_3 = $World/RedMan3
 onready var ambient_player = $AnmbientPlayer
 
+var ghost_mode: bool = false
+
 var deleted_nodes_paths: Array = []
 
 var deactivated_checkpoints: Array = []
@@ -310,3 +312,7 @@ func _on_player_animation_finished(anim_name):
 func _on_Sign17_body_entered(body):
 	if body is Player:
 		Steamworks.unlock_achievement("WHO_IS_DAVE")
+
+
+func _on_Game_tree_exiting():
+	save_game()

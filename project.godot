@@ -158,17 +158,14 @@ default_bus_layout="res://resources/default_bus_layout.tres"
 [autoload]
 
 Steamworks="*res://singletons/Steamworks.gd"
-MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
 Options="*res://singletons/Options.gd"
 Audio="*res://singletons/Audio.gd"
 Save="*res://singletons/Save.gd"
 Mod="*res://singletons/Mod.gd"
 Stats="*res://singletons/Stats.gd"
 Android="*res://singletons/Android.gd"
-
-[display]
-
-window/stretch/aspect="keep"
+MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
+Globals="*res://singletons/Globals.gd"
 
 [editor_plugins]
 

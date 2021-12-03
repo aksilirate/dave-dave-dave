@@ -20,9 +20,11 @@ func set_completed(completed: bool) -> void:
 func set_deaths(deaths: int) -> void:
 	config.set_value("stats", "deaths", deaths)
 
-
 func set_time(time: float) -> void:
 	config.set_value("stats", "time", time)
+
+func set_ghost_mode_enabled(ghost_mode_enabled: bool) -> void:
+	config.set_value("stats", "ghost_mode_enabled", ghost_mode_enabled)
 
 func get_completed() -> bool:
 	if config.load(path) != OK:
@@ -33,12 +35,16 @@ func get_deaths() -> int:
 	if config.load(path) != OK:
 		return 0
 	return config.get_value("stats", "deaths")
-	
+
 func get_time() -> float:
 	if config.load(path) != OK:
 		return 0.0
 	return config.get_value("stats", "time")
 	
+func get_ghost_mode_enabled() -> bool:
+	if config.load(path) != OK:
+		return false
+	return config.get_value("stats", "ghost_mode_enabled", false)
 	
 func write():
 	config.save(path)

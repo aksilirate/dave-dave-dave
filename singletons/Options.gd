@@ -43,7 +43,7 @@ func get_fullscreen() -> bool:
 	var config = ConfigFile.new()
 	if config.load(path) != OK:
 		return false
-	return config.get_value("video", "fullscreen")
+	return config.get_value("video", "fullscreen", false)
 	
 func get_music_volume_db() -> float:
 	var config = ConfigFile.new()

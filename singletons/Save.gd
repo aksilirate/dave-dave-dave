@@ -7,6 +7,7 @@ var config = ConfigFile.new()
 func _ready():
 	if Steamworks.is_owned():
 		path = Steamworks.get_user_path() + "/GameData/save.cfg"
+		
 	config.load(path)
 
 func exists() -> bool:
