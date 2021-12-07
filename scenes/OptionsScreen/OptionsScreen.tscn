@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/OptionsScreen/SFXHSlider.gd" type="Script" id=4]
 [ext_resource path="res://scenes/OptionsScreen/MusicHSlider.gd" type="Script" id=5]
 [ext_resource path="res://scenes/OptionsScreen/FullscreenLabel.gd" type="Script" id=6]
+[ext_resource path="res://scenes/OptionsScreen/DPadCheckBox.gd" type="Script" id=7]
+[ext_resource path="res://scenes/OptionsScreen/DPadLabel.gd" type="Script" id=8]
 
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0
@@ -42,6 +44,28 @@ margin_right = 290.0
 margin_bottom = 106.0
 text = "Fullscreen"
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DPadCheckBox" type="CheckBox" parent="."]
+margin_left = 80.0
+margin_top = 320.0
+margin_right = 96.0
+margin_bottom = 336.0
+rect_scale = Vector2( 4, 4 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DPadLabel" type="Label" parent="."]
+margin_left = 130.0
+margin_top = 330.0
+margin_right = 290.0
+margin_bottom = 346.0
+text = "D-Pad"
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -103,6 +127,7 @@ __meta__ = {
 }
 
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
+[connection signal="toggled" from="DPadCheckBox" to="." method="_on_DPadCheckBox_toggled"]
 [connection signal="value_changed" from="MusicHSlider" to="MusicHSlider" method="_on_MusicHSlider_value_changed"]
 [connection signal="value_changed" from="SFXHSlider" to="SFXHSlider" method="_on_SFXHSlider_value_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

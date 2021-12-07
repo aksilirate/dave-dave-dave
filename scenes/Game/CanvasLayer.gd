@@ -2,10 +2,16 @@ extends CanvasLayer
 
 
 onready var pause_menu = $PauseMenu
-
+onready var joystick = $Joystick
+onready var d_pad = $DPad
 
 func _ready():
+	Options.connect("d_pad_updated", self, "_on_d_pad_updated")
 	pause_menu.hide()
+
+func _on_d_pad_updated():
+	joystick.update_visibility()
+	d_pad.update_visibility()
 
 func _input(event):
 	if event is InputEventKey:
@@ -22,5 +28,4 @@ func _on_OptionsButton_pressed():
 
 
 func _on_MenuButton_pressed():
-	print(1)
 	pause_menu.show()

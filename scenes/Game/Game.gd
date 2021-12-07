@@ -1,6 +1,6 @@
 extends Node
 
-
+onready var world = $World
 onready var animation_player = $AnimationPlayer
 onready var checkpoints = $World/Checkpoints
 onready var spikes = $World/Spikes
@@ -21,9 +21,9 @@ onready var tile_map_2 = $World/TileMap2
 onready var secret_tiles = $World/SecretTiles
 onready var red_man = $World/RedMan
 onready var red_man_3 = $World/RedMan3
+onready var red_man_4 = $World/RedMan4
 onready var ambient_player = $AnmbientPlayer
-
-var ghost_mode: bool = false
+onready var diamond_texture = $World/Player/CanvasLayer/HBoxContainer/DiamondsLabel/DiamondTextureRect
 
 var deleted_nodes_paths: Array = []
 
@@ -33,12 +33,19 @@ var active_checkpoint: Checkpoint
 
 var total_diamonds: int
 
+
+var original_spawn_position: Vector2
+
+
 func _on_FreedomArea_body_entered(body):
+	if Globals.ghost_mode:
+		return
 	if player.deaths >= 1000:
 		animation_player.play("end_red")
 	else:
 		animation_player.play("end")
 	Steamworks.unlock_achievement("FREEDOM_WAS_A_LIE")
+	Stats.set_ghost_mode_enabled(true)
 	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -46,11 +53,70 @@ func _on_FreedomArea_body_entered(body):
 	Save.delete()
 
 func _ready():
-	player.animation_player.connect("animation_finished", self, "_on_player_animation_finished")
 	
-	if Save.exists():
-		red_man.queue_free()
+	original_spawn_position = player.global_position
+	player.respawn_location = original_spawn_position
+	
+	if not Globals.ghost_mode:
+		if not Globals.zero_deaths_mode:
+			player.animation_player.connect("animation_finished", self, "_on_player_animation_finished")
 		
+		for child in checkpoints.get_children():
+			var checkpoint_node: Checkpoint = child
+			if Globals.zero_deaths_mode:
+				checkpoint_node.queue_free()
+				continue
+		# warning-ignore:return_value_discarded
+			checkpoint_node.connect("activated", self, "_on_checkpoint_activated", [checkpoint_node])
+			
+		for child in spikes.get_children():
+			var spikes_node: Area2D = child
+		# warning-ignore:return_value_discarded
+			spikes_node.connect("body_entered", self, "_on_spikes_body_entered")
+			
+		for child in items.get_children():
+			var item_node: Area2D = child
+		# warning-ignore:return_value_discarded
+			item_node.connect("body_entered", self, "_on_item_body_entered", [item_node])
+			
+			
+		for child in locked_doors.get_children():
+			var locked_door_node: LockedDoor = child
+			var locked_door_area_node: Area2D = locked_door_node.open_area
+		# warning-ignore:return_value_discarded
+			locked_door_area_node.connect("body_entered", self, "_on_locked_door_area_body_entered", [child])
+
+		for child in diamonds.get_children():
+			var diamond: Area2D = child
+		# warning-ignore:return_value_discarded
+			diamond.connect("body_entered", self, "_on_diamond_body_entered", [diamond])
+
+		for child in haste_potions.get_children():
+			var haste_potion: HastePotion = child
+		# warning-ignore:return_value_discarded
+			haste_potion.connect("body_entered", self, "_on_haste_potion_body_entered", [haste_potion])
+
+		for child in green_gates.get_children():
+			var green_gate: Area2D = child
+			green_gate.connect("body_entered", self, "_on_green_gate_body_entered")
+			
+		if not Save.exists() and not Globals.zero_deaths_mode:
+			animation_player.play("first_scene")
+		
+	
+	
+	if Globals.ghost_mode:
+		var ghost_player = preload("res://scenes/GhostPlayer/GhostPlayer.tscn").instance()
+		world.add_child(ghost_player)
+		ghost_player.global_position = player.global_position
+		player.queue_free()
+	
+	
+	if Save.exists() or Globals.ghost_mode or Globals.zero_deaths_mode:
+		red_man.queue_free()
+	
+	
+	if Save.exists() and not Globals.zero_deaths_mode:
 		var deactivated_checkpoints_paths: Array = Save.get_deactivated_checkpoints_paths()
 		for path in deactivated_checkpoints_paths:
 			var deactivated_checkpoint: Checkpoint = get_node(path)
@@ -66,51 +132,15 @@ func _ready():
 			active_checkpoint = get_node(saved_active_check_point_path)
 			active_checkpoint.activate()
 			player.respawn_location = active_checkpoint.global_position
-		
-	else:
-		animation_player.play("first_scene")
-	
-	for child in checkpoints.get_children():
-		var checkpoint_node: Checkpoint = child
-# warning-ignore:return_value_discarded
-		checkpoint_node.connect("activated", self, "_on_checkpoint_activated", [checkpoint_node])
-		
-	for child in spikes.get_children():
-		var spikes_node: Area2D = child
-# warning-ignore:return_value_discarded
-		spikes_node.connect("body_entered", self, "_on_spikes_body_entered")
-		
-	for child in items.get_children():
-		var item_node: Area2D = child
-# warning-ignore:return_value_discarded
-		item_node.connect("body_entered", self, "_on_item_body_entered", [item_node])
-		
-		
-	for child in locked_doors.get_children():
-		var locked_door_node: LockedDoor = child
-		var locked_door_area_node: Area2D = locked_door_node.open_area
-# warning-ignore:return_value_discarded
-		locked_door_area_node.connect("body_entered", self, "_on_locked_door_area_body_entered", [child])
 	
 	for child in wall_guns.get_children():
 		var wall_gun: WallGun = child
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 		wall_gun.connect("shot_bullet", self, "_on_wall_gun_shot_bullet")
+
+	update_death_effects()
 	
-	for child in diamonds.get_children():
-		var diamond: Area2D = child
-# warning-ignore:return_value_discarded
-		diamond.connect("body_entered", self, "_on_diamond_body_entered", [diamond])
-	
-	for child in haste_potions.get_children():
-		var haste_potion: HastePotion = child
-# warning-ignore:return_value_discarded
-		haste_potion.connect("body_entered", self, "_on_haste_potion_body_entered", [haste_potion])
-	
-	for child in green_gates.get_children():
-		var green_gate: Area2D = child
-		green_gate.connect("body_entered", self, "_on_green_gate_body_entered")
-	
+
 	total_diamonds = diamonds.get_child_count()
 	player.update_diamonds_collected(total_diamonds)
 	
@@ -125,7 +155,8 @@ func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 		active_checkpoint = arg_checkpoint
 		player.respawn_location = arg_checkpoint.global_position
 		
-		save_game()
+		if not Globals.ghost_mode and not Globals.zero_deaths_mode:
+			save_game()
 		
 		
 func _on_spikes_body_entered(body):
@@ -259,18 +290,23 @@ func save_game() -> void:
 	
 	
 func _on_SaveExitButton_pressed():
-	save_game()
+	if not Globals.ghost_mode and not Globals.zero_deaths_mode:
+		save_game()
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
 func return_to_title_screen():
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
 func _on_FreedomAreaSpace_body_entered(body):
+	if Globals.ghost_mode:
+		return
+	
 	if player.deaths >= 1000:
 		animation_player.play("diamonds_end_red")
 	else:
 		animation_player.play("diamonds_end")
 	Steamworks.unlock_achievement("FREEDOM")
+	Stats.set_ghost_mode_enabled(true)
 	Stats.set_completed(true)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -295,18 +331,24 @@ func _on_player_animation_finished(anim_name):
 					MobileAds.show_interstitial()
 					MobileAds.load_interstitial()
 					
-		if player.deaths >= 500:
-			var reverse_ambient_audio = preload("res://assets/sounds/ambient_reversed.wav")
-			if ambient_player.stream != reverse_ambient_audio:
-				ambient_player.stream = reverse_ambient_audio
-		if player.deaths >= 2000:
-			tile_map.modulate = Color("#f80000")
-			tile_map_2.modulate = Color("#f80000")
-			secret_tiles.modulate = Color("#f80000")
+		update_death_effects()
 
 
-		
-			
+
+func update_death_effects():
+	if player.deaths >= 500:
+		var reverse_ambient_audio = preload("res://assets/sounds/ambient_reversed.wav")
+		if ambient_player.stream != reverse_ambient_audio:
+			ambient_player.stream = reverse_ambient_audio
+	if player.deaths >= 1500:
+		for child in diamonds.get_children():
+			var diamond: Node2D = child
+			diamond.modulate = Color("#f80000")
+		diamond_texture.modulate = Color("#f80000")
+	if player.deaths >= 2000:
+		tile_map.modulate = Color("#f80000")
+		tile_map_2.modulate = Color("#f80000")
+		secret_tiles.modulate = Color("#f80000")
 
 
 func _on_Sign17_body_entered(body):
@@ -315,4 +357,11 @@ func _on_Sign17_body_entered(body):
 
 
 func _on_Game_tree_exiting():
-	save_game()
+	if not Globals.ghost_mode and not Globals.zero_deaths_mode:
+		save_game()
+
+
+func _on_RedMan4_tree_exited():
+	deleted_nodes_paths.push_back(red_man_4.get_path())
+
+

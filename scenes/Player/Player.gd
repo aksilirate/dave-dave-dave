@@ -43,7 +43,7 @@ var time: float = 0
 
 
 func _ready():
-	if Save.exists():
+	if Save.exists() and not Globals.zero_deaths_mode:
 		deaths = Save.get_player_deaths()
 		time = Save.get_player_time()
 		double_jump = Save.get_player_double_jump()
@@ -85,9 +85,7 @@ func _physics_process(delta):
 						Vector2.UP if gravity > 0 else Vector2.DOWN , false, 4, PI/4, false)
 	
 	if controlled:
-		velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-		if OS.get_name() == "Android":
-			velocity.x = ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left"))
+		velocity.x = ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left"))
 		
 	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
 	
@@ -220,6 +218,8 @@ func play_footstep():
 	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
 
 func increase_death_count():
+	if Globals.zero_deaths_mode:
+		get_tree().reload_current_scene()
 	deaths += 1
 	update_deaths_label()
 	

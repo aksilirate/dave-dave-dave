@@ -2,6 +2,7 @@ extends ParallaxBackground
 
 
 var viewport_size
+var mouse_pos: Vector2
 var relative_x
 var relative_y
 
@@ -11,23 +12,28 @@ func _ready():
 	relative_x = 0
 	relative_y = 0
 
+
+func _process(delta):
+	if OS.get_name() == "Android":
+		mouse_pos.x += Input.get_accelerometer().x * 3.0
+		mouse_pos.y += Input.get_accelerometer().y * 0.25
+		
+		mouse_pos = mouse_pos.linear_interpolate(Vector2.ZERO, delta * 0.0025 * mouse_pos.distance_to(Vector2.ZERO))
+		
+	relative_x = -1 * (mouse_pos.x - (viewport_size.x/2)) / (viewport_size.x/2)
+	relative_y = -1 * (mouse_pos.y - (viewport_size.y/2)) / (viewport_size.y/2)
+	
+	var count = 30
+	for child in self.get_children(): # for each parallaxlayer do...
+		child.motion_offset.x = count * relative_x
+		child.motion_offset.y = count * relative_y
+		count = count * 1.9
+
+
+
 func _input(event):
-	if event is InputEventMouseMotion:
-		var mouse_x = event.position.x
-		var mouse_y = event.position.y
-		
-		if OS.get_name() == "Android":
-			mouse_x = Input.get_accelerometer().x + (viewport_size.x/2)
-			mouse_y = Input.get_accelerometer().y + (viewport_size.y/2)
-		
-		relative_x = -1 * (mouse_x - (viewport_size.x/2)) / (viewport_size.x/2)
-		relative_y = -1 * (mouse_y - (viewport_size.y/2)) / (viewport_size.y/2)
-		
-		var count = 30
-		for child in self.get_children(): # for each parallaxlayer do...
-			child.motion_offset.x = count * relative_x
-			child.motion_offset.y = count * relative_y
-			count = count * 1.9
+	if event is InputEventMouseMotion and OS.get_name() != "Android":
+		mouse_pos = event.position
 
 # gets called on the start of the application once and every time the viewport changes
 # centers the images

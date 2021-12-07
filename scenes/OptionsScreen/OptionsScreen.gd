@@ -10,3 +10,7 @@ func _on_BackButton_pressed():
 func _on_FullscreenCheckBox_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
 	Options.set_fullscreen(button_pressed)
+
+
+func _on_DPadCheckBox_toggled(button_pressed):
+	Options.set_d_pad(button_pressed)

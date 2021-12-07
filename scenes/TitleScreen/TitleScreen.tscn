@@ -14,14 +14,14 @@
 [ext_resource path="res://assets/textures/splash_art_0.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/splash_art_3.png" type="Texture" id=13]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -36,8 +36,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "load"
+[sub_resource type="Animation" id=4]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -53,6 +52,7 @@ tracks/0/keys = {
 }
 
 [node name="TitleScreen" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -93,7 +93,7 @@ __meta__ = {
 margin_top = 6.0
 margin_right = 192.0
 margin_bottom = 84.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0.972549, 0.972549, 1 )
 text = "DAVE
   DAVE
@@ -165,8 +165,8 @@ margin_left = 30.0
 margin_top = -68.0
 margin_right = 410.0
 margin_bottom = 72.0
-custom_fonts/normal_font = SubResource( 1 )
-text = "latest save:
+custom_fonts/normal_font = SubResource( 2 )
+text = "latest run:
 
 
 completed: no
@@ -180,8 +180,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 2 )
-anims/load = SubResource( 3 )
+anims/RESET = SubResource( 3 )
+anims/load = SubResource( 4 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enable = true

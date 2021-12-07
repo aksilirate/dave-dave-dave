@@ -58,10 +58,18 @@ func _init():
 	if Engine.editor_hint: _setup_visual_hints(container)
 
 func _ready():
+	update_visibility()
+
+func update_visibility():
 	if OS.get_name() != "Android":
 		hide()
-	else:
+		return
+	
+	hide()
+	
+	if not Options.get_d_pad():
 		show()
+
 
 func _set_radius(value:float):
 	radius = value 

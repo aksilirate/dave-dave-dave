@@ -3,12 +3,14 @@ extends Node
 signal music_volume_updated(arg_volume_db)
 signal sfx_volume_updated(volume_percentage)
 
+signal d_pad_updated
+
 var path: String = "user://options.cfg"
 var config = ConfigFile.new()
 
 
 func _ready():
-	if Steamworks.is_owned():
+	if Globals.steamworks_loaded and Steamworks.is_owned():
 		path = Steamworks.get_user_path() + "/GameData/options.cfg"
 	config.load(path)
 
@@ -36,7 +38,11 @@ func set_sfx_volume_percentage(volume_percentage):
 	config.set_value("audio", "volume_percentage", volume_percentage)
 	config.save(path)
 	emit_signal("sfx_volume_updated", volume_percentage)
-	
+
+func set_d_pad(d_pad: bool) -> void:
+	config.set_value("controls", "d_pad", d_pad)
+	config.save(path)
+	emit_signal("d_pad_updated")
 
 # Getting
 func get_fullscreen() -> bool:
@@ -56,7 +62,12 @@ func get_sfx_volume_percentage() -> float:
 	if config.load(path) != OK:
 		return 1.0
 	return config.get_value("audio", "volume_percentage", 1.0)
-
+	
+func get_d_pad() -> bool:
+	var config = ConfigFile.new()
+	if config.load(path) != OK:
+		return false
+	return config.get_value("controls", "d_pad", false)
 
 func delete():
 	var dir = Directory.new()

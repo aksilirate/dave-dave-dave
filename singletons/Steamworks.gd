@@ -1,11 +1,12 @@
 extends Node
 
-var is_online: bool = Steam.loggedOn()
-var steam_id: int = Steam.getSteamID()
-
 
 
 func _ready() -> void:
+	if not is_owned() or OS.get_name == "Android":
+		set_process(false)
+		return
+
 	_initialize_steam()
 
 func _process(_delta: float) -> void:
@@ -13,19 +14,16 @@ func _process(_delta: float) -> void:
 
 
 func _initialize_steam() -> void:
-	if not is_owned():
-		set_process(false)
-	
 	var init: Dictionary = Steam.steamInit(false)
 	print("Did Steam initialize?: "+str(init))
 	if init['status'] != 1:
 		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
-	
+
 	var dir = Directory.new()
 	dir.open(get_user_path())
 	dir.make_dir("GameData")
-	
-	
+
+
 func is_owned() -> bool:
 	return Steam.isSubscribed()
 
