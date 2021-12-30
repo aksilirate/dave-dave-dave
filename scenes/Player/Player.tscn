@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/player.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=8]
 [ext_resource path="res://assets/textures/ui/settings.png" type="Texture" id=9]
 [ext_resource path="res://scenes/Player/MenuButton.gd" type="Script" id=10]
+[ext_resource path="res://scenes/Player/Camera2D.gd" type="Script" id=11]
+[ext_resource path="res://scenes/PetBody/PetBody.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -265,6 +267,18 @@ tracks/3/keys = {
 "method": "increase_death_count"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../PetBody:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.4
@@ -428,6 +442,12 @@ collision_mask = 2
 script = ExtResource( 1 )
 speed = 800
 
+[node name="PetPosition" type="Position2D" parent="."]
+position = Vector2( -8, -8 )
+
+[node name="PetBody" parent="." instance=ExtResource( 12 )]
+position = Vector2( -16, -8 )
+
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 3 )
 __meta__ = {
@@ -447,6 +467,7 @@ drag_margin_left = 0.25
 drag_margin_top = 0.25
 drag_margin_right = 0.25
 drag_margin_bottom = 0.25
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }

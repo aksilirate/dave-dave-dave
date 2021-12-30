@@ -48,7 +48,15 @@ func set_active_checkpoint_path(active_checkpoint_path: String) -> void:
 
 func set_deleted_nodes_paths(deleted_nodes_paths: Array) -> void:
 	config.set_value("game", "deleted_nodes_paths", deleted_nodes_paths)
-	
+
+func set_pet_unlocked(pet_unlocked: bool) -> void:
+	config.set_value("game", "pet_unlocked", pet_unlocked)
+
+func set_pet_color(pet_color: Color) -> void:
+	config.set_value("game", "pet_color", pet_color)
+
+func set_pet_texture_path(pet_texture_path: String) -> void:
+	config.set_value("game", "pet_texture_path", pet_texture_path)
 
 
 # Getting
@@ -112,6 +120,28 @@ func get_deleted_nodes_paths() -> Array:
 		return []
 
 	return config.get_value("game", "deleted_nodes_paths")
+
+
+func get_pet_unlocked() -> bool:
+	if config.load(path) != OK:
+		return false
+
+	return config.get_value("game", "pet_unlocked", false)
+
+
+func get_pet_color() -> Color:
+	if config.load(path) != OK:
+		return Color.white
+
+	return config.get_value("game", "pet_color", Color.white)
+
+
+func get_pet_texture_path() -> String:
+	if config.load(path) != OK:
+		return ""
+
+	return config.get_value("game", "pet_texture_path", "")
+
 
 func write():
 	config.save(path)

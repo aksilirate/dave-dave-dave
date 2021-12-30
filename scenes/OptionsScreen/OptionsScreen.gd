@@ -14,3 +14,11 @@ func _on_FullscreenCheckBox_toggled(button_pressed):
 
 func _on_DPadCheckBox_toggled(button_pressed):
 	Options.set_d_pad(button_pressed)
+
+
+func _on_SmoothCameraCheckBox_toggled(button_pressed):
+	Options.set_smooth_camera(button_pressed)
+
+
+func _on_HidePetCheckBox_toggled(button_pressed):
+	Options.set_hide_pet(button_pressed)

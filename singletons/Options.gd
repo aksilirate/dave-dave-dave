@@ -4,6 +4,8 @@ signal music_volume_updated(arg_volume_db)
 signal sfx_volume_updated(volume_percentage)
 
 signal d_pad_updated
+signal smooth_camera_updated
+signal hide_pet_updated
 
 var path: String = "user://options.cfg"
 var config = ConfigFile.new()
@@ -44,6 +46,16 @@ func set_d_pad(d_pad: bool) -> void:
 	config.save(path)
 	emit_signal("d_pad_updated")
 
+func set_smooth_camera(smooth_camera: bool) -> void:
+	config.set_value("camera", "smooth_camera", smooth_camera)
+	config.save(path)
+	emit_signal("smooth_camera_updated")
+
+func set_hide_pet(hide_pet: bool) -> void:
+	config.set_value("pet", "hide_pet", hide_pet)
+	config.save(path)
+	emit_signal("hide_pet_updated")
+
 # Getting
 func get_fullscreen() -> bool:
 	var config = ConfigFile.new()
@@ -68,6 +80,20 @@ func get_d_pad() -> bool:
 	if config.load(path) != OK:
 		return false
 	return config.get_value("controls", "d_pad", false)
+
+
+func get_smooth_camera() -> bool:
+	var config = ConfigFile.new()
+	if config.load(path) != OK:
+		return true
+	return config.get_value("camera", "smooth_camera", true)
+
+func get_hide_pet() -> bool:
+	var config = ConfigFile.new()
+	if config.load(path) != OK:
+		return false
+	return config.get_value("pet", "hide_pet", false)
+
 
 func delete():
 	var dir = Directory.new()

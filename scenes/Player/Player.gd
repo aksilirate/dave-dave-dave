@@ -15,6 +15,9 @@ onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
 onready var time_label = $CanvasLayer/HBoxContainer2/VBoxContainer/TimeLabel
 onready var death_count_label = $CanvasLayer/HBoxContainer2/VBoxContainer/DeathCountLabel
 onready var camera = $Camera2D
+onready var pet_body = $PetBody
+onready var pet_position = $PetPosition
+
 
 export(bool) var double_jump: bool = false
 export(bool) var has_crown: bool = false
@@ -40,6 +43,7 @@ var haste: float
 var deaths: int = 0
 var time: float = 0
 
+var pet_chamber_overlapping: bool = false
 
 
 func _ready():
@@ -57,7 +61,8 @@ func _ready():
 		inventory = Save.get_player_inventory()
 		update_deaths_label()
 		update_inventory()
-		
+	
+	pet_body.global_position = pet_position.global_position
 		
 func _process(delta):
 	time += delta
@@ -65,7 +70,6 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	
 	haste -= delta
 	haste = max(0, haste)
 	haste_progress_bar.value = haste * 10
@@ -131,7 +135,15 @@ func _physics_process(delta):
 		sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
 		boots_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
 		crown_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
-	
+		
+		
+		if displacement.x < 0:
+			pet_position.position.x = 8
+			
+		if displacement.x > 0:
+			pet_position.position.x = -8
+		
+		
 	play_animation_from_state(get_state())
 	
 	for index in get_slide_count():
@@ -175,7 +187,7 @@ func play_animation_from_state(state: int):
 	
 func respawn():
 	global_position = respawn_location
-
+	pet_body.global_position = pet_position.global_position
 
 func add_item_to_inventory(item: Item):
 	inventory.push_back(item)

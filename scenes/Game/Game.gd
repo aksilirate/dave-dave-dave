@@ -24,6 +24,8 @@ onready var red_man_3 = $World/RedMan3
 onready var red_man_4 = $World/RedMan4
 onready var ambient_player = $AnmbientPlayer
 onready var diamond_texture = $World/Player/CanvasLayer/HBoxContainer/DiamondsLabel/DiamondTextureRect
+onready var pet_chamber = $World/PetChamber
+
 
 var deleted_nodes_paths: Array = []
 
@@ -255,7 +257,13 @@ func _physics_process(delta):
 					Audio.play("res://assets/sounds/second_jump.wav", -10)
 					second_jump.disable()
 					player.jump_timer.start()
+	
 
+	player.pet_body.target_location = player.pet_position.global_position
+	for body in pet_chamber.get_overlapping_bodies():
+		if body is Player:
+			player.pet_body.target_location = pet_chamber.global_position + Vector2(0,-164)
+	
 
 
 
@@ -365,3 +373,35 @@ func _on_RedMan4_tree_exited():
 	deleted_nodes_paths.push_back(red_man_4.get_path())
 
 
+func _on_PetChamber_body_entered(body):
+	var colors = [
+		Color.white, 
+		Color("f8f800"),
+		Color("f800f8"),
+		Color("00f800"),
+		Color("00f8f8"),
+		Color("808000"),
+		]
+	var texture_paths = [
+		"res://assets/textures/pet_0.png",
+		"res://assets/textures/pet_1.png",
+		"res://assets/textures/pet_2.png",
+		"res://assets/textures/pet_3.png",
+		"res://assets/textures/pet_4.png",
+		"res://assets/textures/pet_5.png",
+	]
+	if body is Player:
+		Audio.play("res://assets/sounds/pet_summon.wav", -10)
+		player.pet_body.global_position = pet_chamber.global_position + Vector2(0,-164)
+		randomize()
+		colors.shuffle()
+		texture_paths.shuffle()
+		body.pet_body.unlocked = true
+		body.pet_body.visible = !Options.get_hide_pet()
+		body.pet_body.modulate = colors[0]
+		body.pet_body.texture = load(texture_paths[0])
+		Save.set_pet_color(colors[0])
+		Save.set_pet_texture_path(texture_paths[0])
+		Save.set_pet_unlocked(true)
+		Save.write()
+			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/OptionsScreen/FullscreenLabel.gd" type="Script" id=6]
 [ext_resource path="res://scenes/OptionsScreen/DPadCheckBox.gd" type="Script" id=7]
 [ext_resource path="res://scenes/OptionsScreen/DPadLabel.gd" type="Script" id=8]
+[ext_resource path="res://scenes/OptionsScreen/SmoothCameraCheckBox.gd" type="Script" id=9]
+[ext_resource path="res://scenes/OptionsScreen/HidePetCheckBox.gd" type="Script" id=10]
 
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0
@@ -15,6 +17,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -23,14 +26,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="FullscreenCheckBox" type="CheckBox" parent="."]
 margin_left = 80.0
-margin_top = 80.0
+margin_top = 50.0
 margin_right = 96.0
-margin_bottom = 96.0
+margin_bottom = 66.0
 rect_scale = Vector2( 4, 4 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -39,42 +43,136 @@ __meta__ = {
 
 [node name="FullscreenLabel" type="Label" parent="."]
 margin_left = 130.0
-margin_top = 90.0
+margin_top = 60.0
 margin_right = 290.0
-margin_bottom = 106.0
+margin_bottom = 76.0
 text = "Fullscreen"
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DPadCheckBox" type="CheckBox" parent="."]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
 margin_left = 80.0
-margin_top = 320.0
+margin_top = 246.0
 margin_right = 96.0
-margin_bottom = 336.0
+margin_bottom = 302.0
 rect_scale = Vector2( 4, 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+margin_right = 16.0
+margin_bottom = 16.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DPadCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DPadLabel" type="Label" parent="."]
-margin_left = 130.0
-margin_top = 330.0
-margin_right = 290.0
-margin_bottom = 346.0
+[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="DPadLabel" type="Label" parent="VBoxContainer3/HBoxContainer/Control"]
+margin_right = 80.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "D-Pad"
+align = 1
+valign = 1
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmoothCameraCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer2"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer2"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="SmoothCameraLabel" type="Label" parent="VBoxContainer3/HBoxContainer2/Control"]
+margin_right = 80.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Smooth Camera"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer3"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HidePetCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer3"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer3"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="HidePetLabel" type="Label" parent="VBoxContainer3/HBoxContainer3/Control"]
+margin_right = 80.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hide Pet"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MusicHSlider" type="HSlider" parent="."]
 margin_left = 180.0
-margin_top = 180.0
+margin_top = 120.0
 margin_right = 330.0
-margin_bottom = 196.0
+margin_bottom = 136.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
 script = ExtResource( 5 )
@@ -84,9 +182,9 @@ __meta__ = {
 
 [node name="SFXHSlider" type="HSlider" parent="."]
 margin_left = 180.0
-margin_top = 220.0
+margin_top = 160.0
 margin_right = 330.0
-margin_bottom = 236.0
+margin_bottom = 176.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
 script = ExtResource( 4 )
@@ -96,9 +194,9 @@ __meta__ = {
 
 [node name="MusicLabel" type="Label" parent="."]
 margin_left = 80.0
-margin_top = 190.0
+margin_top = 130.0
 margin_right = 160.0
-margin_bottom = 206.0
+margin_bottom = 146.0
 text = "Music"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,9 +204,9 @@ __meta__ = {
 
 [node name="SFXLabel" type="Label" parent="."]
 margin_left = 80.0
-margin_top = 230.0
+margin_top = 170.0
 margin_right = 160.0
-margin_bottom = 246.0
+margin_bottom = 186.0
 text = "SFX"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -126,8 +224,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
-[connection signal="toggled" from="DPadCheckBox" to="." method="_on_DPadCheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer3/HBoxContainer/DPadCheckBox" to="." method="_on_DPadCheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer3/HBoxContainer2/SmoothCameraCheckBox" to="." method="_on_SmoothCameraCheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer3/HBoxContainer3/HidePetCheckBox" to="." method="_on_HidePetCheckBox_toggled"]
 [connection signal="value_changed" from="MusicHSlider" to="MusicHSlider" method="_on_MusicHSlider_value_changed"]
 [connection signal="value_changed" from="SFXHSlider" to="SFXHSlider" method="_on_SFXHSlider_value_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
