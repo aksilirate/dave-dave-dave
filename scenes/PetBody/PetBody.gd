@@ -12,15 +12,14 @@ func _ready():
 	unlocked = Save.get_pet_unlocked()
 	visible = !Options.get_hide_pet()
 	
-	if not unlocked:
-		hide()
 	
 	modulate = Save.get_pet_color()
 	texture = load(Save.get_pet_texture_path())
 	
+	if not unlocked:
+		modulate.a = 0
 
 func _on_options_hide_pet_updated():
-	hide()
 	if unlocked:
 		visible = !Options.get_hide_pet()
 

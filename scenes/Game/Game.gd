@@ -290,6 +290,7 @@ func save_game() -> void:
 	Save.set_player_diamonds_collected(player.diamonds_collected)
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
+	Save.set_pet_unlocked(player.pet_body.unlocked)
 	Save.write()
 	Stats.set_completed(false)
 	Stats.set_deaths(player.deaths)

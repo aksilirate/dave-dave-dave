@@ -11731,7 +11731,6 @@ collision_mask = 0
 
 [node name="Player" parent="World" instance=ExtResource( 1 )]
 position = Vector2( -14210, 8280 )
-double_jump = true
 
 [node name="CollisionShape2D" parent="World/Player" index="6"]
 shape = SubResource( 114 )
