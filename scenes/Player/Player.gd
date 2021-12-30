@@ -32,7 +32,7 @@ var gravity: float = 0.25
 var velocity: Vector2
 var displacement: Vector2
 
-var diamonds_collected: int
+export (int) var diamonds_collected: int
 
 var inventory: Array
 var double_jumped: bool = false

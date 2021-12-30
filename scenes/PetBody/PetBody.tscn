@@ -7,3 +7,5 @@
 scale = Vector2( 10, 10 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_PetBody_visibility_changed"]

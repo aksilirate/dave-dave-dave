@@ -42,10 +42,12 @@ var original_spawn_position: Vector2
 func _on_FreedomArea_body_entered(body):
 	if Globals.ghost_mode:
 		return
+		
 	if player.deaths >= 1000:
 		animation_player.play("end_red")
 	else:
 		animation_player.play("end")
+		
 	Steamworks.unlock_achievement("FREEDOM_WAS_A_LIE")
 	Stats.set_ghost_mode_enabled(true)
 	Stats.set_completed(true)
@@ -55,7 +57,6 @@ func _on_FreedomArea_body_entered(body):
 	Save.delete()
 
 func _ready():
-	
 	original_spawn_position = player.global_position
 	player.respawn_location = original_spawn_position
 	
@@ -290,6 +291,7 @@ func save_game() -> void:
 	Save.set_player_diamonds_collected(player.diamonds_collected)
 	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
+	Save.set_pet_unlocked(player.pet_body.unlocked)
 	Save.write()
 	Stats.set_completed(false)
 	Stats.set_deaths(player.deaths)
@@ -300,6 +302,7 @@ func save_game() -> void:
 func _on_SaveExitButton_pressed():
 	if not Globals.ghost_mode and not Globals.zero_deaths_mode:
 		save_game()
+		
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
 func return_to_title_screen():
@@ -313,6 +316,7 @@ func _on_FreedomAreaSpace_body_entered(body):
 		animation_player.play("diamonds_end_red")
 	else:
 		animation_player.play("diamonds_end")
+		
 	Steamworks.unlock_achievement("FREEDOM")
 	Stats.set_ghost_mode_enabled(true)
 	Stats.set_completed(true)
@@ -364,11 +368,6 @@ func _on_Sign17_body_entered(body):
 		Steamworks.unlock_achievement("WHO_IS_DAVE")
 
 
-func _on_Game_tree_exiting():
-	if not Globals.ghost_mode and not Globals.zero_deaths_mode:
-		save_game()
-
-
 func _on_RedMan4_tree_exited():
 	deleted_nodes_paths.push_back(red_man_4.get_path())
 
@@ -389,6 +388,7 @@ func _on_PetChamber_body_entered(body):
 		"res://assets/textures/pet_3.png",
 		"res://assets/textures/pet_4.png",
 		"res://assets/textures/pet_5.png",
+		"res://assets/textures/pet_6.png",
 	]
 	if body is Player:
 		Audio.play("res://assets/sounds/pet_summon.wav", -10)
