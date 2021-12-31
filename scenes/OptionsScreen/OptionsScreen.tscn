@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/OptionsScreen/HidePetCheckBox.gd" type="Script" id=10]
 [ext_resource path="res://scenes/OptionsScreen/BackButton.gd" type="Script" id=11]
 [ext_resource path="res://scenes/OptionsScreen/EnableSelectionCheckBox.gd" type="Script" id=12]
+[ext_resource path="res://scenes/OptionsScreen/HBoxContainer4.gd" type="Script" id=13]
 
 [node name="OptionsScreen" type="Control" groups=[
 "options_screens",
@@ -181,6 +182,7 @@ margin_top = 60.0
 margin_right = 16.0
 margin_bottom = 76.0
 custom_constants/separation = 0
+script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
