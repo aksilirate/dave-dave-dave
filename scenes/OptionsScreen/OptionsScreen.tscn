@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -10,8 +10,11 @@
 [ext_resource path="res://scenes/OptionsScreen/DPadLabel.gd" type="Script" id=8]
 [ext_resource path="res://scenes/OptionsScreen/SmoothCameraCheckBox.gd" type="Script" id=9]
 [ext_resource path="res://scenes/OptionsScreen/HidePetCheckBox.gd" type="Script" id=10]
+[ext_resource path="res://scenes/OptionsScreen/BackButton.gd" type="Script" id=11]
 
-[node name="OptionsScreen" type="Control"]
+[node name="OptionsScreen" type="Control" groups=[
+"options_screens",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -36,6 +39,7 @@ margin_top = 50.0
 margin_right = 96.0
 margin_bottom = 66.0
 rect_scale = Vector2( 4, 4 )
+focus_mode = 0
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,6 +78,7 @@ __meta__ = {
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
+focus_mode = 0
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -111,6 +116,7 @@ __meta__ = {
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
+focus_mode = 0
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -146,6 +152,7 @@ __meta__ = {
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
+focus_mode = 0
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -219,7 +226,14 @@ margin_left = 40.0
 margin_top = -56.0
 margin_right = 160.0
 margin_bottom = -40.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
 text = "back"
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

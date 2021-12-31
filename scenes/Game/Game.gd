@@ -25,6 +25,8 @@ onready var red_man_4 = $World/RedMan4
 onready var ambient_player = $AnmbientPlayer
 onready var diamond_texture = $World/Player/CanvasLayer/HBoxContainer/DiamondsLabel/DiamondTextureRect
 onready var pet_chamber = $World/PetChamber
+onready var pause_menu = $CanvasLayer/PauseMenu
+
 
 
 var deleted_nodes_paths: Array = []
@@ -129,6 +131,7 @@ func _ready():
 		deleted_nodes_paths = Save.get_deleted_nodes_paths()
 		for node_path in deleted_nodes_paths:
 			get_node(node_path).queue_free()
+		
 		
 		var saved_active_check_point_path = Save.get_active_checkpoint_path()
 		if saved_active_check_point_path != null and saved_active_check_point_path != "":
@@ -282,17 +285,26 @@ func save_game() -> void:
 	Save.set_deactivated_checkpoints_paths(deactivated_checkpoints_paths)
 	
 	Save.set_deleted_nodes_paths(deleted_nodes_paths)
+	
+	
 	if active_checkpoint != null:
 		Save.set_active_checkpoint_path(active_checkpoint.get_path())
+		Save.set_player_global_position(active_checkpoint.global_position)
+	else:
+		Save.set_active_checkpoint_path("")
+		Save.set_player_global_position(player.global_position)
+		
+		
 	Save.set_player_deaths(player.deaths)
 	Save.set_player_time(player.time)
 	Save.set_player_double_jump(player.double_jump)
 	Save.set_player_crown(player.has_crown)
 	Save.set_player_diamonds_collected(player.diamonds_collected)
-	Save.set_player_global_position(player.global_position)
 	Save.set_player_inventory(player.inventory)
 	Save.set_pet_unlocked(player.pet_body.unlocked)
 	Save.write()
+	
+	
 	Stats.set_completed(false)
 	Stats.set_deaths(player.deaths)
 	Stats.set_time(player.time)
@@ -378,6 +390,7 @@ func _on_PetChamber_body_entered(body):
 		Color("f8f800"),
 		Color("f800f8"),
 		Color("00f800"),
+		Color("c0c0c0"),
 		Color("00f8f8"),
 		Color("808000"),
 		]
@@ -389,6 +402,9 @@ func _on_PetChamber_body_entered(body):
 		"res://assets/textures/pet_4.png",
 		"res://assets/textures/pet_5.png",
 		"res://assets/textures/pet_6.png",
+		"res://assets/textures/pet_7.png",
+		"res://assets/textures/pet_8.png",
+		"res://assets/textures/pet_9.png",
 	]
 	if body is Player:
 		Audio.play("res://assets/sounds/pet_summon.wav", -10)
@@ -405,3 +421,9 @@ func _on_PetChamber_body_entered(body):
 		Save.set_pet_unlocked(true)
 		Save.write()
 			
+
+
+func _on_PauseMenu_visibility_changed():
+	player.controlled = true
+	if pause_menu.visible:
+		player.controlled = false

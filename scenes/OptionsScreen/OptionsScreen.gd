@@ -22,3 +22,9 @@ func _on_SmoothCameraCheckBox_toggled(button_pressed):
 
 func _on_HidePetCheckBox_toggled(button_pressed):
 	Options.set_hide_pet(button_pressed)
+
+func _input(event):
+	if event is InputEventKey:
+		if Input.is_action_pressed("esc"):
+			Audio.play("res://assets/sounds/button_press.wav")
+			queue_free()

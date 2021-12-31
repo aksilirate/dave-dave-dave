@@ -52,7 +52,6 @@ tracks/0/keys = {
 }
 
 [node name="TitleScreen" type="Control"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -93,8 +92,8 @@ __meta__ = {
 margin_top = 6.0
 margin_right = 192.0
 margin_bottom = 84.0
-custom_colors/font_color = Color( 0, 0.972549, 0.972549, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.972549, 0.972549, 1 )
 text = "DAVE
   DAVE
     DAVE"
@@ -110,6 +109,8 @@ border_width = 0.0
 margin_top = 126.0
 margin_right = 192.0
 margin_bottom = 142.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../NewGameButton")
 disabled = true
 text = "continue"
 align = 0
@@ -119,6 +120,8 @@ script = ExtResource( 4 )
 margin_top = 163.0
 margin_right = 192.0
 margin_bottom = 179.0
+focus_neighbour_top = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../ExtrasButton")
 text = "new game"
 align = 0
 script = ExtResource( 2 )

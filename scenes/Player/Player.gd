@@ -57,7 +57,13 @@ func _ready():
 		if has_crown:
 			crown_sprite.show()
 		diamonds_collected = Save.get_player_diamonds_collected()
-		global_position = Save.get_player_global_position()
+		
+		
+		var saved_position = Save.get_player_global_position()
+		if saved_position != null:
+			global_position = saved_position
+			
+			
 		inventory = Save.get_player_inventory()
 		update_deaths_label()
 		update_inventory()

@@ -24,7 +24,13 @@ func _on_ResumeButton_pressed():
 
 func _on_OptionsButton_pressed():
 	var options_screen = preload("res://scenes/OptionsScreen/OptionsScreen.tscn").instance()
+	options_screen.connect("tree_exiting", self, "_on_options_screen_tree_exiting")
 	add_child(options_screen)
+
+
+func _on_options_screen_tree_exiting():
+	if OS.get_name() != "Android":
+		pause_menu.resume_button.grab_focus()
 
 
 func _on_MenuButton_pressed():
