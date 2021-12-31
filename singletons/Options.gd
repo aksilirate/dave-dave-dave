@@ -21,11 +21,16 @@ func _ready():
 	if exists():
 		OS.window_fullscreen = get_fullscreen()
 
+	for button in get_tree().get_nodes_in_group("buttons"):
+		button.focus_mode = Control.FOCUS_NONE
+		if get_enable_selection():
+			button.focus_mode = Control.FOCUS_ALL
+
 
 func _on_tree_node_added(node: Node):
 	if node.is_in_group("buttons"):
 		node.focus_mode = Control.FOCUS_NONE
-		if Options.get_enable_selection():
+		if get_enable_selection():
 			node.focus_mode = Control.FOCUS_ALL
 	
 
@@ -73,7 +78,7 @@ func set_enable_selection(enable_selection: bool) -> void:
 	
 	for button in get_tree().get_nodes_in_group("buttons"):
 		button.focus_mode = Control.FOCUS_NONE
-		if Options.get_enable_selection():
+		if get_enable_selection():
 			button.focus_mode = Control.FOCUS_ALL
 
 
