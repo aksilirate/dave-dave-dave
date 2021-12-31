@@ -405,6 +405,7 @@ func _on_PetChamber_body_entered(body):
 		"res://assets/textures/pet_7.png",
 		"res://assets/textures/pet_8.png",
 		"res://assets/textures/pet_9.png",
+		"res://assets/textures/pet_10.png",
 	]
 	if body is Player:
 		Audio.play("res://assets/sounds/pet_summon.wav", -10)

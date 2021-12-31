@@ -29,7 +29,7 @@ func _on_OptionsButton_pressed():
 
 
 func _on_options_screen_tree_exiting():
-	if OS.get_name() != "Android":
+	if OS.get_name() != "Android" and Options.get_enable_selection():
 		pause_menu.resume_button.grab_focus()
 
 

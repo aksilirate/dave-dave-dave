@@ -5,7 +5,7 @@ extends Button
 
 func _ready():
 	disabled = !Save.exists()
-	if Save.exists():
+	if Save.exists() and Options.get_enable_selection():
 		grab_focus()
 
 
@@ -24,5 +24,5 @@ func _input(event):
 		if Input.is_action_pressed("down") or Input.is_action_pressed("up"):
 			if not get_focus_owner() and Save.exists():
 				if !get_tree().get_nodes_in_group("options_screens").size():
-					if OS.get_name() != "Android":
+					if OS.get_name() != "Android" and Options.get_enable_selection():
 						grab_focus()

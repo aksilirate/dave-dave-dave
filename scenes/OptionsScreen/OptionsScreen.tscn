@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://scenes/OptionsScreen/SmoothCameraCheckBox.gd" type="Script" id=9]
 [ext_resource path="res://scenes/OptionsScreen/HidePetCheckBox.gd" type="Script" id=10]
 [ext_resource path="res://scenes/OptionsScreen/BackButton.gd" type="Script" id=11]
+[ext_resource path="res://scenes/OptionsScreen/EnableSelectionCheckBox.gd" type="Script" id=12]
 
 [node name="OptionsScreen" type="Control" groups=[
 "options_screens",
@@ -58,9 +59,9 @@ __meta__ = {
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 margin_left = 80.0
-margin_top = 246.0
+margin_top = 122.0
 margin_right = 96.0
-margin_bottom = 302.0
+margin_bottom = 178.0
 rect_scale = Vector2( 4, 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -175,11 +176,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3"]
+margin_top = 60.0
+margin_right = 16.0
+margin_bottom = 76.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnableSelectionCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer4"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+focus_mode = 0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer4"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="EnableSelectionLabel" type="Label" parent="VBoxContainer3/HBoxContainer4/Control"]
+margin_right = 80.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Enable Selection"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MusicHSlider" type="HSlider" parent="."]
-margin_left = 180.0
-margin_top = 120.0
-margin_right = 330.0
-margin_bottom = 136.0
+margin_left = 640.0
+margin_top = 50.0
+margin_right = 790.0
+margin_bottom = 66.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
 script = ExtResource( 5 )
@@ -188,10 +225,10 @@ __meta__ = {
 }
 
 [node name="SFXHSlider" type="HSlider" parent="."]
-margin_left = 180.0
-margin_top = 160.0
-margin_right = 330.0
-margin_bottom = 176.0
+margin_left = 640.0
+margin_top = 90.0
+margin_right = 790.0
+margin_bottom = 106.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
 script = ExtResource( 4 )
@@ -200,20 +237,20 @@ __meta__ = {
 }
 
 [node name="MusicLabel" type="Label" parent="."]
-margin_left = 80.0
-margin_top = 130.0
-margin_right = 160.0
-margin_bottom = 146.0
+margin_left = 540.0
+margin_top = 60.0
+margin_right = 620.0
+margin_bottom = 76.0
 text = "Music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SFXLabel" type="Label" parent="."]
-margin_left = 80.0
-margin_top = 170.0
-margin_right = 160.0
-margin_bottom = 186.0
+margin_left = 540.0
+margin_top = 100.0
+margin_right = 620.0
+margin_bottom = 116.0
 text = "SFX"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -250,6 +287,7 @@ margin_bottom = 40.0
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer/DPadCheckBox" to="." method="_on_DPadCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer2/SmoothCameraCheckBox" to="." method="_on_SmoothCameraCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer3/HidePetCheckBox" to="." method="_on_HidePetCheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer3/HBoxContainer4/EnableSelectionCheckBox" to="." method="_on_EnableSelectionCheckBox_toggled"]
 [connection signal="value_changed" from="MusicHSlider" to="MusicHSlider" method="_on_MusicHSlider_value_changed"]
 [connection signal="value_changed" from="SFXHSlider" to="SFXHSlider" method="_on_SFXHSlider_value_changed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

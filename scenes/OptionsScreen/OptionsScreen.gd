@@ -28,3 +28,7 @@ func _input(event):
 		if Input.is_action_pressed("esc"):
 			Audio.play("res://assets/sounds/button_press.wav")
 			queue_free()
+
+
+func _on_EnableSelectionCheckBox_toggled(button_pressed):
+	Options.set_enable_selection(button_pressed)

@@ -7,6 +7,7 @@ signal d_pad_updated
 signal smooth_camera_updated
 signal hide_pet_updated
 
+
 var path: String = "user://options.cfg"
 var config = ConfigFile.new()
 
@@ -56,6 +57,13 @@ func set_hide_pet(hide_pet: bool) -> void:
 	config.save(path)
 	emit_signal("hide_pet_updated")
 
+
+func set_enable_selection(enable_selection: bool) -> void:
+	config.set_value("controls", "enable_selection", enable_selection)
+	config.save(path)
+	emit_signal("enable_selection_updated")
+
+
 # Getting
 func get_fullscreen() -> bool:
 	var config = ConfigFile.new()
@@ -93,6 +101,13 @@ func get_hide_pet() -> bool:
 	if config.load(path) != OK:
 		return false
 	return config.get_value("pet", "hide_pet", false)
+
+
+func get_enable_selection() -> bool:
+	var config = ConfigFile.new()
+	if config.load(path) != OK:
+		return false
+	return config.get_value("controls", "enable_selection", false)
 
 
 func delete():
