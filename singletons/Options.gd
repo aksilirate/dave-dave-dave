@@ -6,13 +6,14 @@ signal sfx_volume_updated(volume_percentage)
 signal d_pad_updated
 signal smooth_camera_updated
 signal hide_pet_updated
-
+signal enable_selection_updated
 
 var path: String = "user://options.cfg"
 var config = ConfigFile.new()
 
 
 func _ready():
+	get_tree().connect("node_added", self, "_on_tree_node_added")
 	if Globals.steamworks_loaded and Steamworks.is_owned():
 		path = Steamworks.get_user_path() + "/GameData/options.cfg"
 	config.load(path)
@@ -20,6 +21,13 @@ func _ready():
 	if exists():
 		OS.window_fullscreen = get_fullscreen()
 
+
+func _on_tree_node_added(node: Node):
+	if node.is_in_group("buttons"):
+		node.focus_mode = Control.FOCUS_NONE
+		if Options.get_enable_selection():
+			node.focus_mode = Control.FOCUS_ALL
+	
 
 func exists() -> bool:
 	var file = File.new()
@@ -62,6 +70,12 @@ func set_enable_selection(enable_selection: bool) -> void:
 	config.set_value("controls", "enable_selection", enable_selection)
 	config.save(path)
 	emit_signal("enable_selection_updated")
+	
+	for button in get_tree().get_nodes_in_group("buttons"):
+		button.focus_mode = Control.FOCUS_NONE
+		if Options.get_enable_selection():
+			button.focus_mode = Control.FOCUS_ALL
+
 
 
 # Getting

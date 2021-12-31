@@ -12363,7 +12363,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" groups=[
+"buttons",
+]]
 margin_top = 246.0
 margin_right = 1024.0
 margin_bottom = 262.0
@@ -12373,7 +12375,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" groups=[
+"buttons",
+]]
 margin_top = 292.0
 margin_right = 1024.0
 margin_bottom = 308.0
@@ -12382,7 +12386,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SaveExitButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer"]
+[node name="SaveExitButton" type="Button" parent="CanvasLayer/PauseMenu/VBoxContainer" groups=[
+"buttons",
+]]
 margin_top = 338.0
 margin_right = 1024.0
 margin_bottom = 354.0
