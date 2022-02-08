@@ -289,10 +289,9 @@ func save_game() -> void:
 	
 	if active_checkpoint != null:
 		Save.set_active_checkpoint_path(active_checkpoint.get_path())
-		Save.set_player_global_position(active_checkpoint.global_position)
 	else:
 		Save.set_active_checkpoint_path("")
-		Save.set_player_global_position(player.global_position)
+	Save.set_player_global_position(player.global_position)
 		
 		
 	Save.set_player_deaths(player.deaths)

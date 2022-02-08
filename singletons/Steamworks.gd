@@ -1,7 +1,7 @@
 extends Node
 
-
-
+#
+#
 #func _ready() -> void:
 #	if not is_owned() or OS.get_name == "Android":
 #		set_process(false)
