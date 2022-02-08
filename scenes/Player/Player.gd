@@ -194,6 +194,8 @@ func play_animation_from_state(state: int):
 func respawn():
 	global_position = respawn_location
 	pet_body.global_position = pet_position.global_position
+	velocity = Vector2.ZERO
+	jumped = false
 
 func add_item_to_inventory(item: Item):
 	inventory.push_back(item)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -13,10 +13,9 @@
 [ext_resource path="res://scenes/OptionsScreen/BackButton.gd" type="Script" id=11]
 [ext_resource path="res://scenes/OptionsScreen/EnableSelectionCheckBox.gd" type="Script" id=12]
 [ext_resource path="res://scenes/OptionsScreen/HBoxContainer4.gd" type="Script" id=13]
+[ext_resource path="res://scenes/OptionsScreen/EnableVSyncCheckBox.gd" type="Script" id=14]
 
-[node name="OptionsScreen" type="Control" groups=[
-"options_screens",
-]]
+[node name="OptionsScreen" type="Control" groups=["options_screens"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
@@ -68,9 +67,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer3"]
 margin_right = 16.0
 margin_bottom = 16.0
+custom_constants/separation = 0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnableVSyncCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer5"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer5"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 16.0
+
+[node name="EnableVSyncLabel" type="Label" parent="VBoxContainer3/HBoxContainer5/Control"]
+margin_right = 256.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Enable V-Sync"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,9 +142,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
-margin_top = 20.0
+margin_top = 40.0
 margin_right = 16.0
-margin_bottom = 36.0
+margin_bottom = 56.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -142,9 +178,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer3"]
-margin_top = 40.0
+margin_top = 60.0
 margin_right = 16.0
-margin_bottom = 56.0
+margin_bottom = 76.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -178,9 +214,9 @@ __meta__ = {
 }
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3"]
-margin_top = 60.0
+margin_top = 80.0
 margin_right = 16.0
-margin_bottom = 76.0
+margin_bottom = 96.0
 custom_constants/separation = 0
 script = ExtResource( 13 )
 __meta__ = {
@@ -215,9 +251,9 @@ __meta__ = {
 }
 
 [node name="MusicHSlider" type="HSlider" parent="."]
-margin_left = 640.0
+margin_left = 610.0
 margin_top = 50.0
-margin_right = 790.0
+margin_right = 760.0
 margin_bottom = 66.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
@@ -227,9 +263,9 @@ __meta__ = {
 }
 
 [node name="SFXHSlider" type="HSlider" parent="."]
-margin_left = 640.0
+margin_left = 610.0
 margin_top = 90.0
-margin_right = 790.0
+margin_right = 760.0
 margin_bottom = 106.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
@@ -239,9 +275,9 @@ __meta__ = {
 }
 
 [node name="MusicLabel" type="Label" parent="."]
-margin_left = 540.0
+margin_left = 510.0
 margin_top = 60.0
-margin_right = 620.0
+margin_right = 590.0
 margin_bottom = 76.0
 text = "Music"
 __meta__ = {
@@ -249,18 +285,16 @@ __meta__ = {
 }
 
 [node name="SFXLabel" type="Label" parent="."]
-margin_left = 540.0
+margin_left = 510.0
 margin_top = 100.0
-margin_right = 620.0
+margin_right = 590.0
 margin_bottom = 116.0
 text = "SFX"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackButton" type="Button" parent="." groups=[
-"buttons",
-]]
+[node name="BackButton" type="Button" parent="." groups=["buttons"]]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
@@ -288,6 +322,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
+[connection signal="toggled" from="VBoxContainer3/HBoxContainer5/EnableVSyncCheckBox" to="VBoxContainer3/HBoxContainer5/EnableVSyncCheckBox" method="_on_EnableVSyncCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer/DPadCheckBox" to="." method="_on_DPadCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer2/SmoothCameraCheckBox" to="." method="_on_SmoothCameraCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer3/HidePetCheckBox" to="." method="_on_HidePetCheckBox_toggled"]
