@@ -239,6 +239,7 @@ func play_footstep():
 
 func increase_death_count():
 	if Globals.zero_deaths_mode:
+# warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 	deaths += 1
 	update_deaths_label()

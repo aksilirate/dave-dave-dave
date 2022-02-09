@@ -8,6 +8,9 @@ onready var collision_shape = $CollisionShape2D
 onready var respawn_timer = $RespawnTimer
 
 
+func _ready():
+	$AnimationPlayer.play("idle")
+
 func consume() -> void:
 	Audio.play("res://assets/sounds/collect_haste_potion.wav")
 	collision_shape.set_deferred("disabled", true)

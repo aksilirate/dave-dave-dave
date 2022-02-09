@@ -379,9 +379,6 @@ func _on_Sign17_body_entered(body):
 		Steamworks.unlock_achievement("WHO_IS_DAVE")
 
 
-func _on_RedMan4_tree_exited():
-	deleted_nodes_paths.push_back(red_man_4.get_path())
-
 
 func _on_PetChamber_body_entered(body):
 	var colors = [
@@ -427,3 +424,7 @@ func _on_PauseMenu_visibility_changed():
 	player.controlled = true
 	if pause_menu.visible:
 		player.controlled = false
+
+
+func _on_RedMan4_died():
+	deleted_nodes_paths.push_back(red_man_4.get_path())

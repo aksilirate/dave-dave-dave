@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/TitleScreen/NewGameButton.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/textures/splash_art_1.png" type="Texture" id=11]
 [ext_resource path="res://assets/textures/splash_art_0.png" type="Texture" id=12]
 [ext_resource path="res://assets/textures/splash_art_3.png" type="Texture" id=13]
+[ext_resource path="res://scenes/TitleScreen/AnimationPlayer.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -35,6 +36,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 1.5
@@ -49,6 +62,50 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ), Vector2( 0, 20 ) ]
 }
 
 [node name="TitleScreen" type="Control"]
@@ -93,8 +150,8 @@ __meta__ = {
 margin_top = 6.0
 margin_right = 192.0
 margin_bottom = 84.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0.972549, 0.972549, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "DAVE
   DAVE
     DAVE"
@@ -106,9 +163,7 @@ margin_bottom = 105.0
 border_color = Color( 1, 0, 0, 0 )
 border_width = 0.0
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer" groups=[
-"buttons",
-]]
+[node name="ContinueButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
 margin_top = 126.0
 margin_right = 192.0
 margin_bottom = 142.0
@@ -119,9 +174,7 @@ text = "continue"
 align = 0
 script = ExtResource( 4 )
 
-[node name="NewGameButton" type="Button" parent="VBoxContainer" groups=[
-"buttons",
-]]
+[node name="NewGameButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
 margin_top = 163.0
 margin_right = 192.0
 margin_bottom = 179.0
@@ -134,9 +187,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExtrasButton" type="Button" parent="VBoxContainer" groups=[
-"buttons",
-]]
+[node name="ExtrasButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
 margin_top = 200.0
 margin_right = 192.0
 margin_bottom = 216.0
@@ -146,9 +197,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer" groups=[
-"buttons",
-]]
+[node name="OptionsButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
 margin_top = 237.0
 margin_right = 192.0
 margin_bottom = 253.0
@@ -158,9 +207,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="Button" parent="VBoxContainer" groups=[
-"buttons",
-]]
+[node name="ExitButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
 margin_top = 274.0
 margin_right = 192.0
 margin_bottom = 290.0
@@ -214,7 +261,15 @@ texture = ExtResource( 12 )
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2( -1300, 150 )
 texture = ExtResource( 11 )
+offset = Vector2( 0, -20 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2"]
+root_node = NodePath("../../..")
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 6 )
+script = ExtResource( 14 )
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="VBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="VBoxContainer/NewGameButton" method="_on_NewGameButton_pressed"]

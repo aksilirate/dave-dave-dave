@@ -14,7 +14,11 @@ func _ready():
 	
 	
 	modulate = Save.get_pet_color()
-	texture = load(Save.get_pet_texture_path())
+	var pet_texture = Save.get_pet_texture_path()
+	if pet_texture != "":
+		texture = load(pet_texture)
+	else:
+		texture = null
 	
 	if not unlocked:
 		modulate.a = 0
