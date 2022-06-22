@@ -343,17 +343,9 @@ func _on_DiamondGate_body_entered(body):
 		player.animation_player.play("death")
 
 
+
 func _on_player_animation_finished(anim_name):
 	if anim_name == "death":
-		
-		if OS.get_name() == "Android":
-			if not MobileAds.get_is_rewarded_loaded():
-				MobileAds.load_interstitial()
-			else:
-				if not player.deaths % 50:
-					MobileAds.show_interstitial()
-					MobileAds.load_interstitial()
-					
 		update_death_effects()
 
 

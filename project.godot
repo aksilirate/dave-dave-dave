@@ -171,11 +171,6 @@ Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
 Android="*res://singletons/Android.gd"
-MobileAds="*res://addons/admob/src/singletons/MobileAds.gd"
-
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/admob/plugin.cfg", "res://addons/joystick_control/plugin.cfg" )
 
 [input]
 

@@ -2,8 +2,6 @@ extends CanvasLayer
 
 
 onready var pause_menu = $PauseMenu
-onready var joystick = $Joystick
-onready var d_pad = $DPad
 
 func _ready():
 	Options.connect("d_pad_updated", self, "_on_d_pad_updated")
