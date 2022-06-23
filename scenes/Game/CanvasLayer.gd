@@ -7,9 +7,6 @@ func _ready():
 	Options.connect("d_pad_updated", self, "_on_d_pad_updated")
 	pause_menu.hide()
 
-func _on_d_pad_updated():
-	joystick.update_visibility()
-	d_pad.update_visibility()
 
 func _input(event):
 	if event is InputEventKey:

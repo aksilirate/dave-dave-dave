@@ -14,12 +14,6 @@ func _ready():
 
 
 func _process(delta):
-	if OS.get_name() == "Android":
-		mouse_pos.x += Input.get_accelerometer().x * 3.0
-		mouse_pos.y += Input.get_accelerometer().y * 0.25
-		
-		mouse_pos = mouse_pos.linear_interpolate(Vector2.ZERO, delta * 0.0025 * mouse_pos.distance_to(Vector2.ZERO))
-		
 	relative_x = -1 * (mouse_pos.x - (viewport_size.x/2)) / (viewport_size.x/2)
 	relative_y = -1 * (mouse_pos.y - (viewport_size.y/2)) / (viewport_size.y/2)
 	
@@ -32,11 +26,12 @@ func _process(delta):
 
 
 func _input(event):
-	if event is InputEventMouseMotion and OS.get_name() != "Android":
+	if event is InputEventMouseMotion:
 		mouse_pos = event.position
 
-# gets called on the start of the application once and every time the viewport changes
-# centers the images
+
+
+
 func viewport_changed():
 	viewport_size = get_viewport().size
 	for child in self.get_children():
