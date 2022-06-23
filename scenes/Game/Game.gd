@@ -3,7 +3,6 @@ extends Node
 onready var world = $World
 onready var animation_player = $AnimationPlayer
 onready var checkpoints = $World/Checkpoints
-onready var spikes = $World/Spikes
 onready var items = $World/Items
 onready var locked_doors = $World/LockedDoors
 onready var moving_platforns = $World/MovingPlatforms
@@ -74,10 +73,6 @@ func _ready():
 		# warning-ignore:return_value_discarded
 			checkpoint_node.connect("activated", self, "_on_checkpoint_activated", [checkpoint_node])
 			
-		for child in spikes.get_children():
-			var spikes_node: Area2D = child
-		# warning-ignore:return_value_discarded
-			spikes_node.connect("body_entered", self, "_on_spikes_body_entered")
 			
 		for child in items.get_children():
 			var item_node: Area2D = child
@@ -165,9 +160,6 @@ func _on_checkpoint_activated(arg_checkpoint: Checkpoint):
 			save_game()
 		
 		
-func _on_spikes_body_entered(body):
-	Audio.play("res://assets/sounds/death.wav")
-	player.animation_player.play("death")
 
 
 func _on_item_body_entered(body, arg_item_area: ItemArea):
@@ -211,18 +203,24 @@ func _on_Crown_body_entered(body):
 	player.crown_sprite.show()
 
 
-func _on_Spikes24_body_entered(body):
-	Audio.play("res://assets/sounds/death.wav")
-	player.animation_player.play("death")
 
 func _on_wall_gun_shot_bullet(arg_bullet: Bullet):
 	arg_bullet.connect("body_entered", self, "_on_bullet_body_entered", [arg_bullet])
+
+
+
 
 func _on_bullet_body_entered(body, arg_bullet: Bullet):
 	if body is Player:
 		Audio.play("res://assets/sounds/death.wav")
 		player.animation_player.play("death")
+		
+		
 	arg_bullet.queue_free()
+
+
+
+
 
 func _on_diamond_body_entered(body, arg_diamond):
 	Audio.play("res://assets/sounds/collect_diamond.wav")

@@ -2,8 +2,6 @@ class_name Time
 
 
 
-
-
 static func get_formatted(time: float) -> String:
 	var mils = fmod(time,1)*1000
 	var sec = fmod(time, 60)

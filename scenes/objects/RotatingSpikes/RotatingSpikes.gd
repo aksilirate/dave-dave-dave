@@ -1,4 +1,4 @@
-extends Area2D
+extends DamageArea
 
 
 onready var animation_player = $AnimationPlayer

@@ -47,6 +47,10 @@ var pet_chamber_overlapping: bool = false
 
 
 func _ready():
+	GameData.damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
+	
+	
+	
 	if Save.exists() and not Globals.zero_deaths_mode:
 		deaths = Save.get_player_deaths()
 		time = Save.get_player_time()
@@ -69,7 +73,23 @@ func _ready():
 		update_inventory()
 	
 	pet_body.global_position = pet_position.global_position
-		
+
+
+
+
+
+
+
+func _on_damage_area_last_collided_body_set():
+	if GameData.damage_area_data.last_collided_body == self:
+		Audio.play("res://assets/sounds/death.wav")
+		animation_player.play("death")
+
+
+
+
+
+
 func _process(delta):
 	time += delta
 	time_label.text = Time.get_formatted(time)

@@ -188,9 +188,6 @@ time: --
 
 deaths: --"
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/load = SubResource( 4 )
@@ -223,12 +220,14 @@ anims/idle = SubResource( 6 )
 script = ExtResource( 11 )
 
 [node name="BlackScreen" type="ColorRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="PreTitle" parent="." instance=ExtResource( 15 )]
+visible = false
 mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="VBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]

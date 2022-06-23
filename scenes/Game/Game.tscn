@@ -1,11 +1,11 @@
-[gd_scene load_steps=169 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=2]
 [ext_resource path="res://scenes/FreedomArea/FreedomArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Sign/Sign.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Game/Game.gd" type="Script" id=5]
-[ext_resource path="res://scenes/Spikes/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/Spikes/Spikes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Checkpoint/Checkpoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Box/Box.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=9]
@@ -19,7 +19,7 @@
 [ext_resource path="res://scenes/SecondJump/SecondJump.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/DoubleJump/Collectible.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/WallGun/WallGun.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/SpikeBlock/SpikeBlock.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/objects/SpikeBlock/SpikeBlock.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/Diamond/Diamond.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/WeakBlock/WeakBlock.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/MoverBlock/MoverBlock.tscn" type="PackedScene" id=23]
@@ -30,7 +30,7 @@
 [ext_resource path="res://scenes/HastePotion/HastePotion.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/Crown/Crown.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/GreenGate/GreenGate.tscn" type="PackedScene" id=30]
-[ext_resource path="res://scenes/RotatingSpikes/RotatingSpikes.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/objects/RotatingSpikes/RotatingSpikes.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scenes/Game/CanvasLayer.gd" type="Script" id=32]
 [ext_resource path="res://scenes/DiamondGate/DiamondGate.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scenes/Rotation/Rotation.tscn" type="PackedScene" id=34]
@@ -41,6 +41,7 @@
 [ext_resource path="res://assets/textures/end_0_red.png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/end_1_red.png" type="Texture" id=40]
 [ext_resource path="res://assets/textures/end_2_red.png" type="Texture" id=41]
+[ext_resource path="res://scenes/managers/DamageAreaManager/DamageAreaManager.tscn" type="PackedScene" id=42]
 [ext_resource path="res://resources/default_env.tres" type="Environment" id=44]
 [ext_resource path="res://scenes/Game/CanvasModulate.gd" type="Script" id=45]
 [ext_resource path="res://assets/textures/spikes.png" type="Texture" id=47]
@@ -7384,6 +7385,9 @@ anims/first_scene = SubResource( 6 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 44 )
 
+[node name="DamageAreaManager" parent="." instance=ExtResource( 42 )]
+spikes = NodePath("../World/Spikes")
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="MovementHelp" type="Label" parent="World"]
@@ -8439,811 +8443,1339 @@ position = Vector2( -12560, 7680 )
 rotation = 0.000318007
 
 [node name="Spikes1" parent="World/Spikes" instance=ExtResource( 6 )]
-position = Vector2( 1080, 440 )
+position = Vector2( 930.14, 439.704 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes2" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7480.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes3" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7560.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes4" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7800.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes5" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7880.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes6" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7960.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes7" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8200.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes8" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8280.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes9" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8360.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes10" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8440.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes179" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3799.66, -1081.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes182" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3879.66, -1081.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes183" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3959.66, -1081.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes184" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 4039.66, -1081.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes185" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3319.66, -1081.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes186" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3399.66, -1081.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes187" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3479.66, -1081.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes188" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3559.66, -1081.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes189" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2839.66, -1080.9 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes190" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2919.66, -1080.9 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes191" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2999.66, -1080.9 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes197" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3439.45, -1721.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes192" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 3079.66, -1080.9 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes193" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2359.66, -1080.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes194" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2439.66, -1080.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes195" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2519.66, -1080.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes196" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 2599.66, -1080.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes11" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8680.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes18" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14118.2, -5644.49 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes242" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15478.1, -5964.92 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes19" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13248.2, -5644.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes21" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13638.3, -5244.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes22" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13718.3, -5244.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes23" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13798.3, -5244.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes25" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12848.3, -5244.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes26" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12928.3, -5244.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes35" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 9558.64, -4283.04 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes241" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8368.77, -3882.66 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes90" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5398.36, -5171.72 )
 rotation = -1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes91" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 4758.46, -4991.51 )
 rotation = 1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes92" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 4758.46, -4911.51 )
 rotation = 1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes93" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 4758.46, -4831.51 )
 rotation = 1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes48" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13238.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes178" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13719.1, -2764.36 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes180" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13959.1, -2764.44 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes181" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14199.1, -2764.52 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes49" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13318.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes50" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13398.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes262" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14928.5, -4844.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes263" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15008.5, -4844.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes264" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15088.5, -4844.75 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes51" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13478.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes52" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13558.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes53" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13638.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes54" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13718.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes55" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13798.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes56" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13878.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes57" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13958.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes58" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14038.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes59" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14118.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes60" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14198.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes61" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14278.9, -3564.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes45" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 10759.2, -2523.42 )
 rotation = -1.5708
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes46" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 10759.2, -3003.42 )
 rotation = -1.5708
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes47" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 10759.2, -3483.42 )
 rotation = -1.5708
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes36" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11328, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes37" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11408, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes38" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11488, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes39" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11568, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes40" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11648, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes41" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11728, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes42" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11808, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes43" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11888, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes44" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11968, -6283.6 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes62" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11277, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes71" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11197, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes63" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11357, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes64" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11437, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes65" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11517, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes66" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11597, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes67" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11677, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes68" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11757, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes69" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11837, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes70" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 11917, -9403.56 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes85" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17887.3, -8606.11 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes88" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17807.3, -8606.11 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes94" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14636.6, -11004.5 )
 rotation = 3.14159
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes95" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14396.6, -11004.5 )
 rotation = 3.14159
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes96" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14156.6, -11004.5 )
 rotation = 3.14159
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes86" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17967.3, -8606.11 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes87" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18047.3, -8606.11 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes89" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19326.9, -9646.15 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes27" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13008.3, -5244.09 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes20" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12600, -5380 )
 rotation = 1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes15" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8840.22, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes260" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 10039.8, -603.193 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes261" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 10523.8, -603.347 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes199" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15169.7, -1084.82 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes16" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8920.21, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes17" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 9000.21, 677.621 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes29" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14690.4, 1155.33 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes97" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14850.4, 1155.33 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes98" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14930.4, 1155.33 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes99" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15010.4, 1155.33 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes100" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14770.4, 1155.33 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes101" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15090.4, 1155.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes102" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15250.4, 1155.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes103" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15330.4, 1155.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes104" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15410.4, 1155.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes105" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15170.4, 1155.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes106" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15490.4, 1155.07 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes107" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15650.4, 1155.07 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes108" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15730.4, 1155.07 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes109" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15810.4, 1155.07 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes110" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15570.4, 1155.07 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes111" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15890.4, 1154.95 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes112" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16050.4, 1154.95 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes113" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16130.4, 1154.95 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes114" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16210.4, 1154.95 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes115" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15970.4, 1154.95 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes137" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12370.3, 996.066 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes138" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12530.3, 996.066 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes139" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12610.3, 996.066 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes140" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12690.3, 996.066 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes141" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12450.3, 996.066 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes142" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12770.3, 995.939 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes143" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12930.3, 995.939 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes144" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13010.3, 995.939 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes145" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13090.3, 995.939 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes146" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 12850.3, 995.939 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes147" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13170.3, 995.812 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes148" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13330.3, 995.812 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes149" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13410.3, 995.812 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes150" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13490.3, 995.812 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes151" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13250.3, 995.812 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes152" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13570.3, 995.685 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes153" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13650.3, 995.685 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes154" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13730.3, 995.634 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes155" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 13810.3, 995.634 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes116" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16290.4, 1154.82 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes117" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16450.4, 1154.82 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes118" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16530.4, 1154.82 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes119" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16610.4, 1154.82 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes120" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16370.4, 1154.82 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes121" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16690.4, 1154.79 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes122" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16770.4, 1154.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes123" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16930.4, 1154.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes124" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17010.4, 1154.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes125" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17090.4, 1154.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes126" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 16850.4, 1154.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes127" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17170.4, 1154.54 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes128" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17330.4, 1154.54 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes129" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17410.4, 1154.54 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes130" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17490.4, 1154.54 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes131" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17250.4, 1154.54 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes132" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17570.4, 1154.41 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes133" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17730.4, 1154.41 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes134" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17810.4, 1154.41 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes135" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17890.4, 1154.41 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes215" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21719.9, -286.907 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes216" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21959.9, -286.984 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes243" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22209.9, -287.063 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes244" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22449.9, -287.14 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes245" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22190.1, 352.944 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes249" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21710, 113.097 )
 rotation = 3.14159
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes246" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22430.1, 352.867 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes247" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22680.1, 352.788 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes248" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22920.1, 352.711 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes136" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 17650.4, 1154.41 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes156" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18450.4, 1154.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes157" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18530.4, 1154.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes158" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18610.4, 1154.18 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes159" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18690.4, 1154.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes160" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18850.4, 1154.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes198" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21839.1, -2686.95 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes203" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20479, -3166.51 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes252" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20609.1, -2926.55 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes253" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20369.1, -2926.48 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes254" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20129.1, -2926.4 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes255" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19889.1, -2926.33 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes206" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20239, -3166.44 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes250" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19999, -3166.36 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes251" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19759, -3166.28 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes258" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19478.8, -3886.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes200" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22159.1, -2687.05 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes201" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22489.1, -2687.15 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes202" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22799.1, -2687.25 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes204" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23119.1, -2687.35 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes205" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23449.1, -2687.46 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes240" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 24759.4, -1887.87 )
 rotation = -3.14159
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes207" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23719, -3167.54 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes208" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23639, -3167.52 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes209" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23559, -3167.49 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes218" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22288.8, -3727.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes219" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22208.8, -3727.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes220" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22128.8, -3727.03 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes221" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21888.8, -3726.96 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes222" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21808.8, -3726.94 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes226" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20688.7, -4046.58 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes224" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22048.9, -3407.01 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes225" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21968.9, -3406.99 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes223" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 21728.8, -3726.91 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes210" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23479, -3167.47 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes211" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23399, -3167.44 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes212" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23319, -3167.42 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes213" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23239, -3167.39 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes214" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 23159, -3167.37 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes259" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25608.7, -3968.14 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes217" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 22919, -3167.29 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes227" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25887.4, -8128.23 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes228" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25807.4, -8128.2 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes229" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25727.4, -8128.18 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes230" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25567.8, -6848.13 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes231" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25487.8, -6848.1 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes232" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25407.8, -6848.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes233" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25807.8, -6848.21 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes234" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25727.8, -6848.18 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes235" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25647.8, -6848.16 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes236" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25887.8, -6848.23 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes237" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 26127.8, -6848.31 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes238" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 26047.8, -6848.28 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes239" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 25967.8, -6848.26 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes161" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18930.4, 1154.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes162" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19010.4, 1154.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes163" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 18770.4, 1154.06 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes164" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19090.4, 1153.93 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes165" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19250.4, 1153.93 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes166" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19330.4, 1153.93 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes167" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19410.4, 1153.93 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes168" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19170.4, 1153.93 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes169" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19490.4, 1153.8 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes170" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19650.4, 1153.8 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes171" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19730.4, 1153.8 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes172" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19810.4, 1153.8 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes173" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19570.4, 1153.8 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes174" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19970.4, 1153.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes175" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20050.4, 1153.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes176" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 20130.4, 1153.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes177" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 19890.4, 1153.67 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes13" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7959.78, -682.531 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes24" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7169.45, -1722.28 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes28" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7758.92, -3402.47 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes30" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 8158.92, -3402.59 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes31" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 6999.07, -2922.15 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes32" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 6759.07, -2922.15 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes33" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 6279.05, -3002 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes72" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5490, -3000 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes73" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5570, -3000 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes74" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5650, -3000 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes75" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5730, -3000 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes76" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5810, -3000 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes77" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 5890, -3000 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes34" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7239.07, -2922.15 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes78" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7009.22, -2442.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes79" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 6769.22, -2442.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes80" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 6529.22, -2442.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes81" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7249.22, -2442.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes82" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7479.22, -2442.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes83" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7959.22, -2442.08 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes84" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 7810, -2840 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes14" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 14119.6, -1404.49 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes256" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15799.5, -1485.02 )
 rotation = -1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes257" parent="World/Spikes" instance=ExtResource( 6 )]
 position = Vector2( 15799.5, -1685.02 )
 rotation = -1.57079
+collision_layer = 1
+collision_mask = 1
 
 [node name="Spikes0" parent="World/Spikes" instance=ExtResource( 6 )]
-position = Vector2( 1000, 440 )
+position = Vector2( 1000.14, 439.682 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="SpikeBlock" parent="World/Spikes" instance=ExtResource( 20 )]
 position = Vector2( 9478.35, -5203.01 )
@@ -10090,7 +10622,6 @@ speed = 200
 
 [node name="Spikes24" parent="World/MovingPlatforms/MovingPlatform3/KinematicBody2D" index="3" instance=ExtResource( 6 )]
 position = Vector2( -5.99988, -6.00002 )
-scale = Vector2( 1, 1 )
 
 [node name="Position2D" parent="World/MovingPlatforms/MovingPlatform3" index="2"]
 position = Vector2( 650, 0 )
@@ -13427,7 +13958,7 @@ __meta__ = {
 [connection signal="body_entered" from="World/FreedomArea" to="." method="_on_FreedomArea_body_entered"]
 [connection signal="body_entered" from="World/FreedomAreaSpace" to="." method="_on_FreedomAreaSpace_body_entered"]
 [connection signal="body_entered" from="World/Signs/Sign17" to="." method="_on_Sign17_body_entered"]
-[connection signal="body_entered" from="World/MovingPlatforms/MovingPlatform3/KinematicBody2D/Spikes24" to="." method="_on_Spikes24_body_entered"]
+[connection signal="body_entered" from="World/MovingPlatforms/MovingPlatform3/KinematicBody2D/Spikes24" to="DamageAreaManager" method="_on_Spikes24_body_entered"]
 [connection signal="body_entered" from="World/DoubleJump" to="." method="_on_DoubleJump_body_entered"]
 [connection signal="body_entered" from="World/Crown" to="." method="_on_Crown_body_entered"]
 [connection signal="body_entered" from="World/Rotation" to="." method="_on_Rotation_body_entered"]

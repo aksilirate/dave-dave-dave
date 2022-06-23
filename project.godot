@@ -20,6 +20,21 @@ _global_script_classes=[ {
 "path": "res://scenes/Checkpoint/Checkpoint.gd"
 }, {
 "base": "Area2D",
+"class": "DamageArea",
+"language": "GDScript",
+"path": "res://scenes/objects/DamageArea/DamageArea.gd"
+}, {
+"base": "Resource",
+"class": "DamageAreaData",
+"language": "GDScript",
+"path": "res://classes/data/damage_area/data.gd"
+}, {
+"base": "DamageAreaData",
+"class": "DamageAreaEditor",
+"language": "GDScript",
+"path": "res://classes/data/damage_area/editor.gd"
+}, {
+"base": "Area2D",
 "class": "HastePotion",
 "language": "GDScript",
 "path": "res://scenes/HastePotion/HastePotion.gd"
@@ -77,6 +92,9 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Bullet": "",
 "Checkpoint": "",
+"DamageArea": "",
+"DamageAreaData": "",
+"DamageAreaEditor": "",
 "HastePotion": "",
 "Item": "",
 "ItemArea": "",
@@ -170,6 +188,11 @@ Audio="*res://singletons/Audio.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
+GameData="*res://singletons/GameData.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
