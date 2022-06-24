@@ -1,5 +1,5 @@
 class_name PlayerBodyData
-extends Resource
+extends DataResource
 
 signal last_second_jumped_player_body_set
 

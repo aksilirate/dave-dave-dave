@@ -1,5 +1,5 @@
 class_name SecondJumpData
-extends Resource
+extends DataResource
 
 signal overlapping_bodies_changed
 

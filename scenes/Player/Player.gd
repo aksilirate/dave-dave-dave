@@ -49,7 +49,7 @@ var pet_chamber_overlapping: bool = false
 
 
 
-var player_body_editor: PlayerBodyEditor = GameData.player_body_data as PlayerBodyEditor
+var player_body_editor: PlayerBodyEditor = Game.player_body_data as PlayerBodyEditor
 
 
 
@@ -58,7 +58,7 @@ var player_body_editor: PlayerBodyEditor = GameData.player_body_data as PlayerBo
 
 
 func _ready():
-	GameData.damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
+	Game.damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 	
 	
 	
@@ -92,7 +92,7 @@ func _ready():
 
 
 func _on_damage_area_last_collided_body_set():
-	if GameData.damage_area_data.last_collided_body == self:
+	if Game.damage_area_data.last_collided_body == self:
 		Audio.play("res://assets/sounds/death.wav")
 		animation_player.play("death")
 
@@ -175,15 +175,11 @@ func _physics_process(delta):
 
 
 
-
-
-
-
 func _jump():
 	if not controlled:
 		return
 	
-	if GameData.second_jump_data.overlapping_bodies.has(self):
+	if Game.second_jump_data.overlapping_bodies.has(self):
 		player_body_editor.set_last_second_jumped_player_body(self)
 		Audio.play("res://assets/sounds/second_jump.wav", -10)
 		jump_timer.start()
@@ -227,6 +223,11 @@ func _jump():
 		jump_timer.stop()
 		jumped = true
 		velocity.y = -3 if gravity > 0 else 3
+
+
+
+
+
 
 
 

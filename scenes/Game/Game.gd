@@ -56,6 +56,9 @@ func _on_FreedomArea_body_entered(body):
 	Stats.write()
 	Save.delete()
 
+
+
+
 func _ready():
 	original_spawn_position = player.global_position
 	player.respawn_location = original_spawn_position
@@ -310,14 +313,25 @@ func save_game() -> void:
 	Stats.write()
 	
 	
+	
+	
+	
 func _on_SaveExitButton_pressed():
 	if not Globals.ghost_mode and not Globals.zero_deaths_mode:
 		save_game()
 		
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
 
+
+
+
+
 func return_to_title_screen():
 	get_tree().change_scene("res://scenes/TitleScreen/TitleScreen.tscn")
+
+
+
+
 
 func _on_FreedomAreaSpace_body_entered(body):
 	if Globals.ghost_mode:

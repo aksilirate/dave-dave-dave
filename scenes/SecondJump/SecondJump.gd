@@ -5,7 +5,7 @@ onready var cooldown_timer = $CooldownTimer
 onready var animation_player = $AnimationPlayer
 
 
-var second_jump_editor: SecondJumpEditor = GameData.second_jump_data as SecondJumpEditor
+var second_jump_editor: SecondJumpEditor = Game.second_jump_data as SecondJumpEditor
 
 
 var disabled: bool = false
@@ -15,14 +15,14 @@ var overlapping_bodies_cache: Array
 
 
 func _ready():
-	GameData.player_body_data.connect("last_second_jumped_player_body_set", self, "_on_last_second_jumped_player_body_set")
+	Game.player_body_data.connect("last_second_jumped_player_body_set", self, "_on_last_second_jumped_player_body_set")
 	animation_player.play("idle")
 
 
 
 
 func _on_last_second_jumped_player_body_set():
-	var last_second_jumped_player_body = GameData.player_body_data.last_second_jumped_player_body
+	var last_second_jumped_player_body = Game.player_body_data.last_second_jumped_player_body
 	if overlapping_bodies_cache.has(last_second_jumped_player_body):
 		
 		for element in overlapping_bodies_cache:

@@ -1,26 +1,27 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://resources/default_theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scenes/interface/TitleScreen/NewGameButton.gd" type="Script" id=3]
-[ext_resource path="res://scenes/interface/TitleScreen/ParallaxBackground.gd" type="Script" id=4]
-[ext_resource path="res://scenes/interface/TitleScreen/TitleScreen.gd" type="Script" id=5]
-[ext_resource path="res://scenes/interface/TitleScreen/ContinueButton.gd" type="Script" id=6]
-[ext_resource path="res://assets/textures/splash_art_0.png" type="Texture" id=7]
-[ext_resource path="res://assets/textures/splash_art_3.png" type="Texture" id=8]
-[ext_resource path="res://scenes/objects/TitleMusicPlayer/TitleMusicPlayer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/textures/splash_art_1.png" type="Texture" id=10]
-[ext_resource path="res://scenes/interface/TitleScreen/AnimationPlayer.gd" type="Script" id=11]
-[ext_resource path="res://scenes/interface/TitleScreen/ExitButton.gd" type="Script" id=12]
-[ext_resource path="res://scenes/interface/TitleScreen/RichTextLabel.gd" type="Script" id=13]
-[ext_resource path="res://scenes/interface/PreTitle/PreTitle.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/interface/TitleScene/NewGameButton.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/TitleScene/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://scenes/interface/TitleScene/RichTextLabel.gd" type="Script" id=4]
+[ext_resource path="res://scenes/interface/TitleScene/ContinueButton.gd" type="Script" id=5]
+[ext_resource path="res://scenes/interface/TitleScene/AnimationPlayer.gd" type="Script" id=6]
+[ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
+[ext_resource path="res://scenes/interface/TitleScene/ParallaxBackground.gd" type="Script" id=8]
+[ext_resource path="res://assets/textures/splash_art_0.png" type="Texture" id=9]
+[ext_resource path="res://assets/textures/splash_art_3.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/splash_art_1.png" type="Texture" id=11]
+[ext_resource path="res://scenes/interface/PreTitle/PreTitle.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/interface/NewGameGenericButton/NewGameGenericButton.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/objects/TitleMusicPlayer/TitleMusicPlayer.tscn" type="PackedScene" id=14]
+[ext_resource path="res://resources/default_theme.tres" type="Theme" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=4]
 length = 1.5
@@ -69,17 +70,17 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -20 ), Vector2( 0, 20 ) ]
 }
 
-[node name="TitleScreen" type="Control"]
+[node name="TitleScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 5 )
+theme = ExtResource( 15 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TitleMusicPlayer" parent="." instance=ExtResource( 9 )]
+[node name="TitleMusicPlayer" parent="." instance=ExtResource( 14 )]
 autoplay = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -115,57 +116,67 @@ margin_bottom = 105.0
 border_color = Color( 1, 0, 0, 0 )
 border_width = 0.0
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 126.0
 margin_right = 192.0
-margin_bottom = 142.0
+margin_bottom = 290.0
+custom_constants/separation = 21
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_right = 192.0
+margin_bottom = 16.0
 focus_neighbour_top = NodePath("../ExitButton")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 disabled = true
 text = "continue"
 align = 0
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 
-[node name="NewGameButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
-margin_top = 163.0
+[node name="NewGameGenericButton" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 13 )]
+margin_top = 37.0
+margin_bottom = 53.0
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 37.0
 margin_right = 192.0
-margin_bottom = 179.0
+margin_bottom = 53.0
 focus_neighbour_top = NodePath("../ContinueButton")
 focus_neighbour_bottom = NodePath("../ExtrasButton")
 text = "new game"
 align = 0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExtrasButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
-margin_top = 200.0
+[node name="ExtrasButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 74.0
 margin_right = 192.0
-margin_bottom = 216.0
+margin_bottom = 90.0
 text = "extras"
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
-margin_top = 237.0
+[node name="OptionsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 111.0
 margin_right = 192.0
-margin_bottom = 253.0
+margin_bottom = 127.0
 text = "options"
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitButton" type="Button" parent="VBoxContainer" groups=["buttons"]]
-margin_top = 274.0
+[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+margin_top = 148.0
 margin_right = 192.0
-margin_bottom = 290.0
+margin_bottom = 164.0
 text = "exit"
 align = 0
-script = ExtResource( 12 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -187,37 +198,37 @@ completed: no
 time: --
 
 deaths: --"
-script = ExtResource( 13 )
+script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/load = SubResource( 4 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enable = true
-script = ExtResource( 4 )
+script = ExtResource( 8 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( -1300, 150 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 offset = Vector2( 0, -20 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2"]
 root_node = NodePath("../../..")
 anims/RESET = SubResource( 5 )
 anims/idle = SubResource( 6 )
-script = ExtResource( 11 )
+script = ExtResource( 6 )
 
 [node name="BlackScreen" type="ColorRect" parent="."]
 visible = false
@@ -226,14 +237,14 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="PreTitle" parent="." instance=ExtResource( 15 )]
+[node name="PreTitle" parent="." instance=ExtResource( 12 )]
 visible = false
 mouse_filter = 2
 
-[connection signal="pressed" from="VBoxContainer/ContinueButton" to="VBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/NewGameButton" to="VBoxContainer/NewGameButton" method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ContinueButton" to="VBoxContainer/VBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/NewGameButton" to="VBoxContainer/VBoxContainer/NewGameButton" method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="VBoxContainer/VBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="tree_exited" from="PreTitle" to="." method="_on_PreTitle_tree_exited"]
 [connection signal="tree_exited" from="PreTitle" to="TitleMusicPlayer" method="_on_PreTitle_tree_exited"]

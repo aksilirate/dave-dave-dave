@@ -7,10 +7,7 @@ onready var animation_player = $AnimationPlayer
 
 
 func _on_OptionsButton_pressed():
-	Audio.play("res://assets/sounds/button_press.wav")
 	animation_player.seek(animation_player.current_animation_length, true)
-	var options_screen = preload("res://scenes/OptionsScreen/OptionsScreen.tscn").instance()
-	add_child(options_screen)
 
 
 

@@ -1,5 +1,5 @@
 class_name DamageAreaData
-extends Resource
+extends DataResource
 
 signal last_collided_body_set
 signal last_collided_body_changed

@@ -1,24 +1,25 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scenes/OptionsScreen/OptionsScreen.gd" type="Script" id=1]
-[ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
-[ext_resource path="res://scenes/OptionsScreen/FullscreenCheckBox.gd" type="Script" id=3]
-[ext_resource path="res://scenes/OptionsScreen/SFXHSlider.gd" type="Script" id=4]
-[ext_resource path="res://scenes/OptionsScreen/MusicHSlider.gd" type="Script" id=5]
-[ext_resource path="res://scenes/OptionsScreen/FullscreenLabel.gd" type="Script" id=6]
-[ext_resource path="res://scenes/OptionsScreen/DPadCheckBox.gd" type="Script" id=7]
-[ext_resource path="res://scenes/OptionsScreen/DPadLabel.gd" type="Script" id=8]
-[ext_resource path="res://scenes/OptionsScreen/SmoothCameraCheckBox.gd" type="Script" id=9]
-[ext_resource path="res://scenes/OptionsScreen/HidePetCheckBox.gd" type="Script" id=10]
-[ext_resource path="res://scenes/OptionsScreen/BackButton.gd" type="Script" id=11]
-[ext_resource path="res://scenes/OptionsScreen/EnableSelectionCheckBox.gd" type="Script" id=12]
-[ext_resource path="res://scenes/OptionsScreen/HBoxContainer4.gd" type="Script" id=13]
-[ext_resource path="res://scenes/OptionsScreen/EnableVSyncCheckBox.gd" type="Script" id=14]
+[ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.gd" type="Script" id=1]
+[ext_resource path="res://scenes/interface/OptionsScene/EnableVSyncCheckBox.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/OptionsScene/EnableSelectionCheckBox.gd" type="Script" id=3]
+[ext_resource path="res://scenes/interface/OptionsScene/SFXHSlider.gd" type="Script" id=4]
+[ext_resource path="res://scenes/interface/OptionsScene/SmoothCameraCheckBox.gd" type="Script" id=5]
+[ext_resource path="res://scenes/interface/OptionsScene/MusicHSlider.gd" type="Script" id=6]
+[ext_resource path="res://scenes/interface/OptionsScene/HBoxContainer4.gd" type="Script" id=7]
+[ext_resource path="res://scenes/interface/OptionsScene/BackButton.gd" type="Script" id=8]
+[ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scenes/interface/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/interface/OptionsScene/HidePetCheckBox.gd" type="Script" id=11]
+[ext_resource path="res://resources/default_theme.tres" type="Theme" id=12]
 
-[node name="OptionsScreen" type="Control" groups=["options_screens"]]
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 9 )
+
+[node name="OptionsScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 2 )
+theme = ExtResource( 12 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true,
@@ -34,44 +35,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FullscreenCheckBox" type="CheckBox" parent="."]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
 margin_left = 80.0
 margin_top = 50.0
 margin_right = 96.0
-margin_bottom = 66.0
+margin_bottom = 149.0
 rect_scale = Vector2( 4, 4 )
-focus_mode = 0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="FullscreenLabel" type="Label" parent="."]
-margin_left = 130.0
-margin_top = 60.0
-margin_right = 290.0
-margin_bottom = 76.0
-text = "Fullscreen"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
-margin_left = 80.0
-margin_top = 122.0
-margin_right = 96.0
-margin_bottom = 178.0
-rect_scale = Vector2( 4, 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="FullscreenOptionCheckBox" parent="VBoxContainer3" instance=ExtResource( 10 )]
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer3"]
+margin_top = 20.0
 margin_right = 16.0
-margin_bottom = 16.0
+margin_bottom = 36.0
 custom_constants/separation = 0
-script = ExtResource( 13 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -80,7 +58,7 @@ __meta__ = {
 margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
-script = ExtResource( 14 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -91,54 +69,20 @@ margin_right = 16.0
 margin_bottom = 16.0
 
 [node name="EnableVSyncLabel" type="Label" parent="VBoxContainer3/HBoxContainer5/Control"]
-margin_right = 256.0
-margin_bottom = 40.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = -3.5
+margin_top = -13.25
+margin_right = 204.5
+margin_bottom = 2.75
 rect_scale = Vector2( 0.25, 0.25 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
 text = "Enable V-Sync"
 valign = 1
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer3"]
-margin_top = 20.0
-margin_right = 16.0
-margin_bottom = 36.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DPadCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-focus_mode = 0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer"]
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
-
-[node name="DPadLabel" type="Label" parent="VBoxContainer3/HBoxContainer/Control"]
-margin_right = 80.0
-margin_bottom = 40.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "D-Pad"
-align = 1
-valign = 1
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
@@ -155,7 +99,7 @@ margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 focus_mode = 0
-script = ExtResource( 9 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -191,7 +135,7 @@ margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 focus_mode = 0
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -218,7 +162,7 @@ margin_top = 80.0
 margin_right = 16.0
 margin_bottom = 96.0
 custom_constants/separation = 0
-script = ExtResource( 13 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -228,7 +172,7 @@ margin_right = 16.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 focus_mode = 0
-script = ExtResource( 12 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -257,7 +201,7 @@ margin_right = 760.0
 margin_bottom = 66.0
 rect_scale = Vector2( 2, 2 )
 value = 100.0
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -308,7 +252,7 @@ focus_neighbour_bottom = NodePath(".")
 focus_next = NodePath(".")
 focus_previous = NodePath(".")
 text = "back"
-script = ExtResource( 11 )
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -321,9 +265,7 @@ margin_bottom = 40.0
 margin_right = 40.0
 margin_bottom = 40.0
 
-[connection signal="toggled" from="FullscreenCheckBox" to="." method="_on_FullscreenCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer5/EnableVSyncCheckBox" to="VBoxContainer3/HBoxContainer5/EnableVSyncCheckBox" method="_on_EnableVSyncCheckBox_toggled"]
-[connection signal="toggled" from="VBoxContainer3/HBoxContainer/DPadCheckBox" to="." method="_on_DPadCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer2/SmoothCameraCheckBox" to="." method="_on_SmoothCameraCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer3/HidePetCheckBox" to="." method="_on_HidePetCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer4/EnableSelectionCheckBox" to="." method="_on_EnableSelectionCheckBox_toggled"]

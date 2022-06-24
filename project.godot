@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "AudioManager",
+"language": "GDScript",
+"path": "res://scenes/managers/AudioManager/AudioManager.gd"
+}, {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -24,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/DamageArea/DamageArea.gd"
 }, {
-"base": "Resource",
+"base": "DataResource",
 "class": "DamageAreaData",
 "language": "GDScript",
 "path": "res://classes/data/damage_area/data.gd"
@@ -34,6 +39,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/damage_area/editor.gd"
 }, {
+"base": "Resource",
+"class": "DataResource",
+"language": "GDScript",
+"path": "res://classes/objects/data_resource.gd"
+}, {
+"base": "Button",
+"class": "GenericButton",
+"language": "GDScript",
+"path": "res://scenes/interface/GenericButton/GenericButton.gd"
+}, {
+"base": "DataResource",
+"class": "GenericButtonData",
+"language": "GDScript",
+"path": "res://classes/data/generic_button/data.gd"
+}, {
+"base": "GenericButtonData",
+"class": "GenericButtonEditor",
+"language": "GDScript",
+"path": "res://classes/data/generic_button/editor.gd"
+}, {
 "base": "Area2D",
 "class": "HastePotion",
 "language": "GDScript",
@@ -42,7 +67,7 @@ _global_script_classes=[ {
 "base": "Object",
 "class": "Item",
 "language": "GDScript",
-"path": "res://classes/Item.gd"
+"path": "res://classes/objects/item.gd"
 }, {
 "base": "Area2D",
 "class": "ItemArea",
@@ -64,6 +89,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/MovingPlatform/MovingPlatform.gd"
 }, {
+"base": "DataResource",
+"class": "OptionsData",
+"language": "GDScript",
+"path": "res://classes/data/options/data.gd"
+}, {
+"base": "OptionsData",
+"class": "OptionsEditor",
+"language": "GDScript",
+"path": "res://classes/data/options/editor.gd"
+}, {
+"base": "Node",
+"class": "OptionsManager",
+"language": "GDScript",
+"path": "res://scenes/managers/OptionsManager/OptionsManager.gd"
+}, {
 "base": "Area2D",
 "class": "PetChamber",
 "language": "GDScript",
@@ -74,7 +114,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Player/Player.gd"
 }, {
-"base": "Resource",
+"base": "DataResource",
 "class": "PlayerBodyData",
 "language": "GDScript",
 "path": "res://classes/data/player_body/data.gd"
@@ -89,7 +129,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/SecondJump/SecondJump.gd"
 }, {
-"base": "Resource",
+"base": "DataResource",
 "class": "SecondJumpData",
 "language": "GDScript",
 "path": "res://classes/data/second_jump/data.gd"
@@ -102,7 +142,12 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Time",
 "language": "GDScript",
-"path": "res://classes/Time.gd"
+"path": "res://classes/utility/time.gd"
+}, {
+"base": "Node",
+"class": "TitleSceneFactory",
+"language": "GDScript",
+"path": "res://scenes/factories/TitleSceneFactory/TitleSceneFactory.gd"
 }, {
 "base": "Node2D",
 "class": "WallGun",
@@ -110,17 +155,25 @@ _global_script_classes=[ {
 "path": "res://scenes/WallGun/WallGun.gd"
 } ]
 _global_script_class_icons={
+"AudioManager": "",
 "Bullet": "",
 "Checkpoint": "",
 "DamageArea": "",
 "DamageAreaData": "",
 "DamageAreaEditor": "",
+"DataResource": "",
+"GenericButton": "",
+"GenericButtonData": "",
+"GenericButtonEditor": "",
 "HastePotion": "",
 "Item": "",
 "ItemArea": "",
 "LockedDoor": "",
 "MoverBlock": "",
 "MovingPlatform": "",
+"OptionsData": "",
+"OptionsEditor": "",
+"OptionsManager": "",
 "PetChamber": "",
 "PlayerBody": "",
 "PlayerBodyData": "",
@@ -129,6 +182,7 @@ _global_script_class_icons={
 "SecondJumpData": "",
 "SecondJumpEditor": "",
 "Time": "",
+"TitleSceneFactory": "",
 "WallGun": ""
 }
 
@@ -192,7 +246,7 @@ config={
 [application]
 
 config/name="Dave Dave Dave"
-run/main_scene="res://scenes/interface/TitleScreen/TitleScreen.tscn"
+run/main_scene="res://scenes/objects/Game/Game.tscn"
 config/use_custom_user_dir=true
 boot_splash/image="res://assets/application/blank.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
@@ -207,12 +261,12 @@ default_bus_layout="res://resources/default_bus_layout.tres"
 
 Steamworks="*res://singletons/Steamworks.gd"
 Globals="*res://singletons/Globals.gd"
-Options="*res://singletons/Options.gd"
+Options="res://singletons/Options.gd"
 Audio="*res://singletons/Audio.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
-GameData="*res://singletons/GameData.gd"
+Game="*res://scenes/objects/Game/Game.tscn"
 
 [display]
 
