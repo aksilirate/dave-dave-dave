@@ -6,7 +6,6 @@ onready var checkpoints = $World/Checkpoints
 onready var items = $World/Items
 onready var locked_doors = $World/LockedDoors
 onready var moving_platforns = $World/MovingPlatforms
-onready var second_jumps = $World/SecondJumps
 onready var wall_guns = $World/WallGuns
 onready var diamonds = $World/Diamonds
 onready var mover_blocks = $World/MoverBlocks
@@ -211,7 +210,7 @@ func _on_wall_gun_shot_bullet(arg_bullet: Bullet):
 
 
 func _on_bullet_body_entered(body, arg_bullet: Bullet):
-	if body is Player:
+	if body is PlayerBody:
 		Audio.play("res://assets/sounds/death.wav")
 		player.animation_player.play("death")
 		
@@ -237,35 +236,38 @@ func _on_haste_potion_body_entered(body, arg_haste_potion: HastePotion):
 	player.haste = arg_haste_potion.haste_time
 	arg_haste_potion.consume()
 
+
+
+
+
 func _on_green_gate_body_entered(body):
 	if not player.has_crown:
 		Audio.play("res://assets/sounds/death.wav")
 		player.animation_player.play("death")
 
+
+
+
+
 func _physics_process(delta):
 	for child in mover_blocks.get_children():
 		var mover_block: MoverBlock = child
 		for body in mover_block.get_overlapping_bodies():
-			if body is Player:
+			if body is PlayerBody:
 				player.velocity.y = min(0, player.velocity.y)
 				player.jump_timer.start()
 				player.move_and_slide(mover_block.get_velocity())
 				
-	for child in second_jumps.get_children():
-		var second_jump: Area2D = child
-		for body in second_jump.get_overlapping_bodies():
-			if body is Player:
-				if not second_jump.disabled and Input.is_action_pressed("jump") and body.controlled:
-					Audio.play("res://assets/sounds/second_jump.wav", -10)
-					second_jump.disable()
-					player.jump_timer.start()
-	
 
 	player.pet_body.target_location = player.pet_position.global_position
 	for body in pet_chamber.get_overlapping_bodies():
-		if body is Player:
+		if body is PlayerBody:
 			player.pet_body.target_location = pet_chamber.global_position + Vector2(0,-164)
-	
+
+
+
+
+
 
 
 
@@ -365,7 +367,7 @@ func update_death_effects():
 
 
 func _on_Sign17_body_entered(body):
-	if body is Player:
+	if body is PlayerBody:
 		Steamworks.unlock_achievement("WHO_IS_DAVE")
 
 
@@ -393,7 +395,7 @@ func _on_PetChamber_body_entered(body):
 		"res://assets/textures/pet_9.png",
 		"res://assets/textures/pet_10.png",
 	]
-	if body is Player:
+	if body is PlayerBody:
 		Audio.play("res://assets/sounds/pet_summon.wav", -10)
 		player.pet_body.global_position = pet_chamber.global_position + Vector2(0,-164)
 		randomize()

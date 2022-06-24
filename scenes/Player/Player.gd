@@ -1,4 +1,4 @@
-class_name Player
+class_name PlayerBody
 extends KinematicBody2D
 
 enum {IDLE, MOVING, AIR}
@@ -44,6 +44,17 @@ var deaths: int = 0
 var time: float = 0
 
 var pet_chamber_overlapping: bool = false
+
+
+
+
+
+var player_body_editor: PlayerBodyEditor = GameData.player_body_data as PlayerBodyEditor
+
+
+
+
+
 
 
 func _ready():
@@ -127,27 +138,9 @@ func _physics_process(delta):
 		double_jumped = false
 		
 	
-	if not jumped and jump_timer.is_stopped() and Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and not double_jumped:
-		if jump_audio_cooldown.is_stopped():
-			jump_audio_cooldown.start()
-			Audio.play("res://assets/sounds/jump.wav")
-		velocity.y = -3 if gravity > 0 else 3
-		double_jumped = true
 	
-	if Input.is_action_just_pressed("jump") and controlled and not is_on_floor() and double_jump and jumped and not double_jumped:
-		if jump_audio_cooldown.is_stopped():
-			jump_audio_cooldown.start()
-			Audio.play("res://assets/sounds/jump.wav")
-		velocity.y = -3 if gravity > 0 else 3
-		double_jumped = true
-	
-	if Input.get_action_strength("jump") and controlled and not jump_timer.is_stopped():
-		if jump_audio_cooldown.is_stopped():
-			jump_audio_cooldown.start()
-			Audio.play("res://assets/sounds/jump.wav")
-		jump_timer.stop()
-		jumped = true
-		velocity.y = -3 if gravity > 0 else 3
+	if Input.get_action_strength("jump"):
+		_jump()
 	
 
 	
@@ -176,16 +169,77 @@ func _physics_process(delta):
 		var collision = get_slide_collision(index)
 		if collision.collider is RigidBody2D:
 			collision.collider.apply_central_impulse(-collision.normal * 50)
+
+
+
+
+
+
+
+
+
+
+func _jump():
+	if not controlled:
+		return
+	
+	if GameData.second_jump_data.overlapping_bodies.has(self):
+		player_body_editor.set_last_second_jumped_player_body(self)
+		Audio.play("res://assets/sounds/second_jump.wav", -10)
+		jump_timer.start()
+	
+	
+	if Input.is_action_just_pressed("jump"):
+		
+		if not double_jump:
+			return
+		
+		if double_jumped:
+			return
+		
+		if is_on_floor():
+			return
+		
+		if not jumped and jump_timer.is_stopped():
+			if jump_audio_cooldown.is_stopped():
+				jump_audio_cooldown.start()
+				Audio.play("res://assets/sounds/jump.wav")
+				
+			velocity.y = -3 if gravity > 0 else 3
+			double_jumped = true
+		
+		
+		if jumped:
+			
+			if jump_audio_cooldown.is_stopped():
+				jump_audio_cooldown.start()
+				Audio.play("res://assets/sounds/jump.wav")
+				
+			velocity.y = -3 if gravity > 0 else 3
+			double_jumped = true
 	
 	
 	
-	
-	
-	
+	if not jump_timer.is_stopped():
+		if jump_audio_cooldown.is_stopped():
+			jump_audio_cooldown.start()
+			Audio.play("res://assets/sounds/jump.wav")
+		jump_timer.stop()
+		jumped = true
+		velocity.y = -3 if gravity > 0 else 3
+
+
+
+
+
+
+
 func is_moving() -> bool:
 	return displacement.x > 0.1 or displacement.x < -0.1
-	
-	
+
+
+
+
 func get_state() -> int:
 	if not is_on_floor() and abs(velocity.y) > 0.25:
 		return AIR
@@ -194,8 +248,11 @@ func get_state() -> int:
 		return MOVING
 		
 	return IDLE
-	
-	
+
+
+
+
+
 func play_animation_from_state(state: int):
 	if is_playing_death_animation():
 		return
@@ -209,21 +266,32 @@ func play_animation_from_state(state: int):
 				animation_player.play("idle")
 		AIR:
 			animation_player.play("air")
-	
-	
+
+
+
+
+
 func respawn():
 	global_position = respawn_location
 	pet_body.global_position = pet_position.global_position
 	velocity = Vector2.ZERO
 	jumped = false
 
+
+
 func add_item_to_inventory(item: Item):
 	inventory.push_back(item)
 	update_inventory()
-	
+
+
+
+
 func remove_item_from_inventory(item: Item):
 	inventory.erase(item)
 	update_inventory()
+
+
+
 
 func update_inventory():
 	for child in items_container.get_children():
@@ -237,25 +305,37 @@ func update_inventory():
 		items_container.add_child(texture_rect)
 		texture_rect.modulate = item.color
 		texture_rect.set_size(Vector2(1,1))
-		
-		
+
+
+
+
+
 func apply_haste(haste_time: int):
 	haste = haste_time
 	haste_progress_bar.max_value = haste_time * 10
 
+
+
 func get_speed() -> int:
 	return (speed + (300 * int(haste > 0)))
 
-		
+
+
+
 func update_diamonds_collected(arg_total_diamonds) -> void:
 	diamonds_label.text = str(diamonds_collected) + "/" + str(arg_total_diamonds)
-		
-		
+
+
+
 func is_playing_death_animation() -> bool:
 	return animation_player.current_animation == "death" and animation_player.is_playing()
 
+
+
 func play_footstep():
 	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
+
+
 
 func increase_death_count():
 	if Globals.zero_deaths_mode:
@@ -263,7 +343,10 @@ func increase_death_count():
 		get_tree().reload_current_scene()
 	deaths += 1
 	update_deaths_label()
-	
+
+
+
+
 func update_deaths_label() -> void:
 	death_count_label.text = "deaths: " + str(deaths)
 

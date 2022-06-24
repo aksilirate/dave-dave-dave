@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=2]
@@ -41,7 +41,6 @@
 [ext_resource path="res://assets/textures/end_0_red.png" type="Texture" id=39]
 [ext_resource path="res://assets/textures/end_1_red.png" type="Texture" id=40]
 [ext_resource path="res://assets/textures/end_2_red.png" type="Texture" id=41]
-[ext_resource path="res://scenes/managers/DamageAreaManager/DamageAreaManager.tscn" type="PackedScene" id=42]
 [ext_resource path="res://resources/default_env.tres" type="Environment" id=44]
 [ext_resource path="res://scenes/Game/CanvasModulate.gd" type="Script" id=45]
 [ext_resource path="res://assets/textures/spikes.png" type="Texture" id=47]
@@ -7385,9 +7384,6 @@ anims/first_scene = SubResource( 6 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 44 )
 
-[node name="DamageAreaManager" parent="." instance=ExtResource( 42 )]
-spikes = NodePath("../World/Spikes")
-
 [node name="World" type="Node2D" parent="."]
 
 [node name="MovementHelp" type="Label" parent="World"]
@@ -7643,100 +7639,95 @@ position = Vector2( -12560, 7680 )
 position = Vector2( 11340, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite3" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 13450, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite6" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 13720, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite7" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 14000, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite9" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 14835, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite10" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 15075, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
+frame = 1
 playing = true
 
 [node name="Sprite17" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 15680, -8420 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 107 )
-frame = 1
 playing = true
 
 [node name="Sprite14" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 16035, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
+frame = 1
 playing = true
 
 [node name="Sprite15" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 16275, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite16" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 16525, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite2" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 11600, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite4" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 11840, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
-frame = 1
 playing = true
 
 [node name="Sprite8" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 12080, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
+frame = 1
 playing = true
 
 [node name="Sprite11" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 12320, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
+frame = 1
 playing = true
 
 [node name="Sprite12" type="AnimatedSprite" parent="World/Sprites"]
 position = Vector2( 12560, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 104 )
+frame = 1
 playing = true
 
 [node name="Sprite5" type="Sprite" parent="World/Sprites"]
@@ -10622,6 +10613,7 @@ speed = 200
 
 [node name="Spikes24" parent="World/MovingPlatforms/MovingPlatform3/KinematicBody2D" index="3" instance=ExtResource( 6 )]
 position = Vector2( -5.99988, -6.00002 )
+scale = Vector2( 1, 1 )
 
 [node name="Position2D" parent="World/MovingPlatforms/MovingPlatform3" index="2"]
 position = Vector2( 650, 0 )
@@ -13958,7 +13950,6 @@ __meta__ = {
 [connection signal="body_entered" from="World/FreedomArea" to="." method="_on_FreedomArea_body_entered"]
 [connection signal="body_entered" from="World/FreedomAreaSpace" to="." method="_on_FreedomAreaSpace_body_entered"]
 [connection signal="body_entered" from="World/Signs/Sign17" to="." method="_on_Sign17_body_entered"]
-[connection signal="body_entered" from="World/MovingPlatforms/MovingPlatform3/KinematicBody2D/Spikes24" to="DamageAreaManager" method="_on_Spikes24_body_entered"]
 [connection signal="body_entered" from="World/DoubleJump" to="." method="_on_DoubleJump_body_entered"]
 [connection signal="body_entered" from="World/Crown" to="." method="_on_Crown_body_entered"]
 [connection signal="body_entered" from="World/Rotation" to="." method="_on_Rotation_body_entered"]
