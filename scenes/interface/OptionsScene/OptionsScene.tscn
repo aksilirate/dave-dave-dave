@@ -1,20 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.gd" type="Script" id=1]
-[ext_resource path="res://scenes/interface/OptionsScene/EnableVSyncCheckBox.gd" type="Script" id=2]
+[ext_resource path="res://scenes/option_check_boxes/VSyncOptionCheckBox/VSyncOptionCheckBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/OptionsScene/EnableSelectionCheckBox.gd" type="Script" id=3]
 [ext_resource path="res://scenes/interface/OptionsScene/SFXHSlider.gd" type="Script" id=4]
 [ext_resource path="res://scenes/interface/OptionsScene/SmoothCameraCheckBox.gd" type="Script" id=5]
 [ext_resource path="res://scenes/interface/OptionsScene/MusicHSlider.gd" type="Script" id=6]
 [ext_resource path="res://scenes/interface/OptionsScene/HBoxContainer4.gd" type="Script" id=7]
 [ext_resource path="res://scenes/interface/OptionsScene/BackButton.gd" type="Script" id=8]
-[ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://scenes/interface/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/option_check_boxes/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/interface/OptionsScene/HidePetCheckBox.gd" type="Script" id=11]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=12]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 9 )
 
 [node name="OptionsScene" type="Control"]
 anchor_right = 1.0
@@ -44,46 +40,9 @@ rect_scale = Vector2( 4, 4 )
 
 [node name="FullscreenOptionCheckBox" parent="VBoxContainer3" instance=ExtResource( 10 )]
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="VSyncOptionCheckBox" parent="VBoxContainer3" instance=ExtResource( 2 )]
 margin_top = 20.0
-margin_right = 16.0
 margin_bottom = 36.0
-custom_constants/separation = 0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="EnableVSyncCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer5"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer5"]
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
-
-[node name="EnableVSyncLabel" type="Label" parent="VBoxContainer3/HBoxContainer5/Control"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = -3.5
-margin_top = -13.25
-margin_right = 204.5
-margin_bottom = 2.75
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-text = "Enable V-Sync"
-valign = 1
-__meta__ = {
-"_editor_description_": ""
-}
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
 margin_top = 40.0
@@ -265,7 +224,6 @@ margin_bottom = 40.0
 margin_right = 40.0
 margin_bottom = 40.0
 
-[connection signal="toggled" from="VBoxContainer3/HBoxContainer5/EnableVSyncCheckBox" to="VBoxContainer3/HBoxContainer5/EnableVSyncCheckBox" method="_on_EnableVSyncCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer2/SmoothCameraCheckBox" to="." method="_on_SmoothCameraCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer3/HidePetCheckBox" to="." method="_on_HidePetCheckBox_toggled"]
 [connection signal="toggled" from="VBoxContainer3/HBoxContainer4/EnableSelectionCheckBox" to="." method="_on_EnableSelectionCheckBox_toggled"]

@@ -1,46 +1,41 @@
-[gd_scene load_steps=182 format=2]
+[gd_scene load_steps=177 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/textures/lab_capsule.png" type="Texture" id=2]
 [ext_resource path="res://assets/textures/big_capsule.png" type="Texture" id=3]
 [ext_resource path="res://assets/textures/lab_capsule_empty.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/tree.png" type="Texture" id=5]
-[ext_resource path="res://scenes/PetChamber/PetChamber.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/RedMan/RedMan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/MovingPlatform/MovingPlatform.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/LockedDoor/LockedDoor.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/Player/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/WallGun/WallGun.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/SecondJump/SecondJump.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/FreedomArea/FreedomArea.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/ItemArea/ItemArea.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/ButtonLockedDoor/ButtonLockedDoor.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/Sign/Sign.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/objects/PetChamber/PetChamber.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/objects/RedMan/RedMan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/objects/MovingPlatform/MovingPlatform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/objects/LockedDoor/LockedDoor.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/Player/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/objects/WallGun/WallGun.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/SecondJump/SecondJump.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/objects/FreedomArea/FreedomArea.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/objects/ItemArea/ItemArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/objects/ButtonLockedDoor/ButtonLockedDoor.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/objects/Sign/Sign.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/objects/Spikes/Spikes.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/DoubleJump/Collectible.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/Box/Box.tscn" type="PackedScene" id=19]
-[ext_resource path="res://scenes/HiddenArea/HiddenArea.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/objects/DoubleJump/Collectible.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/objects/Box/Box.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/objects/HiddenArea/HiddenArea.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/objects/SpikeBlock/SpikeBlock.tscn" type="PackedScene" id=21]
-[ext_resource path="res://scenes/Crown/Crown.tscn" type="PackedScene" id=22]
+[ext_resource path="res://scenes/objects/Crown/Crown.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/objects/RotatingSpikes/RotatingSpikes.tscn" type="PackedScene" id=23]
-[ext_resource path="res://scenes/MoverBlock/MoverBlock.tscn" type="PackedScene" id=24]
-[ext_resource path="res://scenes/GreenGate/GreenGate.tscn" type="PackedScene" id=25]
-[ext_resource path="res://scenes/DiamondGate/DiamondGate.tscn" type="PackedScene" id=26]
-[ext_resource path="res://scenes/WeakBlock/WeakBlock.tscn" type="PackedScene" id=28]
-[ext_resource path="res://scenes/HastePotion/HastePotion.tscn" type="PackedScene" id=29]
-[ext_resource path="res://scenes/Diamond/Diamond.tscn" type="PackedScene" id=30]
-[ext_resource path="res://scenes/Rotation/Rotation.tscn" type="PackedScene" id=31]
-[ext_resource path="res://scenes/Game/CanvasModulate.gd" type="Script" id=32]
+[ext_resource path="res://scenes/objects/MoverBlock/MoverBlock.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/objects/GreenGate/GreenGate.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/objects/DiamondGate/DiamondGate.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/objects/WeakBlock/WeakBlock.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/objects/HastePotion/HastePotion.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/objects/Diamond/Diamond.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/objects/Rotation/Rotation.tscn" type="PackedScene" id=31]
 [ext_resource path="res://assets/textures/spikes.png" type="Texture" id=33]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=34]
 [ext_resource path="res://resources/default_env.tres" type="Environment" id=35]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=36]
 [ext_resource path="res://assets/sounds/ambient.wav" type="AudioStream" id=37]
-[ext_resource path="res://scenes/Game/SaveExitButton.gd" type="Script" id=38]
-[ext_resource path="res://scenes/Game/CanvasLayer.gd" type="Script" id=39]
-[ext_resource path="res://scenes/Game/PauseMenu.gd" type="Script" id=40]
 [ext_resource path="res://assets/textures/end_0.png" type="Texture" id=41]
-[ext_resource path="res://scenes/Game/AnmbientPlayer.gd" type="Script" id=42]
 
 [sub_resource type="DynamicFont" id=119]
 size = 8
@@ -7658,8 +7653,17 @@ anims/RESET = SubResource( 124 )
 anims/closed = SubResource( 125 )
 anims/opened = SubResource( 126 )
 
+[node name="CollisionShape2D" parent="ButtonLockedDoor/DoorUp" index="0"]
+shape = SubResource( 123 )
+
+[node name="CollisionShape2D" parent="ButtonLockedDoor/DoorDown" index="0"]
+shape = SubResource( 73 )
+
 [node name="Button" parent="ButtonLockedDoor" index="4"]
 position = Vector2( -344, 93 )
+
+[node name="CollisionShape2D" parent="ButtonLockedDoor/Button" index="1"]
+shape = SubResource( 122 )
 
 [node name="ButtonLockedDoor9" parent="." instance=ExtResource( 15 )]
 position = Vector2( -2280, 6960 )
@@ -13929,14 +13933,12 @@ shape = SubResource( 173 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color( 0, 0, 0, 1 )
-script = ExtResource( 32 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 35 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
-script = ExtResource( 39 )
 
 [node name="BadEnding" type="Control" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
@@ -13999,7 +14001,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 36 )
 color = Color( 0, 0, 0, 1 )
-script = ExtResource( 40 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -14038,7 +14039,6 @@ margin_right = 1024.0
 margin_bottom = 354.0
 focus_neighbour_bottom = NodePath("../ResumeButton")
 text = "save and exit"
-script = ExtResource( 38 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -14047,7 +14047,6 @@ __meta__ = {
 stream = ExtResource( 37 )
 volume_db = -10.0
 autoplay = true
-script = ExtResource( 42 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1

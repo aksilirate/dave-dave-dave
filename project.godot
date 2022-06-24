@@ -17,12 +17,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://scenes/Bullet/Bullet.gd"
+"path": "res://scenes/objects/Bullet/Bullet.gd"
 }, {
 "base": "Area2D",
 "class": "Checkpoint",
 "language": "GDScript",
-"path": "res://scenes/Checkpoint/Checkpoint.gd"
+"path": "res://scenes/objects/Checkpoint/Checkpoint.gd"
 }, {
 "base": "Area2D",
 "class": "DamageArea",
@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "HastePotion",
 "language": "GDScript",
-"path": "res://scenes/HastePotion/HastePotion.gd"
+"path": "res://scenes/objects/HastePotion/HastePotion.gd"
 }, {
 "base": "Object",
 "class": "Item",
@@ -72,22 +72,27 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "ItemArea",
 "language": "GDScript",
-"path": "res://scenes/ItemArea/ItemArea.gd"
+"path": "res://scenes/objects/ItemArea/ItemArea.gd"
 }, {
 "base": "StaticBody2D",
 "class": "LockedDoor",
 "language": "GDScript",
-"path": "res://scenes/LockedDoor/LockedDoor.gd"
+"path": "res://scenes/objects/LockedDoor/LockedDoor.gd"
 }, {
 "base": "Area2D",
 "class": "MoverBlock",
 "language": "GDScript",
-"path": "res://scenes/MoverBlock/MoverBlock.gd"
+"path": "res://scenes/objects/MoverBlock/MoverBlock.gd"
 }, {
 "base": "Node2D",
 "class": "MovingPlatform",
 "language": "GDScript",
-"path": "res://scenes/MovingPlatform/MovingPlatform.gd"
+"path": "res://scenes/objects/MovingPlatform/MovingPlatform.gd"
+}, {
+"base": "CheckBox",
+"class": "OptionCheckBox",
+"language": "GDScript",
+"path": "res://scenes/option_check_boxes/OptionCheckBox/OptionCheckBox.gd"
 }, {
 "base": "DataResource",
 "class": "OptionsData",
@@ -107,12 +112,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "PetChamber",
 "language": "GDScript",
-"path": "res://scenes/PetChamber/PetChamber.gd"
+"path": "res://scenes/objects/PetChamber/PetChamber.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "PlayerBody",
 "language": "GDScript",
-"path": "res://scenes/Player/Player.gd"
+"path": "res://scenes/objects/Player/Player.gd"
 }, {
 "base": "DataResource",
 "class": "PlayerBodyData",
@@ -127,7 +132,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "SecondJump",
 "language": "GDScript",
-"path": "res://scenes/SecondJump/SecondJump.gd"
+"path": "res://scenes/objects/SecondJump/SecondJump.gd"
 }, {
 "base": "DataResource",
 "class": "SecondJumpData",
@@ -152,7 +157,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "WallGun",
 "language": "GDScript",
-"path": "res://scenes/WallGun/WallGun.gd"
+"path": "res://scenes/objects/WallGun/WallGun.gd"
 } ]
 _global_script_class_icons={
 "AudioManager": "",
@@ -171,6 +176,7 @@ _global_script_class_icons={
 "LockedDoor": "",
 "MoverBlock": "",
 "MovingPlatform": "",
+"OptionCheckBox": "",
 "OptionsData": "",
 "OptionsEditor": "",
 "OptionsManager": "",
@@ -246,7 +252,7 @@ config={
 [application]
 
 config/name="Dave Dave Dave"
-run/main_scene="res://scenes/objects/Game/Game.tscn"
+run/main_scene="res://scenes/objects/Loader/Loader.tscn"
 config/use_custom_user_dir=true
 boot_splash/image="res://assets/application/blank.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )

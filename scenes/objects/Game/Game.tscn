@@ -27,7 +27,7 @@ visible = false
 [node name="WorldSceneFactory" parent="." instance=ExtResource( 4 )]
 
 [connection signal="toggled" from="OptionsSceneFactory/OptionsScene/VBoxContainer3/FullscreenOptionCheckBox" to="OptionsManager" method="_on_FullscreenOptionCheckBox_toggled"]
+[connection signal="toggled" from="OptionsSceneFactory/OptionsScene/VBoxContainer3/VSyncOptionCheckBox" to="OptionsManager" method="_on_VSyncOptionCheckBox_toggled"]
 
 [editable path="TitleSceneFactory/TitleScene"]
 [editable path="OptionsSceneFactory/OptionsScene"]
-[editable path="OptionsSceneFactory/OptionsScene/VBoxContainer3/FullscreenOptionCheckBox"]
