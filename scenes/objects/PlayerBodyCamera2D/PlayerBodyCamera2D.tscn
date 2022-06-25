@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/objects/PlayerBodyCamera2D/PlayerBodyCamera2D.gd" type="Script" id=1]
+
+[node name="PlayerBodyCamera2D" type="Camera2D"]
+zoom = Vector2( 2.5, 2.5 )
+limit_left = -250000
+limit_top = -7120
+limit_right = 250000
+limit_bottom = 11760
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_left = 0.25
+drag_margin_top = 0.25
+drag_margin_right = 0.25
+drag_margin_bottom = 0.25
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}

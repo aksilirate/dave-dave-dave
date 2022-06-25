@@ -1,4 +1,4 @@
-[gd_scene load_steps=174 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://scenes/objects/WorldScene/WorldScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/textures/diamond.png" type="Texture" id=5]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=7]
-[ext_resource path="res://assets/textures/end_0.png" type="Texture" id=8]
 [ext_resource path="res://scenes/objects/MoverBlock/MoverBlock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/WeakBlock/WeakBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/PetChamber/PetChamber.tscn" type="PackedScene" id=11]
@@ -7063,15 +7062,6 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="DynamicFont" id=171]
-size = 8
-font_data = ExtResource( 4 )
-
-[sub_resource type="StyleBoxFlat" id=172]
-bg_color = Color( 0.972549, 0, 0.972549, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=173]
-
 [sub_resource type="Animation" id=174]
 length = 0.001
 
@@ -7206,7 +7196,6 @@ collision_mask = 0
 
 [node name="ButtonLockedDoor" parent="." index="6" instance=ExtResource( 12 )]
 position = Vector2( -2840, 4320 )
-open_duration = 31
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor" index="0"]
 anims/RESET = SubResource( 127 )
@@ -7227,7 +7216,6 @@ shape = SubResource( 122 )
 
 [node name="ButtonLockedDoor9" parent="." index="7" instance=ExtResource( 12 )]
 position = Vector2( -2280, 6960 )
-open_duration = 6
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor9" index="0"]
 anims/RESET = SubResource( 130 )
@@ -7256,7 +7244,6 @@ rect_rotation = 89.9999
 
 [node name="ButtonLockedDoor5" parent="." index="8" instance=ExtResource( 12 )]
 position = Vector2( 6000, 5680 )
-open_duration = 2
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor5" index="0"]
 anims/RESET = SubResource( 133 )
@@ -7277,7 +7264,6 @@ shape = SubResource( 75 )
 
 [node name="ButtonLockedDoor8" parent="." index="9" instance=ExtResource( 12 )]
 position = Vector2( 9400, 8000 )
-open_duration = 30
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor8" index="0"]
 anims/RESET = SubResource( 136 )
@@ -7298,7 +7284,6 @@ shape = SubResource( 75 )
 
 [node name="ButtonLockedDoor7" parent="." index="10" instance=ExtResource( 12 )]
 position = Vector2( 12120, 5920 )
-open_duration = 6
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor7" index="0"]
 anims/RESET = SubResource( 139 )
@@ -7325,7 +7310,6 @@ shape = SubResource( 75 )
 
 [node name="ButtonLockedDoor2" parent="." index="11" instance=ExtResource( 12 )]
 position = Vector2( 6920, -2080 )
-open_duration = 31
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor2" index="0"]
 anims/RESET = SubResource( 142 )
@@ -7346,7 +7330,6 @@ shape = SubResource( 87 )
 
 [node name="ButtonLockedDoor4" parent="." index="12" instance=ExtResource( 12 )]
 position = Vector2( 8930, -560 )
-open_duration = 3
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor4" index="0"]
 anims/RESET = SubResource( 145 )
@@ -7367,7 +7350,6 @@ shape = SubResource( 87 )
 
 [node name="ButtonLockedDoor6" parent="." index="13" instance=ExtResource( 12 )]
 position = Vector2( 11450, -560 )
-open_duration = 4
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor6" index="0"]
 anims/RESET = SubResource( 148 )
@@ -7388,7 +7370,6 @@ shape = SubResource( 87 )
 
 [node name="ButtonLockedDoor3" parent="." index="14" instance=ExtResource( 12 )]
 position = Vector2( -7440, 2240 )
-open_duration = 10
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor3" index="0"]
 anims/RESET = SubResource( 151 )
@@ -7417,95 +7398,100 @@ position = Vector2( -12560, 7680 )
 position = Vector2( 11340, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite3" type="AnimatedSprite" parent="Sprites" index="1"]
 position = Vector2( 13450, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite6" type="AnimatedSprite" parent="Sprites" index="2"]
 position = Vector2( 13720, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite7" type="AnimatedSprite" parent="Sprites" index="3"]
 position = Vector2( 14000, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite9" type="AnimatedSprite" parent="Sprites" index="4"]
 position = Vector2( 14835, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite10" type="AnimatedSprite" parent="Sprites" index="5"]
 position = Vector2( 15075, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite17" type="AnimatedSprite" parent="Sprites" index="6"]
 position = Vector2( 15680, -8420 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 155 )
+frame = 1
 playing = true
 
 [node name="Sprite14" type="AnimatedSprite" parent="Sprites" index="7"]
 position = Vector2( 16035, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite15" type="AnimatedSprite" parent="Sprites" index="8"]
 position = Vector2( 16275, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite16" type="AnimatedSprite" parent="Sprites" index="9"]
 position = Vector2( 16525, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite2" type="AnimatedSprite" parent="Sprites" index="10"]
 position = Vector2( 11600, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite4" type="AnimatedSprite" parent="Sprites" index="11"]
 position = Vector2( 11840, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite8" type="AnimatedSprite" parent="Sprites" index="12"]
 position = Vector2( 12080, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite11" type="AnimatedSprite" parent="Sprites" index="13"]
 position = Vector2( 12320, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite12" type="AnimatedSprite" parent="Sprites" index="14"]
 position = Vector2( 12560, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite5" type="Sprite" parent="Sprites" index="15"]
@@ -13085,55 +13071,42 @@ position = Vector2( -12560, 7680 )
 
 [node name="HastePotion" parent="HastePotions" index="0" instance=ExtResource( 20 )]
 position = Vector2( -2640, 320 )
-haste_time = 10.0
 
 [node name="HastePotion8" parent="HastePotions" index="1" instance=ExtResource( 20 )]
 position = Vector2( 5920, -2470 )
-haste_time = 6.0
 
 [node name="HastePotion6" parent="HastePotions" index="2" instance=ExtResource( 20 )]
 position = Vector2( 19240, -600 )
-haste_time = 5.0
 
 [node name="HastePotion2" parent="HastePotions" index="3" instance=ExtResource( 20 )]
 position = Vector2( 12480, 800 )
-haste_time = 1.5
 
 [node name="HastePotion9" parent="HastePotions" index="4" instance=ExtResource( 20 )]
 position = Vector2( 11120, -1200 )
-haste_time = 4.0
 
 [node name="HastePotion11" parent="HastePotions" index="5" instance=ExtResource( 20 )]
 position = Vector2( 13200, -1200 )
-haste_time = 8.0
 
 [node name="HastePotion13" parent="HastePotions" index="6" instance=ExtResource( 20 )]
 position = Vector2( 9170, -2410 )
-haste_time = 8.0
 
 [node name="HastePotion12" parent="HastePotions" index="7" instance=ExtResource( 20 )]
 position = Vector2( 14640, -3600 )
-haste_time = 8.0
 
 [node name="HastePotion10" parent="HastePotions" index="8" instance=ExtResource( 20 )]
 position = Vector2( 15200, -4960 )
-haste_time = 3.0
 
 [node name="HastePotion7" parent="HastePotions" index="9" instance=ExtResource( 20 )]
 position = Vector2( 7760, -11360 )
-haste_time = 10.0
 
 [node name="HastePotion4" parent="HastePotions" index="10" instance=ExtResource( 20 )]
 position = Vector2( 25520, -6960 )
-haste_time = 1.5
 
 [node name="HastePotion5" parent="HastePotions" index="11" instance=ExtResource( 20 )]
 position = Vector2( 25990, -6960 )
-haste_time = 1.5
 
 [node name="HastePotion3" parent="HastePotions" index="12" instance=ExtResource( 20 )]
 position = Vector2( 23640, -8280 )
-haste_time = 2.0
 
 [node name="HiddenAreas" type="Node2D" parent="." index="28"]
 position = Vector2( -12560, 7680 )
@@ -13484,152 +13457,7 @@ color = Color( 0, 0, 0, 1 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="47"]
 environment = ExtResource( 3 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." index="48"]
-margin_left = 100.0
-margin_top = 40.0
-margin_right = 175.0
-margin_bottom = 83.0
-rect_scale = Vector2( 4, 4 )
-custom_constants/separation = 7
-
-[node name="DiamondsLabel" type="Label" parent="HBoxContainer" index="0"]
-margin_right = 32.0
-margin_bottom = 43.0
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 171 )
-text = "0/10"
-
-[node name="DiamondTextureRect" type="TextureRect" parent="HBoxContainer/DiamondsLabel" index="0"]
-modulate = Color( 0, 0.972549, 0.972549, 1 )
-margin_left = -16.0
-margin_top = -1.0
-margin_right = -7.0
-margin_bottom = 42.0
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemsContainer" type="HBoxContainer" parent="HBoxContainer" index="1"]
-margin_left = 39.0
-margin_right = 39.0
-margin_bottom = 43.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HasteProgressBar" type="ProgressBar" parent="." index="49"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 586.0
-margin_right = 1.0
-margin_bottom = 600.0
-custom_styles/fg = SubResource( 172 )
-custom_styles/bg = SubResource( 173 )
-percent_visible = false
-
-[node name="BadEnding" type="Control" parent="." index="50"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-theme = ExtResource( 2 )
-
-[node name="BlackBackground" type="ColorRect" parent="BadEnding" index="0"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-theme = ExtResource( 2 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="BadEnding" index="1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -150.0
-margin_right = 150.0
-margin_bottom = 150.0
-texture = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="BadEnding" index="2"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -315.0
-margin_top = -80.0
-margin_right = 315.0
-margin_bottom = 80.0
-text = "dave was falling
-for a really long
-time..."
-align = 1
-valign = 1
-percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PauseMenu" type="ColorRect" parent="." index="51"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 2 )
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" index="0"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/separation = 30
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ResumeButton" type="Button" parent="PauseMenu/VBoxContainer" index="0" groups=["buttons"]]
-margin_top = 246.0
-margin_right = 1024.0
-margin_bottom = 262.0
-focus_neighbour_top = NodePath("../SaveExitButton")
-text = "resume"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsButton" type="Button" parent="PauseMenu/VBoxContainer" index="1" groups=["buttons"]]
-margin_top = 292.0
-margin_right = 1024.0
-margin_bottom = 308.0
-text = "options"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SaveExitButton" type="Button" parent="PauseMenu/VBoxContainer" index="2" groups=["buttons"]]
-margin_top = 338.0
-margin_right = 1024.0
-margin_bottom = 354.0
-focus_neighbour_bottom = NodePath("../ResumeButton")
-text = "save and exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="52"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="48"]
 method_call_mode = 1
 anims/RESET = SubResource( 174 )
 anims/diamonds_end = SubResource( 175 )
@@ -13639,7 +13467,33 @@ anims/end_red = SubResource( 178 )
 anims/first_scene = SubResource( 179 )
 "anims/open cage scene" = SubResource( 180 )
 
-[connection signal="visibility_changed" from="PauseMenu" to="PauseMenu" method="_on_PauseMenu_visibility_changed"]
+[node name="DiamondsHBoxContainer" type="HBoxContainer" parent="WorldCanvasLayer" index="1"]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 156.0
+margin_bottom = 84.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="WorldCanvasLayer/DiamondsHBoxContainer" index="0"]
+modulate = Color( 0, 0.972549, 0.972549, 1 )
+margin_right = 32.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WorldCanvasLayer/DiamondsHBoxContainer" index="1"]
+margin_left = 52.0
+margin_top = 24.0
+margin_right = 116.0
+margin_bottom = 40.0
+theme = ExtResource( 2 )
+text = "0/10"
+
+[node name="PlayerBody" parent="." index="50"]
+position = Vector2( -14300, 8280 )
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]

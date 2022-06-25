@@ -8,6 +8,9 @@ enum State {
 	ADVENTURE_WORLD,
 }
 
+const WORLD_STATES: Array = [
+	State.ADVENTURE_WORLD,
+]
 
 var options_data: OptionsData = preload("res://data/Options.tres")
 
