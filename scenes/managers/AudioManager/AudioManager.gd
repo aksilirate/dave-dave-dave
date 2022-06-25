@@ -13,10 +13,8 @@ func _ready():
 
 
 
-
 func _on_last_button_pressed_set():
 	_play("res://assets/sounds/button_press.wav")
-
 
 
 
@@ -27,3 +25,11 @@ func _play(audio_path: String, volume: float =  0.0, pitch: float = 1.0):
 	audio_stream_player_instance.pitch_scale = pitch
 	add_child(audio_stream_player_instance)
 	audio_stream_player_instance.playing = true
+
+
+
+
+
+
+func _on_OptionsScene_hide():
+	_play("res://assets/sounds/button_press.wav")

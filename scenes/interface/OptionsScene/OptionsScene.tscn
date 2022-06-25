@@ -1,15 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/option_check_boxes/VSyncOptionCheckBox/VSyncOptionCheckBox.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/interface/OptionsScene/EnableSelectionCheckBox.gd" type="Script" id=3]
-[ext_resource path="res://scenes/interface/OptionsScene/SFXHSlider.gd" type="Script" id=4]
-[ext_resource path="res://scenes/interface/OptionsScene/SmoothCameraCheckBox.gd" type="Script" id=5]
-[ext_resource path="res://scenes/interface/OptionsScene/MusicHSlider.gd" type="Script" id=6]
-[ext_resource path="res://scenes/interface/OptionsScene/HBoxContainer4.gd" type="Script" id=7]
-[ext_resource path="res://scenes/interface/OptionsScene/BackButton.gd" type="Script" id=8]
+[ext_resource path="res://scenes/option_check_boxes/InterfaceSelectionOptionCheckBox/InterfaceSelectionOptionCheckBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/option_h_sliders/MusicOptionHSlider/MusicOptionHSlider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/option_check_boxes/SmoothCameraOptionCheckBox/SmoothCameraOptionCheckBox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/option_h_sliders/SFXOptionHSlider/SFXOptionHSlider.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/generic_buttons/BackGenericButton/BackGenericButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/option_check_boxes/HidePetOptionCheckBox/HidePetOptionCheckBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/option_check_boxes/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/interface/OptionsScene/HidePetCheckBox.gd" type="Script" id=11]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=12]
 
 [node name="OptionsScene" type="Control"]
@@ -18,6 +17,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 12 )
 script = ExtResource( 1 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 90.0 ],
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
@@ -31,202 +31,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+[node name="ToggleOptions" type="VBoxContainer" parent="."]
 margin_left = 80.0
 margin_top = 50.0
 margin_right = 96.0
 margin_bottom = 149.0
 rect_scale = Vector2( 4, 4 )
 
-[node name="FullscreenOptionCheckBox" parent="VBoxContainer3" instance=ExtResource( 10 )]
+[node name="FullscreenOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 10 )]
 
-[node name="VSyncOptionCheckBox" parent="VBoxContainer3" instance=ExtResource( 2 )]
+[node name="VSyncOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 2 )]
 margin_top = 20.0
 margin_bottom = 36.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="SmoothCameraOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 5 )]
 margin_top = 40.0
-margin_right = 16.0
 margin_bottom = 56.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="SmoothCameraCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer2"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-focus_mode = 0
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer2"]
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
-
-[node name="SmoothCameraLabel" type="Label" parent="VBoxContainer3/HBoxContainer2/Control"]
-margin_right = 80.0
-margin_bottom = 40.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Smooth Camera"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="HidePetOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 9 )]
 margin_top = 60.0
-margin_right = 16.0
 margin_bottom = 76.0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HidePetCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer3"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-focus_mode = 0
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer3"]
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
-
-[node name="HidePetLabel" type="Label" parent="VBoxContainer3/HBoxContainer3/Control"]
-margin_right = 80.0
-margin_bottom = 40.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Hide Pet"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer3"]
+[node name="InterfaceSelectionOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 3 )]
 margin_top = 80.0
-margin_right = 16.0
 margin_bottom = 96.0
-custom_constants/separation = 0
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="EnableSelectionCheckBox" type="CheckBox" parent="VBoxContainer3/HBoxContainer4"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
-focus_mode = 0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control" type="Control" parent="VBoxContainer3/HBoxContainer4"]
-margin_left = 16.0
-margin_right = 16.0
-margin_bottom = 16.0
-
-[node name="EnableSelectionLabel" type="Label" parent="VBoxContainer3/HBoxContainer4/Control"]
-margin_right = 80.0
-margin_bottom = 40.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Enable Selection"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MusicHSlider" type="HSlider" parent="."]
+[node name="SliderOptions" type="VBoxContainer" parent="."]
 margin_left = 610.0
-margin_top = 50.0
-margin_right = 760.0
-margin_bottom = 66.0
-rect_scale = Vector2( 2, 2 )
-value = 100.0
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SFXHSlider" type="HSlider" parent="."]
-margin_left = 610.0
-margin_top = 90.0
-margin_right = 760.0
-margin_bottom = 106.0
-rect_scale = Vector2( 2, 2 )
-value = 100.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MusicLabel" type="Label" parent="."]
-margin_left = 510.0
 margin_top = 60.0
-margin_right = 590.0
-margin_bottom = 76.0
-text = "Music"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_right = 760.0
+margin_bottom = 270.0
+rect_scale = Vector2( 2, 2 )
 
-[node name="SFXLabel" type="Label" parent="."]
-margin_left = 510.0
-margin_top = 100.0
-margin_right = 590.0
-margin_bottom = 116.0
-text = "SFX"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MusicOptionHSlider" parent="SliderOptions" instance=ExtResource( 4 )]
+rect_scale = Vector2( 1, 1 )
 
-[node name="BackButton" type="Button" parent="." groups=["buttons"]]
+[node name="SFXOptionHSlider" parent="SliderOptions" instance=ExtResource( 6 )]
+margin_top = 24.0
+margin_bottom = 44.0
+rect_scale = Vector2( 1, 1 )
+
+[node name="BackGenericButton" parent="." instance=ExtResource( 7 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
-margin_top = -56.0
-margin_right = 160.0
-margin_bottom = -40.0
-focus_neighbour_left = NodePath(".")
-focus_neighbour_top = NodePath(".")
-focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
-focus_next = NodePath(".")
-focus_previous = NodePath(".")
-text = "back"
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_top = -50.0
+margin_right = 232.0
+margin_bottom = -30.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[connection signal="toggled" from="VBoxContainer3/HBoxContainer2/SmoothCameraCheckBox" to="." method="_on_SmoothCameraCheckBox_toggled"]
-[connection signal="toggled" from="VBoxContainer3/HBoxContainer3/HidePetCheckBox" to="." method="_on_HidePetCheckBox_toggled"]
-[connection signal="toggled" from="VBoxContainer3/HBoxContainer4/EnableSelectionCheckBox" to="." method="_on_EnableSelectionCheckBox_toggled"]
-[connection signal="value_changed" from="MusicHSlider" to="MusicHSlider" method="_on_MusicHSlider_value_changed"]
-[connection signal="value_changed" from="SFXHSlider" to="SFXHSlider" method="_on_SFXHSlider_value_changed"]
-[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="BackGenericButton" to="." method="_on_BackGenericButton_pressed"]

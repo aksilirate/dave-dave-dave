@@ -1,20 +1,17 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/interface/TitleScene/NewGameButton.gd" type="Script" id=2]
 [ext_resource path="res://scenes/interface/TitleScene/ExitButton.gd" type="Script" id=3]
 [ext_resource path="res://scenes/interface/TitleScene/RichTextLabel.gd" type="Script" id=4]
 [ext_resource path="res://scenes/interface/TitleScene/ContinueButton.gd" type="Script" id=5]
-[ext_resource path="res://scenes/interface/TitleScene/AnimationPlayer.gd" type="Script" id=6]
+[ext_resource path="res://scenes/objects/TitleScreenParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
-[ext_resource path="res://scenes/interface/TitleScene/ParallaxBackground.gd" type="Script" id=8]
-[ext_resource path="res://assets/textures/splash_art_0.png" type="Texture" id=9]
-[ext_resource path="res://assets/textures/splash_art_3.png" type="Texture" id=10]
-[ext_resource path="res://assets/textures/splash_art_1.png" type="Texture" id=11]
 [ext_resource path="res://scenes/interface/PreTitle/PreTitle.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/interface/NewGameGenericButton/NewGameGenericButton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/objects/TitleMusicPlayer/TitleMusicPlayer.tscn" type="PackedScene" id=14]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=15]
+[ext_resource path="res://scenes/generic_buttons/OptionsGenericButton/OptionsGenericButton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -36,38 +33,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -20 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "idle"
-length = 3.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("ParallaxBackground/ParallaxLayer2/Sprite:offset")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, -20 ), Vector2( 0, 20 ) ]
 }
 
 [node name="TitleScene" type="Control"]
@@ -116,13 +81,13 @@ margin_bottom = 105.0
 border_color = Color( 1, 0, 0, 0 )
 border_width = 0.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
 margin_top = 126.0
 margin_right = 192.0
 margin_bottom = 290.0
 custom_constants/separation = 21
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="ContinueButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
 margin_right = 192.0
 margin_bottom = 16.0
 focus_neighbour_top = NodePath("../ExitButton")
@@ -132,11 +97,11 @@ text = "continue"
 align = 0
 script = ExtResource( 5 )
 
-[node name="NewGameGenericButton" parent="VBoxContainer/VBoxContainer" instance=ExtResource( 13 )]
+[node name="NewGameGenericButton" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 13 )]
 margin_top = 37.0
 margin_bottom = 53.0
 
-[node name="NewGameButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
 visible = false
 margin_top = 37.0
 margin_right = 192.0
@@ -150,27 +115,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExtrasButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="OptionsGenericButton" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 16 )]
 margin_top = 74.0
-margin_right = 192.0
 margin_bottom = 90.0
+
+[node name="ExtrasButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
+margin_top = 111.0
+margin_right = 192.0
+margin_bottom = 127.0
 text = "extras"
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer/VBoxContainer"]
-margin_top = 111.0
-margin_right = 192.0
-margin_bottom = 127.0
-text = "options"
-align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExitButton" type="Button" parent="VBoxContainer/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
 margin_top = 148.0
 margin_right = 192.0
 margin_bottom = 164.0
@@ -203,32 +162,7 @@ script = ExtResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/load = SubResource( 4 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-follow_viewport_enable = true
-script = ExtResource( 8 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-texture = ExtResource( 10 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 9 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( -1300, 150 )
-texture = ExtResource( 11 )
-offset = Vector2( 0, -20 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxBackground/ParallaxLayer2"]
-root_node = NodePath("../../..")
-anims/RESET = SubResource( 5 )
-anims/idle = SubResource( 6 )
-script = ExtResource( 6 )
+[node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
 [node name="BlackScreen" type="ColorRect" parent="."]
 visible = false
@@ -241,10 +175,9 @@ color = Color( 0, 0, 0, 1 )
 visible = false
 mouse_filter = 2
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/ContinueButton" to="VBoxContainer/VBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/NewGameButton" to="VBoxContainer/VBoxContainer/NewGameButton" method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExitButton" to="VBoxContainer/VBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/ContinueButton" to="VBoxContainer/ButtonsVBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/NewGameButton" to="VBoxContainer/ButtonsVBoxContainer/NewGameButton" method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/ExitButton" to="VBoxContainer/ButtonsVBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="tree_exited" from="PreTitle" to="." method="_on_PreTitle_tree_exited"]
 [connection signal="tree_exited" from="PreTitle" to="TitleMusicPlayer" method="_on_PreTitle_tree_exited"]

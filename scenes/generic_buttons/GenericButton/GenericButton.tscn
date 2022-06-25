@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/interface/GenericButton/GenericButton.gd" type="Script" id=1]
+[ext_resource path="res://scenes/generic_buttons/GenericButton/GenericButton.gd" type="Script" id=1]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=2]
 
 [node name="GenericButton" type="Button"]

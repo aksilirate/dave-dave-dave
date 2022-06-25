@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Button",
 "class": "GenericButton",
 "language": "GDScript",
-"path": "res://scenes/interface/GenericButton/GenericButton.gd"
+"path": "res://scenes/generic_buttons/GenericButton/GenericButton.gd"
 }, {
 "base": "DataResource",
 "class": "GenericButtonData",
@@ -149,11 +149,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
 }, {
-"base": "Node",
-"class": "TitleSceneFactory",
-"language": "GDScript",
-"path": "res://scenes/factories/TitleSceneFactory/TitleSceneFactory.gd"
-}, {
 "base": "Node2D",
 "class": "WallGun",
 "language": "GDScript",
@@ -188,7 +183,6 @@ _global_script_class_icons={
 "SecondJumpData": "",
 "SecondJumpEditor": "",
 "Time": "",
-"TitleSceneFactory": "",
 "WallGun": ""
 }
 
@@ -273,6 +267,10 @@ Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
 Game="*res://scenes/objects/Game/Game.tscn"
+
+[debug]
+
+gdscript/warnings/unused_signal=false
 
 [display]
 

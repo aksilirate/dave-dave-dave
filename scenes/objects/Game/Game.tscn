@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/objects/Game/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/factories/TitleSceneFactory/TitleSceneFactory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/factories/WorldSceneFactory/WorldSceneFactory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/managers/AudioManager/AudioManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/managers/OptionsManager/OptionsManager.tscn" type="PackedScene" id=6]
@@ -15,19 +14,15 @@ script = ExtResource( 1 )
 
 [node name="OptionsManager" parent="." instance=ExtResource( 6 )]
 
-[node name="TitleSceneFactory" parent="." instance=ExtResource( 3 )]
+[node name="TitleScene" parent="." instance=ExtResource( 2 )]
 
-[node name="TitleScene" parent="TitleSceneFactory" instance=ExtResource( 2 )]
+[node name="OptionsScene" parent="." instance=ExtResource( 7 )]
 visible = false
-
-[node name="OptionsSceneFactory" type="Node" parent="."]
-
-[node name="OptionsScene" parent="OptionsSceneFactory" instance=ExtResource( 7 )]
 
 [node name="WorldSceneFactory" parent="." instance=ExtResource( 4 )]
 
-[connection signal="toggled" from="OptionsSceneFactory/OptionsScene/VBoxContainer3/FullscreenOptionCheckBox" to="OptionsManager" method="_on_FullscreenOptionCheckBox_toggled"]
-[connection signal="toggled" from="OptionsSceneFactory/OptionsScene/VBoxContainer3/VSyncOptionCheckBox" to="OptionsManager" method="_on_VSyncOptionCheckBox_toggled"]
+[connection signal="pressed" from="TitleScene/VBoxContainer/VBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
+[connection signal="hide" from="OptionsScene" to="AudioManager" method="_on_OptionsScene_hide"]
 
-[editable path="TitleSceneFactory/TitleScene"]
-[editable path="OptionsSceneFactory/OptionsScene"]
+[editable path="TitleScene"]
+[editable path="OptionsScene"]

@@ -46,3 +46,8 @@ func _on_FullscreenOptionCheckBox_toggled(button_pressed):
 
 func _on_VSyncOptionCheckBox_toggled(button_pressed):
 	options_editor.set_v_sync(button_pressed)
+
+
+
+func _on_SmoothCameraOptionCheckBox_toggled(button_pressed):
+	options_editor.set_smooth_camera(button_pressed)

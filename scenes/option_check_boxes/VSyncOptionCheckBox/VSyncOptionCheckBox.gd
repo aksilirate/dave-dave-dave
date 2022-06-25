@@ -4,7 +4,6 @@ extends OptionCheckBox
 
 
 
-
 func _ready():
 	Game.options_data.connect("v_sync_changed", self, "_on_v_sync_changed")
 

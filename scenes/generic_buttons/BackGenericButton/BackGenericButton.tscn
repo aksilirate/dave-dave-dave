@@ -2,5 +2,5 @@
 
 [ext_resource path="res://scenes/generic_buttons/GenericButton/GenericButton.tscn" type="PackedScene" id=1]
 
-[node name="NewGameGenericButton" instance=ExtResource( 1 )]
-text = "new game"
+[node name="BackGenericButton" instance=ExtResource( 1 )]
+text = "back"
