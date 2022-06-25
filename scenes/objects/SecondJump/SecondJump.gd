@@ -15,13 +15,14 @@ var overlapping_bodies_cache: Array
 
 
 func _ready():
-	Game.player_body_data.connect("second_jumped", self, "_on_player_body_second_jumped")
+	Game.current_world_data.connect("last_second_jumped_body_set", self, "_on_last_second_jumped_body_set")
 	animation_player.play("idle")
 
 
 
 
-func _on_player_body_second_jumped(arg_body):
+func _on_last_second_jumped_body_set():
+	var arg_body = Game.current_world_data.last_second_jumped_body
 	if overlapping_bodies_cache.has(arg_body):
 		
 		for element in overlapping_bodies_cache:

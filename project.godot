@@ -9,15 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Resource",
-"class": "AdventureWorldData",
+"base": "WorldScene",
+"class": "AdventureWorld",
 "language": "GDScript",
-"path": "res://classes/data/adventure_world/data.gd"
-}, {
-"base": "AdventureWorldData",
-"class": "AdventureWorldEditor",
-"language": "GDScript",
-"path": "res://classes/data/adventure_world/editor.gd"
+"path": "res://scenes/objects/AdventureWorldScene/AdventureWorldScene.gd"
 }, {
 "base": "Node",
 "class": "AudioManager",
@@ -168,10 +163,24 @@ _global_script_classes=[ {
 "class": "WallGun",
 "language": "GDScript",
 "path": "res://scenes/objects/WallGun/WallGun.gd"
+}, {
+"base": "DataResource",
+"class": "WorldData",
+"language": "GDScript",
+"path": "res://classes/data/world/data.gd"
+}, {
+"base": "WorldData",
+"class": "WorldEditor",
+"language": "GDScript",
+"path": "res://classes/data/world/editor.gd"
+}, {
+"base": "Node2D",
+"class": "WorldScene",
+"language": "GDScript",
+"path": "res://scenes/objects/WorldScene/WorldScene.gd"
 } ]
 _global_script_class_icons={
-"AdventureWorldData": "",
-"AdventureWorldEditor": "",
+"AdventureWorld": "",
 "AudioManager": "",
 "Bullet": "",
 "Checkpoint": "",
@@ -201,7 +210,10 @@ _global_script_class_icons={
 "SecondJumpData": "",
 "SecondJumpEditor": "",
 "Time": "",
-"WallGun": ""
+"WallGun": "",
+"WorldData": "",
+"WorldEditor": "",
+"WorldScene": ""
 }
 
 [admob]
@@ -280,7 +292,6 @@ default_bus_layout="res://resources/default_bus_layout.tres"
 Steamworks="*res://singletons/Steamworks.gd"
 Globals="*res://singletons/Globals.gd"
 Options="res://singletons/Options.gd"
-Audio="*res://singletons/Audio.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"

@@ -401,7 +401,11 @@ extents = Vector2( 3, 3.5 )
 collision_layer = 3
 collision_mask = 2
 script = ExtResource( 3 )
+double_jump = null
+has_crown = null
 speed = 800
+diamonds_collected = null
+controlled = true
 
 [node name="PetPosition" type="Position2D" parent="."]
 position = Vector2( -8, -8 )
