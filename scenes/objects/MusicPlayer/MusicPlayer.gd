@@ -4,7 +4,7 @@ export(AudioStream) var title_screen_music
 
 
 func _ready():
-	Game.connect("current_state_changed", self, "_on_current_state_changed")
+	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
 	
 	volume_db = Game.options_data.music_volume_db - 10
 	
@@ -13,7 +13,7 @@ func _ready():
 
 
 
-func _on_current_state_changed():
+func _on_current_game_state_changed():
 	if Game.current_state == Game.State.TITLE:
 		stream = title_screen_music
 		playing = true

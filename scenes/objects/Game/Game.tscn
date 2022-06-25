@@ -40,6 +40,11 @@ player_body = NodePath("PlayerBody")
 [connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/ExitGenericButton" to="." method="_on_ExitGenericButton_pressed"]
 [connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdventureNewGameGenericButton" to="." method="_on_AdventureNewGameGenericButton_pressed"]
 [connection signal="hide" from="OptionsScene" to="AudioManager" method="_on_OptionsScene_hide"]
+[connection signal="toggled" from="OptionsScene/ToggleOptions/FullscreenOptionCheckBox" to="OptionsManager" method="_on_FullscreenOptionCheckBox_toggled"]
+[connection signal="toggled" from="OptionsScene/ToggleOptions/VSyncOptionCheckBox" to="OptionsManager" method="_on_VSyncOptionCheckBox_toggled"]
+[connection signal="toggled" from="OptionsScene/ToggleOptions/SmoothCameraOptionCheckBox" to="OptionsManager" method="_on_SmoothCameraOptionCheckBox_toggled"]
+[connection signal="toggled" from="OptionsScene/ToggleOptions/HidePetOptionCheckBox" to="OptionsManager" method="_on_HidePetOptionCheckBox_toggled"]
+[connection signal="toggled" from="OptionsScene/ToggleOptions/InterfaceSelectionOptionCheckBox" to="OptionsManager" method="_on_InterfaceSelectionOptionCheckBox_toggled"]
 [connection signal="finished" from="PreTitleScene" to="." method="_on_PreTitleScene_finished"]
 
 [editable path="TitleScene"]

@@ -2,17 +2,12 @@ class_name PlayerBody
 extends KinematicBody2D
 
 
-
 signal second_jumped
 
+enum {IDLE, MOVING, AIR}
 
 
 
-
-#signal deaths_changed
-#
-#enum {IDLE, MOVING, AIR}
-#
 #onready var animation_player = $AnimationPlayer
 #onready var sprite = $Sprites/Sprite
 #onready var boots_sprite = $Sprites/BootsSprite
@@ -45,33 +40,36 @@ signal second_jumped
 #var inventory: Array
 #var double_jumped: bool = false
 #var jumped: bool = false
-#
-#var haste: float 
-#
-#var deaths: int = 0
-#var time: float = 0
-#
+
+
+
 #var pet_chamber_overlapping: bool = false
-#
-#
-#
-#
-#
-#onready var player_body_editor: PlayerBodyEditor = Game.current_world_data.player_body_data as PlayerBodyEditor
-#
-#
-#
-#
-#
-#
-#
+
+
+var player_body_editor: PlayerBodyEditor
+
+
+
+func _ready():
+	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
+
+
+
+func _on_current_game_state_changed():
+	player_body_editor = Game.current_world_data.player_body_data as PlayerBodyEditor
+
+
+
+
+
+
+
 #func _ready():
 #	Game.damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 #
 #
 #
 #	if Save.exists() and not Globals.zero_deaths_mode:
-#		deaths = Save.get_player_deaths()
 #		time = Save.get_player_time()
 #		double_jump = Save.get_player_double_jump()
 #		if double_jump:
@@ -102,22 +100,27 @@ signal second_jumped
 #	if Game.damage_area_data.last_collided_body == self:
 #		Audio.play("res://assets/sounds/death.wav")
 #		animation_player.play("death")
-#
-#
-#
-#
-#
-#
-#func _process(delta):
-#	time += delta
-#	time_label.text = Time.get_formatted(time)
-#
-#
-#func _physics_process(delta):
-#	haste -= delta
-#	haste = max(0, haste)
-#	haste_progress_bar.value = haste * 10
-#
+
+
+
+
+
+
+
+
+func _process(delta):
+	player_body_editor.add_to_play_time(delta)
+
+
+
+
+
+func _physics_process(delta):
+	player_body_editor.remove_from_haste(delta)
+	player_body_editor.set_haste(max(0.0, player_body_editor.haste))
+	
+	
+	
 #	sprite.modulate = Color("#00f8f8") if deaths < 1000 else Color("#f80000")
 #	if haste > 0:
 #		sprite.modulate = Color("#f800f8")

@@ -60,6 +60,7 @@ func _on_PreTitleScene_finished():
 
 
 func _on_AdventureNewGameGenericButton_pressed():
+	current_world_data = adventure_world_data
 	_set_state(State.ADVENTURE_WORLD)
 
 

@@ -51,3 +51,11 @@ func _on_VSyncOptionCheckBox_toggled(button_pressed):
 
 func _on_SmoothCameraOptionCheckBox_toggled(button_pressed):
 	options_editor.set_smooth_camera(button_pressed)
+
+
+func _on_HidePetOptionCheckBox_toggled(button_pressed):
+	pass # Replace with function body.
+
+
+func _on_InterfaceSelectionOptionCheckBox_toggled(button_pressed):
+	pass # Replace with function body.

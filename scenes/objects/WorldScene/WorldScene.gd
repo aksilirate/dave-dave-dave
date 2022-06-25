@@ -9,8 +9,13 @@ onready var world_editor: WorldEditor = Game.current_world_data as WorldEditor
 
 
 func _ready():
+	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
 	player_body.connect("second_jumped", self, "_on_player_body_second_jumped")
 
+
+
+func _on_current_game_state_changed():
+	Scene.set_active(self, Game.WORLD_STATES.has(Game.current_state))
 
 
 func _on_player_body_second_jumped():

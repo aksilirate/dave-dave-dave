@@ -7,11 +7,11 @@ onready var animation_player = $AnimationPlayer
 
 
 func _ready():
-	Game.connect("current_state_changed", self, "_on_current_state_changed")
+	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
 
 
 
-func _on_current_state_changed():
+func _on_current_game_state_changed():
 	var active: bool = Game.current_state == Game.State.TITLE
 	Scene.set_active(self, active)
 
