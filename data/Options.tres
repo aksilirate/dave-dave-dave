@@ -9,5 +9,5 @@ v_sync = true
 smooth_camera = true
 hide_pet = false
 interface_selection = false
-music_volume_db = 1.0
-sfx_volume_db = 1.0
+music_volume_db = 0.0
+sfx_volume_db = 0.0

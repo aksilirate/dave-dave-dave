@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/option_h_sliders/MusicOptionHSlider/MusicOptionHSlider.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/option_check_boxes/SmoothCameraOptionCheckBox/SmoothCameraOptionCheckBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/option_h_sliders/SFXOptionHSlider/SFXOptionHSlider.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/generic_buttons/BackGenericButton/BackGenericButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/generic_buttons/OptionsBackGenericButton/OptionsBackGenericButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/option_check_boxes/HidePetOptionCheckBox/HidePetOptionCheckBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/option_check_boxes/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=12]
@@ -71,12 +71,12 @@ margin_top = 24.0
 margin_bottom = 44.0
 rect_scale = Vector2( 1, 1 )
 
-[node name="BackGenericButton" parent="." instance=ExtResource( 7 )]
+[node name="OptionsBackGenericButton" parent="." instance=ExtResource( 7 )]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
-margin_top = -50.0
+margin_top = -60.0
 margin_right = 232.0
-margin_bottom = -30.0
+margin_bottom = -40.0
 
-[connection signal="pressed" from="BackGenericButton" to="." method="_on_BackGenericButton_pressed"]
+[connection signal="pressed" from="OptionsBackGenericButton" to="." method="_on_OptionsBackGenericButton_pressed"]

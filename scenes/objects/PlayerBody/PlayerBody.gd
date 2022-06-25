@@ -1,6 +1,8 @@
 class_name PlayerBody
 extends KinematicBody2D
 
+signal deaths_changed
+
 enum {IDLE, MOVING, AIR}
 
 onready var animation_player = $AnimationPlayer
@@ -13,7 +15,6 @@ onready var diamonds_label = $CanvasLayer/HBoxContainer/DiamondsLabel
 onready var jump_audio_cooldown = $JumpAudioCooldown
 onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
 onready var time_label = $CanvasLayer/HBoxContainer2/VBoxContainer/TimeLabel
-onready var death_count_label = $CanvasLayer/HBoxContainer2/VBoxContainer/DeathCountLabel
 onready var camera = $Camera2D
 onready var pet_body = $PetBody
 onready var pet_position = $PetPosition
@@ -49,7 +50,7 @@ var pet_chamber_overlapping: bool = false
 
 
 
-var player_body_editor: PlayerBodyEditor = Game.player_body_data as PlayerBodyEditor
+onready var player_body_editor: PlayerBodyEditor = Game.player_body_data as PlayerBodyEditor
 
 
 
@@ -80,7 +81,6 @@ func _ready():
 			
 			
 		inventory = Save.get_player_inventory()
-		update_deaths_label()
 		update_inventory()
 	
 	pet_body.global_position = pet_position.global_position
@@ -180,7 +180,7 @@ func _jump():
 		return
 	
 	if Game.second_jump_data.overlapping_bodies.has(self):
-		player_body_editor.set_last_second_jumped_player_body(self)
+		player_body_editor.emit_signal("second_jumped", self)
 		Audio.play("res://assets/sounds/second_jump.wav", -10)
 		jump_timer.start()
 	
@@ -338,16 +338,12 @@ func play_footstep():
 
 
 
-func increase_death_count():
+func _increase_death_count():
 	if Globals.zero_deaths_mode:
 # warning-ignore:return_value_discarded
 		get_tree().reload_current_scene()
 	deaths += 1
-	update_deaths_label()
 
 
 
-
-func update_deaths_label() -> void:
-	death_count_label.text = "deaths: " + str(deaths)
 

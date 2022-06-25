@@ -1,17 +1,13 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/interface/TitleScene/NewGameButton.gd" type="Script" id=2]
-[ext_resource path="res://scenes/interface/TitleScene/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://scenes/objects/PlayTitleButtonsVBoxContainer/PlayTitleButtonsVBoxContainer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/objects/MainTitleButtonsVBoxContainer/MainTitleButtonsVBoxContainer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interface/TitleScene/RichTextLabel.gd" type="Script" id=4]
-[ext_resource path="res://scenes/interface/TitleScene/ContinueButton.gd" type="Script" id=5]
+[ext_resource path="res://scenes/objects/AdvantureVBoxContainer/AdvantureVBoxContainer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/objects/TitleScreenParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
-[ext_resource path="res://scenes/interface/PreTitle/PreTitle.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/interface/NewGameGenericButton/NewGameGenericButton.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/objects/TitleMusicPlayer/TitleMusicPlayer.tscn" type="PackedScene" id=14]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=15]
-[ext_resource path="res://scenes/generic_buttons/OptionsGenericButton/OptionsGenericButton.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -45,9 +41,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleMusicPlayer" parent="." instance=ExtResource( 14 )]
-autoplay = false
-
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_bottom = 1.0
 margin_right = 340.0
@@ -57,17 +50,15 @@ color = Color( 0, 0, 0, 0.588235 )
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 30.0
-margin_top = -108.0
+margin_top = -84.0
 margin_right = 222.0
-margin_bottom = 188.0
+margin_bottom = 193.0
 rect_scale = Vector2( 1.25, 1.25 )
 custom_constants/separation = 21
-alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 6.0
 margin_right = 192.0
-margin_bottom = 84.0
+margin_bottom = 78.0
 custom_colors/font_color = Color( 0, 0.972549, 0.972549, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "DAVE
@@ -75,70 +66,29 @@ text = "DAVE
     DAVE"
 
 [node name="Container" type="ReferenceRect" parent="VBoxContainer"]
-margin_top = 105.0
+margin_top = 99.0
 margin_right = 192.0
-margin_bottom = 105.0
+margin_bottom = 99.0
 border_color = Color( 1, 0, 0, 0 )
 border_width = 0.0
 
 [node name="ButtonsVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 126.0
+margin_top = 120.0
 margin_right = 192.0
-margin_bottom = 290.0
+margin_bottom = 247.0
 custom_constants/separation = 21
 
-[node name="ContinueButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
-margin_right = 192.0
-margin_bottom = 16.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../NewGameButton")
-disabled = true
-text = "continue"
-align = 0
-script = ExtResource( 5 )
+[node name="MainTitleButtonsVBoxContainer" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 3 )]
 
-[node name="NewGameGenericButton" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 13 )]
-margin_top = 37.0
-margin_bottom = 53.0
-
-[node name="NewGameButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
+[node name="PlayTitleButtonsVBoxContainer" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 2 )]
 visible = false
-margin_top = 37.0
-margin_right = 192.0
-margin_bottom = 53.0
-focus_neighbour_top = NodePath("../ContinueButton")
-focus_neighbour_bottom = NodePath("../ExtrasButton")
-text = "new game"
-align = 0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsGenericButton" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 16 )]
-margin_top = 74.0
-margin_bottom = 90.0
-
-[node name="ExtrasButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
-margin_top = 111.0
-margin_right = 192.0
-margin_bottom = 127.0
-text = "extras"
-align = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExitButton" type="Button" parent="VBoxContainer/ButtonsVBoxContainer"]
 margin_top = 148.0
-margin_right = 192.0
-margin_bottom = 164.0
-text = "exit"
-align = 0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 201.0
+
+[node name="AdvantureVBoxContainer" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 5 )]
+visible = false
+margin_top = 222.0
+margin_bottom = 312.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color( 1, 1, 1, 0.588235 )
@@ -171,13 +121,15 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
-[node name="PreTitle" parent="." instance=ExtResource( 12 )]
-visible = false
-mouse_filter = 2
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/PlayGenericButton" to="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer" method="_on_PlayGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/PlayGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_PlayGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_AdvantureGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" method="_on_AdvantureGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer" method="_on_PlayBackGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_PlayBackGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdvantureBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_AdvantureBackGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdvantureBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" method="_on_AdvantureBackGenericButton_pressed"]
 
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/ContinueButton" to="VBoxContainer/ButtonsVBoxContainer/ContinueButton" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/NewGameButton" to="VBoxContainer/ButtonsVBoxContainer/NewGameButton" method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/ExtrasButton" to="." method="_on_ExtrasButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/ExitButton" to="VBoxContainer/ButtonsVBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
-[connection signal="tree_exited" from="PreTitle" to="." method="_on_PreTitle_tree_exited"]
-[connection signal="tree_exited" from="PreTitle" to="TitleMusicPlayer" method="_on_PreTitle_tree_exited"]
+[editable path="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer"]
+[editable path="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer"]
+[editable path="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer"]

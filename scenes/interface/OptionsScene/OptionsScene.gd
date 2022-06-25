@@ -15,9 +15,11 @@ func _input(event):
 
 
 
-func _on_BackGenericButton_pressed():
-	hide()
 
 
 func _on_OptionsGenericButton_pressed():
 	show()
+
+
+func _on_OptionsBackGenericButton_pressed():
+	hide()
