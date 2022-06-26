@@ -14,15 +14,13 @@ export(int) var deaths setget _deaths
 
 
 
-func _play_time(_value):
-	print(_value)
-	return
+func _play_time(value):
+	if not DataLoader:
+		play_time = value
 
 func _haste(_value):
-	print(_value)
 	return
 
 
 func _deaths(_value):
-	print(_value)
 	return

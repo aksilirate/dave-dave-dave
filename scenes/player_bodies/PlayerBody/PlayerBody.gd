@@ -7,12 +7,19 @@ export(Resource) var player_body_editor = player_body_editor as PlayerBodyEditor
 
 var player_body_data: PlayerBodyData
 
+
+
+export(bool) var new_game
+
+
 func _player_body_editor(value):
 	player_body_editor = value
 	player_body_data = player_body_editor as PlayerBodyData
 
 
-
+func _ready():
+	if new_game:
+		player_body_editor.set_play_time(0)
 
 
 

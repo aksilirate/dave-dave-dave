@@ -17,13 +17,16 @@ var last_second_jumped_body setget _last_second_jumped_body
 
 
 
+
+
 func _player_body_data(_value):
 	return
 
 
 
-func _played(_value):
-	return
+func _played(value):
+	if not DataLoader:
+		played = value
 
 
 

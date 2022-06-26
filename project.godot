@@ -319,6 +319,7 @@ Options="res://singletons/Options.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
+DataLoader="*res://singletons/DataLoader/DataLoader.tscn"
 
 [debug]
 

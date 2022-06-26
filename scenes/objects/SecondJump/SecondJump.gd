@@ -28,7 +28,7 @@ func _ready():
 
 
 func _on_last_second_jumped_body_set():
-	var arg_body = Game.current_world_data.last_second_jumped_body
+	var arg_body = world_scene.world_data.last_second_jumped_body
 	if overlapping_bodies_cache.has(arg_body):
 		
 		for element in overlapping_bodies_cache:

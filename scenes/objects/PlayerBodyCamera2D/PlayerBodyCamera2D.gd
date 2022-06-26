@@ -2,17 +2,6 @@ extends Camera2D
 
 
 
-func _ready():
-	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
-	current = false
-
-
-
-func _on_current_game_state_changed():
-	if Game.WORLD_STATES.has(Game.current_state):
-		current = true
-		return
-	current = false
 
 #
 #func _ready():

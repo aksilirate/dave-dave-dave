@@ -4,3 +4,5 @@
 
 [node name="GameStateManager" type="Node"]
 script = ExtResource( 1 )
+new_adventure_play_state_path = "res://scenes/game_states/NewAdventurePlayState/NewAdventurePlayState.tscn"
+adventure_play_state_path = "res://scenes/game_states/AdventurePlayState/AdventurePlayState.tscn"

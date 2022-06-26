@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://data/adventure_world/AdventureWorld.tres" type="Resource" id=1]
+[ext_resource path="res://singletons/DataLoader/DataLoader.gd" type="Script" id=2]
+[ext_resource path="res://data/adventure_world/PlayerBody.tres" type="Resource" id=3]
+
+[node name="DataLoader" type="Node"]
+script = ExtResource( 2 )
+adventure_world_data = ExtResource( 1 )
+adventure_player_body_data = ExtResource( 3 )
