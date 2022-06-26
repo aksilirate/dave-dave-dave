@@ -428,6 +428,7 @@ anims/move = SubResource( 5 )
 scale = Vector2( 10, 10 )
 
 [node name="PlayerBodySprite" parent="Sprites" instance=ExtResource( 3 )]
+player_body = NodePath("../..")
 
 [node name="BootsSprite" type="Sprite" parent="Sprites"]
 visible = false

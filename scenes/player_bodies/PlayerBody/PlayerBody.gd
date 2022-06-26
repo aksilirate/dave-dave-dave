@@ -117,11 +117,6 @@ func _ready():
 
 #func _physics_process(delta):
 	
-	
-	
-#	sprite.modulate = Color("#00f8f8") if deaths < 1000 else Color("#f80000")
-#	if haste > 0:
-#		sprite.modulate = Color("#f800f8")
 #
 #	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
 #

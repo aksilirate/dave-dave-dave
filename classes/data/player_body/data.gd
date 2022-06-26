@@ -3,6 +3,7 @@ extends DataResource
 
 signal play_time_changed
 signal haste_changed
+signal deaths_changed
 
 
 export(float) var play_time setget _play_time

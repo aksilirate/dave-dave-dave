@@ -1,0 +1,31 @@
+class_name PlayerBodySprite
+extends Sprite
+
+
+export(NodePath) onready var player_body = get_node(player_body) as PlayerBody
+
+
+
+
+func _ready():
+	player_body.player_body_data.connect("haste_changed", self, "_on_player_body_haste_changed")
+	player_body.player_body_data.connect("deaths_changed", self, "_on_player_body_deaths_changed")
+
+
+
+func _on_player_body_haste_changed():
+	_update_sprite()
+
+
+func _on_player_body_deaths_changed():
+	_update_sprite()
+
+
+
+func _update_sprite():
+	var deaths = player_body.player_body_data.deaths
+	var haste = player_body.player_body_data.haste
+	
+	modulate = Color("#00f8f8") if deaths < 1000 else Color("#f80000")
+	if haste > 0:
+		modulate = Color("#f800f8")
