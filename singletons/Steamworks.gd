@@ -27,10 +27,16 @@ func _initialize_steam() -> void:
 func is_owned() -> bool:
 	return Steam.isSubscribed()
 
+
+
 func unlock_achievement(name: String):
 	if is_owned():
+# warning-ignore:return_value_discarded
 		Steam.setAchievement(name)
+# warning-ignore:return_value_discarded
 		Steam.storeStats()
+
+
 
 func get_user_path() -> String:
 	var path: String = Steam.getAppInstallDir(1625760)

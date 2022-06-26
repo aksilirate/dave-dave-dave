@@ -2,7 +2,7 @@ class_name PlayerBody
 extends KinematicBody2D
 
 signal second_jumped
-
+signal stepped
 
 enum {IDLE, MOVING, AIR}
 
@@ -24,7 +24,6 @@ export(bool) var controllable = true
 
 export(int) var speed = 800
 export(float) var gravity = 0.25
-export(bool) var double_jump: bool = false
 
 
 
@@ -77,7 +76,7 @@ func _process(delta):
 func _physics_process(delta):
 	if is_playing_death_animation():
 		return
-
+		
 	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
 	
 	player_body_editor.remove_from_haste(delta)
@@ -148,7 +147,7 @@ func _jump():
 
 	if Input.is_action_just_pressed("jump"):
 
-		if not double_jump:
+		if not player_body_data.double_jump:
 			return
 
 		if double_jumped:
@@ -194,6 +193,7 @@ func _jump():
 func _play_animation_from_state(state: int):
 	if is_playing_death_animation():
 		return
+		
 	match state:
 		IDLE:
 			animation_player.play("idle")

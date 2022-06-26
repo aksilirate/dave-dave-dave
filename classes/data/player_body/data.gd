@@ -12,6 +12,7 @@ export(float) var play_time setget _play_time
 
 export(int) var diamonds_collected setget _diamonds_collected
 
+export(bool) var double_jump setget _double_jump
 
 export(float) var haste setget _haste 
 
@@ -31,9 +32,16 @@ func _diamonds_collected(value):
 		diamonds_collected = value
 
 
-func _haste(_value):
-	return
+func _double_jump(value):
+	if not DataLoader:
+		double_jump = value
 
 
-func _deaths(_value):
-	return
+func _haste(value):
+	if not DataLoader:
+		haste = value
+
+
+func _deaths(value):
+	if not DataLoader:
+		deaths = value

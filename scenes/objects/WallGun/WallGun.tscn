@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/objects/WallGun/WallGun.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/wall_gun.png" type="Texture" id=2]
+[ext_resource path="res://scenes/objects/Bullet/Bullet.tscn" type="PackedScene" id=3]
 
 [node name="WallGun" type="Node2D"]
 scale = Vector2( 10, 10 )
 script = ExtResource( 1 )
+bullet = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

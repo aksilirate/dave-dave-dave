@@ -95,7 +95,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("../../CollisionShape2D:position")
+tracks/7/path = NodePath("../../CollisionShape2D:shape:extents")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -104,10 +104,10 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 10, 5 ) ]
+"values": [ Vector2( 30, 35 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("../../CollisionShape2D:shape:extents")
+tracks/8/path = NodePath("../../CollisionShape2D:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -116,7 +116,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 30, 35 ) ]
+"values": [ Vector2( 10, 5 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -159,7 +159,7 @@ tracks/2/keys = {
 "values": [ 2 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../../CollisionShape2D:shape:extents")
+tracks/3/path = NodePath("../../CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -168,10 +168,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 30, 30 ) ]
+"values": [ Vector2( 10, 10 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../../CollisionShape2D:position")
+tracks/4/path = NodePath("../../CollisionShape2D:shape:extents")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -180,7 +180,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 10, 10 ) ]
+"values": [ Vector2( 30, 30 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -291,7 +291,7 @@ tracks/2/keys = {
 "values": [ 0, 2 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../../CollisionShape2D:shape:extents")
+tracks/3/path = NodePath("../../CollisionShape2D:position")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -300,10 +300,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 30, 35 ), Vector2( 30, 30 ) ]
+"values": [ Vector2( 10, 5 ), Vector2( 10, 10 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../../CollisionShape2D:position")
+tracks/4/path = NodePath("../../CollisionShape2D:shape:extents")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -312,7 +312,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 5 ), Vector2( 10, 10 ) ]
+"values": [ Vector2( 30, 35 ), Vector2( 30, 30 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -355,7 +355,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../../CollisionShape2D:shape:extents")
+tracks/3/path = NodePath("../../CollisionShape2D:position")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -364,10 +364,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 30, 35 ), Vector2( 40, 35 ), Vector2( 30, 30 ) ]
+"values": [ Vector2( 10, 5 ), Vector2( 0, 0 ), Vector2( 10, 10 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("../../CollisionShape2D:position")
+tracks/4/path = NodePath("../../CollisionShape2D:shape:extents")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -376,7 +376,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 5 ), Vector2( 0, -5 ), Vector2( 10, 10 ) ]
+"values": [ Vector2( 30, 35 ), Vector2( 40, 40 ), Vector2( 30, 30 ) ]
 }
 tracks/5/type = "method"
 tracks/5/path = NodePath("../..")
@@ -388,8 +388,8 @@ tracks/5/keys = {
 "times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "play_footstep"
+"args": [ "stepped" ],
+"method": "emit_signal"
 } ]
 }
 
@@ -418,7 +418,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprites/PlayerBodySprite")
-playback_process_mode = 0
 method_call_mode = 1
 anims/RESET = SubResource( 1 )
 anims/air = SubResource( 2 )
