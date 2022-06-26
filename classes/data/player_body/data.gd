@@ -14,15 +14,15 @@ export(int) var deaths setget _deaths
 
 
 
-func _play_time(value):
-	if not Game:
-		play_time = value
+func _play_time(_value):
+	print(_value)
+	return
 
-func _haste(value):
-	if not Game:
-		haste = value
+func _haste(_value):
+	print(_value)
+	return
 
 
-func _deaths(value):
-	if not Game:
-		deaths = value
+func _deaths(_value):
+	print(_value)
+	return

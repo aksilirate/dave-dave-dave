@@ -3,6 +3,12 @@ extends PlayerBodyData
 
 
 
+func set_play_time(value: float):
+	if play_time != value:
+		play_time = value
+		emit_signal("play_time_changed")
+		emit_changed()
+
 
 func add_to_play_time(amount: float):
 	play_time += amount

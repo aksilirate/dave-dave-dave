@@ -2,7 +2,7 @@ class_name GenericButton
 extends Button
 
 
-onready var generic_button_editor: GenericButtonEditor = Game.generic_button_data as GenericButtonEditor
+export(Resource) var generic_button_editor = generic_button_editor as GenericButtonEditor
 
 
 

@@ -9,7 +9,6 @@ var relative_y
 
 
 func _ready():
-	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
 	get_tree().get_root().connect("size_changed", self, "viewport_changed") # register event if viewport changes
 	viewport_changed()
 	relative_x = 0
@@ -17,11 +16,7 @@ func _ready():
 
 
 
-func _on_current_game_state_changed():
-	if Game.current_state == Game.State.TITLE:
-		scale = Vector2(1.0, 1.0)
-		return
-	scale = Vector2(0.0, 0.0)
+
 
 
 

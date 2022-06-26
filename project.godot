@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ControllablePlayerBody",
+"class": "AdventureControllablePlayerBody",
+"language": "GDScript",
+"path": "res://scenes/player_bodies/AdventureControllablePlayerBody/AdventureControllablePlayerBody.gd"
+}, {
 "base": "WorldScene",
 "class": "AdventureWorld",
 "language": "GDScript",
@@ -29,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/Checkpoint/Checkpoint.gd"
 }, {
+"base": "PlayerBody",
+"class": "ControllablePlayerBody",
+"language": "GDScript",
+"path": "res://scenes/player_bodies/ControllablePlayerBody/ControllablePlayerBody.gd"
+}, {
 "base": "Area2D",
 "class": "DamageArea",
 "language": "GDScript",
@@ -48,6 +58,11 @@ _global_script_classes=[ {
 "class": "DataResource",
 "language": "GDScript",
 "path": "res://classes/objects/data_resource.gd"
+}, {
+"base": "Node",
+"class": "GameStateManager",
+"language": "GDScript",
+"path": "res://scenes/managers/GameStateManager/GameStateManager.gd"
 }, {
 "base": "Button",
 "class": "GenericButton",
@@ -94,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/MovingPlatform/MovingPlatform.gd"
 }, {
+"base": "AudioStreamPlayer",
+"class": "MusicPlayer",
+"language": "GDScript",
+"path": "res://scenes/music_players/MusicPlayer/MusicPlayer.gd"
+}, {
 "base": "CheckBox",
 "class": "OptionCheckBox",
 "language": "GDScript",
@@ -122,7 +142,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "PlayerBody",
 "language": "GDScript",
-"path": "res://scenes/objects/PlayerBody/PlayerBody.gd"
+"path": "res://scenes/player_bodies/PlayerBody/PlayerBody.gd"
 }, {
 "base": "DataResource",
 "class": "PlayerBodyData",
@@ -133,11 +153,6 @@ _global_script_classes=[ {
 "class": "PlayerBodyEditor",
 "language": "GDScript",
 "path": "res://classes/data/player_body/editor.gd"
-}, {
-"base": "Reference",
-"class": "Scene",
-"language": "GDScript",
-"path": "res://classes/utility/scene.gd"
 }, {
 "base": "Area2D",
 "class": "SecondJump",
@@ -158,6 +173,11 @@ _global_script_classes=[ {
 "class": "Time",
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
+}, {
+"base": "MusicPlayer",
+"class": "TitleMusicPlayer",
+"language": "GDScript",
+"path": "res://scenes/music_players/TitleMusicPlayer/TitleMusicPlayer.gd"
 }, {
 "base": "Node2D",
 "class": "WallGun",
@@ -180,14 +200,17 @@ _global_script_classes=[ {
 "path": "res://scenes/objects/WorldScene/WorldScene.gd"
 } ]
 _global_script_class_icons={
+"AdventureControllablePlayerBody": "",
 "AdventureWorld": "",
 "AudioManager": "",
 "Bullet": "",
 "Checkpoint": "",
+"ControllablePlayerBody": "",
 "DamageArea": "",
 "DamageAreaData": "",
 "DamageAreaEditor": "",
 "DataResource": "",
+"GameStateManager": "",
 "GenericButton": "",
 "GenericButtonData": "",
 "GenericButtonEditor": "",
@@ -197,6 +220,7 @@ _global_script_class_icons={
 "LockedDoor": "",
 "MoverBlock": "",
 "MovingPlatform": "",
+"MusicPlayer": "",
 "OptionCheckBox": "",
 "OptionsData": "",
 "OptionsEditor": "",
@@ -205,11 +229,11 @@ _global_script_class_icons={
 "PlayerBody": "",
 "PlayerBodyData": "",
 "PlayerBodyEditor": "",
-"Scene": "",
 "SecondJump": "",
 "SecondJumpData": "",
 "SecondJumpEditor": "",
 "Time": "",
+"TitleMusicPlayer": "",
 "WallGun": "",
 "WorldData": "",
 "WorldEditor": "",
@@ -276,7 +300,7 @@ config={
 [application]
 
 config/name="Dave Dave Dave"
-run/main_scene="res://scenes/objects/Loader/Loader.tscn"
+run/main_scene="res://scenes/game_states/TitleState/TitleState.tscn"
 config/use_custom_user_dir=true
 boot_splash/image="res://assets/application/blank.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
@@ -295,7 +319,6 @@ Options="res://singletons/Options.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
-Game="*res://scenes/objects/Game/Game.tscn"
 
 [debug]
 

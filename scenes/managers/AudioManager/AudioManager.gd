@@ -2,14 +2,17 @@ class_name AudioManager
 extends Node
 
 
+export(Resource) var generic_button_data = generic_button_data as GenericButtonData
+
 export(PackedScene) var audio_stream_player
+
 
 var sfx_volume_percentage: float = 1.0
 
 
 
 func _ready():
-	Game.generic_button_data.connect("last_button_pressed_set", self, "_on_last_button_pressed_set")
+	generic_button_data.connect("last_button_pressed_set", self, "_on_last_button_pressed_set")
 
 
 

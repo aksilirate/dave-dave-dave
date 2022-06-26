@@ -2,8 +2,7 @@ class_name OptionsManager
 extends Node
 
 
-
-onready var options_editor: OptionsEditor = Game.options_data as OptionsEditor
+export(Resource) var options_editor = options_editor as OptionsEditor
 
 
 
@@ -28,11 +27,11 @@ func _on_v_sync_changed():
 
 
 func _update_fullscreen():
-	OS.window_fullscreen = Game.options_data.fullscreen
+	OS.window_fullscreen = options_editor.fullscreen
 
 
 func _update_v_sync():
-	OS.set_use_vsync(Game.options_data.v_sync)
+	OS.set_use_vsync(options_editor.v_sync)
 
 
 

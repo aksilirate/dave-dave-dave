@@ -2,21 +2,23 @@ class_name WorldScene
 extends Node2D
 
 
-export(NodePath) onready var player_body = get_node(player_body) as PlayerBody
+export(Resource) var world_editor = world_editor as WorldEditor setget _world_editor
 
-onready var world_editor: WorldEditor = Game.current_world_data as WorldEditor
+var world_data: WorldData
+
+export(NodePath) onready var controllable_player_body = get_node(controllable_player_body) as ControllablePlayerBody
+
+
+func _world_editor(value):
+	world_editor = value
+	world_data = world_editor as WorldData
 
 
 
 func _ready():
-	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
-	player_body.connect("second_jumped", self, "_on_player_body_second_jumped")
+	controllable_player_body.connect("second_jumped", self, "_on_player_body_second_jumped")
 
-
-
-func _on_current_game_state_changed():
-	Scene.set_active(self, Game.WORLD_STATES.has(Game.current_state))
 
 
 func _on_player_body_second_jumped():
-	world_editor.set_last_second_jumped_body(player_body)
+	world_editor.set_last_second_jumped_body(controllable_player_body)

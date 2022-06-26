@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=1]
+[ext_resource path="res://data/adventure_world/AdventureWorld.tres" type="Resource" id=2]
+[ext_resource path="res://scenes/interface/TitleScene/TitleScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/PreTitleScene/PreTitleScene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.tscn" type="PackedScene" id=5]
+[ext_resource path="res://data/Options.tres" type="Resource" id=6]
+[ext_resource path="res://data/GenericButton.tres" type="Resource" id=7]
+[ext_resource path="res://scenes/music_players/TitleMusicPlayer/TitleMusicPlayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/managers/AudioManager/AudioManager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/objects/TitleScreenParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/managers/OptionsManager/OptionsManager.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=1]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="TitleState" type="Node"]
+
+[node name="GameStateManager" parent="." instance=ExtResource( 1 )]
+
+[node name="AudioManager" parent="." instance=ExtResource( 9 )]
+generic_button_data = ExtResource( 7 )
+
+[node name="OptionsManager" parent="." instance=ExtResource( 11 )]
+options_editor = ExtResource( 6 )
+
+[node name="TitleMusicPlayer" parent="." instance=ExtResource( 8 )]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
+
+[node name="TitleScene" parent="." instance=ExtResource( 3 )]
+
+[node name="AdvantureVBoxContainer" parent="TitleScene/VBoxContainer/ButtonsVBoxContainer" index="2"]
+margin_bottom = 127.0
+
+[node name="AdventureContinueGenericButton" parent="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" index="0"]
+adventure_world_data = ExtResource( 2 )
+
+[node name="VScrollBar2" type="VScrollBar" parent="TitleScene/RichTextLabel" index="0"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+max_value = 136.0
+step = 1.0
+page = 140.0
+
+[node name="VScrollBar3" type="VScrollBar" parent="TitleScene/RichTextLabel" index="1"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+step = 1.0
+
+[node name="AnimationPlayer" parent="TitleScene" index="3"]
+anims/load = SubResource( 1 )
+
+[node name="OptionsScene" parent="." instance=ExtResource( 5 )]
+
+[node name="PreTitleScene" parent="." instance=ExtResource( 4 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
+[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/ExitGenericButton" to="GameStateManager" method="_on_ExitGenericButton_pressed"]
+[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdventureNewGameGenericButton" to="GameStateManager" method="_on_AdventureNewGameGenericButton_pressed"]
+[connection signal="finished" from="PreTitleScene" to="TitleMusicPlayer" method="_on_PreTitleScene_finished"]
+
+[editable path="TitleScene"]
+[editable path="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer"]
+[editable path="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer"]
+[editable path="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer"]
+[editable path="OptionsScene"]

@@ -1,12 +1,16 @@
 class_name SecondJump
 extends Area2D
 
+
+
+export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
+
+export(Resource) var second_jump_editor = second_jump_editor as SecondJumpEditor
+
+
+
 onready var cooldown_timer = $CooldownTimer
 onready var animation_player = $AnimationPlayer
-
-
-onready var second_jump_editor: SecondJumpEditor = Game.second_jump_data as SecondJumpEditor
-
 
 var disabled: bool = false
 
@@ -15,8 +19,10 @@ var overlapping_bodies_cache: Array
 
 
 func _ready():
-	Game.current_world_data.connect("last_second_jumped_body_set", self, "_on_last_second_jumped_body_set")
+	world_scene.world_data.connect("last_second_jumped_body_set", self, "_on_last_second_jumped_body_set")
 	animation_player.play("idle")
+
+
 
 
 
@@ -35,6 +41,7 @@ func _on_last_second_jumped_body_set():
 
 
 func _physics_process(delta):
+	
 	for element in overlapping_bodies_cache:
 		var body: Node2D = element
 		if not get_overlapping_bodies().has(body):

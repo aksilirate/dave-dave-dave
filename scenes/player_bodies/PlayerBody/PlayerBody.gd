@@ -1,10 +1,20 @@
 class_name PlayerBody
 extends KinematicBody2D
 
-
-signal second_jumped
-
 enum {IDLE, MOVING, AIR}
+
+export(Resource) var player_body_editor = player_body_editor as PlayerBodyEditor setget _player_body_editor
+
+var player_body_data: PlayerBodyData
+
+func _player_body_editor(value):
+	player_body_editor = value
+	player_body_data = player_body_editor as PlayerBodyData
+
+
+
+
+
 
 
 
@@ -46,17 +56,7 @@ enum {IDLE, MOVING, AIR}
 #var pet_chamber_overlapping: bool = false
 
 
-var player_body_editor: PlayerBodyEditor
 
-
-
-func _ready():
-	Game.connect("current_state_changed", self, "_on_current_game_state_changed")
-
-
-
-func _on_current_game_state_changed():
-	player_body_editor = Game.current_world_data.player_body_data as PlayerBodyEditor
 
 
 
@@ -108,16 +108,7 @@ func _on_current_game_state_changed():
 
 
 
-func _process(delta):
-	player_body_editor.add_to_play_time(delta)
-
-
-
-
-
-func _physics_process(delta):
-	player_body_editor.remove_from_haste(delta)
-	player_body_editor.set_haste(max(0.0, player_body_editor.haste))
+#func _physics_process(delta):
 	
 	
 	

@@ -3,6 +3,9 @@ extends WorldData
 
 
 
+func set_played(value):
+	played = value
+	emit_changed()
 
 
 func set_last_second_jumped_body(value):

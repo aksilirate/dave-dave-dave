@@ -10265,414 +10265,551 @@ position = Vector2( -12560, 7680 )
 
 [node name="SecondJump" parent="SecondJumps" index="0" instance=ExtResource( 23 )]
 position = Vector2( 12800, -5600 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump11" parent="SecondJumps" index="1" instance=ExtResource( 23 )]
 position = Vector2( 7400, -4600 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump20" parent="SecondJumps" index="2" instance=ExtResource( 23 )]
 position = Vector2( 9640, -5200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump48" parent="SecondJumps" index="3" instance=ExtResource( 23 )]
 position = Vector2( 10680, -920 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump135" parent="SecondJumps" index="4" instance=ExtResource( 23 )]
 position = Vector2( 11120, -920 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump58" parent="SecondJumps" index="5" instance=ExtResource( 23 )]
 position = Vector2( 3680, -1480 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump69" parent="SecondJumps" index="6" instance=ExtResource( 23 )]
 position = Vector2( 3680, -1640 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump49" parent="SecondJumps" index="7" instance=ExtResource( 23 )]
 position = Vector2( 10680, -1160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump134" parent="SecondJumps" index="8" instance=ExtResource( 23 )]
 position = Vector2( 14960, -1920 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump21" parent="SecondJumps" index="9" instance=ExtResource( 23 )]
 position = Vector2( 9960, -5200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump22" parent="SecondJumps" index="10" instance=ExtResource( 23 )]
 position = Vector2( 10280, -5200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump23" parent="SecondJumps" index="11" instance=ExtResource( 23 )]
 position = Vector2( 10640, -5200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump40" parent="SecondJumps" index="12" instance=ExtResource( 23 )]
 position = Vector2( 17860, 560 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump54" parent="SecondJumps" index="13" instance=ExtResource( 23 )]
 position = Vector2( 17860, 360 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump56" parent="SecondJumps" index="14" instance=ExtResource( 23 )]
 position = Vector2( 17840, -720 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump64" parent="SecondJumps" index="15" instance=ExtResource( 23 )]
 position = Vector2( 18810, -1040 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump65" parent="SecondJumps" index="16" instance=ExtResource( 23 )]
 position = Vector2( 18680, -1160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump67" parent="SecondJumps" index="17" instance=ExtResource( 23 )]
 position = Vector2( 18800, -2240 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump70" parent="SecondJumps" index="18" instance=ExtResource( 23 )]
 position = Vector2( 24960, -3200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump71" parent="SecondJumps" index="19" instance=ExtResource( 23 )]
 position = Vector2( 24640, -3360 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump72" parent="SecondJumps" index="20" instance=ExtResource( 23 )]
 position = Vector2( 24640, -3600 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump105" parent="SecondJumps" index="21" instance=ExtResource( 23 )]
 position = Vector2( 22000, -3680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump106" parent="SecondJumps" index="22" instance=ExtResource( 23 )]
 position = Vector2( 21800, -3840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump73" parent="SecondJumps" index="23" instance=ExtResource( 23 )]
 position = Vector2( 24790, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump74" parent="SecondJumps" index="24" instance=ExtResource( 23 )]
 position = Vector2( 24960, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump75" parent="SecondJumps" index="25" instance=ExtResource( 23 )]
 position = Vector2( 25120, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump76" parent="SecondJumps" index="26" instance=ExtResource( 23 )]
 position = Vector2( 25130, -3920 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump90" parent="SecondJumps" index="27" instance=ExtResource( 23 )]
 position = Vector2( 25080, -4360 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump103" parent="SecondJumps" index="28" instance=ExtResource( 23 )]
 position = Vector2( 25080, -4520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump104" parent="SecondJumps" index="29" instance=ExtResource( 23 )]
 position = Vector2( 24680, -4520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump91" parent="SecondJumps" index="30" instance=ExtResource( 23 )]
 position = Vector2( 24680, -4360 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump77" parent="SecondJumps" index="31" instance=ExtResource( 23 )]
 position = Vector2( 27600, -2960 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump78" parent="SecondJumps" index="32" instance=ExtResource( 23 )]
 position = Vector2( 27920, -2960 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump79" parent="SecondJumps" index="33" instance=ExtResource( 23 )]
 position = Vector2( 28240, -2960 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump80" parent="SecondJumps" index="34" instance=ExtResource( 23 )]
 position = Vector2( 28240, -3200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump81" parent="SecondJumps" index="35" instance=ExtResource( 23 )]
 position = Vector2( 28240, -3440 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump83" parent="SecondJumps" index="36" instance=ExtResource( 23 )]
 position = Vector2( 28240, -3680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump92" parent="SecondJumps" index="37" instance=ExtResource( 23 )]
 position = Vector2( 31220, -3560 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump93" parent="SecondJumps" index="38" instance=ExtResource( 23 )]
 position = Vector2( 31100, -3000 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump94" parent="SecondJumps" index="39" instance=ExtResource( 23 )]
 position = Vector2( 31220, -2440 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump95" parent="SecondJumps" index="40" instance=ExtResource( 23 )]
 position = Vector2( 31100, -1880 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump96" parent="SecondJumps" index="41" instance=ExtResource( 23 )]
 position = Vector2( 31220, -1320 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump97" parent="SecondJumps" index="42" instance=ExtResource( 23 )]
 position = Vector2( 31100, -760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump98" parent="SecondJumps" index="43" instance=ExtResource( 23 )]
 position = Vector2( 31220, -280 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump99" parent="SecondJumps" index="44" instance=ExtResource( 23 )]
 position = Vector2( 31100, 280 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump100" parent="SecondJumps" index="45" instance=ExtResource( 23 )]
 position = Vector2( 31220, 839.999 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump101" parent="SecondJumps" index="46" instance=ExtResource( 23 )]
 position = Vector2( 31100, 1400 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump102" parent="SecondJumps" index="47" instance=ExtResource( 23 )]
 position = Vector2( 31220, 1960 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump82" parent="SecondJumps" index="48" instance=ExtResource( 23 )]
 position = Vector2( 27920, -3680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump84" parent="SecondJumps" index="49" instance=ExtResource( 23 )]
 position = Vector2( 27600, -3680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump85" parent="SecondJumps" index="50" instance=ExtResource( 23 )]
 position = Vector2( 27280, -3680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump86" parent="SecondJumps" index="51" instance=ExtResource( 23 )]
 position = Vector2( 27280, -4160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump68" parent="SecondJumps" index="52" instance=ExtResource( 23 )]
 position = Vector2( 18800, -2360 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump107" parent="SecondJumps" index="53" instance=ExtResource( 23 )]
 position = Vector2( 18560, -2640 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump109" parent="SecondJumps" index="54" instance=ExtResource( 23 )]
 position = Vector2( 18560, -2880 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump111" parent="SecondJumps" index="55" instance=ExtResource( 23 )]
 position = Vector2( 18560, -3120 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump113" parent="SecondJumps" index="56" instance=ExtResource( 23 )]
 position = Vector2( 18560, -3360 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump115" parent="SecondJumps" index="57" instance=ExtResource( 23 )]
 position = Vector2( 18560, -3600 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump117" parent="SecondJumps" index="58" instance=ExtResource( 23 )]
 position = Vector2( 18560, -3840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump119" parent="SecondJumps" index="59" instance=ExtResource( 23 )]
 position = Vector2( 18560, -4080 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump121" parent="SecondJumps" index="60" instance=ExtResource( 23 )]
 position = Vector2( 18560, -4320 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump116" parent="SecondJumps" index="61" instance=ExtResource( 23 )]
 position = Vector2( 18560, -4560 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump118" parent="SecondJumps" index="62" instance=ExtResource( 23 )]
 position = Vector2( 18560, -4800 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump120" parent="SecondJumps" index="63" instance=ExtResource( 23 )]
 position = Vector2( 18560, -5040 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump122" parent="SecondJumps" index="64" instance=ExtResource( 23 )]
 position = Vector2( 18560, -5280 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump123" parent="SecondJumps" index="65" instance=ExtResource( 23 )]
 position = Vector2( 18560, -5520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump124" parent="SecondJumps" index="66" instance=ExtResource( 23 )]
 position = Vector2( 18560, -5760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump66" parent="SecondJumps" index="67" instance=ExtResource( 23 )]
 position = Vector2( 18560, -1160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump57" parent="SecondJumps" index="68" instance=ExtResource( 23 )]
 position = Vector2( 17520, -720 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump59" parent="SecondJumps" index="69" instance=ExtResource( 23 )]
 position = Vector2( 17440, -880 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump60" parent="SecondJumps" index="70" instance=ExtResource( 23 )]
 position = Vector2( 17520, -1040 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump61" parent="SecondJumps" index="71" instance=ExtResource( 23 )]
 position = Vector2( 17680, -1280 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump62" parent="SecondJumps" index="72" instance=ExtResource( 23 )]
 position = Vector2( 17520, -1520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump63" parent="SecondJumps" index="73" instance=ExtResource( 23 )]
 position = Vector2( 17520, -1680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump24" parent="SecondJumps" index="74" instance=ExtResource( 23 )]
 position = Vector2( 11880, -5400 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump26" parent="SecondJumps" index="75" instance=ExtResource( 23 )]
 position = Vector2( 11640, -5320 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump136" parent="SecondJumps" index="76" instance=ExtResource( 23 )]
 position = Vector2( 12720, -4560 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump137" parent="SecondJumps" index="77" instance=ExtResource( 23 )]
 position = Vector2( 12800, -4760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump25" parent="SecondJumps" index="78" instance=ExtResource( 23 )]
 position = Vector2( 11880, -5640 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump18" parent="SecondJumps" index="79" instance=ExtResource( 23 )]
 position = Vector2( 7160, -4680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump19" parent="SecondJumps" index="80" instance=ExtResource( 23 )]
 position = Vector2( 7000, -5160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump50" parent="SecondJumps" index="81" instance=ExtResource( 23 )]
 position = Vector2( 6560, -5680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump52" parent="SecondJumps" index="82" instance=ExtResource( 23 )]
 position = Vector2( 6080, -5680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump53" parent="SecondJumps" index="83" instance=ExtResource( 23 )]
 position = Vector2( 6080, -5840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump51" parent="SecondJumps" index="84" instance=ExtResource( 23 )]
 position = Vector2( 6560, -5840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump2" parent="SecondJumps" index="85" instance=ExtResource( 23 )]
 position = Vector2( 13720, -5720 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump3" parent="SecondJumps" index="86" instance=ExtResource( 23 )]
 position = Vector2( 14220, -5790 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump27" parent="SecondJumps" index="87" instance=ExtResource( 23 )]
 position = Vector2( 16320, -5600 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump34" parent="SecondJumps" index="88" instance=ExtResource( 23 )]
 position = Vector2( 13040, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump44" parent="SecondJumps" index="89" instance=ExtResource( 23 )]
 position = Vector2( 13360, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump45" parent="SecondJumps" index="90" instance=ExtResource( 23 )]
 position = Vector2( 13680, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump46" parent="SecondJumps" index="91" instance=ExtResource( 23 )]
 position = Vector2( 14000, -3760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump28" parent="SecondJumps" index="92" instance=ExtResource( 23 )]
 position = Vector2( 16480, -5840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump29" parent="SecondJumps" index="93" instance=ExtResource( 23 )]
 position = Vector2( 16320, -6080 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump30" parent="SecondJumps" index="94" instance=ExtResource( 23 )]
 position = Vector2( 16480, -6320 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump31" parent="SecondJumps" index="95" instance=ExtResource( 23 )]
 position = Vector2( 16320, -6480 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump6" parent="SecondJumps" index="96" instance=ExtResource( 23 )]
 position = Vector2( 14080, -6160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump4" parent="SecondJumps" index="97" instance=ExtResource( 23 )]
 position = Vector2( 13270, -6120 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump5" parent="SecondJumps" index="98" instance=ExtResource( 23 )]
 position = Vector2( 12960, -6120 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump7" parent="SecondJumps" index="99" instance=ExtResource( 23 )]
 position = Vector2( 12640, -6280 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump32" parent="SecondJumps" index="100" instance=ExtResource( 23 )]
 position = Vector2( 11880, -6680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump33" parent="SecondJumps" index="101" instance=ExtResource( 23 )]
 position = Vector2( 11560, -6840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump35" parent="SecondJumps" index="102" instance=ExtResource( 23 )]
 position = Vector2( 11560, -7080 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump36" parent="SecondJumps" index="103" instance=ExtResource( 23 )]
 position = Vector2( 11800, -7160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump37" parent="SecondJumps" index="104" instance=ExtResource( 23 )]
 position = Vector2( 12040, -7240 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump38" parent="SecondJumps" index="105" instance=ExtResource( 23 )]
 position = Vector2( 12040, -7480 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump39" parent="SecondJumps" index="106" instance=ExtResource( 23 )]
 position = Vector2( 11800, -7640 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump41" parent="SecondJumps" index="107" instance=ExtResource( 23 )]
 position = Vector2( 11560, -7960 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump47" parent="SecondJumps" index="108" instance=ExtResource( 23 )]
 position = Vector2( 15600, -9280 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump55" parent="SecondJumps" index="109" instance=ExtResource( 23 )]
 position = Vector2( 15040, -10560 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump43" parent="SecondJumps" index="110" instance=ExtResource( 23 )]
 position = Vector2( 11560, -7720 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump42" parent="SecondJumps" index="111" instance=ExtResource( 23 )]
 position = Vector2( 11480, -8200 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump8" parent="SecondJumps" index="112" instance=ExtResource( 23 )]
 position = Vector2( 12640, -6440 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump9" parent="SecondJumps" index="113" instance=ExtResource( 23 )]
 position = Vector2( 12640, -6600 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump10" parent="SecondJumps" index="114" instance=ExtResource( 23 )]
 position = Vector2( 12640, -6760 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump12" parent="SecondJumps" index="115" instance=ExtResource( 23 )]
 position = Vector2( 13320, -6680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump13" parent="SecondJumps" index="116" instance=ExtResource( 23 )]
 position = Vector2( 13760, -6840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump14" parent="SecondJumps" index="117" instance=ExtResource( 23 )]
 position = Vector2( 13990, -6840 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump15" parent="SecondJumps" index="118" instance=ExtResource( 23 )]
 position = Vector2( 14160, -6680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump16" parent="SecondJumps" index="119" instance=ExtResource( 23 )]
 position = Vector2( 14400, -6680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump17" parent="SecondJumps" index="120" instance=ExtResource( 23 )]
 position = Vector2( 14640, -6680 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump87" parent="SecondJumps" index="121" instance=ExtResource( 23 )]
 position = Vector2( 27600, -4160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump88" parent="SecondJumps" index="122" instance=ExtResource( 23 )]
 position = Vector2( 27920, -4160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump89" parent="SecondJumps" index="123" instance=ExtResource( 23 )]
 position = Vector2( 28240, -4160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump108" parent="SecondJumps" index="124" instance=ExtResource( 23 )]
 position = Vector2( 8160, -10240 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump110" parent="SecondJumps" index="125" instance=ExtResource( 23 )]
 position = Vector2( 8480, -10240 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump112" parent="SecondJumps" index="126" instance=ExtResource( 23 )]
 position = Vector2( 8800, -10240 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump114" parent="SecondJumps" index="127" instance=ExtResource( 23 )]
 position = Vector2( 8160, -9520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump127" parent="SecondJumps" index="128" instance=ExtResource( 23 )]
 position = Vector2( 7840, -9520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump128" parent="SecondJumps" index="129" instance=ExtResource( 23 )]
 position = Vector2( 7520, -9920 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump129" parent="SecondJumps" index="130" instance=ExtResource( 23 )]
 position = Vector2( 7520, -10160 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump133" parent="SecondJumps" index="131" instance=ExtResource( 23 )]
 position = Vector2( 7520, -10400 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump130" parent="SecondJumps" index="132" instance=ExtResource( 23 )]
 position = Vector2( 7520, -10880 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump131" parent="SecondJumps" index="133" instance=ExtResource( 23 )]
 position = Vector2( 7520, -10640 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump132" parent="SecondJumps" index="134" instance=ExtResource( 23 )]
 position = Vector2( 7520, -11120 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump125" parent="SecondJumps" index="135" instance=ExtResource( 23 )]
 position = Vector2( 8480, -9520 )
+world_scene = NodePath("../..")
 
 [node name="SecondJump126" parent="SecondJumps" index="136" instance=ExtResource( 23 )]
 position = Vector2( 8800, -9520 )
+world_scene = NodePath("../..")
 
 [node name="WallGuns" type="Node2D" parent="." index="22"]
 position = Vector2( -12560, 7680 )
@@ -13467,7 +13604,7 @@ anims/end_red = SubResource( 178 )
 anims/first_scene = SubResource( 179 )
 "anims/open cage scene" = SubResource( 180 )
 
-[node name="DiamondsHBoxContainer" type="HBoxContainer" parent="WorldCanvasLayer" index="1"]
+[node name="DiamondsHBoxContainer" type="HBoxContainer" parent="WorldCanvasLayer" index="0"]
 margin_left = 40.0
 margin_top = 20.0
 margin_right = 156.0
@@ -13491,9 +13628,6 @@ margin_right = 116.0
 margin_bottom = 40.0
 theme = ExtResource( 2 )
 text = "0/10"
-
-[node name="PlayerBody" parent="." index="50"]
-position = Vector2( -14300, 8280 )
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]

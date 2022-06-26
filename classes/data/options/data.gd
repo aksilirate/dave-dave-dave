@@ -24,34 +24,27 @@ export(float) var sfx_volume_db setget _sfx_volume_db
 
 
 
-func _fullscreen(value):
-	if not Game:
-		fullscreen = value
+func _fullscreen(_value):
+	return
 
-func _v_sync(value):
-	if not Game:
-		v_sync = value
+func _v_sync(_value):
+	return
 
-func _smooth_camera(value):
-	if not Game:
-		smooth_camera = value
+func _smooth_camera(_value):
+	return
 
 
-func _hide_pet(value):
-	if not Game:
-		hide_pet = value
+func _hide_pet(_value):
+	return
 
 
-func _interface_selection(value):
-	if not Game:
-		interface_selection = value
+func _interface_selection(_value):
+	return
 
 
-func _music_volume_db(value):
-	if not Game:
-		music_volume_db = value
+func _music_volume_db(_value):
+	return
 
 
-func _sfx_volume_db(value):
-	if not Game:
-		sfx_volume_db = value
+func _sfx_volume_db(_value):
+	return
