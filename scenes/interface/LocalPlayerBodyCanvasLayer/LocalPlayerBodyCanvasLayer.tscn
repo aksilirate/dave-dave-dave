@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=1]
-[ext_resource path="res://scenes/interface/ControllablePlayerBodyCanvasLayer/ControllablePlayerBodyCanvasLayer.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/LocalPlayerBodyCanvasLayer/LocalPlayerBodyCanvasLayer.gd" type="Script" id=2]
 [ext_resource path="res://scenes/interface/HasteProgressBar/HasteProgressBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/interface/PlayerBodyPlayTimeLabel/PlayerBodyPlayTimeLabel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/DeathCountLabel/DeathCountLabel.tscn" type="PackedScene" id=7]

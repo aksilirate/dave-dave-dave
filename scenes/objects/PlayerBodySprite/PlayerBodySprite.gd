@@ -29,3 +29,14 @@ func _update_sprite():
 	modulate = Color("#00f8f8") if deaths < 1000 else Color("#f80000")
 	if haste > 0:
 		modulate = Color("#f800f8")
+
+
+
+func _physics_process(_delta):
+	if player_body.is_moving():
+		offset.x = 2 * int(player_body.displacement.x < 0) if player_body.gravity > 0 else int(player_body.displacement.x > 0)
+		flip_h = player_body.displacement.x < 0 if player_body.gravity > 0 else player_body.displacement.x > 0
+
+
+
+

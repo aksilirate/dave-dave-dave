@@ -13629,6 +13629,9 @@ margin_bottom = 40.0
 theme = ExtResource( 2 )
 text = "0/10"
 
+[node name="LocalPlayerBody" parent="." index="50"]
+position = Vector2( -14290, 8280 )
+
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
 [editable path="ButtonLockedDoor5"]

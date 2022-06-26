@@ -30,3 +30,9 @@ func remove_from_haste(amount: float):
 	if amount > 0.0:
 		emit_signal("haste_changed")
 		emit_changed()
+
+
+
+func set_body(arg_body: Node2D):
+	body = arg_body
+	emit_changed()

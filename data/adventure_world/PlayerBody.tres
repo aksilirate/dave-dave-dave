@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-play_time = 9.8601
+play_time = 108.129
+diamonds_collected = 0
 haste = 0.0
 deaths = 0
