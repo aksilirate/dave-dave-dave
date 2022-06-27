@@ -24,10 +24,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/managers/AudioManager/AudioManager.gd"
 }, {
-"base": "AudioStreamPlayer",
+"base": "Reference",
 "class": "AudioPlayer",
 "language": "GDScript",
-"path": "res://scenes/objects/AudioPlayer/AudioPlayer.gd"
+"path": "res://scenes/audio_players/AudioPlayer/AudioPlayer.gd"
 }, {
 "base": "DamageArea",
 "class": "Bullet",
@@ -192,7 +192,7 @@ _global_script_classes=[ {
 "base": "AudioPlayer",
 "class": "TitleMusicPlayer",
 "language": "GDScript",
-"path": "res://scenes/audio_players/TitleMusicPlayer.gd"
+"path": "res://scenes/audio_players/TitleMusicPlayer/TitleMusicPlayer.gd"
 }, {
 "base": "Node2D",
 "class": "WallGun",

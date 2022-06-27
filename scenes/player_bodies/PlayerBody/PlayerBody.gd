@@ -68,9 +68,16 @@ func _ready():
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 	player_body_editor.set_body(self)
+	
 	if new_game:
 		player_body_editor.set_play_time(0)
 		player_body_editor.set_respawn_location(global_position)
+		player_body_editor.set_last_position(global_position)
+		return
+		
+	global_position = player_body_editor.last_position
+
+
 
 
 
@@ -430,3 +437,7 @@ func is_playing_death_animation() -> bool:
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":
 		_respawn()
+
+
+func _on_PlayerBody_tree_exiting():
+	player_body_editor.set_last_position(global_position)

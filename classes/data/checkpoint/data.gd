@@ -14,7 +14,7 @@ signal last_collided_position_changed
 
 var last_collided_body: Node2D setget _last_collided_body
 
-var last_collided_position: Vector2 setget _last_collided_position
+export(Vector2) var last_collided_position: Vector2 setget _last_collided_position
 
 
 

@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource( 1 )
-play_time = 106.362
+play_time = 417.834
 diamonds_collected = 0
 double_jump = false
 haste = 0.0
-deaths = 62
-respawn_location = Vector2( -6520, 5880 )
+deaths = 102
+respawn_location = Vector2( -8880, 6440 )
+last_position = Vector2( -3946.74, 6999.92 )

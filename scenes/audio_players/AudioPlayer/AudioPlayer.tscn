@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/sounds/main_theme_loop.wav" type="AudioStream" id=1]
 [ext_resource path="res://data/Options.tres" type="Resource" id=2]
-[ext_resource path="res://scenes/objects/AudioPlayer/AudioPlayer.gd" type="Script" id=3]
+[ext_resource path="res://scenes/audio_players/AudioPlayer/AudioPlayer.gd" type="Script" id=3]
 [ext_resource path="res://scenes/objects/AudioStreamPlayer/AudioStreamPlayer.tscn" type="PackedScene" id=4]
 
 [node name="AudioPlayer" type="AudioStreamPlayer"]
-stream = ExtResource( 1 )
-autoplay = true
 script = ExtResource( 3 )
 options_data = ExtResource( 2 )
 audio_stream_player = ExtResource( 4 )

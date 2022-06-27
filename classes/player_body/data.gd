@@ -7,7 +7,7 @@ signal play_time_changed
 signal haste_changed
 signal deaths_changed
 signal respawn_location_changed
-
+signal last_position_changed
 
 
 export(float) var play_time setget _play_time
@@ -22,6 +22,7 @@ export(int) var deaths setget _deaths
 
 export(Vector2) var respawn_location setget _respawn_location
 
+export(Vector2) var last_position setget _last_position
 
 var body: Node2D
 
@@ -54,3 +55,7 @@ func _deaths(value):
 func _respawn_location(value):
 	if not DataLoader:
 		respawn_location = value
+
+func _last_position(value):
+	if not DataLoader:
+		last_position = value

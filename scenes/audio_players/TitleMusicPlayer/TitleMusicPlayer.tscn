@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/audio_players/AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/audio_players/TitleMusicPlayer/TitleMusicPlayer.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/main_theme_loop.wav" type="AudioStream" id=3]
+
+[node name="TitleMusicPlayer" instance=ExtResource( 1 )]
+stream = ExtResource( 3 )
+bus = "Music"
+script = ExtResource( 2 )
+options_data = null
+audio_stream_player = null

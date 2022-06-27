@@ -4,3 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
+last_collided_position = Vector2( -8880, 6440 )

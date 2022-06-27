@@ -8,5 +8,5 @@
 script = ExtResource( 1 )
 player_body_data = ExtResource( 2 )
 checkpoint_data = ExtResource( 3 )
-activated_checkpoints = [ Vector2( -12240, 7960 ), Vector2( -5480, 8200 ), Vector2( -3480, 7000 ), Vector2( -6520, 5880 ) ]
+activated_checkpoints = [ Vector2( -12240, 7960 ), Vector2( -5480, 8200 ), Vector2( -3480, 7000 ), Vector2( -6520, 5880 ), Vector2( -8880, 6440 ) ]
 played = true

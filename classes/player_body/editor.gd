@@ -22,14 +22,12 @@ func set_haste(value: float):
 	if haste != value:
 		haste = value
 		emit_signal("haste_changed")
-		emit_changed()
 
 
 func remove_from_haste(amount: float):
 	haste -= amount
 	if amount > 0.0:
 		emit_signal("haste_changed")
-		emit_changed()
 
 
 
@@ -50,4 +48,11 @@ func set_respawn_location(value):
 	if respawn_location != value:
 		respawn_location = value
 		emit_signal("respawn_location_changed")
+		emit_changed()
+
+
+func set_last_position(value):
+	if last_position != value:
+		last_position = value
+		emit_signal("last_position_changed")
 		emit_changed()
