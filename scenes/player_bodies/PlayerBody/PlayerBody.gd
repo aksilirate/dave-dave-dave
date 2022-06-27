@@ -12,6 +12,8 @@ export(Resource) var player_body_editor = player_body_editor as PlayerBodyEditor
 var player_body_data: PlayerBodyData
 
 
+export(Resource) var damage_area_data = damage_area_data as DamageAreaData
+
 export(Resource) var second_jump_data = second_jump_data as SecondJumpData
 
 
@@ -59,9 +61,17 @@ func _player_body_editor(value):
 
 
 func _ready():
+	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 	player_body_editor.set_body(self)
 	if new_game:
 		player_body_editor.set_play_time(0)
+		player_body_editor.set_respawn_location(global_position)
+
+
+
+func _on_damage_area_last_collided_body_set():
+	if damage_area_data.last_collided_body == self:
+		_die()
 
 
 
@@ -140,7 +150,7 @@ func _move(direction: int):
 
 func _jump():
 	if second_jump_data.overlapping_bodies.has(self):
-		player_body_editor.emit_signal("second_jumped", self)
+		player_body_editor.emit_signal("second_jumped")
 #		Audio.play("res://assets/sounds/second_jump.wav", -10)
 		jump_timer.start()
 
@@ -211,6 +221,25 @@ func _play_animation_from_state(state: int):
 
 
 
+func _die():
+	player_body_editor.add_to_deaths(1)
+	animation_player.play("death")
+
+
+
+
+
+
+func _respawn():
+	global_position = player_body_editor.respawn_location
+	pet_body.global_position = pet_position.global_position
+	velocity = Vector2.ZERO
+	jumped = false
+
+
+
+
+
 
 func get_speed() -> int:
 	return (speed + (300 * int(player_body_editor.haste > 0)))
@@ -247,19 +276,11 @@ func is_playing_death_animation() -> bool:
 
 
 
-#
-#
 
 #export(bool) var has_crown: bool = false
 
-#
-#
-#var respawn_location: Vector2
-#
-#
 
-#
-#
+
 #var inventory: Array
 
 
@@ -333,16 +354,7 @@ func is_playing_death_animation() -> bool:
 
 
 
-#
-#
-#
-#
-#
-#func respawn():
-#	global_position = respawn_location
-#	pet_body.global_position = pet_position.global_position
-#	velocity = Vector2.ZERO
-#	jumped = false
+
 #
 #
 #
@@ -399,15 +411,8 @@ func is_playing_death_animation() -> bool:
 #
 #func play_footstep():
 #	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
-#
-#
-#
-#func _increase_death_count():
-#	if Globals.zero_deaths_mode:
-## warning-ignore:return_value_discarded
-#		get_tree().reload_current_scene()
-#	deaths += 1
-#
-#
-#
-#
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "death":
+		_respawn()

@@ -12,8 +12,9 @@ export(bool) var played setget _played
 
 
 
-func _player_body_data(_value):
-	return
+func _player_body_data(value):
+	if not DataLoader:
+		player_body_data = value
 
 
 

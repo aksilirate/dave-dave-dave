@@ -33,6 +33,21 @@ func remove_from_haste(amount: float):
 
 
 
+func add_to_deaths(amount: int):
+	deaths += amount
+	emit_signal("deaths_changed")
+	emit_changed()
+
+
+
 func set_body(arg_body: Node2D):
 	body = arg_body
 	emit_changed()
+
+
+
+func set_respawn_location(value):
+	if respawn_location != value:
+		respawn_location = value
+		emit_signal("respawn_location_changed")
+		emit_changed()

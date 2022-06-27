@@ -7,10 +7,13 @@ export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
 export(Resource) var second_jump_editor = second_jump_editor as SecondJumpEditor
 
+onready var player_body_data: PlayerBodyData = world_scene.world_data.player_body_data as PlayerBodyData
 
 
 onready var cooldown_timer = $CooldownTimer
 onready var animation_player = $AnimationPlayer
+
+
 
 var disabled: bool = false
 
@@ -18,8 +21,11 @@ var disabled: bool = false
 var overlapping_bodies_cache: Array
 
 
+
+
+
 func _ready():
-	world_scene.world_data.connect("last_second_jumped_body_set", self, "_on_last_second_jumped_body_set")
+	player_body_data.connect("second_jumped", self, "_on_player_body_second_jumped")
 	animation_player.play("idle")
 
 
@@ -27,8 +33,8 @@ func _ready():
 
 
 
-func _on_last_second_jumped_body_set():
-	var arg_body = world_scene.world_data.last_second_jumped_body
+func _on_player_body_second_jumped():
+	var arg_body = player_body_data.body
 	if overlapping_bodies_cache.has(arg_body):
 		
 		for element in overlapping_bodies_cache:
