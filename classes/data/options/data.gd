@@ -24,11 +24,17 @@ export(float) var sfx_volume_db setget _sfx_volume_db
 
 
 
-func _fullscreen(_value):
-	return
+func _fullscreen(value):
+	if not DataLoader.finished:
+		fullscreen = value
 
-func _v_sync(_value):
-	return
+
+
+func _v_sync(value):
+	if not DataLoader.finished:
+		v_sync = value
+
+
 
 func _smooth_camera(_value):
 	return

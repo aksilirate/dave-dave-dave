@@ -2,7 +2,7 @@ class_name OptionsManager
 extends Node
 
 
-export(Resource) var options_editor = options_editor as OptionsEditor
+onready var options_editor = DataLoader.options_data as OptionsEditor
 
 
 
@@ -58,3 +58,4 @@ func _on_HidePetOptionCheckBox_toggled(button_pressed):
 
 func _on_InterfaceSelectionOptionCheckBox_toggled(button_pressed):
 	pass # Replace with function body.
+

@@ -2,7 +2,7 @@ class_name OptionCheckBox
 extends CheckBox
 
 
-export(Resource) var options_data = options_data as OptionsData
+onready var options_data: OptionsData = DataLoader.options_data
 
 
 func _ready():

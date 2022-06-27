@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/option_check_boxes/VSyncOptionCheckBox/VSyncOptionCheckBox.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/generic_buttons/OptionsBackGenericButton/OptionsBackGenericButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/option_check_boxes/HidePetOptionCheckBox/HidePetOptionCheckBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/option_check_boxes/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/managers/OptionsManager/OptionsManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://resources/default_theme.tres" type="Theme" id=12]
 
 [node name="OptionsScene" type="Control"]
@@ -21,6 +22,8 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="OptionsManager" parent="." instance=ExtResource( 11 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -79,4 +82,9 @@ margin_top = -60.0
 margin_right = 232.0
 margin_bottom = -40.0
 
+[connection signal="toggled" from="ToggleOptions/FullscreenOptionCheckBox" to="OptionsManager" method="_on_FullscreenOptionCheckBox_toggled"]
+[connection signal="toggled" from="ToggleOptions/VSyncOptionCheckBox" to="OptionsManager" method="_on_VSyncOptionCheckBox_toggled"]
+[connection signal="toggled" from="ToggleOptions/SmoothCameraOptionCheckBox" to="OptionsManager" method="_on_SmoothCameraOptionCheckBox_toggled"]
+[connection signal="toggled" from="ToggleOptions/HidePetOptionCheckBox" to="OptionsManager" method="_on_HidePetOptionCheckBox_toggled"]
+[connection signal="toggled" from="ToggleOptions/InterfaceSelectionOptionCheckBox" to="." method="_on_InterfaceSelectionOptionCheckBox_toggled"]
 [connection signal="pressed" from="OptionsBackGenericButton" to="." method="_on_OptionsBackGenericButton_pressed"]

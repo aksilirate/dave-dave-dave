@@ -5,7 +5,8 @@ extends Node
 func _ready() -> void:
 	_initialize_steam()
 	if not is_owned():
-		set_process(false)
+		print("Game is not owned.")
+		get_tree().quit()
 
 
 
@@ -19,9 +20,22 @@ func _initialize_steam() -> void:
 	if init['status'] != 1:
 		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
 
-	var dir = Directory.new()
-	dir.open(get_user_path())
-	dir.make_dir("GameData")
+
+
+
+
+
+func _unlock_achievement(name: String):
+	if is_owned():
+# warning-ignore:return_value_discarded
+		Steam.setAchievement(name)
+# warning-ignore:return_value_discarded
+		Steam.storeStats()
+
+
+
+
+
 
 
 func is_owned() -> bool:
@@ -29,12 +43,9 @@ func is_owned() -> bool:
 
 
 
-func unlock_achievement(name: String):
-	if is_owned():
-# warning-ignore:return_value_discarded
-		Steam.setAchievement(name)
-# warning-ignore:return_value_discarded
-		Steam.storeStats()
+
+
+
 
 
 

@@ -2,7 +2,7 @@ class_name AudioPlayer
 extends AudioStreamPlayer
 
 
-export(Resource) var options_data = options_data as OptionsData
+onready var options_data: OptionsData = DataLoader.options_data
 export(PackedScene) var audio_stream_player
 
 

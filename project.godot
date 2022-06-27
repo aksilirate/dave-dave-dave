@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/managers/AudioManager/AudioManager.gd"
 }, {
-"base": "Reference",
+"base": "AudioStreamPlayer",
 "class": "AudioPlayer",
 "language": "GDScript",
 "path": "res://scenes/audio_players/AudioPlayer/AudioPlayer.gd"
@@ -68,6 +68,21 @@ _global_script_classes=[ {
 "class": "DataResource",
 "language": "GDScript",
 "path": "res://classes/objects/data_resource.gd"
+}, {
+"base": "Area2D",
+"class": "Diamond",
+"language": "GDScript",
+"path": "res://scenes/objects/Diamond/Diamond.gd"
+}, {
+"base": "DataResource",
+"class": "DiamondData",
+"language": "GDScript",
+"path": "res://classes/data/diamond/data.gd"
+}, {
+"base": "DiamondData",
+"class": "DiamondEditor",
+"language": "GDScript",
+"path": "res://classes/data/diamond/editor.gd"
 }, {
 "base": "Node",
 "class": "GameStateManager",
@@ -189,7 +204,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
 }, {
-"base": "AudioPlayer",
+"base": "Reference",
 "class": "TitleMusicPlayer",
 "language": "GDScript",
 "path": "res://scenes/audio_players/TitleMusicPlayer/TitleMusicPlayer.gd"
@@ -227,6 +242,9 @@ _global_script_class_icons={
 "DamageAreaData": "",
 "DamageAreaEditor": "",
 "DataResource": "",
+"Diamond": "",
+"DiamondData": "",
+"DiamondEditor": "",
 "GameStateManager": "",
 "GenericButton": "",
 "GenericButtonData": "",
@@ -333,7 +351,6 @@ default_bus_layout="res://resources/default_bus_layout.tres"
 
 Steamworks="*res://singletons/Steamworks.gd"
 Globals="*res://singletons/Globals.gd"
-Options="res://singletons/Options.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
