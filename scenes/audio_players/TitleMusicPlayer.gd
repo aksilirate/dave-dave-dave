@@ -1,9 +1,5 @@
 class_name TitleMusicPlayer
-extends MusicPlayer
-
-export(AudioStream) var title_screen_music
-
-
+extends AudioPlayer
 
 
 

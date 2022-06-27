@@ -13582,14 +13582,10 @@ texture = ExtResource( 33 )
 offset = Vector2( -24, 8 )
 flip_h = true
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." index="46"]
-visible = false
-color = Color( 0, 0, 0, 1 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="47"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="46"]
 environment = ExtResource( 3 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="48"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="47"]
 method_call_mode = 1
 anims/RESET = SubResource( 174 )
 anims/diamonds_end = SubResource( 175 )
@@ -13624,7 +13620,7 @@ margin_bottom = 40.0
 theme = ExtResource( 2 )
 text = "0/10"
 
-[node name="LocalPlayerBody" parent="." index="50"]
+[node name="LocalPlayerBody" parent="." index="49"]
 position = Vector2( -14290, 8280 )
 
 [editable path="ButtonLockedDoor"]

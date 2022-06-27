@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/managers/AudioManager/AudioManager.gd"
 }, {
+"base": "AudioStreamPlayer",
+"class": "AudioPlayer",
+"language": "GDScript",
+"path": "res://scenes/objects/AudioPlayer/AudioPlayer.gd"
+}, {
 "base": "DamageArea",
 "class": "Bullet",
 "language": "GDScript",
@@ -109,11 +114,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/MovingPlatform/MovingPlatform.gd"
 }, {
-"base": "AudioStreamPlayer",
-"class": "MusicPlayer",
-"language": "GDScript",
-"path": "res://scenes/music_players/MusicPlayer/MusicPlayer.gd"
-}, {
 "base": "CheckBox",
 "class": "OptionCheckBox",
 "language": "GDScript",
@@ -179,10 +179,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
 }, {
-"base": "MusicPlayer",
+"base": "AudioPlayer",
 "class": "TitleMusicPlayer",
 "language": "GDScript",
-"path": "res://scenes/music_players/TitleMusicPlayer/TitleMusicPlayer.gd"
+"path": "res://scenes/audio_players/TitleMusicPlayer.gd"
 }, {
 "base": "Node2D",
 "class": "WallGun",
@@ -208,6 +208,7 @@ _global_script_class_icons={
 "AdventureControllablePlayerBody": "",
 "AdventureWorld": "",
 "AudioManager": "",
+"AudioPlayer": "",
 "Bullet": "",
 "Checkpoint": "",
 "DamageArea": "",
@@ -225,7 +226,6 @@ _global_script_class_icons={
 "LockedDoor": "",
 "MoverBlock": "",
 "MovingPlatform": "",
-"MusicPlayer": "",
 "OptionCheckBox": "",
 "OptionsData": "",
 "OptionsEditor": "",
