@@ -12,6 +12,7 @@ export(bool) var new_game
 
 
 
+
 func set_world_editor(value):
 	_world_editor = value
 	world_data = _world_editor as WorldData
@@ -19,5 +20,10 @@ func set_world_editor(value):
 
 
 func _ready():
-	if new_game:
-		pass
+	_world_editor.checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
+	_world_editor.set_played(true)
+
+
+
+func _on_checkpoint_activated():
+	_world_editor.add_to_activated_checkpoints(_world_editor.checkpoint_data.last_collided_position)

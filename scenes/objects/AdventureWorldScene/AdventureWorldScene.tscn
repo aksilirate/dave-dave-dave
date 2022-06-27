@@ -15,140 +15,185 @@ position = Vector2( -12560, 7680 )
 
 [node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource( 6 )]
 position = Vector2( 320, 280 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource( 6 )]
 position = Vector2( 7080, 520 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint41" parent="Checkpoints" index="2" instance=ExtResource( 6 )]
 position = Vector2( 9080, -680 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint21" parent="Checkpoints" index="3" instance=ExtResource( 6 )]
 position = Vector2( 10160, 600 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint23" parent="Checkpoints" index="4" instance=ExtResource( 6 )]
 position = Vector2( 12040, 440 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint22" parent="Checkpoints" index="5" instance=ExtResource( 6 )]
 position = Vector2( 14440, 1000 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint24" parent="Checkpoints" index="6" instance=ExtResource( 6 )]
 position = Vector2( 18160, 680 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint25" parent="Checkpoints" index="7" instance=ExtResource( 6 )]
 position = Vector2( 18200, -280 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint38" parent="Checkpoints" index="8" instance=ExtResource( 6 )]
 position = Vector2( 21080, -120 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint27" parent="Checkpoints" index="9" instance=ExtResource( 6 )]
 position = Vector2( 19000, -1720 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint40" parent="Checkpoints" index="10" instance=ExtResource( 6 )]
 position = Vector2( 18120, -3720 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint43" parent="Checkpoints" index="11" instance=ExtResource( 6 )]
 position = Vector2( 19280, -3880 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint44" parent="Checkpoints" index="12" instance=ExtResource( 6 )]
 position = Vector2( 19280, -3160 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint28" parent="Checkpoints" index="13" instance=ExtResource( 6 )]
 position = Vector2( 23680, -2120 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint31" parent="Checkpoints" index="14" instance=ExtResource( 6 )]
 position = Vector2( 25080, -2680 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint29" parent="Checkpoints" index="15" instance=ExtResource( 6 )]
 position = Vector2( 21080, -2680 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint30" parent="Checkpoints" index="16" instance=ExtResource( 6 )]
 position = Vector2( 26240, -4360 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint37" parent="Checkpoints" index="17" instance=ExtResource( 6 )]
 position = Vector2( 24880, -7000 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint34" parent="Checkpoints" index="18" instance=ExtResource( 6 )]
 position = Vector2( 23600, -4360 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint35" parent="Checkpoints" index="19" instance=ExtResource( 6 )]
 position = Vector2( 22480, -4040 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint36" parent="Checkpoints" index="20" instance=ExtResource( 6 )]
 position = Vector2( 21240, -4120 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint32" parent="Checkpoints" index="21" instance=ExtResource( 6 )]
 position = Vector2( 28640, -4360 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint33" parent="Checkpoints" index="22" instance=ExtResource( 6 )]
 position = Vector2( 30320, -4360 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint10" parent="Checkpoints" index="23" instance=ExtResource( 6 )]
 position = Vector2( 6040, -1800 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint26" parent="Checkpoints" index="24" instance=ExtResource( 6 )]
 position = Vector2( 3680, -1240 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint3" parent="Checkpoints" index="25" instance=ExtResource( 6 )]
 position = Vector2( 15280, -1400 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint4" parent="Checkpoints" index="26" instance=ExtResource( 6 )]
 position = Vector2( 12350, -5480 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint17" parent="Checkpoints" index="27" instance=ExtResource( 6 )]
 position = Vector2( 16600, -5240 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint13" parent="Checkpoints" index="28" instance=ExtResource( 6 )]
 position = Vector2( 11080, -8200 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint39" parent="Checkpoints" index="29" instance=ExtResource( 6 )]
 position = Vector2( 9600, -10200 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint15" parent="Checkpoints" index="30" instance=ExtResource( 6 )]
 position = Vector2( 15040, -10200 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint18" parent="Checkpoints" index="31" instance=ExtResource( 6 )]
 position = Vector2( 18200, -9240 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint20" parent="Checkpoints" index="32" instance=ExtResource( 6 )]
 position = Vector2( 20760, -8280 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint16" parent="Checkpoints" index="33" instance=ExtResource( 6 )]
 position = Vector2( 14560, -8200 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint14" parent="Checkpoints" index="34" instance=ExtResource( 6 )]
 position = Vector2( 12760, -10360 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint9" parent="Checkpoints" index="35" instance=ExtResource( 6 )]
 position = Vector2( 14800, -5240 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint45" parent="Checkpoints" index="36" instance=ExtResource( 6 )]
 position = Vector2( 13120, -4920 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint7" parent="Checkpoints" index="37" instance=ExtResource( 6 )]
 position = Vector2( 8960, -5160 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint12" parent="Checkpoints" index="38" instance=ExtResource( 6 )]
 position = Vector2( 5900, -4360 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint19" parent="Checkpoints" index="39" instance=ExtResource( 6 )]
 position = Vector2( 6320, -5960 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint11" parent="Checkpoints" index="40" instance=ExtResource( 6 )]
 position = Vector2( 6760, -3400 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint42" parent="Checkpoints" index="41" instance=ExtResource( 6 )]
 position = Vector2( 7960, -3400 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint8" parent="Checkpoints" index="42" instance=ExtResource( 6 )]
 position = Vector2( 12150, -5880 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint5" parent="Checkpoints" index="43" instance=ExtResource( 6 )]
 position = Vector2( 12780, -3880 )
+world_scene = NodePath("../..")
 
 [node name="Checkpoint6" parent="Checkpoints" index="44" instance=ExtResource( 6 )]
 position = Vector2( 13290, -2920 )
+world_scene = NodePath("../..")
 
-[node name="LocalPlayerBody" parent="." index="51"]
+[node name="LocalPlayerBody" parent="." index="50"]
 player_body_editor = ExtResource( 7 )
 
 [editable path="ButtonLockedDoor"]

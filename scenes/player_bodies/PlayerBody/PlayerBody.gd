@@ -12,8 +12,14 @@ export(Resource) var player_body_editor = player_body_editor as PlayerBodyEditor
 var player_body_data: PlayerBodyData
 
 
-export(Resource) var damage_area_data = damage_area_data as DamageAreaData
+export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
+onready var checkpoint_data = world_scene.world_data.checkpoint_data as CheckpointData
 
+
+
+
+
+export(Resource) var damage_area_data = damage_area_data as DamageAreaData
 export(Resource) var second_jump_data = second_jump_data as SecondJumpData
 
 
@@ -34,8 +40,6 @@ onready var jump_timer = $JumpTimer
 onready var jump_audio_cooldown = $JumpAudioCooldown
 onready var boots_sprite = $Sprites/BootsSprite
 onready var crown_sprite = $Sprites/CrownSprite
-onready var haste_progress_bar = $CanvasLayer/HasteProgressBar
-onready var time_label = $CanvasLayer/HBoxContainer2/VBoxContainer/TimeLabel
 onready var pet_body = $PetBody
 onready var pet_position = $PetPosition
 
@@ -61,11 +65,21 @@ func _player_body_editor(value):
 
 
 func _ready():
+	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 	player_body_editor.set_body(self)
 	if new_game:
 		player_body_editor.set_play_time(0)
 		player_body_editor.set_respawn_location(global_position)
+
+
+
+
+func _on_checkpoint_activated():
+	if checkpoint_data.last_collided_body == self:
+		player_body_editor.set_respawn_location(checkpoint_data.last_collided_position)
+		
+
 
 
 

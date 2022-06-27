@@ -10,3 +10,4 @@ script = ExtResource( 1 )
 [node name="WorldCanvasLayer" parent="." instance=ExtResource( 3 )]
 
 [node name="LocalPlayerBody" parent="." instance=ExtResource( 2 )]
+world_scene = NodePath("..")

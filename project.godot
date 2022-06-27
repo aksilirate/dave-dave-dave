@@ -39,6 +39,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/Checkpoint/Checkpoint.gd"
 }, {
+"base": "DataResource",
+"class": "CheckpointData",
+"language": "GDScript",
+"path": "res://classes/data/checkpoint/data.gd"
+}, {
+"base": "CheckpointData",
+"class": "CheckpointEditor",
+"language": "GDScript",
+"path": "res://classes/data/checkpoint/editor.gd"
+}, {
 "base": "Area2D",
 "class": "DamageArea",
 "language": "GDScript",
@@ -147,12 +157,12 @@ _global_script_classes=[ {
 "base": "DataResource",
 "class": "PlayerBodyData",
 "language": "GDScript",
-"path": "res://classes/data/player_body/data.gd"
+"path": "res://classes/player_body/data.gd"
 }, {
 "base": "PlayerBodyData",
 "class": "PlayerBodyEditor",
 "language": "GDScript",
-"path": "res://classes/data/player_body/editor.gd"
+"path": "res://classes/player_body/editor.gd"
 }, {
 "base": "Sprite",
 "class": "PlayerBodySprite",
@@ -211,6 +221,8 @@ _global_script_class_icons={
 "AudioPlayer": "",
 "Bullet": "",
 "Checkpoint": "",
+"CheckpointData": "",
+"CheckpointEditor": "",
 "DamageArea": "",
 "DamageAreaData": "",
 "DamageAreaEditor": "",
@@ -334,6 +346,7 @@ gdscript/warnings/unused_signal=false
 [display]
 
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
