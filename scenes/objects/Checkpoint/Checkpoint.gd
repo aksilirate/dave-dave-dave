@@ -4,7 +4,7 @@ extends Area2D
 
 export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
-onready var checkpoint_editor = world_scene.world_data.checkpoint_data as CheckpointEditor
+onready var checkpoint_editor = DataLoader.checkpoint_data as CheckpointEditor
 
 
 
@@ -15,7 +15,7 @@ var activated: bool
 
 
 func _ready():
-	world_scene.world_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
+	world_scene.world_data.player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
 	checkpoint_editor.connect("last_collided_position_changed", self, "_on_checkpoint_last_collided_position_changed")
 	_update_checkpoint()
 
@@ -40,7 +40,7 @@ func _update_checkpoint():
 		activate()
 		return
 		
-	if world_scene.world_data.activated_checkpoints.has(global_position):
+	if world_scene.world_data.player_body_data.activated_checkpoints.has(global_position):
 		deactivate()
 		return
 		

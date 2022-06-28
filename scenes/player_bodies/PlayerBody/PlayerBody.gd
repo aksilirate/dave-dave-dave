@@ -8,19 +8,15 @@ enum {IDLE, MOVING, AIR}
 
 
 
-
 export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
 onready var player_body_editor = world_scene.world_data.player_body_data as PlayerBodyEditor
 onready var player_body_data: PlayerBodyData = player_body_editor as PlayerBodyData
 
-onready var checkpoint_data = world_scene.world_data.checkpoint_data as CheckpointData
 
 
 
-
-
-
+onready var checkpoint_data = DataLoader.checkpoint_data as CheckpointData
 onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
 onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 
@@ -66,6 +62,7 @@ func _ready():
 	
 	if new_game:
 		player_body_editor.set_play_time(0)
+		player_body_editor.set_inventory([])
 		player_body_editor.set_respawn_location(global_position)
 		player_body_editor.set_last_position(global_position)
 		return
@@ -80,7 +77,7 @@ func _ready():
 func _on_checkpoint_activated():
 	if checkpoint_data.last_collided_body == self:
 		player_body_editor.set_respawn_location(checkpoint_data.last_collided_position)
-		
+		player_body_editor.add_to_activated_checkpoints(checkpoint_data.last_collided_position)
 
 
 
@@ -297,7 +294,6 @@ func is_playing_death_animation() -> bool:
 
 
 
-#var inventory: Array
 
 
 
