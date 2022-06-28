@@ -6,6 +6,7 @@
 
 [node name="AdventureWorldScene" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
+new_game = false
 
 [node name="Checkpoints" type="Node2D" parent="." index="5"]
 position = Vector2( -12560, 7680 )

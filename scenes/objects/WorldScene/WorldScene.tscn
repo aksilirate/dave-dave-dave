@@ -11,3 +11,8 @@ script = ExtResource( 1 )
 
 [node name="LocalPlayerBody" parent="." instance=ExtResource( 2 )]
 world_scene = NodePath("..")
+new_game = false
+controllable = true
+speed = 800
+gravity = 0.25
+controlled = true

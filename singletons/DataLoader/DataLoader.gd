@@ -10,6 +10,7 @@ var generic_button_data: GenericButtonData
 var damage_area_data: DamageAreaData
 var checkpoint_data: CheckpointData
 var diamond_data: DiamondData
+var item_area_data: ItemAreaData
 var second_jump_data: SecondJumpData
 
 
@@ -44,6 +45,7 @@ func _init_all_data():
 	damage_area_data = _init_data(data_path + "/DamageArea.tres", DamageAreaEditor.new()) as DamageAreaData
 	checkpoint_data = _init_data(data_path + "/Checkpoint.tres", CheckpointEditor.new()) as CheckpointData
 	diamond_data = _init_data(data_path + "/Diamond.tres", DiamondEditor.new()) as DiamondData
+	item_area_data = _init_data(data_path + "/ItemArea.tres", ItemAreaEditor.new()) as ItemAreaData
 	second_jump_data = _init_data(data_path + "/SecondJump.tres", SecondJumpEditor.new()) as SecondJumpData
 	
 	

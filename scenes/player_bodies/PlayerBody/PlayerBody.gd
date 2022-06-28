@@ -19,7 +19,7 @@ onready var player_body_data: PlayerBodyData = player_body_editor as PlayerBodyD
 onready var checkpoint_data = DataLoader.checkpoint_data as CheckpointData
 onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
 onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
-
+onready var item_area_data = DataLoader.item_area_data as ItemAreaData
 
 
 export(bool) var new_game
@@ -56,20 +56,30 @@ var displacement: Vector2
 
 
 func _ready():
+	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
+	item_area_data.connect("item_collected", self, "_on_item_collected")
 	player_body_editor.set_body(self)
 	
 	if new_game:
 		player_body_editor.set_play_time(0)
 		player_body_editor.set_inventory([])
+		player_body_editor.set_collected_items([])
 		player_body_editor.set_respawn_location(global_position)
 		player_body_editor.set_last_position(global_position)
+		player_body_editor.set_activated_checkpoints([])
 		return
 		
 	global_position = player_body_editor.last_position
 
 
+
+
+func _on_inventory_changed():
+	var inventory = player_body_editor.inventory
+	if inventory.has("double_jump"):
+		pass
 
 
 
@@ -85,6 +95,16 @@ func _on_checkpoint_activated():
 func _on_damage_area_last_collided_body_set():
 	if damage_area_data.last_collided_body == self:
 		_die()
+
+
+
+
+
+func _on_item_collected():
+	if item_area_data.last_body_collected_item == self:
+		player_body_editor.add_to_inventory(item_area_data.last_collected_item)
+		player_body_editor.add_to_collected_items(item_area_data.last_collected_item_position)
+
 
 
 
@@ -170,7 +190,7 @@ func _jump():
 
 	if Input.is_action_just_pressed("jump"):
 
-		if not player_body_data.double_jump:
+		if not has_double_jump():
 			return
 
 		if double_jumped:
@@ -206,6 +226,10 @@ func _jump():
 		jump_timer.stop()
 		jumped = true
 		velocity.y = -3 if gravity > 0 else 3
+
+
+
+
 
 
 
@@ -254,6 +278,8 @@ func _respawn():
 
 
 
+
+
 func get_speed() -> int:
 	return (speed + (300 * int(player_body_editor.haste > 0)))
 
@@ -286,6 +312,11 @@ func is_playing_death_animation() -> bool:
 
 
 
+
+
+
+func has_double_jump() -> bool:
+	return player_body_editor.inventory.has("double_jump")
 
 
 

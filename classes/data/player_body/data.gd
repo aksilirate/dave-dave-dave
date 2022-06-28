@@ -4,8 +4,14 @@ extends DataResource
 signal second_jumped
 
 signal play_time_changed
+
 signal inventory_set
 signal inventory_changed
+
+signal collected_items_set
+signal collected_items_changed
+
+
 signal haste_changed
 signal deaths_changed
 
@@ -20,9 +26,9 @@ export(float) var play_time setget _play_time
 
 export(Array) var inventory: Array setget _inventory
 
-export(int) var diamonds_collected setget _diamonds_collected
+export(Array) var collected_items: Array setget _collected_items
 
-export(bool) var double_jump setget _double_jump
+export(int) var diamonds_collected setget _diamonds_collected
 
 export(float) var haste setget _haste 
 
@@ -49,14 +55,15 @@ func _inventory(value):
 		inventory = value
 
 
+func _collected_items(value):
+	if not DataLoader.finished:
+		collected_items = value
+
+
+
 func _diamonds_collected(value):
 	if not DataLoader.finished:
 		diamonds_collected = value
-
-
-func _double_jump(value):
-	if not DataLoader.finished:
-		double_jump = value
 
 
 func _haste(value):

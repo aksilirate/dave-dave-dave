@@ -17,16 +17,39 @@ func add_to_play_time(amount: float):
 
 
 func set_inventory(arg_inventory):
-	inventory = arg_inventory
+	if inventory != arg_inventory:
+		inventory = arg_inventory
+		emit_signal("inventory_changed")
 	emit_signal("inventory_set")
 	emit_changed()
 
 
 
 func add_to_inventory(item):
-	inventory.push_back(item)
-	emit_signal("inventory_changed")
+	if not inventory.has(item):
+		inventory.push_back(item)
+		emit_signal("inventory_changed")
+		emit_changed()
+
+
+
+
+func set_collected_items(arg_collected_items):
+	if collected_items != arg_collected_items:
+		collected_items = arg_collected_items
+		emit_signal("collected_items_changed")
+	emit_signal("collected_items_set")
 	emit_changed()
+
+
+
+func add_to_collected_items(collected_item):
+	if not collected_items.has(collected_item):
+		collected_items.push_back(collected_item)
+		emit_signal("collected_items_changed")
+		emit_changed()
+
+
 
 
 

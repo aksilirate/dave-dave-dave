@@ -114,6 +114,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/ItemArea/ItemArea.gd"
 }, {
+"base": "DataResource",
+"class": "ItemAreaData",
+"language": "GDScript",
+"path": "res://classes/data/item_area/data.gd"
+}, {
+"base": "ItemAreaData",
+"class": "ItemAreaEditor",
+"language": "GDScript",
+"path": "res://classes/data/item_area/editor.gd"
+}, {
 "base": "PlayerBody",
 "class": "LocalPlayerBody",
 "language": "GDScript",
@@ -246,6 +256,8 @@ _global_script_class_icons={
 "HastePotion": "",
 "Item": "",
 "ItemArea": "",
+"ItemAreaData": "",
+"ItemAreaEditor": "",
 "LocalPlayerBody": "",
 "LockedDoor": "",
 "MoverBlock": "",
