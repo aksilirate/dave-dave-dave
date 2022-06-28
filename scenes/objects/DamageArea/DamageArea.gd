@@ -2,7 +2,7 @@ class_name DamageArea
 extends Area2D
 
 
-export(Resource) var damage_area_editor = damage_area_editor as DamageAreaEditor
+onready var damage_area_editor = DataLoader.damage_area_data as DamageAreaEditor
 
 
 

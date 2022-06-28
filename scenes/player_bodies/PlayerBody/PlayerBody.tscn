@@ -1,12 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/objects/PetBody/PetBody.tscn" type="PackedScene" id=1]
-[ext_resource path="res://data/SecondJump.tres" type="Resource" id=2]
 [ext_resource path="res://scenes/objects/PlayerBodySprite/PlayerBodySprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/textures/player_with_crown.png" type="Texture" id=4]
 [ext_resource path="res://assets/textures/player_with_double_jump_boots.png" type="Texture" id=5]
 [ext_resource path="res://scenes/player_bodies/PlayerBody/PlayerBody.gd" type="Script" id=7]
-[ext_resource path="res://data/DamageArea.tres" type="Resource" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -373,8 +371,6 @@ extents = Vector2( 30, 35 )
 collision_layer = 3
 collision_mask = 2
 script = ExtResource( 7 )
-damage_area_data = ExtResource( 8 )
-second_jump_data = ExtResource( 2 )
 
 [node name="PetPosition" type="Position2D" parent="."]
 position = Vector2( -8, -8 )

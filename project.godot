@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "ControllablePlayerBody",
-"class": "AdventureControllablePlayerBody",
-"language": "GDScript",
-"path": "res://scenes/player_bodies/AdventureControllablePlayerBody/AdventureControllablePlayerBody.gd"
-}, {
 "base": "WorldScene",
 "class": "AdventureWorld",
 "language": "GDScript",
@@ -172,12 +167,12 @@ _global_script_classes=[ {
 "base": "DataResource",
 "class": "PlayerBodyData",
 "language": "GDScript",
-"path": "res://classes/player_body/data.gd"
+"path": "res://classes/data/player_body/data.gd"
 }, {
 "base": "PlayerBodyData",
 "class": "PlayerBodyEditor",
 "language": "GDScript",
-"path": "res://classes/player_body/editor.gd"
+"path": "res://classes/data/player_body/editor.gd"
 }, {
 "base": "Sprite",
 "class": "PlayerBodySprite",
@@ -204,7 +199,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
 }, {
-"base": "Reference",
+"base": "AudioPlayer",
 "class": "TitleMusicPlayer",
 "language": "GDScript",
 "path": "res://scenes/audio_players/TitleMusicPlayer/TitleMusicPlayer.gd"
@@ -230,7 +225,6 @@ _global_script_classes=[ {
 "path": "res://scenes/objects/WorldScene/WorldScene.gd"
 } ]
 _global_script_class_icons={
-"AdventureControllablePlayerBody": "",
 "AdventureWorld": "",
 "AudioManager": "",
 "AudioPlayer": "",
@@ -350,7 +344,6 @@ default_bus_layout="res://resources/default_bus_layout.tres"
 [autoload]
 
 Steamworks="*res://singletons/Steamworks.gd"
-Globals="*res://singletons/Globals.gd"
 Mod="*res://singletons/Mod.gd"
 Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"

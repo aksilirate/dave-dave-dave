@@ -4,10 +4,6 @@ var path: String = "user://stats.cfg"
 var config = ConfigFile.new()
 
 
-func _ready():
-	if Globals.steamworks_loaded and Steamworks.is_owned():
-		path = Steamworks.get_user_path() + "/GameData/stats.cfg"
-	config.load(path)
 
 func exists() -> bool:
 	var file = File.new()

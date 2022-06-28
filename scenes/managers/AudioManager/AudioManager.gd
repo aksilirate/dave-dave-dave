@@ -2,7 +2,7 @@ class_name AudioManager
 extends Node
 
 
-export(Resource) var generic_button_data = generic_button_data as GenericButtonData
+onready var generic_button_data = DataLoader.generic_button_data as GenericButtonEditor
 
 export(PackedScene) var audio_stream_player
 

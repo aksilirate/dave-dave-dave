@@ -2,7 +2,7 @@ class_name Diamond
 extends Area2D
 
 
-export(Resource) var diamond_editor = diamond_editor as DiamondEditor
+onready var diamond_editor = DataLoader.diamond_data as DiamondEditor
 
 
 

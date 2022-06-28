@@ -5,7 +5,7 @@ extends Area2D
 
 export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
-export(Resource) var second_jump_editor = second_jump_editor as SecondJumpEditor
+onready var second_jump_editor = DataLoader.second_jump_data as SecondJumpEditor
 
 onready var player_body_data: PlayerBodyData = world_scene.world_data.player_body_data as PlayerBodyData
 

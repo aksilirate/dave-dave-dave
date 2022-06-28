@@ -21,10 +21,10 @@ export(Vector2) var last_collided_position: Vector2 setget _last_collided_positi
 
 
 func _last_collided_body(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		last_collided_body = value
 
 
 func _last_collided_position(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		last_collided_position = value

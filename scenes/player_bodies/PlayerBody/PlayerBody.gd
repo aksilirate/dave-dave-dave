@@ -8,19 +8,21 @@ enum {IDLE, MOVING, AIR}
 
 
 
-export(Resource) var player_body_editor = player_body_editor as PlayerBodyEditor setget _player_body_editor
-var player_body_data: PlayerBodyData
-
 
 export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
+
+onready var player_body_editor = world_scene.world_data.player_body_data as PlayerBodyEditor
+onready var player_body_data: PlayerBodyData = player_body_editor as PlayerBodyData
+
 onready var checkpoint_data = world_scene.world_data.checkpoint_data as CheckpointData
 
 
 
 
 
-export(Resource) var damage_area_data = damage_area_data as DamageAreaData
-export(Resource) var second_jump_data = second_jump_data as SecondJumpData
+
+onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
+onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 
 
 
@@ -50,13 +52,6 @@ var double_jumped: bool = false
 
 var velocity: Vector2
 var displacement: Vector2
-
-
-
-
-func _player_body_editor(value):
-	player_body_editor = value
-	player_body_data = player_body_editor as PlayerBodyData
 
 
 

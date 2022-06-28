@@ -29,33 +29,33 @@ var body: Node2D
 
 
 func _play_time(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		play_time = value
 
 
 func _diamonds_collected(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		diamonds_collected = value
 
 
 func _double_jump(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		double_jump = value
 
 
 func _haste(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		haste = value
 
 
 func _deaths(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		deaths = value
 
 func _respawn_location(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		respawn_location = value
 
 func _last_position(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		last_position = value

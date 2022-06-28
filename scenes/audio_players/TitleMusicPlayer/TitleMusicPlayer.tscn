@@ -8,5 +8,4 @@
 stream = ExtResource( 3 )
 bus = "Music"
 script = ExtResource( 2 )
-options_data = null
 audio_stream_player = null

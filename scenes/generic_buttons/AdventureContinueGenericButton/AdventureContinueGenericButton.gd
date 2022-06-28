@@ -2,7 +2,7 @@ extends GenericButton
 
 
 
-export(Resource) var adventure_world_data = adventure_world_data as WorldData
+onready var adventure_world_data = DataLoader.adventure_world_data as WorldData
 
 
 

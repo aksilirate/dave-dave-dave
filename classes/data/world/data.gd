@@ -20,22 +20,22 @@ export(bool) var played setget _played
 
 
 func _activated_checkpoints(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		activated_checkpoints = value
 
 
 func _player_body_data(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		player_body_data = value
 
 
 func _checkpoint_data(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		checkpoint_data = value
 
 
 func _played(value):
-	if not DataLoader:
+	if not DataLoader.finished:
 		played = value
 
 

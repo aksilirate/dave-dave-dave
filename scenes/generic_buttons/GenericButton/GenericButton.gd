@@ -2,7 +2,7 @@ class_name GenericButton
 extends Button
 
 
-export(Resource) var generic_button_editor = generic_button_editor as GenericButtonEditor
+onready var generic_button_editor = DataLoader.generic_button_data as GenericButtonEditor
 
 
 
