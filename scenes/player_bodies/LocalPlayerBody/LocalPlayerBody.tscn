@@ -11,6 +11,12 @@ extents = Vector2( 30, 35 )
 
 [node name="LocalPlayerBody" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+world_scene = NodePath("")
+new_game = false
+controllable = true
+speed = 800
+gravity = 0.25
+controlled = true
 
 [node name="CollisionShape2D" parent="." index="3"]
 shape = SubResource( 1 )
@@ -18,5 +24,8 @@ shape = SubResource( 1 )
 [node name="PlayerBodyCamera2D" parent="." index="6" instance=ExtResource( 3 )]
 
 [node name="LocalPlayerBodyCanvasLayer" parent="." index="7" instance=ExtResource( 4 )]
+
+[node name="InventoryHBoxContainer" parent="LocalPlayerBodyCanvasLayer/HBoxContainer" index="1"]
+player_body = NodePath("../../..")
 
 [editable path="LocalPlayerBodyCanvasLayer"]

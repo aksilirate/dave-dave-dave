@@ -1,8 +1,12 @@
 class_name LockedDoor
-extends StaticBody2D
+extends ItemRemoverArea
 
 
 
-onready var open_area: Area2D = $Area2D
+onready var locked_door_editor = DataLoader.locked_door_data as LockedDoorEditor
 
-export (String) var required_item
+
+
+func _on_LockedDoor_item_removed():
+	locked_door_editor.set_last_unlock_position(global_position)
+	hide()

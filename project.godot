@@ -104,15 +104,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/HastePotion/HastePotion.gd"
 }, {
-"base": "Object",
+"base": "HBoxContainer",
+"class": "InventoryHBoxContainer",
+"language": "GDScript",
+"path": "res://scenes/interface/InventoryHBoxContainer/InventoryHBoxContainer.gd"
+}, {
+"base": "Resource",
 "class": "Item",
 "language": "GDScript",
 "path": "res://classes/objects/item.gd"
 }, {
-"base": "Area2D",
+"base": "Reference",
 "class": "ItemArea",
 "language": "GDScript",
-"path": "res://scenes/objects/ItemArea/ItemArea.gd"
+"path": "res://scenes/item_areas/ItemArea/ItemArea.gd"
 }, {
 "base": "DataResource",
 "class": "ItemAreaData",
@@ -124,15 +129,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/item_area/editor.gd"
 }, {
+"base": "Area2D",
+"class": "ItemRemoverArea",
+"language": "GDScript",
+"path": "res://scenes/objects/ItemRemoverArea/ItemRemoverArea.gd"
+}, {
+"base": "DataResource",
+"class": "ItemRemoverAreaData",
+"language": "GDScript",
+"path": "res://classes/data/item_remover_area/data.gd"
+}, {
+"base": "ItemRemoverAreaData",
+"class": "ItemRemoverAreaEditor",
+"language": "GDScript",
+"path": "res://classes/data/item_remover_area/editor.gd"
+}, {
+"base": "Node",
+"class": "Items",
+"language": "GDScript",
+"path": "res://singletons/ContentManager/Items.gd"
+}, {
 "base": "PlayerBody",
 "class": "LocalPlayerBody",
 "language": "GDScript",
 "path": "res://scenes/player_bodies/LocalPlayerBody/LocalPlayerBody.gd"
 }, {
-"base": "StaticBody2D",
+"base": "ItemRemoverArea",
 "class": "LockedDoor",
 "language": "GDScript",
 "path": "res://scenes/objects/LockedDoor/LockedDoor.gd"
+}, {
+"base": "DataResource",
+"class": "LockedDoorData",
+"language": "GDScript",
+"path": "res://classes/data/locked_door/data.gd"
+}, {
+"base": "LockedDoorData",
+"class": "LockedDoorEditor",
+"language": "GDScript",
+"path": "res://classes/data/locked_door/editor.gd"
 }, {
 "base": "Area2D",
 "class": "MoverBlock",
@@ -233,6 +268,11 @@ _global_script_classes=[ {
 "class": "WorldScene",
 "language": "GDScript",
 "path": "res://scenes/objects/WorldScene/WorldScene.gd"
+}, {
+"base": "StaticBody2D",
+"class": "_LockedDoor",
+"language": "GDScript",
+"path": "res://scenes/objects/_LockedDoor/LockedDoor.gd"
 } ]
 _global_script_class_icons={
 "AdventureWorld": "",
@@ -254,12 +294,19 @@ _global_script_class_icons={
 "GenericButtonData": "",
 "GenericButtonEditor": "",
 "HastePotion": "",
+"InventoryHBoxContainer": "",
 "Item": "",
 "ItemArea": "",
 "ItemAreaData": "",
 "ItemAreaEditor": "",
+"ItemRemoverArea": "",
+"ItemRemoverAreaData": "",
+"ItemRemoverAreaEditor": "",
+"Items": "",
 "LocalPlayerBody": "",
 "LockedDoor": "",
+"LockedDoorData": "",
+"LockedDoorEditor": "",
 "MoverBlock": "",
 "MovingPlatform": "",
 "OptionCheckBox": "",
@@ -279,7 +326,8 @@ _global_script_class_icons={
 "WallGun": "",
 "WorldData": "",
 "WorldEditor": "",
-"WorldScene": ""
+"WorldScene": "",
+"_LockedDoor": ""
 }
 
 [admob]
@@ -351,15 +399,14 @@ config/windows_native_icon="res://assets/application/icon_256.ico"
 
 [audio]
 
-default_bus_layout="res://resources/default_bus_layout.tres"
+default_bus_layout="res://resources/audio_bus_layouts/default_bus_layout.tres"
 
 [autoload]
 
 Steamworks="*res://singletons/Steamworks.gd"
-Mod="*res://singletons/Mod.gd"
-Save="*res://singletons/Save.gd"
 Stats="*res://singletons/Stats.gd"
 DataLoader="*res://singletons/DataLoader/DataLoader.tscn"
+ContentManager="*res://singletons/ContentManager/ContentManager.tscn"
 
 [debug]
 
@@ -452,4 +499,4 @@ quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 2d/snapping/use_gpu_pixel_snap=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-environment/default_environment="res://resources/default_env.tres"
+environment/default_environment="res://resources/environments/default_env.tres"

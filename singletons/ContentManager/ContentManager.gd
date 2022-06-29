@@ -1,6 +1,8 @@
 extends Node
 
 
+onready var items: Items = $Items
+
 
 
 
@@ -15,4 +17,3 @@ func _ready():
 			if file_name.get_extension() == "pck":
 				ProjectSettings.load_resource_pack("user://mods/" + file_name, true)
 			file_name = dir.get_next()
-

@@ -20,7 +20,7 @@ onready var checkpoint_data = DataLoader.checkpoint_data as CheckpointData
 onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
 onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 onready var item_area_data = DataLoader.item_area_data as ItemAreaData
-
+onready var item_remover_area_data = DataLoader.item_remover_area_data as ItemRemoverAreaData
 
 export(bool) var new_game
 
@@ -60,6 +60,7 @@ func _ready():
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 	item_area_data.connect("item_collected", self, "_on_item_collected")
+	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	player_body_editor.set_body(self)
 	
 	if new_game:
@@ -78,8 +79,8 @@ func _ready():
 
 func _on_inventory_changed():
 	var inventory = player_body_editor.inventory
-	if inventory.has("double_jump"):
-		pass
+	if inventory.has(ContentManager.items.double_jump):
+		boots_sprite.show()
 
 
 
@@ -104,6 +105,13 @@ func _on_item_collected():
 	if item_area_data.last_body_collected_item == self:
 		player_body_editor.add_to_inventory(item_area_data.last_collected_item)
 		player_body_editor.add_to_collected_items(item_area_data.last_collected_item_position)
+
+
+
+
+
+func _on_item_remover_area_activated():
+	player_body_editor.remove_from_inventory(item_remover_area_data.item_to_remove)
 
 
 
@@ -316,7 +324,7 @@ func is_playing_death_animation() -> bool:
 
 
 func has_double_jump() -> bool:
-	return player_body_editor.inventory.has("double_jump")
+	return player_body_editor.inventory.has(ContentManager.items.double_jump)
 
 
 

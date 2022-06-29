@@ -11,6 +11,8 @@ var damage_area_data: DamageAreaData
 var checkpoint_data: CheckpointData
 var diamond_data: DiamondData
 var item_area_data: ItemAreaData
+var item_remover_area_data: ItemRemoverAreaData
+var locked_door_data: LockedDoorData
 var second_jump_data: SecondJumpData
 
 
@@ -46,6 +48,8 @@ func _init_all_data():
 	checkpoint_data = _init_data(data_path + "/Checkpoint.tres", CheckpointEditor.new()) as CheckpointData
 	diamond_data = _init_data(data_path + "/Diamond.tres", DiamondEditor.new()) as DiamondData
 	item_area_data = _init_data(data_path + "/ItemArea.tres", ItemAreaEditor.new()) as ItemAreaData
+	item_remover_area_data = _init_data(data_path + "/ItemRemoverArea.tres", ItemRemoverAreaEditor.new()) as ItemRemoverAreaData
+	locked_door_data = _init_data(data_path + "/LockedDoorData.tres", LockedDoorEditor.new()) as LockedDoorData
 	second_jump_data = _init_data(data_path + "/SecondJump.tres", SecondJumpEditor.new()) as SecondJumpData
 	
 	

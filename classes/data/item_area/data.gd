@@ -9,7 +9,7 @@ signal last_collected_item_position_set
 
 
 onready var last_body_collected_item: Node2D setget _last_body_collected_item
-onready var last_collected_item: String setget _last_collected_item
+onready var last_collected_item: Item setget _last_collected_item
 onready var last_collected_item_position: Vector2 setget _last_collected_item_position
 
 

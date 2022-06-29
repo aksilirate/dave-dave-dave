@@ -13,7 +13,7 @@ onready var item_area_editor: ItemAreaEditor = DataLoader.item_area_data as Item
 
 onready var sprite = $Sprite
 
-export(String) var item_name
+export(Resource) var item = item as Item
 
 
 func _ready():
@@ -37,6 +37,6 @@ func _update_visibility():
 
 func _on_ItemArea_body_entered(body):
 	item_area_editor.set_last_body_collected_item(body)
-	item_area_editor.set_last_collected_item(item_name)
+	item_area_editor.set_last_collected_item(item)
 	item_area_editor.set_last_collected_item_position(global_position)
 	item_area_editor.emit_signal("item_collected")

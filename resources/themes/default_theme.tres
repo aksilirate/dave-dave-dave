@@ -2,11 +2,11 @@
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/textures/ui/check_box_off.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/ui/check_box_on.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/ui/slider.png" type="Texture" id=4]
-[ext_resource path="res://assets/textures/ui/grabber_disabled.png" type="Texture" id=5]
-[ext_resource path="res://assets/textures/ui/grabber_highlight.png" type="Texture" id=6]
-[ext_resource path="res://assets/textures/ui/grabber.png" type="Texture" id=7]
+[ext_resource path="res://assets/textures/ui/grabber.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/ui/grabber_disabled.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/ui/check_box_on.png" type="Texture" id=5]
+[ext_resource path="res://assets/textures/ui/slider.png" type="Texture" id=6]
+[ext_resource path="res://assets/textures/ui/grabber_highlight.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -36,7 +36,7 @@ expand_margin_left = 5.0
 [sub_resource type="StyleBoxEmpty" id=8]
 
 [sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 8, 8 )
 
 [sub_resource type="DynamicFont" id=10]
@@ -54,12 +54,12 @@ Button/styles/hover = SubResource( 4 )
 Button/styles/normal = SubResource( 5 )
 Button/styles/pressed = SubResource( 6 )
 CheckBox/constants/check_vadjust = 4
-CheckBox/icons/checked = ExtResource( 3 )
+CheckBox/icons/checked = ExtResource( 5 )
 CheckBox/icons/unchecked = ExtResource( 2 )
 CheckBox/styles/focus = SubResource( 13 )
-HSlider/icons/grabber = ExtResource( 7 )
-HSlider/icons/grabber_disabled = ExtResource( 5 )
-HSlider/icons/grabber_highlight = ExtResource( 6 )
+HSlider/icons/grabber = ExtResource( 3 )
+HSlider/icons/grabber_disabled = ExtResource( 4 )
+HSlider/icons/grabber_highlight = ExtResource( 7 )
 HSlider/styles/grabber_area = SubResource( 7 )
 HSlider/styles/grabber_area_highlight = SubResource( 8 )
 HSlider/styles/slider = SubResource( 9 )

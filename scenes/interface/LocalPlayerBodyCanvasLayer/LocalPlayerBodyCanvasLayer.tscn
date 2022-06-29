@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://resources/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/interface/LocalPlayerBodyCanvasLayer/LocalPlayerBodyCanvasLayer.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/diamond.png" type="Texture" id=3]
+[ext_resource path="res://scenes/interface/InventoryHBoxContainer/InventoryHBoxContainer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/interface/HasteProgressBar/HasteProgressBar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/interface/PlayerBodyPlayTimeLabel/PlayerBodyPlayTimeLabel.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/DeathCountLabel/DeathCountLabel.tscn" type="PackedScene" id=7]
@@ -42,3 +44,35 @@ align = 1
 [node name="DeathCountLabel" parent="VBoxContainer" instance=ExtResource( 7 )]
 margin_top = 40.0
 margin_bottom = 56.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 30.0
+margin_right = 240.0
+margin_bottom = 83.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_constants/separation = 21
+
+[node name="DiamondsHBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 116.0
+margin_bottom = 53.0
+custom_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/DiamondsHBoxContainer"]
+modulate = Color( 0, 0.972549, 0.972549, 1 )
+margin_right = 32.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="HBoxContainer/DiamondsHBoxContainer"]
+margin_left = 52.0
+margin_top = 18.0
+margin_right = 116.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0/10"
+
+[node name="InventoryHBoxContainer" parent="HBoxContainer" instance=ExtResource( 4 )]

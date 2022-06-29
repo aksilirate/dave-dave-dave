@@ -1,6 +1,6 @@
 class_name Item
-extends Object
+extends Resource
 
-var name: String
-var color: Color
-var texture_path: String
+export(String) var name: String
+export(Color) var color: Color
+export(StreamTexture) var texture: StreamTexture
