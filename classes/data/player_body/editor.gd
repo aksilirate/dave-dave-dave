@@ -67,6 +67,15 @@ func set_haste(value: float):
 		emit_signal("haste_changed")
 
 
+func add_to_haste(value: float):
+	if value > 0.0:
+		haste += value
+		emit_signal("haste_changed")
+
+
+
+
+
 func remove_from_haste(amount: float):
 	haste -= amount
 	if amount > 0.0:

@@ -104,6 +104,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/HastePotion/HastePotion.gd"
 }, {
+"base": "DataResource",
+"class": "HastePotionData",
+"language": "GDScript",
+"path": "res://classes/data/haste_potion/data.gd"
+}, {
+"base": "HastePotionData",
+"class": "HastePotionEditor",
+"language": "GDScript",
+"path": "res://classes/data/haste_potion/editor.gd"
+}, {
 "base": "HBoxContainer",
 "class": "InventoryHBoxContainer",
 "language": "GDScript",
@@ -304,6 +314,8 @@ _global_script_class_icons={
 "GenericButtonData": "",
 "GenericButtonEditor": "",
 "HastePotion": "",
+"HastePotionData": "",
+"HastePotionEditor": "",
 "InventoryHBoxContainer": "",
 "Item": "",
 "ItemArea": "",

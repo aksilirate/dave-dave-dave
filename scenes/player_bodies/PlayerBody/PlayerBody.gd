@@ -22,6 +22,8 @@ onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 onready var item_area_data = DataLoader.item_area_data as ItemAreaData
 onready var item_remover_area_data = DataLoader.item_remover_area_data as ItemRemoverAreaData
 onready var mover_block_data = DataLoader.mover_block_data as MoverBlockData
+onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
+
 
 
 export(bool) var new_game
@@ -65,6 +67,7 @@ func _ready():
 	item_area_data.connect("activated", self, "_on_item_area_activated")
 	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
+	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 	player_body_editor.set_body(self)
 	
 	if new_game:
@@ -125,6 +128,15 @@ func _on_mover_block_activated():
 		jump_timer.start()
 		velocity.y = 0.0
 		move_and_slide(mover_block_data.velocity, Vector2.UP)
+
+
+
+
+func _on_haste_potion_activated():
+	if haste_potion_data.collected_body == self:
+		print(haste_potion_data.haste_time)
+		player_body_editor.add_to_haste(haste_potion_data.haste_time)
+
 
 
 
@@ -357,37 +369,6 @@ func has_double_jump() -> bool:
 
 
 
-
-
-
-
-#func _ready():
-#	Game.damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
-#
-#
-#
-#	if Save.exists() and not Globals.zero_deaths_mode:
-#		time = Save.get_player_time()
-#		double_jump = Save.get_player_double_jump()
-#		if double_jump:
-#			boots_sprite.show()
-#		has_crown = Save.get_player_crown()
-#		if has_crown:
-#			crown_sprite.show()
-#		diamonds_collected = Save.get_player_diamonds_collected()
-#
-#
-#		var saved_position = Save.get_player_global_position()
-#		if saved_position != null:
-#			global_position = saved_position
-#
-#
-#		inventory = Save.get_player_inventory()
-##		update_inventory()
-#
-#	pet_body.global_position = pet_position.global_position
-#
-#
 #
 #
 #
@@ -404,14 +385,6 @@ func has_double_jump() -> bool:
 
 
 
-#
-
-
-
-
-
-
-
 
 
 
@@ -421,40 +394,9 @@ func has_double_jump() -> bool:
 #
 #
 #
-#func add_item_to_inventory(item: Item):
-#	inventory.push_back(item)
-##	update_inventory()
 #
 #
-#
-#
-##func remove_item_from_inventory(item: Item):
-##	inventory.erase(item)
-##	update_inventory()
-#
-#
-#
-#
-##func update_inventory():
-##	for child in items_container.get_children():
-##		child.queue_free()
-##
-##	for element in inventory:
-##		var item: Item = element
-##		var texture_rect = TextureRect.new()
-##		texture_rect.name = item.name
-##		texture_rect.texture = load(item.texture_path)
-##		items_container.add_child(texture_rect)
-##		texture_rect.modulate = item.color
-##		texture_rect.set_size(Vector2(1,1))
-#
-#
-#
-#
-#
-#func apply_haste(haste_time: int):
-#	haste = haste_time
-#	haste_progress_bar.max_value = haste_time * 10
+
 #
 #
 #

@@ -59,4 +59,5 @@ wait_time = 6.0
 anims/RESET = SubResource( 2 )
 anims/idle = SubResource( 3 )
 
+[connection signal="body_entered" from="." to="." method="_on_HastePotion_body_entered"]
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
