@@ -114,7 +114,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/objects/item.gd"
 }, {
-"base": "Reference",
+"base": "Area2D",
 "class": "ItemArea",
 "language": "GDScript",
 "path": "res://scenes/item_areas/ItemArea/ItemArea.gd"
@@ -173,6 +173,16 @@ _global_script_classes=[ {
 "class": "MoverBlock",
 "language": "GDScript",
 "path": "res://scenes/objects/MoverBlock/MoverBlock.gd"
+}, {
+"base": "DataResource",
+"class": "MoverBlockData",
+"language": "GDScript",
+"path": "res://classes/data/mover_block_data/data.gd"
+}, {
+"base": "MoverBlockData",
+"class": "MoverBlockEditor",
+"language": "GDScript",
+"path": "res://classes/data/mover_block_data/editor.gd"
 }, {
 "base": "Node2D",
 "class": "MovingPlatform",
@@ -308,6 +318,8 @@ _global_script_class_icons={
 "LockedDoorData": "",
 "LockedDoorEditor": "",
 "MoverBlock": "",
+"MoverBlockData": "",
+"MoverBlockEditor": "",
 "MovingPlatform": "",
 "OptionCheckBox": "",
 "OptionsData": "",

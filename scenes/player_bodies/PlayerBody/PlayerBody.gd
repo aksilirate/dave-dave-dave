@@ -21,6 +21,8 @@ onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
 onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 onready var item_area_data = DataLoader.item_area_data as ItemAreaData
 onready var item_remover_area_data = DataLoader.item_remover_area_data as ItemRemoverAreaData
+onready var mover_block_data = DataLoader.mover_block_data as MoverBlockData
+
 
 export(bool) var new_game
 
@@ -46,6 +48,7 @@ onready var pet_position = $PetPosition
 var jumped: bool = false
 var double_jumped: bool = false
 
+
 var velocity: Vector2
 var displacement: Vector2
 
@@ -61,6 +64,7 @@ func _ready():
 	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
 	item_area_data.connect("item_collected", self, "_on_item_collected")
 	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
+	mover_block_data.connect("activated", self, "_on_mover_block_activated")
 	player_body_editor.set_body(self)
 	
 	if new_game:
@@ -116,6 +120,13 @@ func _on_item_remover_area_activated():
 
 
 
+func _on_mover_block_activated():
+	if mover_block_data.body_to_move == self:
+		jump_timer.start()
+		velocity.y = 0.0
+		move_and_slide(mover_block_data.velocity, Vector2.UP)
+
+
 
 func _process(delta):
 	player_body_editor.add_to_play_time(delta)
@@ -125,6 +136,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
 	if is_playing_death_animation():
 		return
 		
@@ -138,7 +150,8 @@ func _physics_process(delta):
 						Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor()), 
 						Vector2.UP if gravity > 0 else Vector2.DOWN , false, 4, PI/4, false)
 						
-						
+	
+	
 	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
 	
 	if is_on_floor():
@@ -149,7 +162,6 @@ func _physics_process(delta):
 		
 	if is_on_ceiling():
 		velocity.y = gravity
-		
 		
 		
 	if is_moving():

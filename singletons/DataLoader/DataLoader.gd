@@ -14,6 +14,8 @@ var item_area_data: ItemAreaData
 var item_remover_area_data: ItemRemoverAreaData
 var locked_door_data: LockedDoorData
 var second_jump_data: SecondJumpData
+var mover_block_data: MoverBlockData
+
 
 
 var adventure_player_body_data = adventure_player_body_data as PlayerBodyData
@@ -51,7 +53,7 @@ func _init_all_data():
 	item_remover_area_data = _init_data(data_path + "/ItemRemoverArea.tres", ItemRemoverAreaEditor.new()) as ItemRemoverAreaData
 	locked_door_data = _init_data(data_path + "/LockedDoorData.tres", LockedDoorEditor.new()) as LockedDoorData
 	second_jump_data = _init_data(data_path + "/SecondJump.tres", SecondJumpEditor.new()) as SecondJumpData
-	
+	mover_block_data = _init_data(data_path + "/MoverBlock.tres", MoverBlockEditor.new()) as MoverBlockData
 	
 	
 	adventure_player_body_data = _init_data(data_path + "/adventure_world/PlayerBody.tres", PlayerBodyEditor.new()) as PlayerBodyData
