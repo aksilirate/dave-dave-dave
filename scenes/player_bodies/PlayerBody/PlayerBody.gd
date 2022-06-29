@@ -62,7 +62,7 @@ func _ready():
 	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
-	item_area_data.connect("item_collected", self, "_on_item_collected")
+	item_area_data.connect("activated", self, "_on_item_area_activated")
 	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
 	player_body_editor.set_body(self)
@@ -105,10 +105,10 @@ func _on_damage_area_last_collided_body_set():
 
 
 
-func _on_item_collected():
-	if item_area_data.last_body_collected_item == self:
-		player_body_editor.add_to_inventory(item_area_data.last_collected_item)
-		player_body_editor.add_to_collected_items(item_area_data.last_collected_item_position)
+func _on_item_area_activated():
+	if item_area_data.collected_body == self:
+		player_body_editor.add_to_inventory(item_area_data.item)
+		player_body_editor.add_to_collected_items(item_area_data.position)
 
 
 
