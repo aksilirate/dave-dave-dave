@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/interface/DiamondsCollectedLabel/DiamondsCollectedLabel.gd" type="Script" id=2]
+
+[node name="DiamondsCollectedLabel" type="Label"]
+margin_left = 52.0
+margin_top = 18.0
+margin_right = 116.0
+margin_bottom = 34.0
+theme = ExtResource( 1 )
+text = "0/10"
+script = ExtResource( 2 )

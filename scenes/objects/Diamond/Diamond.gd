@@ -8,6 +8,7 @@ onready var diamond_editor = DataLoader.diamond_data as DiamondEditor
 
 func _ready():
 	$AnimationPlayer.play("idle")
+	diamond_editor.add_to_total_diamonds(1)
 
 
 func _on_Diamond_body_entered(body):

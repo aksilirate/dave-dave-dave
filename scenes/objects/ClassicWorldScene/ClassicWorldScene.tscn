@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=2]
+[gd_scene load_steps=172 format=2]
 
 [ext_resource path="res://scenes/objects/WorldScene/WorldScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://content/items/YellowKey.tres" type="Resource" id=2]
@@ -7,12 +7,14 @@
 [ext_resource path="res://scenes/objects/LockedDoor/LockedDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/item_areas/DoubleJumpItemArea/DoubleJumpItemArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/textures/tiles.png" type="Texture" id=7]
+[ext_resource path="res://content/items/PurpleKey.tres" type="Resource" id=8]
 [ext_resource path="res://scenes/objects/MoverBlock/MoverBlock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/WeakBlock/WeakBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/objects/PetChamber/PetChamber.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/ButtonLockedDoor/ButtonLockedDoor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/DiamondGate/DiamondGate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/objects/HiddenArea/HiddenArea.tscn" type="PackedScene" id=14]
+[ext_resource path="res://content/items/GreenKey.tres" type="Resource" id=15]
 [ext_resource path="res://scenes/objects/Spikes/Spikes.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/objects/SpikeBlock/SpikeBlock.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/objects/Diamond/Diamond.tscn" type="PackedScene" id=18]
@@ -7196,6 +7198,7 @@ collision_mask = 0
 
 [node name="ButtonLockedDoor" parent="." index="6" instance=ExtResource( 12 )]
 position = Vector2( -2840, 4320 )
+open_duration = 30
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor" index="0"]
 anims/RESET = SubResource( 127 )
@@ -7216,6 +7219,7 @@ shape = SubResource( 122 )
 
 [node name="ButtonLockedDoor9" parent="." index="7" instance=ExtResource( 12 )]
 position = Vector2( -2280, 6960 )
+open_duration = 5
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor9" index="0"]
 anims/RESET = SubResource( 130 )
@@ -7310,6 +7314,7 @@ shape = SubResource( 75 )
 
 [node name="ButtonLockedDoor2" parent="." index="11" instance=ExtResource( 12 )]
 position = Vector2( 6920, -2080 )
+open_duration = 30
 
 [node name="AnimationPlayer" parent="ButtonLockedDoor2" index="0"]
 anims/RESET = SubResource( 142 )
@@ -7901,80 +7906,87 @@ keep trying"
 [node name="LockedDoors" type="Node2D" parent="." index="17"]
 position = Vector2( -12560, 7680 )
 
-[node name="LockedDoor13" parent="LockedDoors" index="0" instance=ExtResource( 32 )]
-modulate = Color( 0.972549, 0.972549, 0, 1 )
-position = Vector2( 9820, 640 )
-required_item = "yellow_key"
-
-[node name="LockedDoor2" parent="LockedDoors" index="1" instance=ExtResource( 32 )]
-modulate = Color( 0.972549, 0, 0.972549, 1 )
-position = Vector2( 11980, -3920 )
-required_item = "purple_key"
-
-[node name="LockedDoor5" parent="LockedDoors" index="2" instance=ExtResource( 32 )]
-modulate = Color( 0.972549, 0, 0.972549, 1 )
-position = Vector2( 14920, -5360 )
-required_item = "purple_key"
-
-[node name="LockedDoor7" parent="LockedDoors" index="3" instance=ExtResource( 32 )]
-modulate = Color( 0.972549, 0, 0.972549, 1 )
-position = Vector2( 12360, -10400 )
-required_item = "purple_key"
-
-[node name="LockedDoor8" parent="LockedDoors" index="4" instance=ExtResource( 32 )]
+[node name="LockedDoor8" parent="LockedDoors" index="0" instance=ExtResource( 32 )]
 modulate = Color( 0, 0.972549, 0.972549, 1 )
 position = Vector2( 13400, -10400 )
 required_item = "blue_key"
 
-[node name="LockedDoor3" parent="LockedDoors" index="5" instance=ExtResource( 32 )]
-modulate = Color( 0, 0.972549, 0, 1 )
-position = Vector2( 12360, -4320 )
-required_item = "green_key"
-
-[node name="LockedDoor4" parent="LockedDoors" index="6" instance=ExtResource( 32 )]
-modulate = Color( 0, 0.972549, 0, 1 )
-position = Vector2( 14120, -5280 )
-required_item = "green_key"
-
-[node name="LockedDoor6" parent="LockedDoors" index="7" instance=ExtResource( 32 )]
+[node name="LockedDoor6" parent="LockedDoors" index="1" instance=ExtResource( 32 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 12360, -9600 )
 required_item = "green_key"
 
-[node name="LockedDoor11" parent="LockedDoors" index="8" instance=ExtResource( 32 )]
+[node name="LockedDoor11" parent="LockedDoors" index="2" instance=ExtResource( 32 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 22000, -4400 )
 required_item = "brown_key"
 
-[node name="LockedDoor12" parent="LockedDoors" index="9" instance=ExtResource( 32 )]
+[node name="LockedDoor12" parent="LockedDoors" index="3" instance=ExtResource( 32 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 17840, -520 )
 rotation = 1.57079
 required_item = "brown_key"
 
-[node name="LockedDoor9" parent="LockedDoors" index="10" instance=ExtResource( 32 )]
-modulate = Color( 0, 0.972549, 0, 1 )
-position = Vector2( 17870, -8240 )
-required_item = "green_key"
-
-[node name="GrayLockedDoor" parent="LockedDoors" index="11" instance=ExtResource( 32 )]
+[node name="GrayLockedDoor" parent="LockedDoors" index="4" instance=ExtResource( 32 )]
 modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
 position = Vector2( 26120, -8240 )
 required_item = "gray_key"
 
-[node name="BrownDoor" parent="LockedDoors" index="12" instance=ExtResource( 32 )]
+[node name="BrownDoor" parent="LockedDoors" index="5" instance=ExtResource( 32 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 20480, -6000 )
 required_item = "brown_key"
 
-[node name="LockedDoor10" parent="LockedDoors" index="13" instance=ExtResource( 32 )]
+[node name="LockedDoor10" parent="LockedDoors" index="6" instance=ExtResource( 32 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 14350, 1520 )
 required_item = "green_key"
 
-[node name="LockedDoor14" parent="LockedDoors" index="14" instance=ExtResource( 5 )]
+[node name="LockedDoor14" parent="LockedDoors" index="7" instance=ExtResource( 5 )]
 modulate = Color( 0.972549, 0.972549, 0, 1 )
 position = Vector2( 10920, -720 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 2 )
+
+[node name="LockedDoor16" parent="LockedDoors" index="8" instance=ExtResource( 5 )]
+modulate = Color( 0.972549, 0, 0.972549, 1 )
+position = Vector2( 12050, -3920 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 8 )
+
+[node name="LockedDoor18" parent="LockedDoors" index="9" instance=ExtResource( 5 )]
+modulate = Color( 0.972549, 0, 0.972549, 1 )
+position = Vector2( 14920, -5360 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 8 )
+
+[node name="LockedDoor20" parent="LockedDoors" index="10" instance=ExtResource( 5 )]
+modulate = Color( 0.972549, 0, 0.972549, 1 )
+position = Vector2( 12360, -10400 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 8 )
+
+[node name="LockedDoor17" parent="LockedDoors" index="11" instance=ExtResource( 5 )]
+modulate = Color( 0, 0.972549, 0, 1 )
+position = Vector2( 12350, -4320 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 15 )
+
+[node name="LockedDoor19" parent="LockedDoors" index="12" instance=ExtResource( 5 )]
+modulate = Color( 0, 0.972549, 0, 1 )
+position = Vector2( 14120, -5280 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 15 )
+
+[node name="LockedDoor21" parent="LockedDoors" index="13" instance=ExtResource( 5 )]
+modulate = Color( 0, 0.972549, 0, 1 )
+position = Vector2( 17880, -8240 )
+world_scene = NodePath("../..")
+item_to_remove = ExtResource( 15 )
+
+[node name="LockedDoor15" parent="LockedDoors" index="14" instance=ExtResource( 5 )]
+modulate = Color( 0.972549, 0.972549, 0, 1 )
+position = Vector2( 9810, 640 )
 world_scene = NodePath("../..")
 item_to_remove = ExtResource( 2 )
 
@@ -7987,76 +7999,84 @@ position = Vector2( 2070, -1360 )
 world_scene = NodePath("../..")
 item = ExtResource( 2 )
 
-[node name="YellowKey2" parent="Items" index="1" instance=ExtResource( 19 )]
+[node name="PurpleKey" parent="Items" index="1" instance=ExtResource( 19 )]
+modulate = Color( 0.972549, 0, 0.972549, 1 )
+position = Vector2( 11120, -1520 )
+world_scene = NodePath("../..")
+item = ExtResource( 8 )
+
+[node name="PurpleKey2" parent="Items" index="2" instance=ExtResource( 19 )]
+modulate = Color( 0.972549, 0, 0.972549, 1 )
+position = Vector2( 9920, -3400 )
+world_scene = NodePath("../..")
+item = ExtResource( 8 )
+
+[node name="YellowKey2" parent="Items" index="3" instance=ExtResource( 19 )]
 modulate = Color( 0.972549, 0.972549, 0, 1 )
 position = Vector2( 9440, -9440 )
 world_scene = NodePath("../..")
 item = ExtResource( 2 )
 
-[node name="GreenKey" parent="Items" index="2" instance=ExtResource( 19 )]
+[node name="GreenKey" parent="Items" index="4" instance=ExtResource( 19 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 11280, -2200 )
 world_scene = NodePath("../..")
+item = ExtResource( 15 )
 
-[node name="GreenKey6" parent="Items" index="3" instance=ExtResource( 19 )]
+[node name="GreenKey6" parent="Items" index="5" instance=ExtResource( 19 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 18040, 1520 )
 world_scene = NodePath("../..")
 
-[node name="GreenKey3" parent="Items" index="4" instance=ExtResource( 19 )]
+[node name="GreenKey3" parent="Items" index="6" instance=ExtResource( 19 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 10880, -6670 )
 world_scene = NodePath("../..")
+item = ExtResource( 15 )
 
-[node name="GreenKey5" parent="Items" index="5" instance=ExtResource( 19 )]
+[node name="GreenKey5" parent="Items" index="7" instance=ExtResource( 19 )]
+visible = false
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 19690, -9760 )
 world_scene = NodePath("../..")
+item = ExtResource( 15 )
 
-[node name="GreenKey4" parent="Items" index="6" instance=ExtResource( 19 )]
+[node name="GreenKey4" parent="Items" index="8" instance=ExtResource( 19 )]
 modulate = Color( 0, 0.972549, 0.972549, 1 )
 position = Vector2( 13520, -10400 )
 world_scene = NodePath("../..")
 
-[node name="GreenKey2" parent="Items" index="7" instance=ExtResource( 19 )]
+[node name="GreenKey2" parent="Items" index="9" instance=ExtResource( 19 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 15880, -7000 )
 world_scene = NodePath("../..")
+item = ExtResource( 15 )
 
-[node name="BrownKey" parent="Items" index="8" instance=ExtResource( 19 )]
+[node name="BrownKey" parent="Items" index="10" instance=ExtResource( 19 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 21840, -4400 )
 world_scene = NodePath("../..")
 
-[node name="BrownKey4" parent="Items" index="9" instance=ExtResource( 19 )]
+[node name="BrownKey4" parent="Items" index="11" instance=ExtResource( 19 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 21560, 280 )
 world_scene = NodePath("../..")
 
-[node name="BrownKey3" parent="Items" index="10" instance=ExtResource( 19 )]
+[node name="BrownKey3" parent="Items" index="12" instance=ExtResource( 19 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 22000, -6330 )
 world_scene = NodePath("../..")
 
-[node name="BrownKey2" parent="Items" index="11" instance=ExtResource( 19 )]
+[node name="BrownKey2" parent="Items" index="13" instance=ExtResource( 19 )]
 modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
 position = Vector2( 26360, -7080 )
-world_scene = NodePath("../..")
-
-[node name="PurpleKey" parent="Items" index="12" instance=ExtResource( 19 )]
-modulate = Color( 0.972549, 0, 0.972549, 1 )
-position = Vector2( 11100, -1500 )
-world_scene = NodePath("../..")
-
-[node name="PurpleKey2" parent="Items" index="13" instance=ExtResource( 19 )]
-modulate = Color( 0.972549, 0, 0.972549, 1 )
-position = Vector2( 9920, -3420 )
 world_scene = NodePath("../..")
 
 [node name="PurpleKey3" parent="Items" index="14" instance=ExtResource( 19 )]
 modulate = Color( 0.972549, 0, 0.972549, 1 )
 position = Vector2( 12680, -8310 )
 world_scene = NodePath("../..")
+item = ExtResource( 8 )
 
 [node name="DoubleJumpItemArea" parent="Items" index="15" instance=ExtResource( 6 )]
 position = Vector2( 15000, -6920 )
@@ -13228,18 +13248,22 @@ position = Vector2( 12480, 800 )
 
 [node name="HastePotion9" parent="HastePotions" index="4" instance=ExtResource( 20 )]
 position = Vector2( 11120, -1200 )
+haste_time = 15.0
 
 [node name="HastePotion11" parent="HastePotions" index="5" instance=ExtResource( 20 )]
 position = Vector2( 13200, -1200 )
+haste_time = 10.0
 
 [node name="HastePotion13" parent="HastePotions" index="6" instance=ExtResource( 20 )]
 position = Vector2( 9170, -2410 )
 
 [node name="HastePotion12" parent="HastePotions" index="7" instance=ExtResource( 20 )]
 position = Vector2( 14640, -3600 )
+haste_time = 15.0
 
 [node name="HastePotion10" parent="HastePotions" index="8" instance=ExtResource( 20 )]
 position = Vector2( 15200, -4960 )
+haste_time = 3.0
 
 [node name="HastePotion7" parent="HastePotions" index="9" instance=ExtResource( 20 )]
 position = Vector2( 7760, -11360 )
