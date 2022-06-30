@@ -16,7 +16,7 @@ var activated: bool
 
 func _ready():
 	world_scene.world_data.player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
-	checkpoint_editor.connect("last_collided_position_changed", self, "_on_checkpoint_last_collided_position_changed")
+	checkpoint_editor.connect("activated", self, "_on_checkpoint_activated")
 	_update_checkpoint()
 
 
@@ -27,8 +27,8 @@ func _on_activated_checkpoints_set():
 
 
 
-func _on_checkpoint_last_collided_position_changed():
-	if not checkpoint_editor.last_collided_position == global_position:
+func _on_checkpoint_activated():
+	if not checkpoint_editor.position == global_position:
 		if activated:
 			deactivate()
 
@@ -36,7 +36,7 @@ func _on_checkpoint_last_collided_position_changed():
 
 
 func _update_checkpoint():
-	if checkpoint_editor.last_collided_position == global_position:
+	if checkpoint_editor.position == global_position:
 		activate()
 		return
 		
@@ -60,7 +60,7 @@ func deactivate():
 
 
 func _on_Checkpoint_body_entered(body):
-	checkpoint_editor.set_last_collided_position(global_position)
-	checkpoint_editor.set_last_collided_body(body)
+	checkpoint_editor.set_entered_body(body)
+	checkpoint_editor.set_position(global_position)
 	checkpoint_editor.emit_signal("activated")
 	activate()

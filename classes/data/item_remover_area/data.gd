@@ -6,16 +6,16 @@ signal activated
 
 
 
-var body_entered setget _body_entered
-var item_to_remove setget _item_to_remove
+var entered_body setget _entered_body
+var item setget _item
 
 
 
 
-func _body_entered(_value):
+func _entered_body(_value):
 	return
 
 
 
-func _item_to_remove(_value):
+func _item(_value):
 	return

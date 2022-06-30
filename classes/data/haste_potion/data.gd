@@ -5,12 +5,12 @@ signal activated
 
 
 
-var collected_body: Node2D setget _collected_body
+var entered_body: Node2D setget _entered_body
 
 var haste_time: float setget _haste_time
 
 
-func _collected_body(_value):
+func _entered_body(_value):
 	return
 
 

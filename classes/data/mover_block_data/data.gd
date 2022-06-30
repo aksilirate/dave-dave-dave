@@ -5,12 +5,12 @@ signal activated
 
 
 
-var body_to_move setget _body_to_move
+var entered_body setget _entered_body
 var velocity: Vector2 setget _velocity
 
 
 
-func _body_to_move(_value):
+func _entered_body(_value):
 	return
 
 func _velocity(_value):

@@ -13,27 +13,30 @@ func _ready():
 
 
 func _on_player_body_ready():
-	player_body.player_body_data.connect("haste_changed", self, "_on_player_body_haste_changed")
 	player_body.player_body_data.connect("deaths_changed", self, "_on_player_body_deaths_changed")
+	player_body.player_body_data.connect("haste_time_changed", self, "_on_player_body_haste_time_changed")
 
 
 
-
-func _on_player_body_haste_changed():
-	_update_sprite()
 
 
 func _on_player_body_deaths_changed():
 	_update_sprite()
 
 
+func _on_player_body_haste_time_changed():
+	_update_sprite()
+
+
+
+
 
 func _update_sprite():
 	var deaths = player_body.player_body_data.deaths
-	var haste = player_body.player_body_data.haste
+	var haste_time = player_body.player_body_data.haste_time
 	
 	modulate = Color("#00f8f8") if deaths < 1000 else Color("#f80000")
-	if haste > 0:
+	if haste_time > 0:
 		modulate = Color("#f800f8")
 
 

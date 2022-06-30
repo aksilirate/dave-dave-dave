@@ -5,8 +5,8 @@ extends ItemAreaData
 
 
 
-func set_collected_body(value):
-	collected_body = value
+func set_entered_body(value):
+	entered_body = value
 
 
 

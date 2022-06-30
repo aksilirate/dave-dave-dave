@@ -61,25 +61,25 @@ func add_to_collected_items(collected_item):
 
 
 
-func set_haste(value: float):
-	if haste != value:
-		haste = value
-		emit_signal("haste_changed")
+func set_haste_time(value: float):
+	if haste_time != value:
+		haste_time = value
+		emit_signal("haste_time_changed")
 
 
-func add_to_haste(value: float):
+func add_to_haste_time(value: float):
 	if value > 0.0:
-		haste += value
-		emit_signal("haste_changed")
+		haste_time += value
+		emit_signal("haste_time_changed")
 
 
 
 
 
-func remove_from_haste(amount: float):
-	haste -= amount
+func remove_from_haste_time(amount: float):
+	haste_time -= amount
 	if amount > 0.0:
-		emit_signal("haste_changed")
+		emit_signal("haste_time_changed")
 
 
 

@@ -20,6 +20,6 @@ func get_velocity() -> Vector2:
 func _physics_process(_delta):
 	for element in get_overlapping_bodies():
 		var body: Node2D = element
-		mover_block_editor.set_body_to_move(body)
+		mover_block_editor.set_entered_body(body)
 		mover_block_editor.set_velocity(get_velocity())
 		mover_block_editor.emit_signal("activated")

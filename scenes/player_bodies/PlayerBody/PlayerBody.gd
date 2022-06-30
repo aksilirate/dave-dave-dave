@@ -63,7 +63,7 @@ var displacement: Vector2
 func _ready():
 	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
-	damage_area_data.connect("last_collided_body_set", self, "_on_damage_area_last_collided_body_set")
+	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
 	item_area_data.connect("activated", self, "_on_item_area_activated")
 	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
@@ -93,15 +93,15 @@ func _on_inventory_changed():
 
 
 func _on_checkpoint_activated():
-	if checkpoint_data.last_collided_body == self:
-		player_body_editor.set_respawn_location(checkpoint_data.last_collided_position)
-		player_body_editor.add_to_activated_checkpoints(checkpoint_data.last_collided_position)
+	if checkpoint_data.entered_body == self:
+		player_body_editor.set_respawn_location(checkpoint_data.position)
+		player_body_editor.add_to_activated_checkpoints(checkpoint_data.position)
 
 
 
 
-func _on_damage_area_last_collided_body_set():
-	if damage_area_data.last_collided_body == self:
+func _on_damage_area_collided_body_set():
+	if damage_area_data.entered_body == self:
 		_die()
 
 
@@ -109,7 +109,7 @@ func _on_damage_area_last_collided_body_set():
 
 
 func _on_item_area_activated():
-	if item_area_data.collected_body == self:
+	if item_area_data.entered_body == self:
 		player_body_editor.add_to_inventory(item_area_data.item)
 		player_body_editor.add_to_collected_items(item_area_data.position)
 
@@ -118,13 +118,14 @@ func _on_item_area_activated():
 
 
 func _on_item_remover_area_activated():
-	player_body_editor.remove_from_inventory(item_remover_area_data.item_to_remove)
+	if item_remover_area_data.entered_body == self:
+		player_body_editor.remove_from_inventory(item_remover_area_data.item)
 
 
 
 
 func _on_mover_block_activated():
-	if mover_block_data.body_to_move == self:
+	if mover_block_data.entered_body == self:
 		jump_timer.start()
 		velocity.y = 0.0
 		move_and_slide(mover_block_data.velocity, Vector2.UP)
@@ -133,9 +134,8 @@ func _on_mover_block_activated():
 
 
 func _on_haste_potion_activated():
-	if haste_potion_data.collected_body == self:
-		print(haste_potion_data.haste_time)
-		player_body_editor.add_to_haste(haste_potion_data.haste_time)
+	if haste_potion_data.entered_body == self:
+		player_body_editor.add_to_haste_time(haste_potion_data.haste_time)
 
 
 
@@ -154,8 +154,8 @@ func _physics_process(delta):
 		
 	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
 	
-	player_body_editor.remove_from_haste(delta)
-	player_body_editor.set_haste(max(0.0, player_body_editor.haste))
+	player_body_editor.remove_from_haste_time(delta)
+	player_body_editor.set_haste_time(max(0.0, player_body_editor.haste_time))
 	
 	
 	displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), 
@@ -313,7 +313,7 @@ func _respawn():
 
 
 func get_speed() -> int:
-	return (speed + (300 * int(player_body_editor.haste > 0)))
+	return (speed + (300 * int(player_body_editor.haste_time > 0)))
 
 
 

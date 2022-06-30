@@ -3,8 +3,8 @@ extends MoverBlockData
 
 
 
-func set_body_to_move(value):
-	body_to_move = value
+func set_entered_body(value):
+	entered_body = value
 
 
 func set_velocity(value):

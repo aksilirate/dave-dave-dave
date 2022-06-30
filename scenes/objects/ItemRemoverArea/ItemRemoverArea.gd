@@ -20,7 +20,7 @@ func _on_ItemRemoverArea_body_entered(body):
 		if not local_player_body_data.inventory.has(item_to_remove):
 			return
 			
-		item_remover_area_editor.set_body_entered(body)
-		item_remover_area_editor.set_item_to_remove(item_to_remove)
+		item_remover_area_editor.set_entered_body(body)
+		item_remover_area_editor.set_item(item_to_remove)
 		item_remover_area_editor.emit_signal("activated")
 		emit_signal("item_removed")

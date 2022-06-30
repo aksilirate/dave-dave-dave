@@ -99,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/generic_button/editor.gd"
 }, {
+"base": "DataResource",
+"class": "GreenGateData",
+"language": "GDScript",
+"path": "res://classes/data/green_gate/data.gd"
+}, {
 "base": "Area2D",
 "class": "HastePotion",
 "language": "GDScript",
@@ -313,6 +318,7 @@ _global_script_class_icons={
 "GenericButton": "",
 "GenericButtonData": "",
 "GenericButtonEditor": "",
+"GreenGateData": "",
 "HastePotion": "",
 "HastePotionData": "",
 "HastePotionEditor": "",

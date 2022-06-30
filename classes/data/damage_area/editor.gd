@@ -3,9 +3,8 @@ extends DamageAreaData
 
 
 
-func set_last_collided_body(value):
-	if value != last_collided_body:
-		last_collided_body = value
-		emit_signal("last_collided_body_changed")
-		emit_changed()
-	emit_signal("last_collided_body_set")
+func set_entered_body(value):
+	if value != entered_body:
+		entered_body = value
+		emit_signal("collided_body_changed")
+	emit_signal("collided_body_set")

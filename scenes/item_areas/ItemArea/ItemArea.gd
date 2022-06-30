@@ -38,7 +38,7 @@ func _update_visibility():
 
 
 func _on_ItemArea_body_entered(body):
-	item_area_editor.set_collected_body(body)
+	item_area_editor.set_entered_body(body)
 	item_area_editor.set_item(item)
 	item_area_editor.set_position(global_position)
 	item_area_editor.emit_signal("activated")

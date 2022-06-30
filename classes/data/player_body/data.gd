@@ -12,7 +12,7 @@ signal collected_items_set
 signal collected_items_changed
 
 
-signal haste_changed
+signal haste_time_changed
 signal deaths_changed
 
 signal activated_checkpoints_set
@@ -30,7 +30,7 @@ export(Array) var collected_items: Array setget _collected_items
 
 export(int) var diamonds_collected setget _diamonds_collected
 
-export(float) var haste setget _haste 
+var haste_time: float setget _haste_time 
 
 export(int) var deaths setget _deaths
 
@@ -66,9 +66,9 @@ func _diamonds_collected(value):
 		diamonds_collected = value
 
 
-func _haste(value):
+func _haste_time(value):
 	if not DataLoader.finished:
-		haste = value
+		haste_time = value
 
 
 func _deaths(value):
