@@ -3,7 +3,6 @@
 [ext_resource path="res://scenes/objects/PlayerBodyCamera2D/PlayerBodyCamera2D.gd" type="Script" id=1]
 
 [node name="PlayerBodyCamera2D" type="Camera2D"]
-current = true
 zoom = Vector2( 2.5, 2.5 )
 limit_left = -250000
 limit_top = -7120

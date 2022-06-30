@@ -15,7 +15,10 @@ var activated: bool
 
 
 func _ready():
-	world_scene.world_data.player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
+	for value in world_scene.world_data.local_player_bodies_data.values():
+		var player_body_data: PlayerBodyData = value
+		player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
+		
 	checkpoint_editor.connect("activated", self, "_on_checkpoint_activated")
 	_update_checkpoint()
 
@@ -40,7 +43,7 @@ func _update_checkpoint():
 		activate()
 		return
 		
-	if world_scene.world_data.player_body_data.activated_checkpoints.has(global_position):
+	if world_scene.world_data.local_player_bodies_data[0].activated_checkpoints.has(global_position):
 		deactivate()
 		return
 		

@@ -7,12 +7,13 @@ func _ready() -> void:
 	if not is_owned():
 		print("Game is not owned.")
 		get_tree().quit()
-
+	
+	Steam.inputInit()
 
 
 func _process(_delta: float) -> void:
 	Steam.run_callbacks()
-
+	
 
 func _initialize_steam() -> void:
 	var init: Dictionary = Steam.steamInit(false)

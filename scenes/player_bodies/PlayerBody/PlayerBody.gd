@@ -1,6 +1,9 @@
 class_name PlayerBody
 extends KinematicBody2D
 
+signal player_body_editor_set
+signal player_body_data_set
+
 signal second_jumped
 signal stepped
 
@@ -8,10 +11,10 @@ enum {IDLE, MOVING, AIR}
 
 
 
-export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
+var world_scene: WorldScene
 
-onready var player_body_editor = world_scene.world_data.player_body_data as PlayerBodyEditor
-onready var player_body_data: PlayerBodyData = player_body_editor as PlayerBodyData
+onready var player_body_editor: PlayerBodyEditor
+onready var player_body_data: PlayerBodyData
 
 
 
@@ -26,6 +29,7 @@ onready var green_gate_data = DataLoader.green_gate_data as GreenGateData
 onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
 
 
+export(int) var id
 
 export(bool) var new_game
 
@@ -62,7 +66,6 @@ var displacement: Vector2
 
 
 func _ready():
-	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
 	item_area_data.connect("activated", self, "_on_item_area_activated")
@@ -70,18 +73,7 @@ func _ready():
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
 	green_gate_data.connect("entered_body_changed", self, "_on_entered_body_changed")
 	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
-	player_body_editor.set_body(self)
-	
-	if new_game:
-		player_body_editor.set_play_time(0)
-		player_body_editor.set_inventory([])
-		player_body_editor.set_collected_items([])
-		player_body_editor.set_respawn_location(global_position)
-		player_body_editor.set_last_position(global_position)
-		player_body_editor.set_activated_checkpoints([])
-		return
-		
-	global_position = player_body_editor.last_position
+
 
 
 
@@ -286,7 +278,7 @@ func _play_animation_from_state(state: int):
 		IDLE:
 			animation_player.play("idle")
 		MOVING:
-			if Input.get_action_strength("move_right") - Input.get_action_strength("move_left"):
+			if abs(velocity.x) > 0.0:
 				animation_player.play("move")
 			else:
 				animation_player.play("idle")
@@ -362,20 +354,11 @@ func has_double_jump() -> bool:
 
 
 
-
-
 #var pet_chamber_overlapping: bool = false
 
 
 
 
-
-
-#
-#
-#
-#
-#
 #func _on_damage_area_last_collided_body_set():
 #	if Game.damage_area_data.last_collided_body == self:
 #		Audio.play("res://assets/sounds/death.wav")
@@ -385,39 +368,35 @@ func has_double_jump() -> bool:
 
 
 
-
-
-
-
-
-
-
-
-#
-#
-#
-#
-#
-
-#
-#
-#
-
-#
-#
-#
-#
-#func update_diamonds_collected(arg_total_diamonds) -> void:
-#	diamonds_label.text = str(diamonds_collected) + "/" + str(arg_total_diamonds)
-#
-#
-#
-
-#
-#
 #
 #func play_footstep():
 #	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
+
+
+
+func _on_PlayerBody_player_body_editor_set():
+	player_body_data = player_body_editor as PlayerBodyData
+	emit_signal("player_body_data_set")
+	
+	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
+	player_body_editor.set_body(self)
+	
+	if new_game:
+		player_body_editor.set_play_time(0)
+		player_body_editor.set_inventory([])
+		player_body_editor.set_collected_items([])
+		player_body_editor.set_respawn_location(global_position)
+		player_body_editor.set_last_position(global_position)
+		player_body_editor.set_activated_checkpoints([])
+		return
+		
+	global_position = player_body_editor.last_position
+	
+	
+	
+
+
+
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -427,3 +406,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_PlayerBody_tree_exiting():
 	player_body_editor.set_last_position(global_position)
+
+
+

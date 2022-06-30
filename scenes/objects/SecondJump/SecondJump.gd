@@ -7,8 +7,6 @@ export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
 onready var second_jump_editor = DataLoader.second_jump_data as SecondJumpEditor
 
-onready var player_body_data: PlayerBodyData = world_scene.world_data.player_body_data as PlayerBodyData
-
 
 onready var cooldown_timer = $CooldownTimer
 onready var animation_player = $AnimationPlayer
@@ -25,7 +23,9 @@ var overlapping_bodies_cache: Array
 
 
 func _ready():
-	player_body_data.connect("second_jumped", self, "_on_player_body_second_jumped")
+	for value in world_scene.world_data.local_player_bodies_data.values():
+		var player_body_data: PlayerBodyData = value
+		player_body_data.connect("second_jumped", self, "_on_player_body_second_jumped")
 	animation_player.play("idle")
 
 
@@ -34,15 +34,17 @@ func _ready():
 
 
 func _on_player_body_second_jumped():
-	var arg_body = player_body_data.body
-	if overlapping_bodies_cache.has(arg_body):
-		
-		for element in overlapping_bodies_cache:
-			var body: Node2D = element
-			overlapping_bodies_cache.erase(body)
-			second_jump_editor.remove_from_overlapping_bodies(body)
+	for value in world_scene.world_data.local_player_bodies_data.values():
+		var player_body_data: PlayerBodyData = value
+		var arg_body = player_body_data.body
+		if overlapping_bodies_cache.has(arg_body):
 			
-		_disable()
+			for element in overlapping_bodies_cache:
+				var body: Node2D = element
+				overlapping_bodies_cache.erase(body)
+				second_jump_editor.remove_from_overlapping_bodies(body)
+				
+			_disable()
 	
 
 

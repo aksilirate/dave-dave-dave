@@ -5,8 +5,6 @@ extends Area2D
 export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
 
-onready var player_body_data = world_scene.world_data.player_body_data as PlayerBodyData
-
 onready var item_area_editor: ItemAreaEditor = DataLoader.item_area_data as ItemAreaEditor
 
 
@@ -17,7 +15,10 @@ export(Resource) var item = item as Item
 
 
 func _ready():
-	player_body_data.connect("collected_items_changed", self, "_on_player_body_collected_items_changed")
+	for value in world_scene.world_data.local_player_bodies_data.values():
+		var player_body_data: PlayerBodyData = value
+		player_body_data.connect("collected_items_changed", self, "_on_player_body_collected_items_changed")
+		
 	$AnimationPlayer.play("idle")
 	_update_visibility()
 
@@ -29,9 +30,11 @@ func _on_player_body_collected_items_changed():
 
 
 func _update_visibility():
-	if player_body_data.collected_items.has(global_position):
-		hide()
-		return
+	for value in world_scene.world_data.local_player_bodies_data.values():
+		var player_body_data: PlayerBodyData = value
+		if player_body_data.collected_items.has(global_position):
+			hide()
+			return
 	show()
 
 

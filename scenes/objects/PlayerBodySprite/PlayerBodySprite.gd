@@ -8,14 +8,14 @@ export(NodePath) onready var player_body = get_node(player_body) as PlayerBody
 
 
 func _ready():
-	player_body.connect("ready", self, "_on_player_body_ready")
+	player_body.connect("player_body_data_set", self, "_on_player_body_data_set")
 
 
 
-func _on_player_body_ready():
+func _on_player_body_data_set():
 	player_body.player_body_data.connect("deaths_changed", self, "_on_player_body_deaths_changed")
 	player_body.player_body_data.connect("haste_time_changed", self, "_on_player_body_haste_time_changed")
-
+	_update_sprite()
 
 
 

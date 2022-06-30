@@ -13,4 +13,3 @@ export(bool) var new_game
 
 func _ready():
 	_world_editor.set_played(true)
-
