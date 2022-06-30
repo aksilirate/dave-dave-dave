@@ -22,6 +22,7 @@ onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 onready var item_area_data = DataLoader.item_area_data as ItemAreaData
 onready var item_remover_area_data = DataLoader.item_remover_area_data as ItemRemoverAreaData
 onready var mover_block_data = DataLoader.mover_block_data as MoverBlockData
+onready var green_gate_data = DataLoader.green_gate_data as GreenGateData
 onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
 
 
@@ -67,6 +68,7 @@ func _ready():
 	item_area_data.connect("activated", self, "_on_item_area_activated")
 	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
+	green_gate_data.connect("entered_body_changed", self, "_on_entered_body_changed")
 	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 	player_body_editor.set_body(self)
 	
@@ -130,6 +132,13 @@ func _on_mover_block_activated():
 		velocity.y = 0.0
 		move_and_slide(mover_block_data.velocity, Vector2.UP)
 
+
+
+func _on_entered_body_changed():
+	var inventory = player_body_editor.inventory
+	if green_gate_data.entered_body == self:
+		if not inventory.has(ContentManager.items.green_crown):
+			_die()
 
 
 
@@ -349,13 +358,6 @@ func is_playing_death_animation() -> bool:
 
 func has_double_jump() -> bool:
 	return player_body_editor.inventory.has(ContentManager.items.double_jump)
-
-
-
-
-#export(bool) var has_crown: bool = false
-
-
 
 
 

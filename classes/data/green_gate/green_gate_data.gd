@@ -2,4 +2,13 @@ class_name GreenGateData
 extends DataResource
 
 
-var collided_body
+signal entered_body_changed
+
+
+var entered_body: Node2D setget _entered_body
+
+
+
+
+func _entered_body(_value):
+	return

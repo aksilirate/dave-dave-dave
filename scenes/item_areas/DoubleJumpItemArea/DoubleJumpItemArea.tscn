@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/textures/double_jump.png" type="Texture" id=1]
 [ext_resource path="res://scenes/item_areas/ItemArea/ItemArea.tscn" type="PackedScene" id=2]
-[ext_resource path="res://resources/items/DoubleJump.tres" type="Resource" id=3]
+[ext_resource path="res://content/items/DoubleJump.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true

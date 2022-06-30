@@ -15,7 +15,10 @@ var item_remover_area_data: ItemRemoverAreaData
 var locked_door_data: LockedDoorData
 var second_jump_data: SecondJumpData
 var mover_block_data: MoverBlockData
+var green_gate_data: GreenGateData
 var haste_potion_data: HastePotionData
+
+
 
 
 var adventure_player_body_data = adventure_player_body_data as PlayerBodyData
@@ -54,6 +57,7 @@ func _init_all_data():
 	locked_door_data = _init_data(data_path + "/LockedDoorData.tres", LockedDoorEditor.new()) as LockedDoorData
 	second_jump_data = _init_data(data_path + "/SecondJump.tres", SecondJumpEditor.new()) as SecondJumpData
 	mover_block_data = _init_data(data_path + "/MoverBlock.tres", MoverBlockEditor.new()) as MoverBlockData
+	green_gate_data = _init_data(data_path + "/GreenGate.tres", GreenGateEditor.new()) as GreenGateData
 	haste_potion_data = _init_data(data_path + "/HastePotion.tres", HastePotionEditor.new()) as HastePotionData
 	
 	
