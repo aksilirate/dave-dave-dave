@@ -2,6 +2,7 @@ class_name GameStateManager
 extends Node
 
 
+export(String, FILE) var title_state_path
 export(String, FILE) var new_adventure_play_state_path
 export(String, FILE) var adventure_play_state_path
 
@@ -18,3 +19,7 @@ func _on_AdventureNewGameGenericButton_pressed():
 
 func _on_AdventureContinueGenericButton_pressed():
 	get_tree().change_scene(adventure_play_state_path)
+
+
+func _on_ExitToTitleGenericButton_pressed():
+	get_tree().change_scene(title_state_path)
