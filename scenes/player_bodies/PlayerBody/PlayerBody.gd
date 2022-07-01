@@ -11,7 +11,7 @@ enum {IDLE, MOVING, AIR}
 
 
 
-var world_scene: WorldScene
+export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
 onready var player_body_editor: PlayerBodyEditor
 onready var player_body_data: PlayerBodyData
@@ -28,8 +28,6 @@ onready var mover_block_data = DataLoader.mover_block_data as MoverBlockData
 onready var green_gate_data = DataLoader.green_gate_data as GreenGateData
 onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
 
-
-export(int) var id
 
 export(bool) var new_game
 

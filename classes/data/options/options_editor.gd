@@ -22,3 +22,10 @@ func set_smooth_camera(value):
 		smooth_camera = value
 		emit_signal("smooth_camera_changed")
 		emit_changed()
+
+
+func set_music_volume_db(value):
+	if music_volume_db != value:
+		music_volume_db = value
+		emit_signal("music_volume_db_changed")
+		emit_changed()

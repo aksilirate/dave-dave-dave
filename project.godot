@@ -219,6 +219,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/option_check_boxes/OptionCheckBox/OptionCheckBox.gd"
 }, {
+"base": "HSlider",
+"class": "OptionHSlider",
+"language": "GDScript",
+"path": "res://scenes/option_h_sliders/OptionHSlider/OptionHSlider.gd"
+}, {
 "base": "DataResource",
 "class": "OptionsData",
 "language": "GDScript",
@@ -352,6 +357,7 @@ _global_script_class_icons={
 "MoverBlockEditor": "",
 "MovingPlatform": "",
 "OptionCheckBox": "",
+"OptionHSlider": "",
 "OptionsData": "",
 "OptionsEditor": "",
 "OptionsManager": "",

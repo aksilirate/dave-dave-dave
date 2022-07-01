@@ -5,6 +5,7 @@ extends DataResource
 signal fullscreen_changed
 signal v_sync_changed 
 signal smooth_camera_changed
+signal music_volume_db_changed
 
 
 export(bool) var fullscreen setget _fullscreen
@@ -48,8 +49,9 @@ func _interface_selection(_value):
 	return
 
 
-func _music_volume_db(_value):
-	return
+func _music_volume_db(value):
+	if not DataLoader.finished:
+		music_volume_db = value
 
 
 func _sfx_volume_db(_value):

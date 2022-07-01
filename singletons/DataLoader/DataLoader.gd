@@ -38,15 +38,6 @@ func _ready():
 
 
 
-func _input(event):
-	if event is InputEventJoypadButton:
-		if last_connected_controllers_size != Steam.getConnectedControllers().size():
-			last_connected_controllers_size = Steam.getConnectedControllers().size()
-			finished = false
-			adventure_world_data.local_player_bodies_data = get_adventure_local_players_data()
-			print("controller players loaded")
-			finished = true
-
 
 
 func _init_folders():
@@ -71,9 +62,11 @@ func _init_all_data():
 	haste_potion_data = _init_data(data_path + "/HastePotion.tres", HastePotionEditor.new()) as HastePotionData
 	
 	
+	var adventure_world_local_player_data = _init_data(data_path + "/adventure_world/LocalPlayerBody.tres", PlayerBodyEditor.new()) as PlayerBodyData
+	
 	
 	var new_adventure_world_editor = WorldEditor.new()
-	new_adventure_world_editor.local_player_bodies_data = get_adventure_local_players_data()
+	new_adventure_world_editor.local_player_body_data = adventure_world_local_player_data
 	
 	adventure_world_data = _init_data(data_path + "/adventure_world/World.tres", new_adventure_world_editor) as WorldData
 
@@ -87,10 +80,3 @@ func _init_data(arg_path: String, editor: Resource) -> Resource:
 		ResourceSaver.save(arg_path, editor)
 	return ResourceLoader.load(arg_path)
 
-
-func get_adventure_local_players_data() -> Dictionary:
-	var local_adventure_player_bodies_data: Dictionary = {}
-	for index in Steam.getConnectedControllers().size() + 1:
-		print(index)
-		local_adventure_player_bodies_data[index] = _init_data(data_path + "/adventure_world/LocalPlayerBody" + str(index) + ".tres", PlayerBodyEditor.new()) as PlayerBodyData
-	return local_adventure_player_bodies_data

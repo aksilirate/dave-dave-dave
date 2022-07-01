@@ -73,6 +73,7 @@ rect_scale = Vector2( 1, 1 )
 margin_top = 24.0
 margin_bottom = 44.0
 rect_scale = Vector2( 1, 1 )
+script = null
 
 [node name="OptionsBackGenericButton" parent="." instance=ExtResource( 7 )]
 anchor_top = 1.0
@@ -87,4 +88,5 @@ margin_bottom = -40.0
 [connection signal="toggled" from="ToggleOptions/SmoothCameraOptionCheckBox" to="OptionsManager" method="_on_SmoothCameraOptionCheckBox_toggled"]
 [connection signal="toggled" from="ToggleOptions/HidePetOptionCheckBox" to="OptionsManager" method="_on_HidePetOptionCheckBox_toggled"]
 [connection signal="toggled" from="ToggleOptions/InterfaceSelectionOptionCheckBox" to="." method="_on_InterfaceSelectionOptionCheckBox_toggled"]
+[connection signal="value_changed" from="SliderOptions/MusicOptionHSlider" to="OptionsManager" method="_on_MusicOptionHSlider_value_changed"]
 [connection signal="pressed" from="OptionsBackGenericButton" to="." method="_on_OptionsBackGenericButton_pressed"]
