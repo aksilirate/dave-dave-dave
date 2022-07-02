@@ -18,4 +18,4 @@ func _on_total_diamonds_changed():
 
 
 func _update_text():
-	text = "0/" + str(diamonds_data.total_diamonds)
+	text = "0/" + str(diamonds_data.diamonds.size())

@@ -12,7 +12,7 @@ func set_last_collected_diamond_position(value):
 
 
 
-func add_to_total_diamonds(value):
-	if value > 0:
-		total_diamonds += value
-		emit_signal("total_diamonds_changed")
+func add_to_diamonds(value):
+	if not diamonds.has(value):
+		diamonds.push_back(value)
+		emit_signal("diamonds_changed")

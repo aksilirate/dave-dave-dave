@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/interface/EscMenu/EscMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/generic_buttons/GenericButton/GenericButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.tscn" type="PackedScene" id=3]
 
 [node name="EscMenu" type="Control"]
 anchor_right = 1.0
@@ -53,4 +54,8 @@ margin_bottom = 127.0
 text = "exit"
 align = 1
 
+[node name="OptionsScene" parent="." instance=ExtResource( 3 )]
+visible = false
+
 [connection signal="pressed" from="VBoxContainer/ResumeGenericButton" to="." method="_on_ResumeGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]

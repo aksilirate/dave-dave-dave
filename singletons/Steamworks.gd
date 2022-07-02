@@ -51,6 +51,9 @@ func is_owned() -> bool:
 
 
 func get_user_path() -> String:
-	var path: String = Steam.getAppInstallDir(1625760)
+	var app_id: int = 1625760
+	if OS.has_feature("playtest"):
+		app_id = 2076960
+	var path: String = Steam.getAppInstallDir(app_id)
 	path = path.replace("\\", "/")
 	return path
