@@ -7,12 +7,12 @@ onready var diamonds_data = DataLoader.diamond_data as DiamondData
 
 
 func _ready():
-	diamonds_data.connect("total_diamonds_changed", self, "_on_total_diamonds_changed")
+	diamonds_data.connect("diamonds_changed", self, "_on_diamonds_changed")
 	_update_text()
 
 
 
-func _on_total_diamonds_changed():
+func _on_diamonds_changed():
 	_update_text()
 
 

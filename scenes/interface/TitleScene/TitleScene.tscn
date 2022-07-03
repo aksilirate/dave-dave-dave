@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/objects/PlayTitleButtonsVBoxContainer/PlayTitleButtonsVBoxContainer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/MainTitleButtonsVBoxContainer/MainTitleButtonsVBoxContainer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interface/TitleScene/RichTextLabel.gd" type="Script" id=4]
 [ext_resource path="res://scenes/objects/AdvantureVBoxContainer/AdvantureVBoxContainer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/managers/NetworkManager/NetworkManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
 [ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=15]
 
@@ -39,6 +40,8 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="MultiplyerManager" parent="." instance=ExtResource( 6 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_bottom = 1.0

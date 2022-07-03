@@ -4,6 +4,7 @@ extends Node
 onready var data_path: String = Steamworks.get_user_path() + "/data"
 
 
+var network_data: NetworkData
 
 var options_data: OptionsData
 var generic_button_data: GenericButtonData
@@ -19,7 +20,6 @@ var green_gate_data: GreenGateData
 var haste_potion_data: HastePotionData
 
 
-var last_connected_controllers_size: int
 
 var adventure_world_data = adventure_world_data as WorldData
 
@@ -48,6 +48,7 @@ func _init_folders():
 
 
 func _init_all_data():
+	network_data = _init_data(data_path + "/Network.tres", NetworkEditor.new()) as NetworkData
 	options_data = _init_data(data_path + "/Options.tres", OptionsEditor.new()) as OptionsData
 	generic_button_data = _init_data(data_path + "/GenericButton.tres", GenericButtonEditor.new()) as GenericButtonData
 	damage_area_data = _init_data(data_path + "/DamageArea.tres", DamageAreaEditor.new()) as DamageAreaData

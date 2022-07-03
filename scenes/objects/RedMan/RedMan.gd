@@ -8,7 +8,6 @@ export (bool) var idle_playing = false
 
 
 func _ready():
-	hide()
 	if idle_playing:
 		animation_player.play("idle")
 

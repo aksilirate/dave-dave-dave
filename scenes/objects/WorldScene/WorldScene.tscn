@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/player_bodies/LocalPlayerBody/LocalPlayerBody.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/WorldCanvasLayer/WorldCanvasLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/managers/MultiplyerManager/MultiplyerManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/managers/NetworkManager/NetworkManager.tscn" type="PackedScene" id=5]
 
 [node name="WorldScene" type="Node2D"]
 script = ExtResource( 1 )

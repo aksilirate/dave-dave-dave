@@ -52,7 +52,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 step = 1.0
 
-[node name="AnimationPlayer" parent="TitleScene" index="3"]
+[node name="AnimationPlayer" parent="TitleScene" index="4"]
 anims/load = SubResource( 1 )
 
 [node name="OptionsScene" parent="." instance=ExtResource( 5 )]

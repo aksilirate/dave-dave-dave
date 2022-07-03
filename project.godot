@@ -214,6 +214,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/MovingPlatform/MovingPlatform.gd"
 }, {
+"base": "DataResource",
+"class": "NetworkData",
+"language": "GDScript",
+"path": "res://classes/data/network/network_data.gd"
+}, {
+"base": "NetworkData",
+"class": "NetworkEditor",
+"language": "GDScript",
+"path": "res://classes/data/network/network_editor.gd"
+}, {
 "base": "CheckBox",
 "class": "OptionCheckBox",
 "language": "GDScript",
@@ -278,6 +288,11 @@ _global_script_classes=[ {
 "class": "SecondJumpEditor",
 "language": "GDScript",
 "path": "res://classes/data/second_jump/second_jump_editor.gd"
+}, {
+"base": "GenericButton",
+"class": "StartServerGenericButton",
+"language": "GDScript",
+"path": "res://scenes/generic_buttons/StartServerGenericButton/StartServerGenericButton.gd"
 }, {
 "base": "Reference",
 "class": "Time",
@@ -356,6 +371,8 @@ _global_script_class_icons={
 "MoverBlockData": "",
 "MoverBlockEditor": "",
 "MovingPlatform": "",
+"NetworkData": "",
+"NetworkEditor": "",
 "OptionCheckBox": "",
 "OptionHSlider": "",
 "OptionsData": "",
@@ -369,6 +386,7 @@ _global_script_class_icons={
 "SecondJump": "",
 "SecondJumpData": "",
 "SecondJumpEditor": "",
+"StartServerGenericButton": "",
 "Time": "",
 "TitleMusicPlayer": "",
 "WallGun": "",
