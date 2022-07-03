@@ -6,6 +6,8 @@ onready var data_path: String = Steamworks.get_user_path() + "/data"
 
 var network_data: NetworkData
 
+var chat_input_data: ChatInputData
+
 var options_data: OptionsData
 var generic_button_data: GenericButtonData
 var damage_area_data: DamageAreaData
@@ -49,6 +51,7 @@ func _init_folders():
 
 func _init_all_data():
 	network_data = _init_data(data_path + "/Network.tres", NetworkEditor.new()) as NetworkData
+	chat_input_data = _init_data(data_path + "/ChatInputData.tres", ChatInputEditor.new()) as ChatInputData
 	options_data = _init_data(data_path + "/Options.tres", OptionsEditor.new()) as OptionsData
 	generic_button_data = _init_data(data_path + "/GenericButton.tres", GenericButtonEditor.new()) as GenericButtonData
 	damage_area_data = _init_data(data_path + "/DamageArea.tres", DamageAreaEditor.new()) as DamageAreaData
