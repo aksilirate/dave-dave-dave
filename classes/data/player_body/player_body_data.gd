@@ -22,7 +22,7 @@ signal respawn_location_changed
 signal last_position_changed
 
 
-signal input_changed
+signal input_set
 
 
 export(float) var play_time setget _play_time
