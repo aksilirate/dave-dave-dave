@@ -17,13 +17,18 @@ func _ready():
 
 func _physics_process(delta):
 	if is_controllable():
-		var input_direction: int = ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left"))
+		var x_input: int = ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left"))
 		
-		_move(input_direction)
+		_move(x_input)
 		
-		if Input.get_action_strength("jump"):
+		var y_input = Input.get_action_strength("jump")
+		
+		if y_input:
 			_jump()
-			
+		
+		
+		player_body_editor.set_input(Vector2(x_input, y_input))
+		
 		return
 		
 	_move(0)

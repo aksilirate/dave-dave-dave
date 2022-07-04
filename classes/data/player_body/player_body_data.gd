@@ -22,6 +22,9 @@ signal respawn_location_changed
 signal last_position_changed
 
 
+signal input_changed
+
+
 export(float) var play_time setget _play_time
 
 export(Array) var inventory: Array setget _inventory
@@ -40,6 +43,7 @@ export(Vector2) var respawn_location setget _respawn_location
 
 export(Vector2) var last_position setget _last_position
 
+var input: Vector2 setget _input
 
 var body: Node2D
 
@@ -89,3 +93,7 @@ func _respawn_location(value):
 func _last_position(value):
 	if not DataLoader.finished:
 		last_position = value
+
+
+func _input(value):
+	return

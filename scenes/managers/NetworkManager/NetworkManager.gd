@@ -1,3 +1,4 @@
+class_name NetworkManager
 extends Node
 
 enum LobbyAvailability {PRIVATE, FRIENDS, PUBLIC, INVISIBLE}

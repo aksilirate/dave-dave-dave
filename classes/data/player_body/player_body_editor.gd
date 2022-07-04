@@ -132,7 +132,10 @@ func set_last_position(value):
 		emit_changed()
 
 
-
+func set_input(value):
+	if input != value:
+		input = value
+		emit_signal("input_changed")
 
 
 

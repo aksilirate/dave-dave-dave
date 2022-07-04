@@ -254,6 +254,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/network/network_editor.gd"
 }, {
+"base": "Node",
+"class": "NetworkManager",
+"language": "GDScript",
+"path": "res://scenes/managers/NetworkManager/NetworkManager.gd"
+}, {
 "base": "CheckBox",
 "class": "OptionCheckBox",
 "language": "GDScript",
@@ -349,6 +354,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/WallGun/WallGun.gd"
 }, {
+"base": "NetworkManager",
+"class": "WolrdNetworkManager",
+"language": "GDScript",
+"path": "res://scenes/managers/WorldNetworkManager/WorldNetworkManager.gd"
+}, {
 "base": "DataResource",
 "class": "WorldData",
 "language": "GDScript",
@@ -419,6 +429,7 @@ _global_script_class_icons={
 "MovingPlatform": "",
 "NetworkData": "",
 "NetworkEditor": "",
+"NetworkManager": "",
 "OptionCheckBox": "",
 "OptionHSlider": "",
 "OptionsData": "",
@@ -438,6 +449,7 @@ _global_script_class_icons={
 "Time": "",
 "TitleMusicPlayer": "",
 "WallGun": "",
+"WolrdNetworkManager": "",
 "WorldData": "",
 "WorldEditor": "",
 "WorldScene": "",
