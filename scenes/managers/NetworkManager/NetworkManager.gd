@@ -128,7 +128,7 @@ func _on_chat_input_activated():
 
 func _process(delta):
 	if network_editor.lobby_id:
-		_read_packet()
+		_read_all_packets()
 
 
 func _read_all_packets(read_count: int = 0):
