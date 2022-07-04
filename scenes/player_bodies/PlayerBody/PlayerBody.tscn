@@ -368,7 +368,6 @@ resource_local_to_scene = true
 extents = Vector2( 30, 35 )
 
 [node name="PlayerBody" type="KinematicBody2D"]
-collision_layer = 3
 collision_mask = 2
 script = ExtResource( 7 )
 

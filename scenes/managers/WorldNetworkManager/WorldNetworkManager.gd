@@ -14,4 +14,9 @@ func _ready():
 
 
 func _on_local_player_body_input_changed():
-	pass
+	if not network_editor.is_lobby_owner():
+		var looby_owner_id: int = Steam.getLobbyOwner(network_editor.lobby_id)
+		var input_packet = InputPacket.new()
+		input_packet.id = Steam.getSteamID()
+		input_packet.input = local_player_body_data.input
+		_send_reliable_packet(looby_owner_id, input_packet.to_dictionary())

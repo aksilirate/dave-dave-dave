@@ -159,6 +159,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/haste_potion/haste_potion_editor.gd"
 }, {
+"base": "Packet",
+"class": "InputPacket",
+"language": "GDScript",
+"path": "res://classes/packets/input_packet.gd"
+}, {
 "base": "HBoxContainer",
 "class": "InventoryHBoxContainer",
 "language": "GDScript",
@@ -410,6 +415,7 @@ _global_script_class_icons={
 "HastePotion": "",
 "HastePotionData": "",
 "HastePotionEditor": "",
+"InputPacket": "",
 "InventoryHBoxContainer": "",
 "Item": "",
 "ItemArea": "",

@@ -167,11 +167,13 @@ func _read_packet() -> void:
 			
 			Packet.Type.GAME_STATE:
 				packet = GameStatePacket.new()
-				print("?")
 				
 			Packet.Type.CHAT:
 				packet = ChatPacket.new()
-		
+			
+			Packet.Type.INPUT:
+				packet = InputPacket.new()
+			
 		network_editor.set_packet(packet.from_dictionary(packet_data))
 
 
