@@ -25,3 +25,7 @@ func _connected_players(value):
 
 func _packet(_value):
 	return
+
+
+func is_lobby_owner() -> bool:
+	return Steam.getLobbyOwner(lobby_id) == Steam.getSteamID()

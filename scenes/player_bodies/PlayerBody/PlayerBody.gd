@@ -343,7 +343,8 @@ func is_playing_death_animation() -> bool:
 
 
 
-
+func is_controllable() -> bool:
+	return true
 
 
 func has_double_jump() -> bool:

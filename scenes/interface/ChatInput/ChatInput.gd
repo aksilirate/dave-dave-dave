@@ -14,6 +14,8 @@ func _input(event):
 	if Input.is_action_pressed("chat"):
 		visible = !visible
 		
+		chat_input_editor.set_shown(visible)
+		
 		if visible:
 			grab_focus()
 			return

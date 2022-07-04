@@ -84,7 +84,7 @@ func _on_lobby_chat_update(lobby_id: int, changer_id: int, making_change_id: int
 		1: 
 			network_editor.set_connected_players(get_lobby_member_ids())
 			
-			if is_lobby_owner(lobby_id):
+			if network_editor.is_lobby_owner(lobby_id):
 				var game_state_packet = GameStatePacket.new()
 				game_state_packet.scene_path = get_tree().current_scene.filename
 				_send_reliable_packet(changer_id, game_state_packet.to_dictionary())
@@ -219,10 +219,6 @@ func get_lobby_member_ids() -> Array:
 	return member_ids
 
 
-
-
-func is_lobby_owner(lobby_id) -> bool:
-	return Steam.getLobbyOwner(lobby_id) == Steam.getSteamID()
 
 
 
