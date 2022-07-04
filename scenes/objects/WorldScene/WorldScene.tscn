@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/objects/WorldScene/WorldScene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player_bodies/LocalPlayerBody/LocalPlayerBody.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/WorldCanvasLayer/WorldCanvasLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/managers/NetworkManager/NetworkManager.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/factories/ReplicatedPlayerBodyFactory/ReplicatedPlayerBodyFactory.tscn" type="PackedScene" id=6]
 
 [node name="WorldScene" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,6 +15,9 @@ script = ExtResource( 1 )
 [node name="MultiplyerManager" parent="." instance=ExtResource( 5 )]
 
 [node name="WorldCanvasLayer" parent="." instance=ExtResource( 3 )]
+
+[node name="ReplicatedPlayerBodyFactory" parent="." instance=ExtResource( 6 )]
+world_scene = NodePath("..")
 
 [node name="LocalPlayerBody" parent="." instance=ExtResource( 2 )]
 world_scene = NodePath("..")

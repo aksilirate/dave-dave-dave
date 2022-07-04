@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/interface/ChatLog/ChatLog.gd" type="Script" id=1]
+[ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=2]
 
 [node name="ChatLog" type="RichTextLabel"]
 anchor_bottom = 1.0
@@ -8,5 +9,5 @@ margin_left = 30.0
 margin_top = 200.0
 margin_right = 190.0
 margin_bottom = -180.0
-text = "asdasdasdasdasdasd"
+theme = ExtResource( 2 )
 script = ExtResource( 1 )

@@ -13573,8 +13573,14 @@ anims/diamonds_end_red = SubResource( 176 )
 anims/first_scene = SubResource( 179 )
 "anims/open cage scene" = SubResource( 180 )
 
-[node name="LocalPlayerBody" parent="." index="50"]
+[node name="SpawnPosition" parent="ReplicatedPlayerBodyFactory" index="0"]
 position = Vector2( -14290, 8280 )
+
+[node name="LocalPlayerBody" parent="." index="51"]
+position = Vector2( -14290, 8280 )
+
+[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/StartServerGenericButton" to="MultiplyerManager" method="_on_StartServerGenericButton_pressed"]
+[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/ExitToTitleGenericButton" to="GameStateManager" method="_on_ExitToTitleGenericButton_pressed"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
@@ -13682,3 +13688,4 @@ position = Vector2( -14290, 8280 )
 [editable path="RedMan3"]
 [editable path="WorldCanvasLayer"]
 [editable path="WorldCanvasLayer/EscMenu"]
+[editable path="ReplicatedPlayerBodyFactory"]

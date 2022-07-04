@@ -15,4 +15,4 @@ func _ready():
 func _on_packet_set():
 	var packet = network_data.packet
 	if packet is ChatPacket:
-		text += packet.text
+		text += "\n" + packet.text
