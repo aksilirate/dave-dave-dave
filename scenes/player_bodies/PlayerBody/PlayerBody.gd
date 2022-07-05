@@ -83,8 +83,10 @@ func _ready():
 func _on_packet_recieved():
 	var packet = network_data.packet
 	if packet is PositionPacket:
+			
 		if packet.id == id:
 			global_position = packet.position
+			
 			
 	if packet is InputPacket:
 		if packet.id == id:

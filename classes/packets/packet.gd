@@ -5,7 +5,10 @@ signal processed_changed
 enum Type {HANDSHAKE, GAME_STATE, CHAT, POSITION, INPUT}
 
 
+var index: int
+
 var processed: bool
+
 
 
 func set_processed(value):

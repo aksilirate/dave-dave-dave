@@ -18,6 +18,14 @@ func set_connected_players(value):
 
 
 
+func set_request_packet_index(value):
+	request_packet_index = value
+
+
+func add_to_request_packet_index(value):
+	request_packet_index += value
+
+
 
 func set_packet(value):
 	packet = value

@@ -5,3 +5,9 @@
 
 [node name="WorldNetworkManager" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="StateUpdateTimer" type="Timer" parent="." index="0"]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="StateUpdateTimer" to="." method="_on_StateUpdateTimer_timeout"]
