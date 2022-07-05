@@ -4,7 +4,7 @@ extends DataResource
 
 signal lobby_id_changed
 signal connected_players_changed
-signal packet_set
+signal packet_recieved
 
 
 var lobby_id: int setget _lobby_id

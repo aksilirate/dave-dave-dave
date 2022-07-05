@@ -19,7 +19,7 @@ signal activated_checkpoints_set
 signal activated_checkpoints_changed
 
 signal respawn_location_changed
-signal last_position_changed
+signal last_position_set
 
 
 signal input_set

@@ -13,6 +13,8 @@ enum {IDLE, MOVING, AIR}
 
 export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
 
+onready var network_data: NetworkData = DataLoader.network_data
+
 onready var player_body_editor: PlayerBodyEditor
 onready var player_body_data: PlayerBodyData
 
@@ -49,6 +51,8 @@ onready var pet_body = $PetBody
 onready var pet_position = $PetPosition
 
 
+var id: int
+
 
 var jumped: bool = false
 var double_jumped: bool = false
@@ -64,6 +68,7 @@ var displacement: Vector2
 
 
 func _ready():
+	network_data.connect("packet_recieved", self, "_on_packet_recieved")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
 	item_area_data.connect("activated", self, "_on_item_area_activated")
@@ -73,6 +78,21 @@ func _ready():
 	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 
 
+
+
+func _on_packet_recieved():
+	var packet = network_data.packet
+	if packet is PositionPacket:
+		if packet.id == id:
+			global_position = packet.position
+			
+	if packet is InputPacket:
+		if packet.id == id:
+			_move(packet.input.x)
+			
+			if packet.input.y:
+				_jump()
+		packet.set_processed(true)
 
 
 
@@ -147,6 +167,8 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	
+	player_body_editor.set_last_position(global_position)
 	
 	if is_playing_death_animation():
 		return
@@ -404,7 +426,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_PlayerBody_tree_exiting():
-	player_body_editor.set_last_position(global_position)
+	player_body_editor.emit_changed()
 
 
 

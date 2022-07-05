@@ -126,10 +126,8 @@ func set_respawn_location(value):
 
 
 func set_last_position(value):
-	if last_position != value:
-		last_position = value
-		emit_signal("last_position_changed")
-		emit_changed()
+	last_position = value
+	emit_signal("last_position_set")
 
 
 func set_input(value):

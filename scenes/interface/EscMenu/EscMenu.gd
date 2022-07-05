@@ -11,7 +11,7 @@ func _ready():
 
 
 func _input(event):
-	if Input.is_action_pressed("esc"):
+	if Input.is_action_just_pressed("esc"):
 		visible = !visible
 
 

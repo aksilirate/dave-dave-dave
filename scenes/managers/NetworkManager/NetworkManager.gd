@@ -14,7 +14,7 @@ func _ready():
 	Steam.connect("join_requested", self, "_on_join_requested")
 	Steam.connect("p2p_session_request", self, "_on_p2p_session_request")
 	Steam.connect("lobby_chat_update", self, "_on_lobby_chat_update")
-	network_editor.connect("packet_set", self, "_on_packet_set")
+	network_editor.connect("packet_recieved", self, "_on_packet_recieved")
 	
 	chat_input_data.connect("activated", self, "_on_chat_input_activated")
 
@@ -104,7 +104,7 @@ func _on_lobby_chat_update(lobby_id: int, changer_id: int, making_change_id: int
 
 
 
-func _on_packet_set():
+func _on_packet_recieved():
 	var packet = network_editor.packet
 	if packet is HandshakePacket:
 		print("handshake")
@@ -171,8 +171,12 @@ func _read_packet() -> void:
 			Packet.Type.CHAT:
 				packet = ChatPacket.new()
 			
+			Packet.Type.POSITION:
+				packet = PositionPacket.new()
+			
 			Packet.Type.INPUT:
 				packet = InputPacket.new()
+			
 			
 		network_editor.set_packet(packet.from_dictionary(packet_data))
 

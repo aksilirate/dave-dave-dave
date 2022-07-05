@@ -7,6 +7,7 @@ onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 func _ready():
 	player_body_editor = world_scene.world_data.local_player_body_data as PlayerBodyEditor
+	id = Steam.getSteamID()
 	emit_signal("player_body_editor_set")
 
 

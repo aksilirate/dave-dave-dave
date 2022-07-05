@@ -21,4 +21,4 @@ func set_connected_players(value):
 
 func set_packet(value):
 	packet = value
-	emit_signal("packet_set")
+	emit_signal("packet_recieved")
