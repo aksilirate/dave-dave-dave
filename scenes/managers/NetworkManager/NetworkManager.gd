@@ -37,7 +37,7 @@ func _on_lobby_joined(arg_lobby_id: int, _permissions: int, _locked: bool, respo
 		network_editor.set_connected_players(get_lobby_member_ids())
 		var handshake_packet = HandshakePacket.new()
 		for member_id in get_lobby_member_ids():
-			_send_reliable_packet(member_id, handshake_packet.to_dictionary())
+			_send_reliable_packet(member_id, handshake_packet)
 		return
 	
 	var error: String
@@ -71,7 +71,7 @@ func _on_p2p_session_request(remote_id: int):
 	Steam.acceptP2PSessionWithUser(remote_id)
 	var handshake_packet = HandshakePacket.new()
 	for member_id in get_lobby_member_ids():
-		_send_reliable_packet(member_id, handshake_packet.to_dictionary())
+		_send_reliable_packet(member_id, handshake_packet)
 	print("p2p session requested")
 
 
@@ -88,7 +88,7 @@ func _on_lobby_chat_update(lobby_id: int, changer_id: int, making_change_id: int
 			if network_editor.is_lobby_owner():
 				var game_state_packet = GameStatePacket.new()
 				game_state_packet.scene_path = get_tree().current_scene.filename
-				_send_reliable_packet(changer_id, game_state_packet.to_dictionary())
+				_send_reliable_packet(changer_id, game_state_packet)
 				
 			print(str(changer_id)+" has joined the lobby.")
 		
@@ -120,7 +120,7 @@ func _on_chat_input_activated():
 	var chat_packet: ChatPacket = ChatPacket.new()
 	chat_packet.text = chat_input_data.text
 	for member_id in get_lobby_member_ids():
-		_send_reliable_packet(member_id, chat_packet.to_dictionary())
+		_send_reliable_packet(member_id, chat_packet)
 
 
 
@@ -197,20 +197,19 @@ func _create_lobby() -> void:
 
 
 
-func _send_unreliable_packet(target_id: int, packet_data: Dictionary):
+func _send_unreliable_packet(target_id: int, packet: Packet):
 	var packet_bytes: PoolByteArray
-	packet_bytes.append_array(var2bytes(packet_data))
+	packet_bytes.append_array(var2bytes(packet.to_dictionary()))
 	Steam.sendP2PPacket(target_id, packet_bytes, Steam.P2P_SEND_UNRELIABLE, 0)
+	network_editor.set_sent_packet(packet)
 
 
 
-
-
-func _send_reliable_packet(target_id: int, packet_data: Dictionary):
+func _send_reliable_packet(target_id: int, packet: Packet):
 	var packet_bytes: PoolByteArray
-	packet_bytes.append_array(var2bytes(packet_data))
+	packet_bytes.append_array(var2bytes(packet.to_dictionary()))
 	Steam.sendP2PPacket(target_id, packet_bytes, Steam.P2P_SEND_RELIABLE, 0)
-
+	network_editor.set_sent_packet(packet)
 
 
 

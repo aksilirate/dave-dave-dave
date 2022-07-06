@@ -5,7 +5,8 @@ extends Packet
 
 
 func to_dictionary() -> Dictionary:
-	var dictionary = {
-		"type": Type.HANDSHAKE,
-	}
+	var dictionary = .to_dictionary()
+	
+	dictionary["type"] = Type.HANDSHAKE
+	
 	return dictionary

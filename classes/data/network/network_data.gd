@@ -4,6 +4,8 @@ extends DataResource
 
 signal lobby_id_changed
 signal connected_players_changed
+
+signal packet_sent
 signal packet_recieved
 
 
@@ -12,6 +14,8 @@ var lobby_id: int setget _lobby_id
 var connected_players: Array setget _connected_players
 
 var request_packet_index: int setget _request_packet_index
+
+var sent_packet: Packet setget _sent_packet
 
 var packet: Packet setget _packet
 
@@ -29,6 +33,10 @@ func _connected_players(value):
 
 
 func _request_packet_index(_value):
+	return
+
+
+func _sent_packet(_value):
 	return
 
 

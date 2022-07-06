@@ -135,5 +135,8 @@ func set_input(value):
 	emit_signal("input_set")
 
 
+func set_is_processed_on_server(value):
+	is_processed_on_server = value
 
-
+func set_request_index(value):
+	request_index = value

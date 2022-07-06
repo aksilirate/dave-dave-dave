@@ -20,24 +20,21 @@ func _ready():
 
 
 
+
 func _on_local_player_body_input_set():
 	if not network_editor.is_lobby_owner():
 		network_editor.add_to_request_packet_index(1)
 		
 		var looby_owner_id: int = Steam.getLobbyOwner(network_editor.lobby_id)
 		var input_packet = InputPacket.new()
+		
 		input_packet.time_sent = OS.get_ticks_msec()
+		input_packet.index = network_editor.request_packet_index
 		input_packet.id = Steam.getSteamID()
 		input_packet.input = local_player_body_data.input
-		_send_reliable_packet(looby_owner_id, input_packet.to_dictionary())
-
-
-
-
-func _on_StateUpdateTimer_timeout():
-	if network_editor.is_lobby_owner():
-		for player_id in world_data.online_player_bodies_data.keys():
-			send_position_packet(player_id)
+		input_packet.position = local_player_body_data.last_position
+		
+		_send_unreliable_packet(looby_owner_id, input_packet)
 
 
 
@@ -45,14 +42,21 @@ func _on_StateUpdateTimer_timeout():
 
 
 
-func send_position_packet(player_id):
+
+
+func send_position_packet(player_id, index):
 	for member_id in get_lobby_member_ids():
+		
+		if not world_data.online_player_bodies_data.has(player_id):
+			return
+			
 		var online_player_body_data = world_data.online_player_bodies_data[player_id] as PlayerBodyData
 		var position_packet = PositionPacket.new()
 		position_packet.time_sent = OS.get_ticks_msec()
+		position_packet.index = index
 		position_packet.id = player_id
 		position_packet.position = online_player_body_data.last_position
-		_send_unreliable_packet(member_id, position_packet.to_dictionary()) 
+		_send_unreliable_packet(member_id, position_packet) 
 
 
 
@@ -61,7 +65,16 @@ func send_position_packet(player_id):
 
 func _physics_process(_delta):
 	if network_editor.is_lobby_owner():
-		send_position_packet(Steam.getSteamID())
+		send_position_packet(Steam.getSteamID(), 0)
+	
+		for player_id in world_data.online_player_bodies_data.keys():
+			var player_body_data = world_data.online_player_bodies_data[player_id] as PlayerBodyData
+			
+			if player_body_data.is_processed_on_server:
+				send_position_packet(player_id, player_body_data.request_index)
 
 
 
+
+func _on_ServerTickTimer_timeout():
+	pass # Replace with function body.

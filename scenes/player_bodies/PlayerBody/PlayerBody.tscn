@@ -377,6 +377,8 @@ position = Vector2( -8, -8 )
 [node name="PetBody" parent="." instance=ExtResource( 1 )]
 position = Vector2( -16, -8 )
 
+[node name="SmoothSyncTween" type="Tween" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprites/PlayerBodySprite")
 method_call_mode = 1

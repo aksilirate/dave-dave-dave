@@ -49,7 +49,7 @@ onready var boots_sprite = $Sprites/BootsSprite
 onready var crown_sprite = $Sprites/CrownSprite
 onready var pet_body = $PetBody
 onready var pet_position = $PetPosition
-
+onready var smooth_sync_tween = $SmoothSyncTween
 
 var id: int
 
@@ -65,9 +65,12 @@ var displacement: Vector2
 
 
 var latest_sync_correction: int
+var last_input_recieved: Vector2
+var positions_on_request: Dictionary = {}
 
 
 func _ready():
+	network_data.connect("packet_sent", self, "_on_packet_sent")
 	network_data.connect("packet_recieved", self, "_on_packet_recieved")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
@@ -81,27 +84,50 @@ func _ready():
 
 
 
+func _on_packet_sent():
+	var sent_packet = network_data.sent_packet
+	if sent_packet is PositionPacket:
+		if sent_packet.id == id:
+			player_body_editor.set_is_processed_on_server(false)
+
+
+
 
 func _on_packet_recieved():
 	var packet = network_data.packet
 	if packet is PositionPacket:
 		
-		if latest_sync_correction < packet.time_sent:
-			if packet.id == id:
-				global_position = packet.position
-				
-			latest_sync_correction = packet.time_sent
+		if packet.id == id:
+			
+			if network_data.request_packet_index < packet.index - 1:
+				return
+			
+			var target_position: Vector2 = packet.position
+			
+			if network_data.request_packet_index == packet.index - 1:
+				target_position = positions_on_request[packet.index]
+			
+			global_position = target_position
+#				smooth_sync_tween.interpolate_property(
+#					self,
+#					"global_position",
+#					global_position,
+#					target_position,
+#					0.025,
+#					Tween.TRANS_LINEAR
+#					)
+#
+#				smooth_sync_tween.start()
+			
+		
 		
 		
 	if packet is InputPacket:
 		if packet.id == id:
-			_move(packet.input.x)
-			
-			if packet.input.y:
-				_jump()
-		packet.set_processed(true)
-
-
+			last_input_recieved = packet.input
+			positions_on_request[packet.index] = global_position
+			player_body_editor.set_request_index(packet.index)
+			player_body_editor.set_is_processed_on_server(true)
 
 
 
@@ -178,6 +204,15 @@ func _process(delta):
 func _physics_process(delta):
 	
 	player_body_editor.set_last_position(global_position)
+	
+	
+	_move(last_input_recieved.x)
+	
+	if last_input_recieved.y:
+		_jump()
+	
+	
+	
 	
 	if is_playing_death_animation():
 		return
