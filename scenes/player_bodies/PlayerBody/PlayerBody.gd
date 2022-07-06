@@ -64,7 +64,7 @@ var displacement: Vector2
 
 
 
-
+var latest_sync_correction: int
 
 
 func _ready():
@@ -80,14 +80,19 @@ func _ready():
 
 
 
+
+
 func _on_packet_recieved():
 	var packet = network_data.packet
 	if packet is PositionPacket:
-			
-		if packet.id == id:
-			global_position = packet.position
-			
-			
+		
+		if latest_sync_correction < packet.time_sent:
+			if packet.id == id:
+				global_position = packet.position
+				
+			latest_sync_correction = packet.time_sent
+		
+		
 	if packet is InputPacket:
 		if packet.id == id:
 			_move(packet.input.x)
@@ -95,6 +100,8 @@ func _on_packet_recieved():
 			if packet.input.y:
 				_jump()
 		packet.set_processed(true)
+
+
 
 
 

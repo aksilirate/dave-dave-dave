@@ -8,19 +8,19 @@ var input: Vector2
 
 
 func to_dictionary() -> Dictionary:
-	var dictionary = {
-		"index": index,
-		"type": Type.INPUT,
-		"id": id,
-		"input": input
-	}
+	var dictionary = .to_dictionary()
+	
+	dictionary["type"] = Type.INPUT
+	dictionary["id"] = id
+	dictionary["input"] = input
+	
 	return dictionary
 
 
 
 
 func from_dictionary(dictionary: Dictionary) -> InputPacket:
-	index = dictionary["index"]
+	.from_dictionary(dictionary)
 	id = dictionary["id"]
 	input = dictionary["input"]
 	return self
