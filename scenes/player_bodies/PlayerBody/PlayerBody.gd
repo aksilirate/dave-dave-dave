@@ -71,7 +71,7 @@ var positions_on_request: Dictionary = {}
 
 func _ready():
 	network_data.connect("packet_sent", self, "_on_packet_sent")
-	network_data.connect("packet_recieved", self, "_on_packet_recieved")
+	network_data.connect("packet_received", self, "_on_packet_received")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
 	item_area_data.connect("activated", self, "_on_item_area_activated")
@@ -93,21 +93,24 @@ func _on_packet_sent():
 
 
 
-func _on_packet_recieved():
-	var packet = network_data.packet
+func _on_packet_received():
+	var packet = network_data.received_packet
 	if packet is PositionPacket:
 		
 		if packet.id == id:
 			
-			if network_data.request_packet_index < packet.index - 1:
-				return
+#			if packet.time_sent < latest_sync_correction:
+#				return
+			
 			
 			var target_position: Vector2 = packet.position
 			
-			if network_data.request_packet_index == packet.index - 1:
-				target_position = positions_on_request[packet.index]
+#			if network_data.request_packet_index == packet.index - 1:
+#				target_position = positions_on_request[packet.index]
 			
-			global_position = target_position
+			global_position = packet.position
+			
+			latest_sync_correction = packet.time_sent
 #				smooth_sync_tween.interpolate_property(
 #					self,
 #					"global_position",

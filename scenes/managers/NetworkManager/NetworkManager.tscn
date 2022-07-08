@@ -4,3 +4,8 @@
 
 [node name="NetworkManager" type="Node"]
 script = ExtResource( 1 )
+
+[node name="PingRequestTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="PingRequestTimer" to="." method="_on_PingRequestTimer_timeout"]

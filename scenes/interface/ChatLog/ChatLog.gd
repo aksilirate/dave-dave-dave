@@ -8,11 +8,11 @@ onready var network_data: NetworkData = DataLoader.network_data
 
 
 func _ready():
-	network_data.connect("packet_recieved", self, "_on_packet_recieved")
+	network_data.connect("packet_received", self, "_on_packet_received")
 
 
 
-func _on_packet_recieved():
-	var packet = network_data.packet
+func _on_packet_received():
+	var packet = network_data.received_packet
 	if packet is ChatPacket:
 		text += "\n" + packet.text

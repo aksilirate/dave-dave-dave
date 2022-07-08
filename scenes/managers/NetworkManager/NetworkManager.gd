@@ -7,6 +7,8 @@ onready var network_editor = DataLoader.network_data as NetworkEditor
 onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 
+var ping_request_time: int
+
 
 func _ready():
 	Steam.connect("lobby_created", self, "_on_lobby_created")
@@ -14,7 +16,7 @@ func _ready():
 	Steam.connect("join_requested", self, "_on_join_requested")
 	Steam.connect("p2p_session_request", self, "_on_p2p_session_request")
 	Steam.connect("lobby_chat_update", self, "_on_lobby_chat_update")
-	network_editor.connect("packet_recieved", self, "_on_packet_recieved")
+	network_editor.connect("packet_received", self, "_on_packet_received")
 	
 	chat_input_data.connect("activated", self, "_on_chat_input_activated")
 
@@ -104,10 +106,14 @@ func _on_lobby_chat_update(lobby_id: int, changer_id: int, making_change_id: int
 
 
 
-func _on_packet_recieved():
-	var packet = network_editor.packet
+func _on_packet_received():
+	var packet = network_editor.received_packet
 	if packet is HandshakePacket:
 		print("handshake")
+		
+	if packet is PingResponsePacket:
+		network_editor.set_ping(OS.get_ticks_msec() - ping_request_time)
+		
 	if packet is GameStatePacket:
 		print(packet.scene_path)
 		get_tree().change_scene(packet.scene_path)
@@ -131,12 +137,16 @@ func _process(delta):
 		_read_all_packets()
 
 
+
+
 func _read_all_packets(read_count: int = 0):
 	if read_count >= 32:
 		return
 	if Steam.getAvailableP2PPacketSize(0) > 0:
 		_read_packet()
 		_read_all_packets(read_count + 1)
+
+
 
 
 
@@ -156,29 +166,10 @@ func _read_packet() -> void:
 		
 		var packet_sender: int = sent_packet.steam_id_remote
 		
-		var packet_data: Dictionary = bytes2var(sent_packet.data)
+		var packet: Packet = dict2inst(sent_packet.data)
 		
 		
-		var packet: Packet
-		
-		match packet_data.type:
-			Packet.Type.HANDSHAKE:
-				packet = HandshakePacket.new()
-			
-			Packet.Type.GAME_STATE:
-				packet = GameStatePacket.new()
-				
-			Packet.Type.CHAT:
-				packet = ChatPacket.new()
-			
-			Packet.Type.POSITION:
-				packet = PositionPacket.new()
-			
-			Packet.Type.INPUT:
-				packet = InputPacket.new()
-			
-			
-		network_editor.set_packet(packet.from_dictionary(packet_data))
+		network_editor.set_packet(packet)
 
 
 
@@ -196,20 +187,23 @@ func _create_lobby() -> void:
 
 
 
-
 func _send_unreliable_packet(target_id: int, packet: Packet):
 	var packet_bytes: PoolByteArray
-	packet_bytes.append_array(var2bytes(packet.to_dictionary()))
+	packet_bytes.append_array(var2bytes(inst2dict(packet)))
 	Steam.sendP2PPacket(target_id, packet_bytes, Steam.P2P_SEND_UNRELIABLE, 0)
 	network_editor.set_sent_packet(packet)
 
 
 
+
+
 func _send_reliable_packet(target_id: int, packet: Packet):
 	var packet_bytes: PoolByteArray
-	packet_bytes.append_array(var2bytes(packet.to_dictionary()))
+	packet_bytes.append_array(var2bytes(inst2dict(packet)))
 	Steam.sendP2PPacket(target_id, packet_bytes, Steam.P2P_SEND_RELIABLE, 0)
 	network_editor.set_sent_packet(packet)
+
+
 
 
 
@@ -228,7 +222,18 @@ func get_lobby_member_ids() -> Array:
 
 
 
-
-
 func _on_StartServerGenericButton_pressed():
 	_create_lobby()
+
+
+
+
+func _on_PingRequestTimer_timeout():
+	if not network_editor.lobby_id:
+		return
+	
+	if network_editor.is_lobby_owner():
+		return
+	
+	ping_request_time = OS.get_ticks_msec()
+	_send_reliable_packet(network_editor.get_looby_owner_id(), PingRequestPacket.new())

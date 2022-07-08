@@ -25,16 +25,13 @@ func _on_local_player_body_input_set():
 	if not network_editor.is_lobby_owner():
 		network_editor.add_to_request_packet_index(1)
 		
-		var looby_owner_id: int = Steam.getLobbyOwner(network_editor.lobby_id)
 		var input_packet = InputPacket.new()
-		
+		input_packet.player_id = Steam.getSteamID()
 		input_packet.time_sent = OS.get_ticks_msec()
 		input_packet.index = network_editor.request_packet_index
-		input_packet.id = Steam.getSteamID()
 		input_packet.input = local_player_body_data.input
-		input_packet.position = local_player_body_data.last_position
 		
-		_send_unreliable_packet(looby_owner_id, input_packet)
+		_send_unreliable_packet(network_editor.get_looby_owner_id(), input_packet)
 
 
 

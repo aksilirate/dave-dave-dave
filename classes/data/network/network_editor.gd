@@ -30,6 +30,12 @@ func set_sent_packet(value):
 	sent_packet = value
 	emit_signal("packet_sent")
 
-func set_packet(value):
-	packet = value
-	emit_signal("packet_recieved")
+
+func set_received_packet(value):
+	received_packet = value
+	emit_signal("packet_received")
+
+func set_ping(value):
+	if ping != value:
+		ping = value
+		emit_signal("ping_changed")

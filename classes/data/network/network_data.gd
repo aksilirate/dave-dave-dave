@@ -6,7 +6,10 @@ signal lobby_id_changed
 signal connected_players_changed
 
 signal packet_sent
-signal packet_recieved
+signal packet_received
+
+signal ping_changed
+
 
 
 var lobby_id: int setget _lobby_id
@@ -15,9 +18,13 @@ var connected_players: Array setget _connected_players
 
 var request_packet_index: int setget _request_packet_index
 
+
 var sent_packet: Packet setget _sent_packet
 
-var packet: Packet setget _packet
+var received_packet: Packet setget _received_packet
+
+
+var ping: int setget _ping
 
 
 
@@ -40,9 +47,16 @@ func _sent_packet(_value):
 	return
 
 
-func _packet(_value):
+func _received_packet(_value):
 	return
 
+
+func _ping(_value):
+	return
+
+
+func get_looby_owner_id() -> int:
+	return Steam.getLobbyOwner(lobby_id)
 
 func is_lobby_owner() -> bool:
 	return Steam.getLobbyOwner(lobby_id) == Steam.getSteamID()
