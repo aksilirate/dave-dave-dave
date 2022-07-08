@@ -49,10 +49,10 @@ func send_position_packet(player_id, index):
 			
 		var online_player_body_data = world_data.online_player_bodies_data[player_id] as PlayerBodyData
 		var position_packet = PositionPacket.new()
-		position_packet.time_sent = OS.get_ticks_msec()
-		position_packet.index = index
-		position_packet.id = player_id
-		position_packet.position = online_player_body_data.last_position
+#		position_packet.time_sent = OS.get_ticks_msec()
+#		position_packet.index = index
+#		position_packet.id = player_id
+#		position_packet.position = online_player_body_data.last_position
 		_send_unreliable_packet(member_id, position_packet) 
 
 

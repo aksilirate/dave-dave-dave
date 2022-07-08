@@ -7,8 +7,6 @@ onready var network_editor = DataLoader.network_data as NetworkEditor
 onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 
-var ping_request_time: int
-
 
 func _ready():
 	Steam.connect("lobby_created", self, "_on_lobby_created")
@@ -110,9 +108,16 @@ func _on_packet_received():
 	var packet = network_editor.received_packet
 	if packet is HandshakePacket:
 		print("handshake")
-		
+	
+	if packet is PingRequestPacket:
+		var ping_response_packet = PingResponsePacket.new()
+		ping_response_packet.tick_requested = packet.tick_sent
+		_send_reliable_packet(packet.sender_id, ping_response_packet)
+		print("got ping request")
+	
 	if packet is PingResponsePacket:
-		network_editor.set_ping(OS.get_ticks_msec() - ping_request_time)
+		network_editor.set_ping(OS.get_ticks_msec() - packet.tick_requested)
+		print("got ping response")
 		
 	if packet is GameStatePacket:
 		print(packet.scene_path)
@@ -166,10 +171,10 @@ func _read_packet() -> void:
 		
 		var packet_sender: int = sent_packet.steam_id_remote
 		
-		var packet: Packet = dict2inst(sent_packet.data)
+		var packet: Packet = dict2inst(bytes2var(sent_packet.data))
 		
 		
-		network_editor.set_packet(packet)
+		network_editor.set_received_packet(packet)
 
 
 
@@ -235,5 +240,7 @@ func _on_PingRequestTimer_timeout():
 	if network_editor.is_lobby_owner():
 		return
 	
-	ping_request_time = OS.get_ticks_msec()
-	_send_reliable_packet(network_editor.get_looby_owner_id(), PingRequestPacket.new())
+	var ping_request_packet = PingRequestPacket.new()
+	ping_request_packet.sender_id = Steam.getSteamID()
+	ping_request_packet.tick_sent = OS.get_ticks_msec()
+	_send_reliable_packet(network_editor.get_looby_owner_id(), ping_request_packet)

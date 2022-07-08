@@ -87,7 +87,7 @@ func _ready():
 func _on_packet_sent():
 	var sent_packet = network_data.sent_packet
 	if sent_packet is PositionPacket:
-		if sent_packet.id == id:
+		if sent_packet.player_id == id:
 			player_body_editor.set_is_processed_on_server(false)
 
 
@@ -97,7 +97,7 @@ func _on_packet_received():
 	var packet = network_data.received_packet
 	if packet is PositionPacket:
 		
-		if packet.id == id:
+		if packet.player_id:
 			
 #			if packet.time_sent < latest_sync_correction:
 #				return
@@ -126,7 +126,7 @@ func _on_packet_received():
 		
 		
 	if packet is InputPacket:
-		if packet.id == id:
+		if packet.player_id== id:
 			last_input_recieved = packet.input
 			positions_on_request[packet.index] = global_position
 			player_body_editor.set_request_index(packet.index)

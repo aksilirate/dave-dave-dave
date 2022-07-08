@@ -13,5 +13,5 @@ func _ready():
 
 
 
-func ping_changed():
+func _on_ping_changed():
 	text = str(network_data.ping)
