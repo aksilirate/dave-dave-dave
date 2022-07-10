@@ -49,10 +49,9 @@ onready var boots_sprite = $Sprites/BootsSprite
 onready var crown_sprite = $Sprites/CrownSprite
 onready var pet_body = $PetBody
 onready var pet_position = $PetPosition
-onready var smooth_sync_tween = $SmoothSyncTween
 
-var id: int
 
+var player_id: int
 
 var jumped: bool = false
 var double_jumped: bool = false
@@ -64,13 +63,15 @@ var displacement: Vector2
 
 
 
-var latest_sync_correction: int
+var latest_sync_tick: int
 var last_input_recieved: Vector2
-var positions_on_request: Dictionary = {}
+
+
+var target_position: Vector2
+
 
 
 func _ready():
-	network_data.connect("packet_sent", self, "_on_packet_sent")
 	network_data.connect("packet_received", self, "_on_packet_received")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
@@ -83,54 +84,31 @@ func _ready():
 
 
 
-
-func _on_packet_sent():
-	var sent_packet = network_data.sent_packet
-	if sent_packet is PositionPacket:
-		if sent_packet.player_id == id:
-			player_body_editor.set_is_processed_on_server(false)
-
-
-
-
 func _on_packet_received():
 	var packet = network_data.received_packet
-	if packet is PositionPacket:
-		
-		if packet.player_id:
+	
+	if packet is PlayerBodySyncRespondPacket:
+		if packet.player_id == player_id:
 			
-#			if packet.time_sent < latest_sync_correction:
-#				return
+			if packet.tick_sent < latest_sync_tick:
+				return
+				
+			target_position = packet.position
+			
+			velocity = packet.velocity
 			
 			
-			var target_position: Vector2 = packet.position
-			
-#			if network_data.request_packet_index == packet.index - 1:
-#				target_position = positions_on_request[packet.index]
-			
-			global_position = packet.position
-			
-			latest_sync_correction = packet.time_sent
-#				smooth_sync_tween.interpolate_property(
-#					self,
-#					"global_position",
-#					global_position,
-#					target_position,
-#					0.025,
-#					Tween.TRANS_LINEAR
-#					)
-#
-#				smooth_sync_tween.start()
+			latest_sync_tick = packet.tick_sent
 			
 		
 		
-		
-	if packet is InputPacket:
-		if packet.player_id== id:
-			last_input_recieved = packet.input
-			positions_on_request[packet.index] = global_position
-			player_body_editor.set_request_index(packet.index)
-			player_body_editor.set_is_processed_on_server(true)
+	if packet is PlayerBodySyncRequestPacket:
+		if network_data.is_lobby_owner():
+			if packet.player_id == player_id:
+				last_input_recieved = packet.input
+
+
+
 
 
 
@@ -182,11 +160,15 @@ func _on_mover_block_activated():
 
 
 
+
+
 func _on_entered_body_changed():
 	var inventory = player_body_editor.inventory
 	if green_gate_data.entered_body == self:
 		if not inventory.has(ContentManager.items.green_crown):
 			_die()
+
+
 
 
 
@@ -197,41 +179,84 @@ func _on_haste_potion_activated():
 
 
 
+
+
 func _process(delta):
 	player_body_editor.add_to_play_time(delta)
+	
 
 
 
 
 
 func _physics_process(delta):
-	
-	player_body_editor.set_last_position(global_position)
-	
-	
-	_move(last_input_recieved.x)
-	
-	if last_input_recieved.y:
-		_jump()
-	
-	
-	
-	
-	if is_playing_death_animation():
-		return
+	if target_position != Vector2.ZERO:
+		var sync_weight: float = 0.05
 		
+		if player_id != Steamworks.steam_id:
+			sync_weight = 1.0
+			
+		global_position = lerp(global_position, target_position, sync_weight)
+		displacement = global_position.direction_to(target_position) * -0.5
+		
+		if global_position.distance_to(target_position) < 10:
+			target_position = Vector2.ZERO
+	
+	
+	
+	_simulate_displacement(last_input_recieved)
+	
+	
 	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
 	
 	player_body_editor.remove_from_haste_time(delta)
 	player_body_editor.set_haste_time(max(0.0, player_body_editor.haste_time))
 	
 	
-	displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), 
-						Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor()), 
-						Vector2.UP if gravity > 0 else Vector2.DOWN , false, 4, PI/4, false)
-						
+	if is_moving():
+		boots_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
+		crown_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
+		boots_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
+		crown_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
+		
+		
+		if displacement.x < 0:
+			pet_position.position.x = 8
+			
+		if displacement.x > 0:
+			pet_position.position.x = -8
+			
+			
+	_play_animation_from_state(get_state())
 	
 	
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider is RigidBody2D:
+			collision.collider.apply_central_impulse(-collision.normal * 50)
+	
+	
+	player_body_editor.set_last_position(global_position)
+	player_body_editor.set_last_velocity(velocity)
+
+
+
+
+
+
+
+func _simulate_displacement(arg_input: Vector2):
+	_move(arg_input.x)
+	
+	
+	if arg_input.y:
+		_jump()
+		
+	if can_move():
+		displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), 
+							Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor()), 
+							Vector2.UP if gravity > 0 else Vector2.DOWN , false, 4, PI/4, false)
+							
 	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
 	
 	if is_on_floor():
@@ -242,31 +267,6 @@ func _physics_process(delta):
 		
 	if is_on_ceiling():
 		velocity.y = gravity
-		
-		
-	if is_moving():
-		boots_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
-		crown_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
-		boots_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
-		crown_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
-
-
-		if displacement.x < 0:
-			pet_position.position.x = 8
-
-		if displacement.x > 0:
-			pet_position.position.x = -8
-
-
-	_play_animation_from_state(get_state())
-
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider is RigidBody2D:
-			collision.collider.apply_central_impulse(-collision.normal * 50)
-
-
-
 
 
 
@@ -388,7 +388,7 @@ func get_speed() -> int:
 
 
 func get_state() -> int:
-	if not is_on_floor() and abs(velocity.y) > 0.25:
+	if not is_on_floor() and abs(velocity.y) > 0.1:
 		return AIR
 
 	if is_moving():
@@ -419,6 +419,9 @@ func is_controllable() -> bool:
 func has_double_jump() -> bool:
 	return player_body_editor.inventory.has(ContentManager.items.double_jump)
 
+
+func can_move() -> bool:
+	return not is_playing_death_animation()
 
 
 

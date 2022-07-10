@@ -23,15 +23,11 @@ func _ready():
 
 func _on_local_player_body_input_set():
 	if not network_editor.is_lobby_owner():
-		network_editor.add_to_request_packet_index(1)
+		var player_body_sync_request = PlayerBodySyncRequestPacket.new()
+		player_body_sync_request.player_id = Steam.getSteamID()
+		player_body_sync_request.input = local_player_body_data.input
 		
-		var input_packet = InputPacket.new()
-		input_packet.player_id = Steam.getSteamID()
-		input_packet.time_sent = OS.get_ticks_msec()
-		input_packet.index = network_editor.request_packet_index
-		input_packet.input = local_player_body_data.input
-		
-		_send_unreliable_packet(network_editor.get_looby_owner_id(), input_packet)
+		_send_unreliable_packet(network_editor.get_looby_owner_id(), player_body_sync_request)
 
 
 
@@ -41,19 +37,14 @@ func _on_local_player_body_input_set():
 
 
 
-func send_position_packet(player_id, index):
+func _send_position_packet(player_body_data: PlayerBodyData):
 	for member_id in get_lobby_member_ids():
-		
-		if not world_data.online_player_bodies_data.has(player_id):
-			return
-			
-		var online_player_body_data = world_data.online_player_bodies_data[player_id] as PlayerBodyData
-		var position_packet = PositionPacket.new()
-#		position_packet.time_sent = OS.get_ticks_msec()
-#		position_packet.index = index
-#		position_packet.id = player_id
-#		position_packet.position = online_player_body_data.last_position
-		_send_unreliable_packet(member_id, position_packet) 
+		var player_body_sync_respond_packet = PlayerBodySyncRespondPacket.new()
+		player_body_sync_respond_packet.player_id = player_body_data.body.player_id
+		player_body_sync_respond_packet.tick_sent = OS.get_ticks_msec()
+		player_body_sync_respond_packet.position = player_body_data.last_position
+		player_body_sync_respond_packet.velocity = player_body_data.last_velocity
+		_send_unreliable_packet(member_id, player_body_sync_respond_packet) 
 
 
 
@@ -62,16 +53,13 @@ func send_position_packet(player_id, index):
 
 func _physics_process(_delta):
 	if network_editor.is_lobby_owner():
-		send_position_packet(Steam.getSteamID(), 0)
+		_send_position_packet(world_data.local_player_body_data)
 	
 		for player_id in world_data.online_player_bodies_data.keys():
 			var player_body_data = world_data.online_player_bodies_data[player_id] as PlayerBodyData
-			
-			if player_body_data.is_processed_on_server:
-				send_position_packet(player_id, player_body_data.request_index)
+			if player_body_data.body == null:
+				return
+			_send_position_packet(player_body_data)
 
 
 
-
-func _on_ServerTickTimer_timeout():
-	pass # Replace with function body.

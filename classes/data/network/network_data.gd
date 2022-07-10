@@ -16,8 +16,6 @@ var lobby_id: int setget _lobby_id
 
 var connected_players: Array setget _connected_players
 
-var request_packet_index: int setget _request_packet_index
-
 
 var sent_packet: Packet setget _sent_packet
 

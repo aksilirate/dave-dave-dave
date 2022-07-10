@@ -19,8 +19,9 @@ signal activated_checkpoints_set
 signal activated_checkpoints_changed
 
 signal respawn_location_changed
-signal last_position_set
 
+signal last_position_set
+signal last_velocity_set
 
 signal input_set
 
@@ -41,13 +42,13 @@ export(Array) var activated_checkpoints: Array setget _activated_checkpoints
 
 export(Vector2) var respawn_location setget _respawn_location
 
+
 export(Vector2) var last_position setget _last_position
+var last_velocity: Vector2 setget _last_velocity
+
+
 
 var input: Vector2 setget _input
-
-var is_processed_on_server: bool setget _is_processed_on_server
-
-var request_index: int setget _request_index
 
 var body: Node2D
 
@@ -99,12 +100,9 @@ func _last_position(value):
 		last_position = value
 
 
+func _last_velocity(_value):
+	return
+
+
 func _input(_value):
-	return
-
-
-func _is_processed_on_server(_value):
-	return
-
-func _request_index(_value):
 	return

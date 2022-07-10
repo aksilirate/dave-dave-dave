@@ -113,11 +113,9 @@ func _on_packet_received():
 		var ping_response_packet = PingResponsePacket.new()
 		ping_response_packet.tick_requested = packet.tick_sent
 		_send_reliable_packet(packet.sender_id, ping_response_packet)
-		print("got ping request")
 	
 	if packet is PingResponsePacket:
 		network_editor.set_ping(OS.get_ticks_msec() - packet.tick_requested)
-		print("got ping response")
 		
 	if packet is GameStatePacket:
 		print(packet.scene_path)

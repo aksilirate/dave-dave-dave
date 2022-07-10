@@ -2,6 +2,9 @@ extends Node
 
 
 
+var steam_id: int
+
+
 func _ready() -> void:
 	_initialize_steam()
 	if not is_owned():
@@ -9,6 +12,10 @@ func _ready() -> void:
 		get_tree().quit()
 	
 	Steam.inputInit()
+	
+	steam_id = Steam.getSteamID()
+
+
 
 
 func _process(_delta: float) -> void:

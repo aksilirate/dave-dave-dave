@@ -130,13 +130,14 @@ func set_last_position(value):
 	emit_signal("last_position_set")
 
 
+func set_last_velocity(value):
+	last_velocity = value
+	emit_signal("last_velocity_set")
+
+
+
 func set_input(value):
 	input = value
 	emit_signal("input_set")
 
 
-func set_is_processed_on_server(value):
-	is_processed_on_server = value
-
-func set_request_index(value):
-	request_index = value

@@ -18,14 +18,6 @@ func set_connected_players(value):
 
 
 
-func set_request_packet_index(value):
-	request_packet_index = value
-
-
-func add_to_request_packet_index(value):
-	request_packet_index += value
-
-
 func set_sent_packet(value):
 	sent_packet = value
 	emit_signal("packet_sent")

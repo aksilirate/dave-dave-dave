@@ -34,6 +34,6 @@ func spawn_missing_player_bodies():
 			
 			var replicated_player_body_instance: ReplicatedPlayerBody = replicated_player_body_scene.instance()
 			replicated_player_body_instance.world_scene = world_scene.get_path()
-			replicated_player_body_instance.id = player_id
+			replicated_player_body_instance.player_id = player_id
 			add_child(replicated_player_body_instance)
 			replicated_player_body_instance.global_position = spawn_position.global_position

@@ -52,7 +52,7 @@ frame = 0
 [node name="Sprite12" parent="AdventureWorldScene/Sprites" index="14"]
 frame = 0
 
-[node name="LocalPlayerBody" parent="AdventureWorldScene" index="51"]
+[node name="LocalPlayerBody" parent="AdventureWorldScene" index="52"]
 new_game = true
 
 [editable path="AdventureWorldScene"]
@@ -162,3 +162,4 @@ new_game = true
 [editable path="AdventureWorldScene/RedMan3"]
 [editable path="AdventureWorldScene/WorldCanvasLayer"]
 [editable path="AdventureWorldScene/WorldCanvasLayer/EscMenu"]
+[editable path="AdventureWorldScene/ReplicatedPlayerBodyFactory"]

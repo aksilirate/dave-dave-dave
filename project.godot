@@ -159,11 +159,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/haste_potion/haste_potion_editor.gd"
 }, {
-"base": "Packet",
-"class": "InputPacket",
-"language": "GDScript",
-"path": "res://classes/packets/input_packet.gd"
-}, {
 "base": "HBoxContainer",
 "class": "InventoryHBoxContainer",
 "language": "GDScript",
@@ -335,9 +330,14 @@ _global_script_classes=[ {
 "path": "res://scenes/objects/PlayerBodySprite/PlayerBodySprite.gd"
 }, {
 "base": "Packet",
-"class": "PositionPacket",
+"class": "PlayerBodySyncRequestPacket",
 "language": "GDScript",
-"path": "res://classes/packets/position_packet.gd"
+"path": "res://classes/packets/playe_body_sync_request_packet.gd"
+}, {
+"base": "Packet",
+"class": "PlayerBodySyncRespondPacket",
+"language": "GDScript",
+"path": "res://classes/packets/player_body_sync_response_packet.gd"
 }, {
 "base": "PlayerBody",
 "class": "ReplicatedPlayerBody",
@@ -435,7 +435,6 @@ _global_script_class_icons={
 "HastePotion": "",
 "HastePotionData": "",
 "HastePotionEditor": "",
-"InputPacket": "",
 "InventoryHBoxContainer": "",
 "Item": "",
 "ItemArea": "",
@@ -470,7 +469,8 @@ _global_script_class_icons={
 "PlayerBodyData": "",
 "PlayerBodyEditor": "",
 "PlayerBodySprite": "",
-"PositionPacket": "",
+"PlayerBodySyncRequestPacket": "",
+"PlayerBodySyncRespondPacket": "",
 "ReplicatedPlayerBody": "",
 "SecondJump": "",
 "SecondJumpData": "",
