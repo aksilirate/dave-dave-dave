@@ -21,6 +21,7 @@ world_scene = NodePath("..")
 world_scene = NodePath("..")
 
 [node name="LocalPlayerBody" parent="." instance=ExtResource( 2 )]
+collision_layer = 1
 world_scene = NodePath("..")
 
 [connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/StartServerGenericButton" to="WorldNetworkManager" method="_on_StartServerGenericButton_pressed"]

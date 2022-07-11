@@ -53,6 +53,7 @@ frame = 0
 frame = 0
 
 [node name="LocalPlayerBody" parent="AdventureWorldScene" index="52"]
+collision_mask = 2
 new_game = true
 
 [editable path="AdventureWorldScene"]

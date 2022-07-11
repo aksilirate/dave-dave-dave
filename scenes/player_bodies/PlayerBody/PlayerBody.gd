@@ -62,12 +62,14 @@ var displacement: Vector2
 
 
 
+var position_history: Array
+
+
 
 var latest_sync_tick: int
 var last_input_recieved: Vector2
 
 
-var target_position: Vector2
 
 
 
@@ -87,26 +89,13 @@ func _ready():
 func _on_packet_received():
 	var packet = network_data.received_packet
 	
-	if packet is PlayerBodySyncRespondPacket:
+	if packet is PlayerBodyPositionSyncPacket:
 		if packet.player_id == player_id:
 			
-			if packet.tick_sent < latest_sync_tick:
+			if global_position == packet.position:
 				return
 				
-			target_position = packet.position
-			
-			velocity = packet.velocity
-			
-			
-			latest_sync_tick = packet.tick_sent
-			
-		
-		
-	if packet is PlayerBodySyncRequestPacket:
-		if network_data.is_lobby_owner():
-			if packet.player_id == player_id:
-				last_input_recieved = packet.input
-
+			position_history.push_back(packet.position)
 
 
 
@@ -190,22 +179,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if target_position != Vector2.ZERO:
-		var sync_weight: float = 0.05
-		
-		if player_id != Steamworks.steam_id:
-			sync_weight = 1.0
-			
-		global_position = lerp(global_position, target_position, sync_weight)
-		displacement = global_position.direction_to(target_position) * -0.5
-		
-		if global_position.distance_to(target_position) < 10:
-			target_position = Vector2.ZERO
-	
-	
-	
-	_simulate_displacement(last_input_recieved)
-	
+	_simulate_displacement(delta, last_input_recieved)
 	
 	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
 	
@@ -229,15 +203,10 @@ func _physics_process(delta):
 			
 	_play_animation_from_state(get_state())
 	
-	
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider is RigidBody2D:
-			collision.collider.apply_central_impulse(-collision.normal * 50)
+	_apply_impulses()
 	
 	
 	player_body_editor.set_last_position(global_position)
-	player_body_editor.set_last_velocity(velocity)
 
 
 
@@ -245,25 +214,54 @@ func _physics_process(delta):
 
 
 
-func _simulate_displacement(arg_input: Vector2):
+func _simulate_displacement(delta, arg_input: Vector2):
+	if network_data.lobby_id:
+		if not Steamworks.steam_id == player_id:
+			
+			if not position_history.size():
+				return
+				
+			displacement = Vector2.ZERO
+			
+			if global_position.distance_to(position_history[0]) > 10:
+				displacement = global_position.direction_to(position_history[0]) * 35
+				
+			var weight = min(1.0, delta * position_history.size())
+				
+			global_position = lerp(global_position, position_history[0], 1)
+			
+			
+			if global_position.distance_to(position_history[0]) < 15:
+				position_history.remove(0)
+				
+			return
+			
+			
 	_move(arg_input.x)
 	
 	
 	if arg_input.y:
 		_jump()
 		
+		
 	if can_move():
-		displacement = move_and_slide_with_snap(Vector2(velocity.x  * get_speed(), velocity.y * speed), 
-							Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor()), 
-							Vector2.UP if gravity > 0 else Vector2.DOWN , false, 4, PI/4, false)
-							
+		displacement = move_and_slide_with_snap(
+							get_velocity(), 
+							get_snap(), 
+							get_up_direction(),
+							false, 4, PI/4, false)
+	
+	velocity.x = lerp(velocity.x, 0, delta * 30)
+	
 	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
+	
 	
 	if is_on_floor():
 		velocity.y = 0
 		jump_timer.start()
 		jumped = false
 		double_jumped = false
+		
 		
 	if is_on_ceiling():
 		velocity.y = gravity
@@ -274,8 +272,24 @@ func _simulate_displacement(arg_input: Vector2):
 
 
 
+func _apply_impulses():
+	if network_data.lobby_id:
+		if Steamworks.steam_id != player_id:
+			return
+			
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider is RigidBody2D:
+			collision.collider.apply_central_impulse(-collision.normal * 50)
+
+
+
+
+
+
 func _move(direction: int):
-	velocity.x = direction
+	if direction:
+		velocity.x = direction
 
 
 
@@ -345,7 +359,7 @@ func _play_animation_from_state(state: int):
 		IDLE:
 			animation_player.play("idle")
 		MOVING:
-			if abs(velocity.x) > 0.0:
+			if abs(displacement.x) > 0.0:
 				animation_player.play("move")
 			else:
 				animation_player.play("idle")
@@ -376,6 +390,19 @@ func _respawn():
 
 
 
+func get_velocity() -> Vector2:
+	return Vector2(velocity.x  * get_speed(), velocity.y * speed)
+
+
+
+func get_snap() -> Vector2:
+	return Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor())
+
+
+
+func get_up_direction() -> Vector2:
+	return Vector2.UP if gravity > 0 else Vector2.DOWN
+
 
 
 
@@ -402,7 +429,7 @@ func get_state() -> int:
 
 
 func is_moving() -> bool:
-	return displacement.x > 0.1 or displacement.x < -0.1
+	return displacement.x > 30 or displacement.x < -30
 
 
 

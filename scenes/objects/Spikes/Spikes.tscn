@@ -7,6 +7,7 @@
 extents = Vector2( 4, 3 )
 
 [node name="Spikes" instance=ExtResource( 1 )]
+modulate = Color( 0.972549, 0, 0, 1 )
 position = Vector2( 9.53674e-07, 1.50463e-36 )
 scale = Vector2( 10, 10 )
 collision_layer = 2

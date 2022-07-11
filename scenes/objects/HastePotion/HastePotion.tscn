@@ -41,7 +41,8 @@ tracks/0/keys = {
 [node name="HastePotion" type="Area2D"]
 scale = Vector2( 10, 10 )
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
+input_pickable = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -22,6 +22,7 @@ var green_gate_data: GreenGateData
 var haste_potion_data: HastePotionData
 
 
+var online_world_data = online_world_data as WorldData
 
 var adventure_world_data = adventure_world_data as WorldData
 
@@ -68,12 +69,18 @@ func _init_all_data():
 	haste_potion_data = DataResource.init_data(data_path + "/HastePotion.tres", HastePotionEditor.new()) as HastePotionData
 	
 	
+	
+	var online_world_local_player_data = DataResource.init_data(data_path + "/online_world/LocalPlayerBody.tres", PlayerBodyEditor.new()) as PlayerBodyData
+	var new_online_world_editor = WorldEditor.new()
+	new_online_world_editor.local_player_body_data = online_world_local_player_data
+	online_world_data = DataResource.init_data(data_path + "/online_world/World.tres", new_online_world_editor) as WorldData
+	
+	
+	
+	
 	var adventure_world_local_player_data = DataResource.init_data(data_path + "/adventure_world/LocalPlayerBody.tres", PlayerBodyEditor.new()) as PlayerBodyData
-	
-	
 	var new_adventure_world_editor = WorldEditor.new()
 	new_adventure_world_editor.local_player_body_data = adventure_world_local_player_data
-	
 	adventure_world_data = DataResource.init_data(data_path + "/adventure_world/World.tres", new_adventure_world_editor) as WorldData
 
 
