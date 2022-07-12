@@ -10,6 +10,8 @@ resource_local_to_scene = true
 extents = Vector2( 60, 80 )
 
 [node name="LockedDoor" instance=ExtResource( 1 )]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

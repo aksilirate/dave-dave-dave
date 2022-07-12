@@ -81,7 +81,6 @@ extents = Vector2( 4, 1 )
 
 [node name="WeakBlock" type="StaticBody2D"]
 scale = Vector2( 10, 10 )
-collision_layer = 3
 collision_mask = 0
 script = ExtResource( 2 )
 
@@ -104,8 +103,8 @@ anims/RESET = SubResource( 2 )
 anims/destruction = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1.90735e-07, -5 )

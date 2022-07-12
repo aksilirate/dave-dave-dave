@@ -2,7 +2,6 @@ class_name PlayerBody
 extends KinematicBody2D
 
 signal player_body_editor_set
-signal player_body_data_set
 
 signal second_jumped
 signal stepped
@@ -10,19 +9,16 @@ signal stepped
 enum {IDLE, MOVING, AIR}
 
 
-
-export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
-
 onready var network_data: NetworkData = DataLoader.network_data
 
+onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
+
 onready var player_body_editor: PlayerBodyEditor
-onready var player_body_data: PlayerBodyData
-
-
 
 
 onready var checkpoint_data = DataLoader.checkpoint_data as CheckpointData
 onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
+onready var diamond_data = DataLoader.diamond_data as DiamondData
 onready var second_jump_data = DataLoader.second_jump_data as SecondJumpData
 onready var item_area_data = DataLoader.item_area_data as ItemAreaData
 onready var item_remover_area_data = DataLoader.item_remover_area_data as ItemRemoverAreaData
@@ -31,14 +27,11 @@ onready var green_gate_data = DataLoader.green_gate_data as GreenGateData
 onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
 
 
-export(bool) var new_game
-
 
 export(bool) var controllable = true
 
 
 export(int) var speed = 800
-export(float) var gravity = 0.25
 
 
 
@@ -57,9 +50,6 @@ var jumped: bool = false
 var double_jumped: bool = false
 
 
-var velocity: Vector2
-var displacement: Vector2
-
 
 
 var position_history: Array
@@ -77,10 +67,11 @@ func _ready():
 	network_data.connect("packet_received", self, "_on_packet_received")
 	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
+	diamond_data.connect("last_collected_diamond_position_set", self, "_on_last_collected_diamond_position_set")
 	item_area_data.connect("activated", self, "_on_item_area_activated")
 	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
-	green_gate_data.connect("entered_body_changed", self, "_on_entered_body_changed")
+	green_gate_data.connect("entered_body_changed", self, "_on_green_gate_entered_body_changed")
 	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 
 
@@ -102,10 +93,7 @@ func _on_packet_received():
 
 
 func _on_inventory_changed():
-	var inventory = player_body_editor.inventory
-	if inventory.has(ContentManager.items.double_jump):
-		boots_sprite.show()
-
+	_update_sprites()
 
 
 
@@ -120,6 +108,16 @@ func _on_checkpoint_activated():
 func _on_damage_area_collided_body_set():
 	if damage_area_data.entered_body == self:
 		_die()
+
+
+
+
+
+
+func _on_last_collected_diamond_position_set():
+	player_body_editor.add_to_collected_diamonds(1)
+
+
 
 
 
@@ -144,14 +142,14 @@ func _on_item_remover_area_activated():
 func _on_mover_block_activated():
 	if mover_block_data.entered_body == self:
 		jump_timer.start()
-		velocity.y = 0.0
+		player_body_editor.set_velocity_y(0.0)
 		move_and_slide(mover_block_data.velocity, Vector2.UP)
 
 
 
 
 
-func _on_entered_body_changed():
+func _on_green_gate_entered_body_changed():
 	var inventory = player_body_editor.inventory
 	if green_gate_data.entered_body == self:
 		if not inventory.has(ContentManager.items.green_crown):
@@ -188,6 +186,8 @@ func _physics_process(delta):
 	
 	
 	if is_moving():
+		var gravity: float = player_body_editor.gravity
+		var displacement: Vector2 = player_body_editor.displacement
 		boots_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
 		crown_sprite.offset.x = 2 * int(displacement.x < 0) if gravity > 0 else int(displacement.x > 0)
 		boots_sprite.flip_h = displacement.x < 0 if gravity > 0 else displacement.x > 0
@@ -221,10 +221,10 @@ func _simulate_displacement(delta, arg_input: Vector2):
 			if not position_history.size():
 				return
 				
-			displacement = Vector2.ZERO
+			player_body_editor.set_displacement(Vector2.ZERO)
 			
 			if global_position.distance_to(position_history[0]) > 10:
-				displacement = global_position.direction_to(position_history[0]) * 35
+				player_body_editor.set_displacement(global_position.direction_to(position_history[0]) * 35)
 				
 			var weight = min(1.0, delta * position_history.size())
 				
@@ -237,6 +237,8 @@ func _simulate_displacement(delta, arg_input: Vector2):
 			return
 			
 			
+	var gravity: float = player_body_editor.gravity
+	
 	_move(arg_input.x)
 	
 	
@@ -245,26 +247,29 @@ func _simulate_displacement(delta, arg_input: Vector2):
 		
 		
 	if can_move():
-		displacement = move_and_slide_with_snap(
+		player_body_editor.set_displacement(
+			move_and_slide_with_snap(
 							get_velocity(), 
 							get_snap(), 
 							get_up_direction(),
 							false, 4, PI/4, false)
+							)
 	
-	velocity.x = lerp(velocity.x, 0, delta * 30)
+	player_body_editor.set_velocity_x(lerp(player_body_editor.velocity.x, 0, delta * 30))
 	
-	velocity.y = min(velocity.y + gravity, gravity * 10) if gravity > 0 else max(velocity.y + gravity, gravity * 10)
+	
+	player_body_editor.set_velocity_y(min(player_body_editor.velocity.y + gravity, gravity * 10) if gravity > 0 else max(player_body_editor.velocity.y + gravity, gravity * 10))
 	
 	
 	if is_on_floor():
-		velocity.y = 0
+		player_body_editor.set_velocity_y(0)
 		jump_timer.start()
 		jumped = false
 		double_jumped = false
 		
 		
 	if is_on_ceiling():
-		velocity.y = gravity
+		player_body_editor.set_velocity_y(gravity)
 
 
 
@@ -289,13 +294,16 @@ func _apply_impulses():
 
 func _move(direction: int):
 	if direction:
-		velocity.x = direction
+		player_body_editor.set_velocity_x(direction)
 
 
 
 
 
 func _jump():
+	var gravity: float = player_body_editor.gravity
+	
+	
 	if second_jump_data.overlapping_bodies.has(self):
 		player_body_editor.emit_signal("second_jumped")
 #		Audio.play("res://assets/sounds/second_jump.wav", -10)
@@ -318,7 +326,7 @@ func _jump():
 				jump_audio_cooldown.start()
 #				Audio.play("res://assets/sounds/jump.wav")
 
-			velocity.y = -3 if gravity > 0 else 3
+			player_body_editor.set_velocity_y(-3 if gravity > 0 else 3)
 			double_jumped = true
 
 
@@ -328,7 +336,7 @@ func _jump():
 				jump_audio_cooldown.start()
 #				Audio.play("res://assets/sounds/jump.wav")
 
-			velocity.y = -3 if gravity > 0 else 3
+			player_body_editor.set_velocity_y(-3 if gravity > 0 else 3)
 			double_jumped = true
 
 
@@ -339,7 +347,7 @@ func _jump():
 #			Audio.play("res://assets/sounds/jump.wav")
 		jump_timer.stop()
 		jumped = true
-		velocity.y = -3 if gravity > 0 else 3
+		player_body_editor.set_velocity_y(-3 if gravity > 0 else 3)
 
 
 
@@ -359,7 +367,7 @@ func _play_animation_from_state(state: int):
 		IDLE:
 			animation_player.play("idle")
 		MOVING:
-			if abs(displacement.x) > 0.0:
+			if abs(player_body_editor.displacement.x) > 0.0:
 				animation_player.play("move")
 			else:
 				animation_player.play("idle")
@@ -373,8 +381,9 @@ func _play_animation_from_state(state: int):
 
 
 func _die():
-	player_body_editor.add_to_deaths(1)
-	animation_player.play("death")
+	if not animation_player.current_animation == "death":
+		player_body_editor.add_to_deaths(1)
+		animation_player.play("death")
 
 
 
@@ -384,24 +393,35 @@ func _die():
 func _respawn():
 	global_position = player_body_editor.respawn_location
 	pet_body.global_position = pet_position.global_position
-	velocity = Vector2.ZERO
+	player_body_editor.set_velocity(Vector2.ZERO)
 	jumped = false
 
 
 
 
+
+
+func _update_sprites():
+	var inventory = player_body_editor.inventory
+	if inventory.has(ContentManager.items.double_jump):
+		boots_sprite.show()
+	if inventory.has(ContentManager.items.green_crown):
+		crown_sprite.show()
+
+
+
 func get_velocity() -> Vector2:
-	return Vector2(velocity.x  * get_speed(), velocity.y * speed)
+	return Vector2(player_body_editor.velocity.x  * get_speed(), player_body_editor.velocity.y * speed)
 
 
 
 func get_snap() -> Vector2:
-	return Vector2.DOWN if gravity > 0 else Vector2.UP * int(is_on_floor())
+	return Vector2.DOWN if player_body_editor.gravity > 0 else Vector2.UP * int(is_on_floor())
 
 
 
 func get_up_direction() -> Vector2:
-	return Vector2.UP if gravity > 0 else Vector2.DOWN
+	return Vector2.UP if player_body_editor.gravity > 0 else Vector2.DOWN
 
 
 
@@ -415,7 +435,7 @@ func get_speed() -> int:
 
 
 func get_state() -> int:
-	if not is_on_floor() and abs(velocity.y) > 0.1:
+	if not is_on_floor() and abs(player_body_editor.velocity.y) > 0.1:
 		return AIR
 
 	if is_moving():
@@ -429,7 +449,7 @@ func get_state() -> int:
 
 
 func is_moving() -> bool:
-	return displacement.x > 30 or displacement.x < -30
+	return player_body_editor.displacement.x > 30 or player_body_editor.displacement.x < -30
 
 
 
@@ -473,14 +493,13 @@ func can_move() -> bool:
 
 
 func _on_PlayerBody_player_body_editor_set():
-	player_body_data = player_body_editor as PlayerBodyData
-	emit_signal("player_body_data_set")
-	
 	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	player_body_editor.set_body(self)
 	
-	if new_game:
+	if current_game_state.reset_data:
 		player_body_editor.set_play_time(0)
+		player_body_editor.set_collected_diamonds(0)
+		player_body_editor.set_deaths(0)
 		player_body_editor.set_inventory([])
 		player_body_editor.set_collected_items([])
 		player_body_editor.set_respawn_location(global_position)
@@ -489,7 +508,7 @@ func _on_PlayerBody_player_body_editor_set():
 		return
 		
 	global_position = player_body_editor.last_position
-	
+	_update_sprites()
 	
 	
 

@@ -2,13 +2,13 @@ class_name ItemArea
 extends Area2D
 
 
-export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
+onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
+onready var local_player_body_data: PlayerBodyData = current_game_state.world_data.local_player_body_data
 
 
 
 onready var item_area_editor: ItemAreaEditor = DataLoader.item_area_data as ItemAreaEditor
 
-onready var local_player_body_data = world_scene.world_data.local_player_body_data
 
 onready var sprite = $Sprite
 

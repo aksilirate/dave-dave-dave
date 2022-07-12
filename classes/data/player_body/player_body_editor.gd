@@ -58,6 +58,18 @@ func add_to_collected_items(collected_item):
 
 
 
+func set_collected_diamonds(value: int):
+	collected_diamonds = value
+	emit_signal("collected_diamonds_changed")
+	emit_changed()
+
+
+
+func add_to_collected_diamonds(amount: int):
+	collected_diamonds += amount
+	emit_signal("collected_diamonds_changed")
+	emit_changed()
+
 
 
 
@@ -81,6 +93,12 @@ func remove_from_haste_time(amount: float):
 	if amount > 0.0:
 		emit_signal("haste_time_changed")
 
+
+
+func set_deaths(value: int):
+	deaths = value
+	emit_signal("deaths_changed")
+	emit_changed()
 
 
 func add_to_deaths(amount: int):
@@ -130,9 +148,32 @@ func set_last_position(value):
 	emit_signal("last_position_set")
 
 
-func set_last_velocity(value):
-	last_velocity = value
-	emit_signal("last_velocity_set")
+
+func set_velocity(value):
+	velocity = value
+	emit_signal("velocity_set")
+
+
+
+func set_velocity_x(value):
+	velocity.x = value
+	emit_signal("velocity_set")
+
+
+
+func set_velocity_y(value):
+	velocity.y = value
+	emit_signal("velocity_set")
+
+
+
+
+func set_gravity(value):
+	gravity = value
+
+
+func set_displacement(value):
+	displacement = value
 
 
 

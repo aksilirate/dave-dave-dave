@@ -24,8 +24,8 @@ animations = [ {
 
 [node name="GreenGate" type="Area2D"]
 scale = Vector2( 10, 10 )
-collision_layer = 2
-collision_mask = 0
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,7 +34,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_GreenGate_body_entered"]

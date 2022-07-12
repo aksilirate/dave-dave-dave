@@ -34,7 +34,6 @@ func _on_RespawnTimer_timeout():
 
 
 func _on_HastePotion_body_entered(body):
-	print(body)
 	haste_potion_editor.set_entered_body(body)
 	haste_potion_editor.set_haste_time(haste_time)
 	haste_potion_editor.emit_signal("activated")

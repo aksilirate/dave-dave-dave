@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://singletons/DataLoader/GameStates.gd" type="Script" id=1]
 [ext_resource path="res://singletons/DataLoader/DataLoader.gd" type="Script" id=2]
 
 [node name="DataLoader" type="Node"]
 script = ExtResource( 2 )
+
+[node name="GameStates" type="Node" parent="."]
+script = ExtResource( 1 )
+title_state_path = "res://scenes/game_states/TitleState/TitleState.tscn"
+new_adventure_play_state_path = "res://scenes/game_states/NewAdventurePlayState/NewAdventurePlayState.tscn"
+adventure_play_state_path = "res://scenes/game_states/AdventurePlayState/AdventurePlayState.tscn"

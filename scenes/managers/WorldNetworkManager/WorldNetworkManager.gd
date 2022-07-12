@@ -2,11 +2,9 @@ class_name WolrdNetworkManager
 extends NetworkManager
 
 
-export(NodePath) onready var world_scene = get_node(world_scene) as WorldScene
-
-onready var world_data = world_scene.world_data as WorldData
-
-onready var local_player_body_data = world_data.local_player_body_data as PlayerBodyData
+onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
+onready var world_data: WorldData = current_game_state.world_data
+onready var local_player_body_data: PlayerBodyData = world_data.local_player_body_data
 
 
 

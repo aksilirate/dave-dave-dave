@@ -11,7 +11,6 @@ func _ready() -> void:
 		print("Game is not owned.")
 		get_tree().quit()
 	
-	Steam.inputInit()
 	
 	steam_id = Steam.getSteamID()
 

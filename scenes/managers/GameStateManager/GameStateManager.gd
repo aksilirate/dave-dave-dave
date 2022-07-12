@@ -2,9 +2,19 @@ class_name GameStateManager
 extends Node
 
 
-export(String, FILE) var title_state_path
-export(String, FILE) var new_adventure_play_state_path
-export(String, FILE) var adventure_play_state_path
+onready var game_state_editor = DataLoader.game_state_data as GameStateEditor
+
+
+
+
+func _ready():
+	game_state_editor.connect("current_state_changed", self, "_on_current_state_changed")
+
+
+
+func _on_current_state_changed():
+	get_tree().change_scene(game_state_editor.current_game_state.path)
+
 
 
 
@@ -14,12 +24,13 @@ func _on_ExitGenericButton_pressed():
 
 
 func _on_AdventureNewGameGenericButton_pressed():
-	get_tree().change_scene(new_adventure_play_state_path)
+	game_state_editor.set_current_game_state(DataLoader.game_states.new_adventure_play_state)
+	
 
 
 func _on_AdventureContinueGenericButton_pressed():
-	get_tree().change_scene(adventure_play_state_path)
+	game_state_editor.set_current_game_state(DataLoader.game_states.adventure_play_state)
 
 
 func _on_ExitToTitleGenericButton_pressed():
-	get_tree().change_scene(title_state_path)
+	game_state_editor.set_current_game_state(DataLoader.game_states.title_state)

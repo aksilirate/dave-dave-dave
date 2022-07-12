@@ -1,14 +1,20 @@
 extends Sprite
 
 
+var target_location: Vector2
 
-#var target_location: Vector2
-#
-#var unlocked = false
-#
+
+func _ready():
+	set_as_toplevel(true)
+	modulate.a = 0
+	hide()
+
+
+
+
 #func _ready():
 #	Options.connect("hide_pet_updated", self, "_on_options_hide_pet_updated")
-#	set_as_toplevel(true)
+#	
 #	unlocked = Save.get_pet_unlocked()
 #	visible = !Options.get_hide_pet()
 #

@@ -13,7 +13,7 @@ var text: String setget _text
 
 
 
-func _shown(value):
+func _shown(_value):
 	return
 
 

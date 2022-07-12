@@ -15,5 +15,5 @@ func _ready():
 		var file_name = dir.get_next()
 		while file_name != "":
 			if file_name.get_extension() == "pck":
-				ProjectSettings.load_resource_pack("user://mods/" + file_name, true)
+				var _success = ProjectSettings.load_resource_pack("user://mods/" + file_name, true)
 			file_name = dir.get_next()

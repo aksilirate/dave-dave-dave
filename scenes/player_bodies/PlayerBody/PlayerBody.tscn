@@ -396,7 +396,6 @@ scale = Vector2( 10, 10 )
 
 [node name="PlayerBodySprite" parent="Sprites" instance=ExtResource( 3 )]
 position = Vector2( 9.53674e-08, -1 )
-player_body = NodePath("../..")
 
 [node name="BootsSprite" type="Sprite" parent="Sprites"]
 visible = false

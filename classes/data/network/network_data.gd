@@ -33,7 +33,7 @@ func _lobby_id(_value):
 	return
 
 
-func _connected_players(value):
+func _connected_players(_value):
 	return
 
 

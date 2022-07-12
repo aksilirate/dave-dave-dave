@@ -11,6 +11,7 @@ signal inventory_changed
 signal collected_items_set
 signal collected_items_changed
 
+signal collected_diamonds_changed
 
 signal haste_time_changed
 signal deaths_changed
@@ -21,9 +22,14 @@ signal activated_checkpoints_changed
 signal respawn_location_changed
 
 signal last_position_set
-signal last_velocity_set
+
+
+signal velocity_set
+
 
 signal input_set
+
+
 
 
 export(float) var play_time setget _play_time
@@ -32,7 +38,7 @@ export(Array) var inventory: Array setget _inventory
 
 export(Array) var collected_items: Array setget _collected_items
 
-export(int) var diamonds_collected setget _diamonds_collected
+export(int) var collected_diamonds setget _collected_diamonds
 
 var haste_time: float setget _haste_time 
 
@@ -43,8 +49,16 @@ export(Array) var activated_checkpoints: Array setget _activated_checkpoints
 export(Vector2) var respawn_location setget _respawn_location
 
 
+
 export(Vector2) var last_position setget _last_position
-var last_velocity: Vector2 setget _last_velocity
+
+
+
+var gravity: float = 0.25 setget _gravity
+
+var velocity: Vector2 setget _velocity
+
+var displacement: Vector2 setget _displacement
 
 
 
@@ -70,9 +84,9 @@ func _collected_items(value):
 
 
 
-func _diamonds_collected(value):
+func _collected_diamonds(value):
 	if not DataLoader.finished:
-		diamonds_collected = value
+		collected_diamonds = value
 
 
 func _haste_time(value):
@@ -100,8 +114,21 @@ func _last_position(value):
 		last_position = value
 
 
-func _last_velocity(_value):
+
+
+
+
+func _gravity(_value):
 	return
+
+
+func _velocity(_value):
+	return
+
+
+func _displacement(_value):
+	return
+	
 
 
 func _input(_value):
