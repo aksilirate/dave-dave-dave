@@ -7,7 +7,7 @@ signal playing_changed
 
 
 
-var playing: int setget _playing
+var playing: bool setget _playing
 
 
 

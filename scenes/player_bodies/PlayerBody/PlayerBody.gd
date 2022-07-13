@@ -16,7 +16,7 @@ onready var current_game_state: WorldGameState = DataLoader.game_state_data.curr
 onready var player_body_editor: PlayerBodyEditor
 
 
-onready var cutscene_data: CutsceneData = DataLoader.cutscene_data
+onready var cutscene_animation_player_data: CutsceneAnimationPlayerData = DataLoader.cutscene_animation_player_data
 
 onready var checkpoint_data = DataLoader.checkpoint_data as CheckpointData
 onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData

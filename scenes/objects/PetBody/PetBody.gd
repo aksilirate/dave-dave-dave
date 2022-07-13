@@ -41,8 +41,8 @@ func _ready():
 #		flip_h = false
 #	if (global_position - target_location).normalized().x > 0:
 #		flip_h = true
-#
-#
-#func _on_PetBody_visibility_changed():
-#	if Options.get_hide_pet():
-#		hide()
+
+
+
+func _on_PetBody_visibility_changed():
+	hide()

@@ -18,3 +18,8 @@ func _on_Area2D_area_entered(area: Node2D):
 	animation_player.play("death")
 	emit_signal("died")
 	area.queue_free()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "death":
+		queue_free()

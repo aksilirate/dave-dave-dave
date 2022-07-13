@@ -17,3 +17,6 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="." index="1"]
 position = Vector2( 2.98023e-09, -1.19209e-08 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2( 0, 1 )

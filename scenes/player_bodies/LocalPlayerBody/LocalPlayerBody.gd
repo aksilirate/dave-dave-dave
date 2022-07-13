@@ -44,8 +44,9 @@ func is_controllable() -> bool:
 	if chat_input_data.shown:
 		return false
 	
-	if cutscene_data.active_cutscene != Cutscenes.NULL:
+	if cutscene_animation_player_data.playing:
 		return false
+		
 	return .is_controllable()
 
 
