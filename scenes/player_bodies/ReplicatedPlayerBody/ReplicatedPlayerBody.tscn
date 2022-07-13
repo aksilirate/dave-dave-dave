@@ -11,6 +11,7 @@ extents = Vector2( 30, 35 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
+controllable = null
 
 [node name="CollisionShape2D" parent="." index="3"]
 shape = SubResource( 1 )

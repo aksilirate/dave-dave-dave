@@ -32,7 +32,8 @@ func _send_position_sync_packet(player_body_data: PlayerBodyData):
 
 
 func _physics_process(_delta):
-	_send_velocity_sync_packet(world_data.local_player_body_data)
-	_send_position_sync_packet(world_data.local_player_body_data)
+	if network_editor.lobby_id:
+		_send_velocity_sync_packet(world_data.local_player_body_data)
+		_send_position_sync_packet(world_data.local_player_body_data)
 
 

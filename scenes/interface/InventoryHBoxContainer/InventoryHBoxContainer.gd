@@ -30,7 +30,7 @@ func _update_items():
 		var item_texture_rect = preload("res://scenes/interface/ItemTextureRect/ItemTextureRect.tscn").instance()
 		
 		if item.texture == null:
-			return
+			continue
 			
 		item_texture_rect.texture = item.texture
 		item_texture_rect.modulate = item.color
