@@ -16,6 +16,8 @@ onready var current_game_state: WorldGameState = DataLoader.game_state_data.curr
 onready var player_body_editor: PlayerBodyEditor
 
 
+onready var cutscene_data: CutsceneData = DataLoader.cutscene_data
+
 onready var checkpoint_data = DataLoader.checkpoint_data as CheckpointData
 onready var damage_area_data = DataLoader.damage_area_data as DamageAreaData
 onready var diamond_data = DataLoader.diamond_data as DiamondData
@@ -267,7 +269,7 @@ func _simulate_displacement(delta, arg_input: Vector2):
 		_jump()
 		
 		
-	if can_move():
+	if is_controllable():
 		player_body_editor.set_displacement(
 			move_and_slide_with_snap(
 							get_velocity(), 
@@ -461,6 +463,10 @@ func get_speed() -> int:
 
 
 func get_state() -> int:
+	if not is_controllable():
+		return IDLE
+	
+	
 	if not is_on_floor() and abs(player_body_editor.velocity.y) > 0.1:
 		return AIR
 
@@ -470,6 +476,14 @@ func get_state() -> int:
 	return IDLE
 
 
+
+
+
+func is_controllable() -> bool:
+	if is_playing_death_animation():
+		return false
+	
+	return true
 
 
 
@@ -485,16 +499,14 @@ func is_playing_death_animation() -> bool:
 
 
 
-func is_controllable() -> bool:
-	return true
-
 
 func has_double_jump() -> bool:
 	return player_body_editor.inventory.has(ContentManager.items.double_jump)
 
 
-func can_move() -> bool:
-	return not is_playing_death_animation()
+
+
+
 
 
 

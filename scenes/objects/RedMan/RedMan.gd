@@ -1,3 +1,4 @@
+class_name RedMan
 extends Sprite
 
 signal died

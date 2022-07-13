@@ -27,7 +27,6 @@
 [ext_resource path="res://scenes/objects/WallGun/WallGun.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/objects/Rotation/Rotation.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/objects/MovingPlatform/MovingPlatform.tscn" type="PackedScene" id=27]
-[ext_resource path="res://scenes/managers/cutscene_managers/ClassicWorldCutsceneManager.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/objects/RotatingSpikes/RotatingSpikes.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/objects/Sign/Sign.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/objects/GreenGate/GreenGate.tscn" type="PackedScene" id=31]
@@ -7066,6 +7065,9 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
+[sub_resource type="Animation" id=171]
+resource_name = "asd"
+
 [node name="ClassicWorldScene" instance=ExtResource( 1 )]
 
 [node name="MovementHelp" type="Label" parent="." index="0"]
@@ -12910,7 +12912,6 @@ anims/move = SubResource( 160 )
 
 [node name="CollisionShape2D" parent="RedMan/Area2D" index="0"]
 position = Vector2( -1, 1.5 )
-scale = Vector2( 1, 1 )
 
 [node name="RedMan2" parent="." index="40" instance=ExtResource( 24 )]
 position = Vector2( 25360, 10430 )
@@ -12969,7 +12970,11 @@ position = Vector2( -14290, 8280 )
 [node name="LocalPlayerBody" parent="." index="51"]
 position = Vector2( -14290, 8280 )
 
-[node name="ClassicWorldCutsceneManager" parent="." index="52" instance=ExtResource( 28 )]
+[node name="AnimationPlayer" parent="." index="52"]
+anims/asd = SubResource( 171 )
+
+[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/StartServerGenericButton" to="WorldNetworkManager" method="_on_StartServerGenericButton_pressed"]
+[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/ExitToTitleGenericButton" to="GameStateManager" method="_on_ExitToTitleGenericButton_pressed"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
@@ -13077,4 +13082,3 @@ position = Vector2( -14290, 8280 )
 [editable path="WorldCanvasLayer"]
 [editable path="WorldCanvasLayer/EscMenu"]
 [editable path="ReplicatedPlayerBodyFactory"]
-[editable path="ClassicWorldCutsceneManager"]

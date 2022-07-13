@@ -40,9 +40,14 @@ func get_player_body_editor() -> PlayerBodyEditor:
 
 
 
-
 func is_controllable() -> bool:
-	return !chat_input_data.shown
+	if chat_input_data.shown:
+		return false
+	
+	if cutscene_data.active_cutscene != Cutscenes.NULL:
+		return false
+	return .is_controllable()
+
 
 
 

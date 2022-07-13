@@ -68,8 +68,7 @@ func _init_all_data():
 	options_data = DataResource.init_data(data_path + "/Options.tres", OptionsEditor.new()) as OptionsData
 	generic_button_data = DataResource.init_data(data_path + "/GenericButton.tres", GenericButtonEditor.new()) as GenericButtonData
 	
-	
-	
+	cutscene_data = DataResource.init_data(data_path + "/Cutscene.tres", CutsceneEditor.new()) as CutsceneData
 	
 	damage_area_data = DataResource.init_data(data_path + "/DamageArea.tres", DamageAreaEditor.new()) as DamageAreaData
 	checkpoint_data = DataResource.init_data(data_path + "/Checkpoint.tres", CheckpointEditor.new()) as CheckpointData
