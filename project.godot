@@ -314,6 +314,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/option_check_boxes/OptionCheckBox/OptionCheckBox.gd"
 }, {
+"base": "DataResource",
+"class": "OptionCheckBoxData",
+"language": "GDScript",
+"path": "res://classes/data/option_check_box/option_check_box_data.gd"
+}, {
+"base": "OptionCheckBoxData",
+"class": "OptionCheckBoxEditor",
+"language": "GDScript",
+"path": "res://classes/data/option_check_box/option_check_box_editor.gd"
+}, {
 "base": "HSlider",
 "class": "OptionHSlider",
 "language": "GDScript",
@@ -536,6 +546,8 @@ _global_script_class_icons={
 "NetworkEditor": "",
 "NetworkManager": "",
 "OptionCheckBox": "",
+"OptionCheckBoxData": "",
+"OptionCheckBoxEditor": "",
 "OptionHSlider": "",
 "OptionsData": "",
 "OptionsEditor": "",

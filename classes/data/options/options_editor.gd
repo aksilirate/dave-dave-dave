@@ -24,6 +24,14 @@ func set_smooth_camera(value):
 		emit_changed()
 
 
+
+func set_hide_pet(value):
+	if hide_pet != value:
+		hide_pet = value
+		emit_signal("hide_pet_changed")
+		emit_changed()
+
+
 func set_music_volume_db(value):
 	if music_volume_db != value:
 		music_volume_db = value

@@ -5,6 +5,7 @@ extends DataResource
 signal fullscreen_changed
 signal v_sync_changed 
 signal smooth_camera_changed
+signal hide_pet_changed
 signal music_volume_db_changed
 
 
@@ -37,16 +38,19 @@ func _v_sync(value):
 
 
 
-func _smooth_camera(_value):
-	return
+func _smooth_camera(value):
+	if not DataLoader.finished:
+		smooth_camera = value
 
 
-func _hide_pet(_value):
-	return
+func _hide_pet(value):
+	if not DataLoader.finished:
+		hide_pet = value
 
 
-func _interface_selection(_value):
-	return
+func _interface_selection(value):
+	if not DataLoader.finished:
+		interface_selection = value
 
 
 func _music_volume_db(value):
@@ -54,5 +58,6 @@ func _music_volume_db(value):
 		music_volume_db = value
 
 
-func _sfx_volume_db(_value):
-	return
+func _sfx_volume_db(value):
+	if not DataLoader.finished:
+		sfx_volume_db = value
