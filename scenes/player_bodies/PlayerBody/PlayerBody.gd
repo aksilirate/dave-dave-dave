@@ -29,10 +29,6 @@ onready var green_gate_data = DataLoader.green_gate_data as GreenGateData
 onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
 
 
-
-export(bool) var controllable = true
-
-
 export(int) var speed = 800
 
 
