@@ -5,7 +5,6 @@ extends OptionCheckBox
 
 func _ready():
 	pressed = options_data.hide_pet
-	print(options_data.hide_pet)
 
 
 

@@ -1,22 +1,28 @@
 extends Sprite
 
 
+onready var options_data: OptionsData = DataLoader.options_data
+
 var target_location: Vector2
 
 
 func _ready():
+	options_data.connect("hide_pet_changed", self, "_on_hide_pet_changed")
 	set_as_toplevel(true)
 	modulate.a = 0
-	hide()
 
+
+
+func _update_hidden():
+	if options_data.hide_pet:
+		hide()
+		return
+	show()
 
 
 
 #func _ready():
-#	Options.connect("hide_pet_updated", self, "_on_options_hide_pet_updated")
-#	
 #	unlocked = Save.get_pet_unlocked()
-#	visible = !Options.get_hide_pet()
 #
 #
 #	modulate = Save.get_pet_color()
@@ -43,6 +49,3 @@ func _ready():
 #		flip_h = true
 
 
-
-func _on_PetBody_visibility_changed():
-	hide()
