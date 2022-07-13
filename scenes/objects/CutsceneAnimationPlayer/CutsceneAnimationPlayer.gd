@@ -8,11 +8,11 @@ onready var cutscene_animation_player_editor = DataLoader.cutscene_animation_pla
 
 
 
-func _on_CutsceneAnimationPlayer_animation_started(anim_name):
+func _on_CutsceneAnimationPlayer_animation_started(_anim_name):
 	cutscene_animation_player_editor.set_playing(true)
 
 
-func _on_CutsceneAnimationPlayer_animation_finished(anim_name):
+func _on_CutsceneAnimationPlayer_animation_finished(_anim_name):
 	cutscene_animation_player_editor.set_playing(false)
 
 

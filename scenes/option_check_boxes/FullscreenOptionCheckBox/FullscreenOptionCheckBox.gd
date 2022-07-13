@@ -1,10 +1,12 @@
 extends OptionCheckBox
 
 
+var _signal
+
 
 
 func _ready():
-	options_data.connect("fullscreen_changed", self, "_on_fullscreen_changed")
+	_signal = options_data.connect("fullscreen_changed", self, "_on_fullscreen_changed")
 
 
 

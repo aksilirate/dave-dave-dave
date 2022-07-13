@@ -7,9 +7,11 @@ var relative_x
 var relative_y
 
 
+var _signal
+
 
 func _ready():
-	get_tree().get_root().connect("size_changed", self, "viewport_changed") # register event if viewport changes
+	_signal = get_tree().get_root().connect("size_changed", self, "viewport_changed") # register event if viewport changes
 	viewport_changed()
 	relative_x = 0
 	relative_y = 0
@@ -20,7 +22,7 @@ func _ready():
 
 
 
-func _process(delta):
+func _process(_delta):
 	relative_x = -1 * (mouse_pos.x - (viewport_size.x/2)) / (viewport_size.x/2)
 	relative_y = -1 * (mouse_pos.y - (viewport_size.y/2)) / (viewport_size.y/2)
 	

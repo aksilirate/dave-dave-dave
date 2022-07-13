@@ -18,7 +18,7 @@ func enable() -> void:
 	sprite.frame = 0
 	sprite.show()
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	animation_player.play("destruction")
 
 

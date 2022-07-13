@@ -59,7 +59,9 @@ func _ready():
 func _init_folders():
 	directory.open(Steamworks.get_user_path())
 	directory.make_dir("data")
+	directory.make_dir("data/online_world")
 	directory.make_dir("data/adventure_world")
+
 
 
 

@@ -2,9 +2,11 @@ extends OptionCheckBox
 
 
 
+var _signal
+
 
 func _ready():
-	options_data.connect("smooth_camera_changed", self, "_on_smooth_camera_changed")
+	_signal = options_data.connect("smooth_camera_changed", self, "_on_smooth_camera_changed")
 
 
 

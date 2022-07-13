@@ -4,10 +4,10 @@ extends WorldScene
 
 
 
-
+var _signal
 
 func _ready():
-	network_data.connect("connected_players_changed", self, "_on_connected_players_changed")
+	_signal = network_data.connect("connected_players_changed", self, "_on_connected_players_changed")
 
 
 

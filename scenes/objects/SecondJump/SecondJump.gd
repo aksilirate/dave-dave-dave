@@ -22,11 +22,12 @@ var disabled: bool = false
 var overlapping_bodies_cache: Array
 
 
+var _signal
 
 
 
 func _ready():
-	local_player_body_data.connect("second_jumped", self, "_on_player_body_second_jumped")
+	_signal = local_player_body_data.connect("second_jumped", self, "_on_player_body_second_jumped")
 	animation_player.play("idle")
 
 
@@ -47,7 +48,7 @@ func _on_player_body_second_jumped():
 	
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	for element in overlapping_bodies_cache:
 		var body: Node2D = element

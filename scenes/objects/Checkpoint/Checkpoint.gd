@@ -15,8 +15,11 @@ onready var sprite = $Sprite
 var activated: bool
 
 
+var _signal
+
+
 func _ready():
-	local_player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
+	_signal = local_player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
 	checkpoint_editor.connect("activated", self, "_on_checkpoint_activated")
 	_update_checkpoint()
 

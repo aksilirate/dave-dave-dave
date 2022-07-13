@@ -18,8 +18,11 @@ onready var spawn_position = $SpawnPosition
 var spawned_player_bodies: Array
 
 
+var _signal
+
+
 func _ready():
-	world_data.connect("online_player_bodies_data_loaded", self, "_on_online_player_bodies_data_loaded")
+	_signal = world_data.connect("online_player_bodies_data_loaded", self, "_on_online_player_bodies_data_loaded")
 	spawn_missing_player_bodies()
 
 

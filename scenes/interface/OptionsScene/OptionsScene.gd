@@ -26,5 +26,5 @@ func _on_OptionsBackGenericButton_pressed():
 	hide()
 
 
-func _on_InterfaceSelectionOptionCheckBox_toggled(button_pressed):
+func _on_InterfaceSelectionOptionCheckBox_toggled(_button_pressed):
 	pass # Replace with function body.

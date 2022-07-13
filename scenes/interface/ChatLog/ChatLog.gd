@@ -4,11 +4,11 @@ extends RichTextLabel
 
 onready var network_data: NetworkData = DataLoader.network_data
 
-
+var _signal
 
 
 func _ready():
-	network_data.connect("packet_received", self, "_on_packet_received")
+	_signal = network_data.connect("packet_received", self, "_on_packet_received")
 
 
 

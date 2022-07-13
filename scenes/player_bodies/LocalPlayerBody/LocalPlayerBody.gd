@@ -10,10 +10,10 @@ onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_controllable():
 		var input: Vector2
-		var x_input: int = ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left"))
+		var x_input: int = int(ceil(Input.get_action_strength("move_right")) - ceil(Input.get_action_strength("move_left")))
 		var y_input = Input.get_action_strength("jump")
 		input = Vector2(x_input, y_input)
 		

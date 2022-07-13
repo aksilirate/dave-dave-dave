@@ -7,9 +7,9 @@ var speed: float
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_position += direction * speed
 
 
-func _on_Bullet_body_entered(body):
+func _on_Bullet_body_entered(_body):
 	queue_free()

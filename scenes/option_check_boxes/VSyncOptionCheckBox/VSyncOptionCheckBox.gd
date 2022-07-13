@@ -1,11 +1,11 @@
 extends OptionCheckBox
 
 
-
+var _signal
 
 
 func _ready():
-	options_data.connect("v_sync_changed", self, "_on_v_sync_changed")
+	_signal = options_data.connect("v_sync_changed", self, "_on_v_sync_changed")
 
 
 

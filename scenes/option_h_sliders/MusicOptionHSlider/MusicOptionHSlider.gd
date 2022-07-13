@@ -1,8 +1,12 @@
 extends OptionHSlider
 
 
+
+var _signal
+
+
 func _ready():
-	options_data.connect("music_volume_db_changed", self, "_on_music_volume_db_changed")
+	_signal = options_data.connect("music_volume_db_changed", self, "_on_music_volume_db_changed")
 
 
 

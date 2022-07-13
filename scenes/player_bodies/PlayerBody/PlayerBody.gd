@@ -62,24 +62,25 @@ var latest_sync_tick: int
 var last_input_recieved: Vector2
 
 
+var _signal
 
 
 
 func _ready():
-	network_data.connect("packet_received", self, "_on_packet_received")
-	checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
-	damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
-	diamond_data.connect("last_collected_diamond_position_set", self, "_on_last_collected_diamond_position_set")
-	item_area_data.connect("activated", self, "_on_item_area_activated")
-	item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
-	mover_block_data.connect("activated", self, "_on_mover_block_activated")
-	green_gate_data.connect("entered_body_changed", self, "_on_green_gate_entered_body_changed")
-	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
+	_signal =network_data.connect("packet_received", self, "_on_packet_received")
+	_signal = checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
+	_signal = damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
+	_signal = diamond_data.connect("last_collected_diamond_position_set", self, "_on_last_collected_diamond_position_set")
+	_signal = item_area_data.connect("activated", self, "_on_item_area_activated")
+	_signal = item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
+	_signal = mover_block_data.connect("activated", self, "_on_mover_block_activated")
+	_signal = green_gate_data.connect("entered_body_changed", self, "_on_green_gate_entered_body_changed")
+	_signal = haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 	
 	player_body_editor = get_player_body_editor()
 	player_id = get_player_id()
 	
-	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
+	_signal = player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	player_body_editor.set_body(self)
 	
 	if current_game_state.reset_data:
@@ -167,7 +168,9 @@ func _on_mover_block_activated():
 	if mover_block_data.entered_body == self:
 		jump_timer.start()
 		player_body_editor.set_velocity_y(0.0)
-		move_and_slide(mover_block_data.velocity, Vector2.UP)
+		player_body_editor.set_displacement(
+			move_and_slide(mover_block_data.velocity, Vector2.UP)
+		)
 
 
 
@@ -250,7 +253,7 @@ func _simulate_displacement(delta, arg_input: Vector2):
 			if global_position.distance_to(position_history[0]) > 10:
 				player_body_editor.set_displacement(global_position.direction_to(position_history[0]) * 35)
 				
-			var weight = min(1.0, delta * position_history.size())
+			#var _weight = min(1.0, delta * position_history.size())
 				
 			global_position = lerp(global_position, position_history[0], 1)
 			
@@ -263,7 +266,7 @@ func _simulate_displacement(delta, arg_input: Vector2):
 			
 	var gravity: float = player_body_editor.gravity
 	
-	_move(arg_input.x)
+	_move(int(arg_input.x))
 	
 	
 	if arg_input.y:

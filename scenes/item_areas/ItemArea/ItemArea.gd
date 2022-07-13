@@ -15,8 +15,11 @@ onready var sprite = $Sprite
 export(Resource) var item = item as Item
 
 
+var _signal
+
+
 func _ready():
-	local_player_body_data.connect("collected_items_changed", self, "_on_player_body_collected_items_changed")
+	_signal = local_player_body_data.connect("collected_items_changed", self, "_on_player_body_collected_items_changed")
 		
 	$AnimationPlayer.play("idle")
 	_update_visibility()

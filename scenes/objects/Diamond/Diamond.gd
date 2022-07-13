@@ -11,6 +11,6 @@ func _ready():
 	diamond_editor.add_to_diamonds(global_position)
 
 
-func _on_Diamond_body_entered(body):
+func _on_Diamond_body_entered(_body):
 	diamond_editor.set_last_collected_diamond_position(global_position)
 	queue_free()

@@ -30,9 +30,9 @@ func start_platform():
 	tween.start()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	kinematic_body.position = kinematic_body.position.linear_interpolate(follow, 0.075)
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	if start_with_player and not started:
 		start_platform()

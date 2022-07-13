@@ -6,18 +6,19 @@ onready var game_state_editor = DataLoader.game_state_data as GameStateEditor
 onready var network_data: NetworkData = DataLoader.network_data
 
 
+var _signal
 
 
 func _ready():
-	game_state_editor.connect("current_state_changed", self, "_on_current_state_changed")
-	network_data.connect("packet_received", self, "_packet_received")
+	_signal = game_state_editor.connect("current_state_changed", self, "_on_current_state_changed")
+	_signal = network_data.connect("packet_received", self, "_packet_received")
 
 
 
 
 
 func _on_current_state_changed():
-	get_tree().change_scene(game_state_editor.current_game_state.path)
+	var _error = get_tree().change_scene(game_state_editor.current_game_state.path)
 
 
 

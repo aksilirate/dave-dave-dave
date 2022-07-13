@@ -9,11 +9,12 @@ onready var local_player_body_data: PlayerBodyData = current_game_state.world_da
 onready var diamonds_data = DataLoader.diamond_data as DiamondData
 
 
+var _signal
 
 
 func _ready():
-	local_player_body_data.connect("collected_diamonds_changed", self, "_on_player_body_collected_diamonds_changed")
-	diamonds_data.connect("diamonds_changed", self, "_on_diamonds_changed")
+	_signal = local_player_body_data.connect("collected_diamonds_changed", self, "_on_player_body_collected_diamonds_changed")
+	_signal = diamonds_data.connect("diamonds_changed", self, "_on_diamonds_changed")
 
 	_update_text()
 
