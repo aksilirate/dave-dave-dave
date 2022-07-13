@@ -19,6 +19,8 @@ var generic_button_data: GenericButtonData
 
 var cutscene_animation_player_data: CutsceneAnimationPlayerData
 
+var replicated_player_body_factory_data: ReplicatedPlayerBodyFactoryData
+
 var damage_area_data: DamageAreaData
 var checkpoint_data: CheckpointData
 var diamond_data: DiamondData
@@ -69,6 +71,8 @@ func _init_all_data():
 	generic_button_data = DataResource.init_data(data_path + "/GenericButton.tres", GenericButtonEditor.new()) as GenericButtonData
 	
 	cutscene_animation_player_data = DataResource.init_data(data_path + "/CutsceneAnimationPlayer.tres", CutsceneAnimationPlayerEditor.new()) as CutsceneAnimationPlayerData
+	
+	replicated_player_body_factory_data = DataResource.init_data(data_path + "/ReplicatedPlayerBodyFactory.tres", ReplicatedPlayerBodyFactoryEditor.new()) as ReplicatedPlayerBodyFactoryData
 	
 	damage_area_data = DataResource.init_data(data_path + "/DamageArea.tres", DamageAreaEditor.new()) as DamageAreaData
 	checkpoint_data = DataResource.init_data(data_path + "/Checkpoint.tres", CheckpointEditor.new()) as CheckpointData

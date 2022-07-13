@@ -77,6 +77,7 @@ func _ready():
 	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 	
 	player_body_editor = get_player_body_editor()
+	player_id = get_player_id()
 	
 	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	player_body_editor.set_body(self)
@@ -435,6 +436,10 @@ func _update_sprites():
 
 func get_player_body_editor() -> PlayerBodyEditor:
 	return player_body_editor
+
+
+func get_player_id() -> int:
+	return 0
 
 
 

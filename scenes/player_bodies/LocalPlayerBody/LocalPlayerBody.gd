@@ -10,13 +10,6 @@ onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 
 
-func _ready():
-	player_id = Steamworks.steam_id
-
-
-
-
-
 func _physics_process(delta):
 	if is_controllable():
 		var input: Vector2
@@ -37,6 +30,9 @@ func _physics_process(delta):
 func get_player_body_editor() -> PlayerBodyEditor:
 	return current_game_state.world_data.local_player_body_data as PlayerBodyEditor
 
+
+func get_player_id() -> int:
+	return Steamworks.steam_id
 
 
 

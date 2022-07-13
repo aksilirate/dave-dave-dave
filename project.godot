@@ -399,6 +399,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/player_bodies/ReplicatedPlayerBody/ReplicatedPlayerBody.gd"
 }, {
+"base": "DataResource",
+"class": "ReplicatedPlayerBodyFactoryData",
+"language": "GDScript",
+"path": "res://classes/data/replicated_player_body_factory/replicated_player_body_factory_data.gd"
+}, {
+"base": "ReplicatedPlayerBodyFactoryData",
+"class": "ReplicatedPlayerBodyFactoryEditor",
+"language": "GDScript",
+"path": "res://classes/data/replicated_player_body_factory/replicated_player_body_factory_editor.gd"
+}, {
 "base": "Area2D",
 "class": "SecondJump",
 "language": "GDScript",
@@ -543,6 +553,8 @@ _global_script_class_icons={
 "PlayerBodyVelocitySyncPacket": "",
 "RedMan": "",
 "ReplicatedPlayerBody": "",
+"ReplicatedPlayerBodyFactoryData": "",
+"ReplicatedPlayerBodyFactoryEditor": "",
 "SecondJump": "",
 "SecondJumpData": "",
 "SecondJumpEditor": "",

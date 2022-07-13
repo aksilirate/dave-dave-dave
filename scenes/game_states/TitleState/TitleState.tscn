@@ -64,18 +64,10 @@ margin_top = 0.0
 margin_right = 0.0
 margin_bottom = 0.0
 
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/PlayGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer" method="_on_PlayGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/PlayGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_PlayGenericButton_pressed"]
 [connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
 [connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/ExitGenericButton" to="GameStateManager" method="_on_ExitGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_AdvantureGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" method="_on_AdvantureGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer" method="_on_PlayBackGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_PlayBackGenericButton_pressed"]
 [connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdventureContinueGenericButton" to="GameStateManager" method="_on_AdventureContinueGenericButton_pressed"]
 [connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdventureNewGameGenericButton" to="GameStateManager" method="_on_AdventureNewGameGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdvantureBackGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_AdvantureBackGenericButton_pressed"]
-[connection signal="pressed" from="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdvantureBackGenericButton" to="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" method="_on_AdvantureBackGenericButton_pressed"]
 [connection signal="finished" from="PreTitleScene" to="TitleMusicPlayer" method="_on_PreTitleScene_finished"]
 
 [editable path="TitleScene"]
