@@ -1,10 +1,10 @@
 class_name PlayerBody
 extends KinematicBody2D
 
-signal player_body_editor_set
 
 signal second_jumped
 signal stepped
+
 
 enum {IDLE, MOVING, AIR}
 
@@ -73,6 +73,27 @@ func _ready():
 	mover_block_data.connect("activated", self, "_on_mover_block_activated")
 	green_gate_data.connect("entered_body_changed", self, "_on_green_gate_entered_body_changed")
 	haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
+	
+	player_body_editor = get_player_body_editor()
+	
+	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
+	player_body_editor.set_body(self)
+	
+	if current_game_state.reset_data:
+		player_body_editor.set_play_time(0)
+		player_body_editor.set_collected_diamonds(0)
+		player_body_editor.set_deaths(0)
+		player_body_editor.set_inventory([])
+		player_body_editor.set_collected_items([])
+		player_body_editor.set_respawn_location(global_position)
+		player_body_editor.set_last_position(global_position)
+		player_body_editor.set_activated_checkpoints([])
+		return
+		
+	global_position = player_body_editor.last_position
+	_update_sprites()
+
+
 
 
 
@@ -410,6 +431,11 @@ func _update_sprites():
 
 
 
+func get_player_body_editor() -> PlayerBodyEditor:
+	return null
+
+
+
 func get_velocity() -> Vector2:
 	return Vector2(player_body_editor.velocity.x  * get_speed(), player_body_editor.velocity.y * speed)
 
@@ -489,28 +515,6 @@ func can_move() -> bool:
 #
 #func play_footstep():
 #	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
-
-
-
-func _on_PlayerBody_player_body_editor_set():
-	player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
-	player_body_editor.set_body(self)
-	
-	if current_game_state.reset_data:
-		player_body_editor.set_play_time(0)
-		player_body_editor.set_collected_diamonds(0)
-		player_body_editor.set_deaths(0)
-		player_body_editor.set_inventory([])
-		player_body_editor.set_collected_items([])
-		player_body_editor.set_respawn_location(global_position)
-		player_body_editor.set_last_position(global_position)
-		player_body_editor.set_activated_checkpoints([])
-		return
-		
-	global_position = player_body_editor.last_position
-	_update_sprites()
-	
-	
 
 
 

@@ -15,7 +15,7 @@ func _send_velocity_sync_packet(player_body_data: PlayerBodyData):
 	for member_id in get_lobby_member_ids():
 		var player_body_velocity_sync_packet = PlayerBodyVelocitySyncPacket.new()
 		player_body_velocity_sync_packet.player_id = player_body_data.body.player_id
-		player_body_velocity_sync_packet.velocity = player_body_data.last_velocity
+		player_body_velocity_sync_packet.velocity = player_body_data.velocity
 		_send_reliable_packet(member_id, player_body_velocity_sync_packet) 
 
 

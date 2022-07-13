@@ -1,6 +1,8 @@
 class_name NetworkManager
 extends Node
 
+
+
 enum LobbyAvailability {PRIVATE, FRIENDS, PUBLIC, INVISIBLE}
 
 onready var network_editor = DataLoader.network_data as NetworkEditor
@@ -116,10 +118,6 @@ func _on_packet_received():
 	
 	if packet is PingResponsePacket:
 		network_editor.set_ping(OS.get_ticks_msec() - packet.tick_requested)
-		
-	if packet is GameStatePacket:
-		print(packet.scene_path)
-		get_tree().change_scene(packet.scene_path)
 
 
 

@@ -5,12 +5,13 @@ extends PlayerBody
 
 onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
+
+
+
+
+
 func _ready():
-	player_body_editor = current_game_state.world_data.local_player_body_data as PlayerBodyEditor
 	player_id = Steamworks.steam_id
-	emit_signal("player_body_editor_set")
-
-
 
 
 
@@ -27,6 +28,15 @@ func _physics_process(delta):
 		last_input_recieved = input
 		
 		return
+
+
+
+
+
+
+func get_player_body_editor() -> PlayerBodyEditor:
+	return current_game_state.world_data.local_player_body_data as PlayerBodyEditor
+
 
 
 
