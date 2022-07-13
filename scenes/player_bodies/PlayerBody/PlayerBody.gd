@@ -67,7 +67,6 @@ var _signal
 
 
 func _ready():
-	_signal =network_data.connect("packet_received", self, "_on_packet_received")
 	_signal = checkpoint_data.connect("activated", self, "_on_checkpoint_activated")
 	_signal = damage_area_data.connect("collided_body_set", self, "_on_damage_area_collided_body_set")
 	_signal = diamond_data.connect("last_collected_diamond_position_set", self, "_on_last_collected_diamond_position_set")
@@ -102,16 +101,6 @@ func _ready():
 
 
 
-func _on_packet_received():
-	var packet = network_data.received_packet
-	
-	if packet is PlayerBodyPositionSyncPacket:
-		if packet.player_id == player_id:
-			
-			if global_position == packet.position:
-				return
-				
-			position_history.push_back(packet.position)
 
 
 
