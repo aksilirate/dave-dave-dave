@@ -432,7 +432,7 @@ func _update_sprites():
 
 
 func get_player_body_editor() -> PlayerBodyEditor:
-	return null
+	return player_body_editor
 
 
 
