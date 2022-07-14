@@ -9,7 +9,6 @@ onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 
 
-
 func _physics_process(_delta):
 	if is_controllable():
 		var input: Vector2

@@ -6,14 +6,13 @@ onready var current_game_state: WorldGameState = DataLoader.game_state_data.curr
 
 onready var replicated_player_body_factory_data: ReplicatedPlayerBodyFactoryData = DataLoader.replicated_player_body_factory_data
 
-onready var player_body_data: PlayerBodyData
+onready var player_body_data: PlayerBodyData = current_game_state.world_data.local_player_body_data
 
 
 var _signal
 
 
 func _ready():
-	player_body_data = current_game_state.world_data.local_player_body_data
 	if replicated_player_body_factory_data.lastest_spawned_player_id:
 		player_body_data = current_game_state.world_data.online_player_bodies_data[replicated_player_body_factory_data.lastest_spawned_player_id]
 		

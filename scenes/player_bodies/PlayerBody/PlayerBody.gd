@@ -26,6 +26,7 @@ onready var item_area_data = DataLoader.item_area_data as ItemAreaData
 onready var item_remover_area_data = DataLoader.item_remover_area_data as ItemRemoverAreaData
 onready var mover_block_data = DataLoader.mover_block_data as MoverBlockData
 onready var green_gate_data = DataLoader.green_gate_data as GreenGateData
+onready var cyan_gate_data = DataLoader.cyan_gate_data as CyanGateData
 onready var haste_potion_data = DataLoader.haste_potion_data as HastePotionData
 
 
@@ -70,6 +71,7 @@ func _ready():
 	_signal = item_remover_area_data.connect("activated", self, "_on_item_remover_area_activated")
 	_signal = mover_block_data.connect("activated", self, "_on_mover_block_activated")
 	_signal = green_gate_data.connect("entered_body_changed", self, "_on_green_gate_entered_body_changed")
+	_signal = cyan_gate_data.connect("entered_body_changed", self, "_on_cyan_gate_entered_body_changed")
 	_signal = haste_potion_data.connect("activated", self, "_on_haste_potion_activated")
 	
 	player_body_editor = get_player_body_editor()
@@ -167,6 +169,13 @@ func _on_green_gate_entered_body_changed():
 		if not inventory.has(ContentManager.items.green_crown):
 			_die()
 
+
+
+
+
+func _on_cyan_gate_entered_body_changed():
+	if player_body_editor.collected_diamonds < diamond_data.diamonds.size():
+		_die()
 
 
 
