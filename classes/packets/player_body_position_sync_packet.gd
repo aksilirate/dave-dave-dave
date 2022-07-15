@@ -1,6 +1,5 @@
 class_name PlayerBodyPositionSyncPacket
-extends Packet
+extends PlayerBodySyncPacket
 
 
-var player_id: int
 var position: Vector2

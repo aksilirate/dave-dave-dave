@@ -22,8 +22,12 @@ func _on_packet_received():
 				return
 				
 			position_history.push_back(packet.position)
-
-
+	
+	
+	if packet is PlayerBodyInventorySyncPacket:
+		if packet.player_id == player_id:
+			player_body_editor.set_inventory(packet.inventory)
+			return
 
 
 
