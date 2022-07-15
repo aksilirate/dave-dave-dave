@@ -4,14 +4,11 @@ extends Sprite
 signal died
 
 onready var animation_player = $AnimationPlayer
-export (bool) var idle_playing = false
 
 
 
-func _ready():
-	if idle_playing:
-		animation_player.play("idle")
-
+func _play_animation(animation_name: String):
+	animation_player.play(animation_name)
 
 
 func _on_Area2D_area_entered(area: Node2D):

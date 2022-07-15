@@ -27,7 +27,7 @@ func set_inventory(arg_inventory):
 
 func add_to_inventory(item: Item):
 	if not inventory.has(item):
-		inventory.push_back(item)
+		inventory.push_back(item.duplicate())
 		emit_signal("inventory_changed")
 		emit_changed()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=2]
+[gd_scene load_steps=168 format=2]
 
 [ext_resource path="res://scenes/objects/WorldScene/WorldScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://content/items/YellowKey.tres" type="Resource" id=2]
@@ -7065,10 +7065,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2 ]
 }
 
-[sub_resource type="Animation" id=171]
-resource_name = "start"
+[sub_resource type="Animation" id=172]
+length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("RedMan:idle_playing")
+tracks/0/path = NodePath("RedMan:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -7076,8 +7076,68 @@ tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
+"update": 0,
+"values": [ Vector2( -13480, 7950 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RedMan:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
 "values": [ true ]
+}
+
+[sub_resource type="Animation" id=171]
+resource_name = "start"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RedMan:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -13480, 7950 ), Vector2( -13480, 7950 ), Vector2( -12240, 7950 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("RedMan")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "_play_animation"
+}, {
+"args": [ "move" ],
+"method": "_play_animation"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RedMan:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [node name="ClassicWorldScene" instance=ExtResource( 1 )]
@@ -12921,7 +12981,6 @@ texture = ExtResource( 37 )
 [node name="RedMan" parent="." index="39" instance=ExtResource( 24 )]
 position = Vector2( -13480, 7950 )
 flip_h = true
-idle_playing = true
 
 [node name="AnimationPlayer" parent="RedMan" index="0"]
 anims/RESET = SubResource( 156 )
@@ -12936,7 +12995,6 @@ position = Vector2( -1, 1.5 )
 [node name="RedMan2" parent="." index="40" instance=ExtResource( 24 )]
 position = Vector2( 25360, 10430 )
 flip_h = true
-idle_playing = true
 
 [node name="AnimationPlayer" parent="RedMan2" index="0"]
 anims/RESET = SubResource( 161 )
@@ -12949,7 +13007,6 @@ anims/move = SubResource( 165 )
 modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
 position = Vector2( 13800, -530 )
 flip_h = true
-idle_playing = true
 
 [node name="AnimationPlayer" parent="RedMan3" index="0"]
 anims/RESET = SubResource( 166 )
@@ -12961,7 +13018,6 @@ anims/move = SubResource( 170 )
 [node name="RedMan4" parent="." index="42" instance=ExtResource( 24 )]
 modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
 position = Vector2( 12360, 5950 )
-idle_playing = true
 
 [node name="PetChamber" parent="." index="43" instance=ExtResource( 11 )]
 position = Vector2( 6530, 640 )
@@ -12991,11 +13047,10 @@ position = Vector2( -14290, 8280 )
 position = Vector2( -14290, 8280 )
 
 [node name="CutsceneAnimationPlayer" parent="." index="52"]
+anims/RESET = SubResource( 172 )
 anims/start = SubResource( 171 )
 
 [connection signal="ready" from="." to="CutsceneAnimationPlayer" method="_on_ClassicWorldScene_ready"]
-[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/StartServerGenericButton" to="WorldNetworkManager" method="_on_StartServerGenericButton_pressed"]
-[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/ExitToTitleGenericButton" to="GameStateManager" method="_on_ExitToTitleGenericButton_pressed"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]

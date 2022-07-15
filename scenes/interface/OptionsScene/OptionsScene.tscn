@@ -83,8 +83,6 @@ margin_top = -60.0
 margin_right = 232.0
 margin_bottom = -40.0
 
-[connection signal="toggled" from="ToggleOptions/FullscreenOptionCheckBox" to="OptionsManager" method="_on_FullscreenOptionCheckBox_toggled"]
-[connection signal="toggled" from="ToggleOptions/VSyncOptionCheckBox" to="OptionsManager" method="_on_VSyncOptionCheckBox_toggled"]
 [connection signal="toggled" from="ToggleOptions/SmoothCameraOptionCheckBox" to="OptionsManager" method="_on_SmoothCameraOptionCheckBox_toggled"]
 [connection signal="toggled" from="ToggleOptions/InterfaceSelectionOptionCheckBox" to="." method="_on_InterfaceSelectionOptionCheckBox_toggled"]
 [connection signal="value_changed" from="SliderOptions/MusicOptionHSlider" to="OptionsManager" method="_on_MusicOptionHSlider_value_changed"]

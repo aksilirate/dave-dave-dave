@@ -74,4 +74,3 @@ margin_bottom = 0.0
 [editable path="TitleScene/VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer"]
 [editable path="TitleScene/VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer"]
 [editable path="TitleScene/VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer"]
-[editable path="OptionsScene"]

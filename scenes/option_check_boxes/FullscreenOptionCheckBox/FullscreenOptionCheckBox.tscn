@@ -8,3 +8,5 @@ script = ExtResource( 2 )
 
 [node name="NameLabel" parent="." index="0"]
 text = "Fullscreen"
+
+[connection signal="toggled" from="." to="." method="_on_FullscreenOptionCheckBox_toggled"]
