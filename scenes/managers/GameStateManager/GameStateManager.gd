@@ -28,7 +28,7 @@ func _packet_received():
 	var packet = network_data.received_packet
 	if packet is GameStatePacket:
 		print(packet.scene_path)
-		game_state_editor.set_current_game_state(DataLoader.game_states.new_adventure_play_state)
+		game_state_editor.set_current_game_state(DataLoader.game_states.online_play_state)
 
 
 
