@@ -96,7 +96,9 @@ func _on_lobby_chat_update(_lobby_id: int, changer_id: int, _making_change_id: i
 				
 			print(str(changer_id)+" has joined the lobby.")
 		
-		2: print(str(changer_id)+" has left the lobby.")
+		2: 
+			network_editor.set_connected_players(get_lobby_member_ids())
+			print(str(changer_id)+" has left the lobby.")
 		
 		8: print(str(changer_id)+" has been kicked from the lobby.")
 		
