@@ -1,14 +1,11 @@
 extends OptionCheckBox
 
 
-var _signal
 
 
 
 func _ready():
 	pressed = options_data.fullscreen
-
-
 
 
 

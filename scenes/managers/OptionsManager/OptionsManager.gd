@@ -13,7 +13,6 @@ var _signal
 
 
 func _ready():
-	_signal = options_editor.connect("v_sync_changed", self, "_on_v_sync_changed")
 	_signal = options_editor.connect("music_volume_db_changed", self, "_on_music_volume_db_changed")
 	_signal = option_check_box_data.connect("fullscreen_pressed_changed", self, "_on_fullscreen_pressed_changed")
 	_signal = option_check_box_data.connect("v_sync_pressed_changed", self, "_on_v_sync_pressed_changed")
@@ -64,12 +63,6 @@ func _update_v_sync():
 
 func _update_music_volume():
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), options_editor.music_volume_db)
-
-
-
-
-func _on_SmoothCameraOptionCheckBox_toggled(button_pressed):
-	options_editor.set_smooth_camera(button_pressed)
 
 
 

@@ -132,7 +132,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "FinishArea",
 "language": "GDScript",
-"path": "res://scenes/objects/FinishArea2D/FinishArea2D.gd"
+"path": "res://scenes/objects/FinishArea/FinishArea.gd"
 }, {
 "base": "DataResource",
 "class": "FinishAreaData",

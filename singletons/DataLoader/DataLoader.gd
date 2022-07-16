@@ -32,6 +32,8 @@ var mover_block_data: MoverBlockData
 var green_gate_data: GreenGateData
 var cyan_gate_data: CyanGateData
 var haste_potion_data: HastePotionData
+var finish_area_data: FinishAreaData
+
 
 
 var online_world_data = online_world_data as WorldData
@@ -89,7 +91,7 @@ func _init_all_data():
 	green_gate_data = DataResource.init_data(data_path + "/GreenGate.tres", GreenGateEditor.new()) as GreenGateData
 	cyan_gate_data = DataResource.init_data(data_path + "/CyanGate.tres", CyanGateEditor.new()) as CyanGateEditor
 	haste_potion_data = DataResource.init_data(data_path + "/HastePotion.tres", HastePotionEditor.new()) as HastePotionData
-	
+	finish_area_data = DataResource.init_data(data_path + "/FinishArea.tres", FinishAreaEditor.new()) as FinishAreaData
 	
 	
 	var online_world_local_player_data = DataResource.init_data(data_path + "/online_world/LocalPlayerBody.tres", PlayerBodyEditor.new()) as PlayerBodyData

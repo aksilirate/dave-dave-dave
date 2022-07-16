@@ -87,7 +87,8 @@ func _on_p2p_session_request(remote_id: int):
 func _on_lobby_chat_update(_lobby_id: int, changer_id: int, _making_change_id: int, chat_state: int):
 	match chat_state:
 		1: 
-			network_editor.set_connected_players(get_lobby_member_ids())
+			if not network_editor.connected_players.has(changer_id):
+				network_editor.add_to_connected_players(changer_id)
 			
 			if network_editor.is_lobby_owner():
 				var game_state_packet = GameStatePacket.new()
@@ -97,7 +98,8 @@ func _on_lobby_chat_update(_lobby_id: int, changer_id: int, _making_change_id: i
 			print(str(changer_id)+" has joined the lobby.")
 		
 		2: 
-			network_editor.set_connected_players(get_lobby_member_ids())
+			if network_editor.connected_players.has(changer_id):
+				network_editor.remove_from_connected_players(changer_id)
 			print(str(changer_id)+" has left the lobby.")
 		
 		8: print(str(changer_id)+" has been kicked from the lobby.")

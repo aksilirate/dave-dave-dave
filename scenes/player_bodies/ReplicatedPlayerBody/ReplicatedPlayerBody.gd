@@ -21,6 +21,8 @@ func _on_connected_players_changed():
 
 
 
+
+
 func _on_packet_received():
 	var packet = network_data.received_packet
 	
@@ -37,6 +39,13 @@ func _on_packet_received():
 		if packet.player_id == player_id:
 			player_body_editor.set_inventory(packet.inventory)
 			return
+	
+	
+	if packet is PlayerBodyHasteTimeSyncPacket:
+		if packet.player_id == player_id:
+			player_body_editor.set_haste_time(packet.haste_time)
+			return
+
 
 
 
