@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/audio_players/AudioPlayer/AudioPlayer.gd" type="Script" id=3]
+[ext_resource path="res://scenes/objects/AudioStreamPlayer/AudioStreamPlayer.tscn" type="PackedScene" id=4]
+
+[node name="AudioPlayer" type="AudioStreamPlayer"]
+script = ExtResource( 3 )
+audio_stream_player = ExtResource( 4 )
