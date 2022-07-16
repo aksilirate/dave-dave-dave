@@ -345,6 +345,16 @@ _global_script_classes=[ {
 "path": "res://scenes/option_h_sliders/OptionHSlider/OptionHSlider.gd"
 }, {
 "base": "DataResource",
+"class": "OptionHSliderData",
+"language": "GDScript",
+"path": "res://classes/data/option_h_slider/option_h_slider_data.gd"
+}, {
+"base": "OptionHSliderData",
+"class": "OptionHSliderEditor",
+"language": "GDScript",
+"path": "res://classes/data/option_h_slider/option_h_slider_editor.gd"
+}, {
+"base": "DataResource",
 "class": "OptionsData",
 "language": "GDScript",
 "path": "res://classes/data/options/options_data.gd"
@@ -577,6 +587,8 @@ _global_script_class_icons={
 "OptionCheckBoxData": "",
 "OptionCheckBoxEditor": "",
 "OptionHSlider": "",
+"OptionHSliderData": "",
+"OptionHSliderEditor": "",
 "OptionsData": "",
 "OptionsEditor": "",
 "OptionsManager": "",

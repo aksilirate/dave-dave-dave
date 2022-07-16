@@ -16,6 +16,7 @@ var chat_input_data: ChatInputData
 var options_data: OptionsData
 var generic_button_data: GenericButtonData
 var option_check_box_data: OptionCheckBoxData
+var option_h_slider_data: OptionHSliderData
 
 var cutscene_animation_player_data: CutsceneAnimationPlayerData
 
@@ -74,6 +75,7 @@ func _init_all_data():
 	options_data = DataResource.init_data(data_path + "/Options.tres", OptionsEditor.new()) as OptionsData
 	generic_button_data = DataResource.init_data(data_path + "/GenericButton.tres", GenericButtonEditor.new()) as GenericButtonData
 	option_check_box_data = DataResource.init_data(data_path + "/OptionCheckBox.tres", OptionCheckBoxEditor.new()) as OptionCheckBoxData
+	option_h_slider_data = DataResource.init_data(data_path + "/OptionHSliderData.tres", OptionHSliderEditor.new()) as OptionHSliderData
 	
 	
 	cutscene_animation_player_data = DataResource.init_data(data_path + "/CutsceneAnimationPlayer.tres", CutsceneAnimationPlayerEditor.new()) as CutsceneAnimationPlayerData

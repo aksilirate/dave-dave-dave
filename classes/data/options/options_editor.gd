@@ -32,8 +32,16 @@ func set_hide_pet(value):
 		emit_changed()
 
 
+
 func set_music_volume_db(value):
 	if music_volume_db != value:
 		music_volume_db = value
 		emit_signal("music_volume_db_changed")
+		emit_changed()
+
+
+func set_sfx_volume_db(value):
+	if sfx_volume_db != value:
+		sfx_volume_db = value
+		emit_signal("sfx_volume_db_changed")
 		emit_changed()
