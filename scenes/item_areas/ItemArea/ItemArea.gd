@@ -36,6 +36,7 @@ func _on_player_body_collected_items_changed():
 func _update_visibility():
 	if local_player_body_data.collected_items.has(global_position):
 		collision_shape_2d.set_deferred("disabled", true)
+		print("?")
 		hide()
 		return
 	show()
