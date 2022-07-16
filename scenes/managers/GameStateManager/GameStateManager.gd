@@ -51,3 +51,4 @@ func _on_AdventureContinueGenericButton_pressed():
 
 func _on_ExitToTitleGenericButton_pressed():
 	game_state_editor.set_current_game_state(DataLoader.game_states.title_state)
+
