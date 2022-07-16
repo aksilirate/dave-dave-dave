@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/textures/weak_block.png" type="Texture" id=1]
 [ext_resource path="res://scenes/objects/WeakBlock/WeakBlock.gd" type="Script" id=2]
-[ext_resource path="res://scenes/audio_players/WeakBlockSFXPlayer/WeakBlockSFXPlayer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
@@ -84,8 +83,6 @@ scale = Vector2( 10, 10 )
 collision_mask = 0
 script = ExtResource( 2 )
 
-[node name="WeakBlockSFXPlayer" parent="." instance=ExtResource( 3 )]
-
 [node name="RebuildTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 3.0
@@ -111,5 +108,4 @@ position = Vector2( -1.90735e-07, -5 )
 shape = SubResource( 4 )
 
 [connection signal="timeout" from="RebuildTimer" to="." method="_on_RebuildTimer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="WeakBlockSFXPlayer" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

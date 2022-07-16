@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/AdventureWorldScene/AdventureWorldScene.gd"
 }, {
-"base": "Node",
-"class": "AudioManager",
-"language": "GDScript",
-"path": "res://scenes/managers/AudioManager/AudioManager.gd"
-}, {
-"base": "AudioStreamPlayer",
-"class": "AudioPlayer",
-"language": "GDScript",
-"path": "res://scenes/audio_players/AudioPlayer/AudioPlayer.gd"
-}, {
 "base": "DamageArea",
 "class": "Bullet",
 "language": "GDScript",
@@ -479,11 +469,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
 }, {
-"base": "AudioPlayer",
-"class": "TitleMusicPlayer",
-"language": "GDScript",
-"path": "res://scenes/audio_players/TitleMusicPlayer/TitleMusicPlayer.gd"
-}, {
 "base": "Node2D",
 "class": "WallGun",
 "language": "GDScript",
@@ -521,8 +506,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AdventureWorld": "",
-"AudioManager": "",
-"AudioPlayer": "",
 "Bullet": "",
 "ChatInputData": "",
 "ChatInputEditor": "",
@@ -614,7 +597,6 @@ _global_script_class_icons={
 "SecondJumpEditor": "",
 "StartServerGenericButton": "",
 "Time": "",
-"TitleMusicPlayer": "",
 "WallGun": "",
 "WolrdNetworkManager": "",
 "WorldData": "",

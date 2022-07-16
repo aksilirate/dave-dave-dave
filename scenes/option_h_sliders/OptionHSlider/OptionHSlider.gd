@@ -5,7 +5,7 @@ extends HSlider
 onready var options_data: OptionsData = DataLoader.options_data
 
 
-onready var option_h_slider_editor: OptionHSliderEditor
+onready var option_h_slider_editor: OptionHSliderEditor = DataLoader.option_h_slider_data
 
 
 
