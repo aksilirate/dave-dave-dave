@@ -11,6 +11,8 @@ onready var item_area_editor: ItemAreaEditor = DataLoader.item_area_data as Item
 
 
 onready var sprite = $Sprite
+onready var collision_shape_2d = $CollisionShape2D
+
 
 export(Resource) var item = item as Item
 
@@ -33,6 +35,7 @@ func _on_player_body_collected_items_changed():
 
 func _update_visibility():
 	if local_player_body_data.collected_items.has(global_position):
+		collision_shape_2d.set_deferred("disabled", true)
 		hide()
 		return
 	show()

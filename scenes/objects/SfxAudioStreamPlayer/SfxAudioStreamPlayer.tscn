@@ -3,6 +3,8 @@
 [ext_resource path="res://scenes/objects/SfxAudioStreamPlayer/SfxAudioStreamPlayer.gd" type="Script" id=1]
 
 [node name="SfxAudioStreamPlayer" type="AudioStreamPlayer"]
+autoplay = true
+bus = "SFX"
 script = ExtResource( 1 )
 
 [connection signal="finished" from="." to="." method="_on_SfxAudioStreamPlayer_finished"]
