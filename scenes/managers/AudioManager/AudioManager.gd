@@ -32,7 +32,16 @@ func _play(audio_path: String, volume: float =  0.0, pitch: float = 1.0):
 
 
 
-
-
 func _on_OptionsScene_hide():
 	_play("res://assets/sounds/button_press.wav")
+
+
+func _on_LocalPlayerBody_jumped():
+	_play("res://assets/sounds/jump.wav")
+
+func _on_LocalPlayerBody_second_jumped():
+	_play("res://assets/sounds/second_jump.wav")
+
+
+func _on_LocalPlayerBody_stepped():
+	_play("res://assets/sounds/step.wav", -10)

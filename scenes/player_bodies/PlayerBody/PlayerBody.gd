@@ -2,6 +2,7 @@ class_name PlayerBody
 extends KinematicBody2D
 
 
+signal jumped
 signal second_jumped
 signal stepped
 
@@ -327,7 +328,7 @@ func _jump():
 	
 	if second_jump_data.overlapping_bodies.has(self):
 		player_body_editor.emit_signal("second_jumped")
-#		Audio.play("res://assets/sounds/second_jump.wav", -10)
+		emit_signal("second_jumped")
 		jump_timer.start()
 
 
@@ -345,8 +346,7 @@ func _jump():
 		if not jumped and jump_timer.is_stopped():
 			if jump_audio_cooldown.is_stopped():
 				jump_audio_cooldown.start()
-#				Audio.play("res://assets/sounds/jump.wav")
-
+				emit_signal("jumped")
 			player_body_editor.set_velocity_y(-3 if gravity > 0 else 3)
 			double_jumped = true
 
@@ -355,7 +355,7 @@ func _jump():
 
 			if jump_audio_cooldown.is_stopped():
 				jump_audio_cooldown.start()
-#				Audio.play("res://assets/sounds/jump.wav")
+				emit_signal("jumped")
 
 			player_body_editor.set_velocity_y(-3 if gravity > 0 else 3)
 			double_jumped = true
@@ -365,7 +365,7 @@ func _jump():
 	if not jump_timer.is_stopped():
 		if jump_audio_cooldown.is_stopped():
 			jump_audio_cooldown.start()
-#			Audio.play("res://assets/sounds/jump.wav")
+			emit_signal("jumped")
 		jump_timer.stop()
 		jumped = true
 		player_body_editor.set_velocity_y(-3 if gravity > 0 else 3)
