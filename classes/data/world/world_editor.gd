@@ -25,3 +25,9 @@ func set_played(value):
 	played = value
 	emit_changed()
 
+
+
+
+func set_completed(value):
+	completed = value
+	emit_changed()

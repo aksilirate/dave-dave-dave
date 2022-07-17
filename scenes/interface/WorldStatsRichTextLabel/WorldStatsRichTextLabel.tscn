@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/interface/WorldStatsRichTextLabel/WorldStatsRichTextLabel.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[node name="WorldStatsRichTextLabel" type="RichTextLabel"]
+modulate = Color( 1, 1, 1, 0.588235 )
+anchor_top = 0.16
+anchor_bottom = 0.16
+margin_left = 30.0
+margin_top = -68.0
+margin_right = 410.0
+margin_bottom = 72.0
+custom_fonts/normal_font = SubResource( 2 )
+text = "latest run:
+
+
+completed: no
+
+time: --
+
+deaths: --"
+script = ExtResource( 2 )

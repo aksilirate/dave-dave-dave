@@ -13,6 +13,7 @@ export(Dictionary) var online_player_bodies_data: Dictionary setget _online_play
 
 export(bool) var played setget _played
 
+export(bool) var completed setget _completed
 
 
 
@@ -29,6 +30,11 @@ func _online_player_bodies_data(value):
 func _played(value):
 	if not DataLoader.finished:
 		played = value
+
+
+func _completed(value):
+	if not DataLoader.finished:
+		completed = value
 
 
 

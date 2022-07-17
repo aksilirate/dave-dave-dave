@@ -740,7 +740,6 @@ default_bus_layout="res://resources/audio_bus_layouts/default_bus_layout.tres"
 [autoload]
 
 Steamworks="*res://singletons/Steamworks.gd"
-Stats="*res://singletons/Stats.gd"
 DataLoader="*res://singletons/DataLoader/DataLoader.tscn"
 ContentManager="*res://singletons/ContentManager/ContentManager.tscn"
 
