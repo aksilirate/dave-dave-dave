@@ -26,15 +26,15 @@ func set_inventory(arg_inventory):
 
 
 func add_to_inventory(item: Item):
-		inventory.push_back(item)
+		inventory.push_back(item.resource_path)
 		emit_signal("inventory_changed")
 		emit_changed()
 
 
 
 func remove_from_inventory(item: Item):
-	if inventory.has(item):
-		inventory.erase(item)
+	if inventory.has(item.resource_path):
+		inventory.erase(item.resource_path)
 		emit_signal("inventory_changed")
 		emit_changed()
 

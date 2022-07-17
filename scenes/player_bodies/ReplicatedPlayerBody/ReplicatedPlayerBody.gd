@@ -37,7 +37,15 @@ func _on_packet_received():
 	
 	if packet is PlayerBodyInventorySyncPacket:
 		if packet.player_id == player_id:
-			player_body_editor.set_inventory(packet.inventory)
+			print(packet.inventory)
+			
+			var inventory: Array
+			for element in packet.inventory:
+				inventory.push_back(dict2inst(element))
+			
+			print(inventory)
+			
+			player_body_editor.set_inventory(inventory)
 			return
 	
 	

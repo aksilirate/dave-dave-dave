@@ -26,7 +26,7 @@ func _update_items():
 	
 	
 	for element in local_player_body_data.inventory:
-		var item: Item = element
+		var item: Item = load(element)
 		var item_texture_rect = preload("res://scenes/interface/ItemTextureRect/ItemTextureRect.tscn").instance()
 		
 		if item.texture == null:

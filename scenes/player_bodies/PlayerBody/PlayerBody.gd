@@ -178,7 +178,7 @@ func _on_mover_block_activated():
 func _on_green_gate_entered_body_changed():
 	var inventory = player_body_editor.inventory
 	if green_gate_data.entered_body == self:
-		if not inventory.has(ContentManager.items.green_crown):
+		if not inventory.has(ContentManager.items.green_crown.resource_path):
 			_die()
 
 
@@ -435,9 +435,9 @@ func _respawn():
 
 func _update_sprites():
 	var inventory = player_body_editor.inventory
-	if inventory.has(ContentManager.items.double_jump):
+	if inventory.has(ContentManager.items.double_jump.resource_path):
 		boots_sprite.show()
-	if inventory.has(ContentManager.items.green_crown):
+	if inventory.has(ContentManager.items.green_crown.resource_path):
 		crown_sprite.show()
 
 
@@ -513,33 +513,12 @@ func is_playing_death_animation() -> bool:
 
 
 
+
+
 func has_double_jump() -> bool:
-	return player_body_editor.inventory.has(ContentManager.items.double_jump)
+	return player_body_editor.inventory.has(ContentManager.items.double_jump.resource_path)
 
 
-
-
-
-
-
-
-#var pet_chamber_overlapping: bool = false
-
-
-
-
-#func _on_damage_area_last_collided_body_set():
-#	if Game.damage_area_data.last_collided_body == self:
-#		Audio.play("res://assets/sounds/death.wav")
-#		animation_player.play("death")
-
-
-
-
-
-#
-#func play_footstep():
-#	Audio.play("res://assets/sounds/step.wav", -15.0, rand_range(0.85, 1.15))
 
 
 

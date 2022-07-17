@@ -14,4 +14,7 @@ func _ready():
 
 
 func _on_lobby_id_changed():
+	if network_data.is_lobby_owner():
+		return
+		
 	show()

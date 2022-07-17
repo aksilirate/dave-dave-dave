@@ -22,7 +22,6 @@ func _on_player_body_inventory_changed():
 
 
 
-
 func _on_player_body_haste_time_changed():
 	if network_editor.lobby_id:
 		_send_haste_time_sync_packet(world_data.local_player_body_data)
