@@ -5,6 +5,13 @@ extends KinematicBody2D
 signal jumped
 signal second_jumped
 signal stepped
+signal gained_haste
+signal diamond_collected
+signal item_collected
+signal checkpoint_activated
+signal item_removed
+signal died
+
 
 
 enum {IDLE, MOVING, AIR}
@@ -112,6 +119,10 @@ func _on_inventory_changed():
 
 func _on_checkpoint_activated():
 	if checkpoint_data.entered_body == self:
+		
+		if not player_body_editor.respawn_location == checkpoint_data.position:
+			emit_signal("checkpoint_activated")
+			
 		player_body_editor.set_respawn_location(checkpoint_data.position)
 		player_body_editor.add_to_activated_checkpoints(checkpoint_data.position)
 
@@ -129,7 +140,7 @@ func _on_damage_area_collided_body_set():
 
 func _on_last_collected_diamond_position_set():
 	player_body_editor.add_to_collected_diamonds(1)
-
+	emit_signal("diamond_collected")
 
 
 
@@ -140,7 +151,7 @@ func _on_item_area_activated():
 	if item_area_data.entered_body == self:
 		player_body_editor.add_to_inventory(item_area_data.item)
 		player_body_editor.add_to_collected_items(item_area_data.position)
-
+		emit_signal("item_collected")
 
 
 
@@ -148,7 +159,7 @@ func _on_item_area_activated():
 func _on_item_remover_area_activated():
 	if item_remover_area_data.entered_body == self:
 		player_body_editor.remove_from_inventory(item_remover_area_data.item)
-
+		emit_signal("item_removed")
 
 
 
@@ -184,7 +195,7 @@ func _on_cyan_gate_entered_body_changed():
 func _on_haste_potion_activated():
 	if haste_potion_data.entered_body == self:
 		player_body_editor.add_to_haste_time(haste_potion_data.haste_time)
-
+		emit_signal("gained_haste")
 
 
 
@@ -405,7 +416,7 @@ func _die():
 	if not animation_player.current_animation == "death":
 		player_body_editor.add_to_deaths(1)
 		animation_player.play("death")
-
+		emit_signal("died")
 
 
 

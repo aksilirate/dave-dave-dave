@@ -22,6 +22,12 @@ shape = SubResource( 1 )
 
 [node name="LocalPlayerBodyCanvasLayer" parent="." index="8" instance=ExtResource( 4 )]
 
+[connection signal="checkpoint_activated" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_checkpoint_activated"]
+[connection signal="diamond_collected" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_diamond_collected"]
+[connection signal="died" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_died"]
+[connection signal="gained_haste" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_gained_haste"]
+[connection signal="item_collected" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_item_collected"]
+[connection signal="item_removed" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_item_removed"]
 [connection signal="jumped" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_jumped"]
 [connection signal="second_jumped" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_second_jumped"]
 [connection signal="stepped" from="." to="SfxAudioStreamPlayerFactory" method="_on_LocalPlayerBody_stepped"]

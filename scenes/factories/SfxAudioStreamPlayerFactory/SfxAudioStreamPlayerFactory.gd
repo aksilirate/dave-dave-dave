@@ -34,3 +34,27 @@ func _on_LocalPlayerBody_stepped():
 
 func _on_GenericButton_pressed():
 	_play_sfx("res://assets/sounds/button_press.wav")
+
+
+func _on_LocalPlayerBody_checkpoint_activated():
+	_play_sfx("res://assets/sounds/checkpoint_activated.wav")
+
+
+func _on_LocalPlayerBody_died():
+	_play_sfx("res://assets/sounds/death.wav")
+
+
+func _on_LocalPlayerBody_diamond_collected():
+	_play_sfx("res://assets/sounds/collect_diamond.wav")
+
+
+func _on_LocalPlayerBody_gained_haste():
+	_play_sfx("res://assets/sounds/collect_haste_potion.wav")
+
+
+func _on_LocalPlayerBody_item_collected():
+	_play_sfx("res://assets/sounds/collect_item.wav")
+
+
+func _on_LocalPlayerBody_item_removed():
+	_play_sfx("res://assets/sounds/open_door.wav")
