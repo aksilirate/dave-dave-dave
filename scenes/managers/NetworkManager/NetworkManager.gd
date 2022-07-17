@@ -9,7 +9,11 @@ onready var network_editor = DataLoader.network_data as NetworkEditor
 onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 
+
 var _signal
+
+
+
 
 func _ready():
 	_signal = Steam.connect("lobby_created", self, "_on_lobby_created")

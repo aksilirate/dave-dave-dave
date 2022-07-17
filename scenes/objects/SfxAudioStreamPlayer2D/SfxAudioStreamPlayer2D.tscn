@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/objects/SfxAudioStreamPlayer2D/SfxAudioStreamPlayer2D.gd" type="Script" id=1]
+
+[node name="SfxAudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+autoplay = true
+max_distance = 1000.0
+bus = "SFX"
+script = ExtResource( 1 )
+
+[connection signal="finished" from="." to="." method="_on_SfxAudioStreamPlayer2D_finished"]

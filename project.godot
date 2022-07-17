@@ -484,6 +484,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/SfxAudioStreamPlayer/SfxAudioStreamPlayer.gd"
 }, {
+"base": "AudioStreamPlayer2D",
+"class": "SfxAudioStreamPlayer2D",
+"language": "GDScript",
+"path": "res://scenes/objects/SfxAudioStreamPlayer2D/SfxAudioStreamPlayer2D.gd"
+}, {
+"base": "Node2D",
+"class": "SfxAudioStreamPlayer2DFactory",
+"language": "GDScript",
+"path": "res://scenes/factories/SfxAudioStreamPlayer2DFactory/SfxAudioStreamPlayer2DFactory.gd"
+}, {
 "base": "Node",
 "class": "SfxAudioStreamPlayerFactory",
 "language": "GDScript",
@@ -640,6 +650,8 @@ _global_script_class_icons={
 "SecondJumpData": "",
 "SecondJumpEditor": "",
 "SfxAudioStreamPlayer": "",
+"SfxAudioStreamPlayer2D": "",
+"SfxAudioStreamPlayer2DFactory": "",
 "SfxAudioStreamPlayerFactory": "",
 "StartServerGenericButton": "",
 "Time": "",
