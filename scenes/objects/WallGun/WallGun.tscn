@@ -13,6 +13,7 @@ bullet = ExtResource( 3 )
 [node name="SfxAudioStreamPlayer2DFactory" parent="." instance=ExtResource( 4 )]
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = 10
 texture = ExtResource( 2 )
 
 [node name="ShootTimer" type="Timer" parent="."]

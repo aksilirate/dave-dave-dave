@@ -10,3 +10,4 @@ extends FinishAreaData
 
 func set_entered_body(value):
 	entered_body = value
+	emit_signal("activated")

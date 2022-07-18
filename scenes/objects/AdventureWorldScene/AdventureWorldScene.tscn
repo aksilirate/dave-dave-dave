@@ -74,96 +74,99 @@ position = Vector2( 23680, -2120 )
 position = Vector2( 25080, -2680 )
 
 [node name="Checkpoint29" parent="Checkpoints" index="21" instance=ExtResource( 6 )]
-position = Vector2( 21080, -2680 )
+position = Vector2( 21480, -2680 )
 
-[node name="Checkpoint30" parent="Checkpoints" index="22" instance=ExtResource( 6 )]
+[node name="Checkpoint47" parent="Checkpoints" index="22" instance=ExtResource( 6 )]
+position = Vector2( 21000, -2920 )
+
+[node name="Checkpoint30" parent="Checkpoints" index="23" instance=ExtResource( 6 )]
 position = Vector2( 26240, -4360 )
 
-[node name="Checkpoint37" parent="Checkpoints" index="23" instance=ExtResource( 6 )]
+[node name="Checkpoint37" parent="Checkpoints" index="24" instance=ExtResource( 6 )]
 position = Vector2( 24880, -7000 )
 
-[node name="Checkpoint34" parent="Checkpoints" index="24" instance=ExtResource( 6 )]
+[node name="Checkpoint34" parent="Checkpoints" index="25" instance=ExtResource( 6 )]
 position = Vector2( 23600, -4360 )
 
-[node name="Checkpoint35" parent="Checkpoints" index="25" instance=ExtResource( 6 )]
+[node name="Checkpoint35" parent="Checkpoints" index="26" instance=ExtResource( 6 )]
 position = Vector2( 22480, -4040 )
 
-[node name="Checkpoint36" parent="Checkpoints" index="26" instance=ExtResource( 6 )]
+[node name="Checkpoint36" parent="Checkpoints" index="27" instance=ExtResource( 6 )]
 position = Vector2( 21240, -4120 )
 
-[node name="Checkpoint32" parent="Checkpoints" index="27" instance=ExtResource( 6 )]
+[node name="Checkpoint32" parent="Checkpoints" index="28" instance=ExtResource( 6 )]
 position = Vector2( 28640, -4360 )
 
-[node name="Checkpoint33" parent="Checkpoints" index="28" instance=ExtResource( 6 )]
+[node name="Checkpoint33" parent="Checkpoints" index="29" instance=ExtResource( 6 )]
 position = Vector2( 30320, -4360 )
 
-[node name="Checkpoint10" parent="Checkpoints" index="29" instance=ExtResource( 6 )]
+[node name="Checkpoint10" parent="Checkpoints" index="30" instance=ExtResource( 6 )]
 position = Vector2( 6040, -1800 )
 
-[node name="Checkpoint26" parent="Checkpoints" index="30" instance=ExtResource( 6 )]
+[node name="Checkpoint26" parent="Checkpoints" index="31" instance=ExtResource( 6 )]
 position = Vector2( 3680, -1240 )
 
-[node name="Checkpoint3" parent="Checkpoints" index="31" instance=ExtResource( 6 )]
+[node name="Checkpoint3" parent="Checkpoints" index="32" instance=ExtResource( 6 )]
 position = Vector2( 15280, -1400 )
 
-[node name="Checkpoint4" parent="Checkpoints" index="32" instance=ExtResource( 6 )]
+[node name="Checkpoint4" parent="Checkpoints" index="33" instance=ExtResource( 6 )]
 position = Vector2( 12350, -5480 )
 
-[node name="Checkpoint17" parent="Checkpoints" index="33" instance=ExtResource( 6 )]
+[node name="Checkpoint17" parent="Checkpoints" index="34" instance=ExtResource( 6 )]
 position = Vector2( 16600, -5240 )
 
-[node name="Checkpoint13" parent="Checkpoints" index="34" instance=ExtResource( 6 )]
+[node name="Checkpoint13" parent="Checkpoints" index="35" instance=ExtResource( 6 )]
 position = Vector2( 11080, -8200 )
 
-[node name="Checkpoint39" parent="Checkpoints" index="35" instance=ExtResource( 6 )]
+[node name="Checkpoint39" parent="Checkpoints" index="36" instance=ExtResource( 6 )]
 position = Vector2( 9600, -10200 )
 
-[node name="Checkpoint15" parent="Checkpoints" index="36" instance=ExtResource( 6 )]
+[node name="Checkpoint15" parent="Checkpoints" index="37" instance=ExtResource( 6 )]
 position = Vector2( 15040, -10200 )
 
-[node name="Checkpoint18" parent="Checkpoints" index="37" instance=ExtResource( 6 )]
+[node name="Checkpoint18" parent="Checkpoints" index="38" instance=ExtResource( 6 )]
 position = Vector2( 18200, -9240 )
 
-[node name="Checkpoint20" parent="Checkpoints" index="38" instance=ExtResource( 6 )]
+[node name="Checkpoint20" parent="Checkpoints" index="39" instance=ExtResource( 6 )]
 position = Vector2( 20760, -8280 )
 
-[node name="Checkpoint16" parent="Checkpoints" index="39" instance=ExtResource( 6 )]
+[node name="Checkpoint16" parent="Checkpoints" index="40" instance=ExtResource( 6 )]
 position = Vector2( 14560, -8200 )
 
-[node name="Checkpoint14" parent="Checkpoints" index="40" instance=ExtResource( 6 )]
+[node name="Checkpoint14" parent="Checkpoints" index="41" instance=ExtResource( 6 )]
 position = Vector2( 12760, -10360 )
 
-[node name="Checkpoint9" parent="Checkpoints" index="41" instance=ExtResource( 6 )]
+[node name="Checkpoint9" parent="Checkpoints" index="42" instance=ExtResource( 6 )]
 position = Vector2( 14800, -5240 )
 
-[node name="Checkpoint46" parent="Checkpoints" index="42" instance=ExtResource( 6 )]
+[node name="Checkpoint46" parent="Checkpoints" index="43" instance=ExtResource( 6 )]
 position = Vector2( 14080, -680 )
 
-[node name="Checkpoint45" parent="Checkpoints" index="43" instance=ExtResource( 6 )]
+[node name="Checkpoint45" parent="Checkpoints" index="44" instance=ExtResource( 6 )]
 position = Vector2( 13120, -4920 )
 
-[node name="Checkpoint7" parent="Checkpoints" index="44" instance=ExtResource( 6 )]
+[node name="Checkpoint7" parent="Checkpoints" index="45" instance=ExtResource( 6 )]
 position = Vector2( 8960, -5160 )
 
-[node name="Checkpoint12" parent="Checkpoints" index="45" instance=ExtResource( 6 )]
+[node name="Checkpoint12" parent="Checkpoints" index="46" instance=ExtResource( 6 )]
 position = Vector2( 5900, -4360 )
 
-[node name="Checkpoint19" parent="Checkpoints" index="46" instance=ExtResource( 6 )]
+[node name="Checkpoint19" parent="Checkpoints" index="47" instance=ExtResource( 6 )]
 position = Vector2( 6320, -5960 )
 
-[node name="Checkpoint11" parent="Checkpoints" index="47" instance=ExtResource( 6 )]
+[node name="Checkpoint11" parent="Checkpoints" index="48" instance=ExtResource( 6 )]
 position = Vector2( 6760, -3400 )
 
-[node name="Checkpoint42" parent="Checkpoints" index="48" instance=ExtResource( 6 )]
+[node name="Checkpoint42" parent="Checkpoints" index="49" instance=ExtResource( 6 )]
 position = Vector2( 7960, -3400 )
 
-[node name="Checkpoint8" parent="Checkpoints" index="49" instance=ExtResource( 6 )]
+[node name="Checkpoint8" parent="Checkpoints" index="50" instance=ExtResource( 6 )]
 position = Vector2( 12150, -5880 )
 
-[node name="Checkpoint5" parent="Checkpoints" index="50" instance=ExtResource( 6 )]
+[node name="Checkpoint5" parent="Checkpoints" index="51" instance=ExtResource( 6 )]
 position = Vector2( 12780, -3880 )
 
-[node name="Checkpoint6" parent="Checkpoints" index="51" instance=ExtResource( 6 )]
+[node name="Checkpoint6" parent="Checkpoints" index="52" instance=ExtResource( 6 )]
 position = Vector2( 13290, -2920 )
 
 [node name="Sprite" parent="Sprites" index="0"]
@@ -213,6 +216,8 @@ frame = 0
 
 [node name="Sign36" parent="Signs" index="1"]
 position = Vector2( 1120, -1240 )
+
+[connection signal="animation_finished" from="CutsceneAnimationPlayer" to="." method="_on_CutsceneAnimationPlayer_animation_finished"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
@@ -318,7 +323,9 @@ position = Vector2( 1120, -1240 )
 [editable path="HiddenAreas/HiddenArea14"]
 [editable path="RedMan"]
 [editable path="RedMan2"]
-[editable path="RedMan3"]
+[editable path="SuicidalDave"]
+[editable path="RedMan4"]
 [editable path="WorldCanvasLayer"]
 [editable path="WorldCanvasLayer/EscMenu"]
 [editable path="ReplicatedPlayerBodyFactory"]
+[editable path="FinishArea"]

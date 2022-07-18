@@ -59,7 +59,7 @@ var double_jumped: bool = false
 
 
 
-var position_history: Array
+var packet_history: Array
 
 
 
@@ -202,7 +202,8 @@ func _on_haste_potion_activated():
 
 
 func _process(delta):
-	player_body_editor.add_to_play_time(delta)
+	if not current_game_state.world_data.completed:
+		player_body_editor.add_to_play_time(delta)
 	
 
 
@@ -250,26 +251,41 @@ func _physics_process(delta):
 func _simulate_displacement(delta, arg_input: Vector2):
 	if network_data.lobby_id:
 		if not Steamworks.steam_id == player_id:
-			
-			if not position_history.size():
-				return
+			for element in packet_history[0]:
+				var packet: Packet = element
 				
-			player_body_editor.set_displacement(Vector2.ZERO)
-			
-			if global_position.distance_to(position_history[0]) > 10:
-				player_body_editor.set_displacement(global_position.direction_to(position_history[0]) * 35)
-				
-			#var _weight = min(1.0, delta * position_history.size())
-				
-			global_position = lerp(global_position, position_history[0], 1)
-			
-			
-			if global_position.distance_to(position_history[0]) < 15:
-				position_history.remove(0)
-				
-			return
-			
-			
+				if packet is PlayerBodyPositionSyncPacket:
+					if not packet_history.size():
+						return
+						
+					player_body_editor.set_displacement(Vector2.ZERO)
+					
+					if global_position.distance_to(packet.position) > 10:
+						player_body_editor.set_displacement(global_position.direction_to(packet.position) * 35)
+						
+					#var _weight = min(1.0, delta * position_history.size())
+						
+					global_position = lerp(global_position, packet.position, 1)
+					
+					
+					if global_position.distance_to(packet.position) < 15:
+						packet_history.remove(0)
+						
+					return
+				if packet is PlayerBodyInventorySyncPacket:
+					player_body_editor.set_inventory(packet.inventory)
+					return
+					
+				if packet is PlayerBodyHasteTimeSyncPacket:
+					player_body_editor.set_haste_time(packet.haste_time)
+					return
+						
+				if packet is PlayerBodyDeathSyncPacket:
+					_die()
+					return
+	
+	
+	
 	var gravity: float = player_body_editor.gravity
 	
 	_move(int(arg_input.x))
@@ -279,14 +295,16 @@ func _simulate_displacement(delta, arg_input: Vector2):
 		_jump()
 		
 		
-	if is_controllable():
-		player_body_editor.set_displacement(
-			move_and_slide_with_snap(
-							get_velocity(), 
-							get_snap(), 
-							get_up_direction(),
-							false, 4, PI/4, false)
-							)
+	if not is_controllable():
+		player_body_editor.set_velocity_x(0)
+		
+	player_body_editor.set_displacement(
+		move_and_slide_with_snap(
+						get_velocity(), 
+						get_snap(), 
+						get_up_direction(),
+						false, 4, PI/4, false)
+						)
 	
 	player_body_editor.set_velocity_x(lerp(player_body_editor.velocity.x, 0, delta * 30))
 	

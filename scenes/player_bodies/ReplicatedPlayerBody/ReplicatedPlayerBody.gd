@@ -26,37 +26,23 @@ func _on_connected_players_changed():
 func _on_packet_received():
 	var packet = network_data.received_packet
 	
-	if packet is PlayerBodyPositionSyncPacket:
-		if packet.player_id == player_id:
-			
+	if not packet is PlayerBodySyncPacket:
+		return
+	
+	if packet.player_id == player_id:
+		if packet is PlayerBodyPositionSyncPacket:
 			if global_position == packet.position:
 				return
 				
-			position_history.push_back(packet.position)
-	
-	
-	if packet is PlayerBodyInventorySyncPacket:
-		if packet.player_id == player_id:
-			print(packet.inventory)
-			
-			var inventory: Array
-			for element in packet.inventory:
-				inventory.push_back(dict2inst(element))
-			
-			print(inventory)
-			
-			player_body_editor.set_inventory(inventory)
+			packet_history.push_back([packet])
 			return
-	
-	
-	if packet is PlayerBodyHasteTimeSyncPacket:
-		if packet.player_id == player_id:
-			player_body_editor.set_haste_time(packet.haste_time)
-			return
-	
-	if packet is PlayerBodyDeathSyncPacket:
-		if packet.player_id == player_id:
-			_die()
+				
+		if packet is PlayerBodyInventorySyncPacket:
+			if packet_history.size():
+				packet_history[packet_history.size() - 1].push_back(packet)
+				return
+			
+			packet_history.push_back([packet])
 			return
 
 

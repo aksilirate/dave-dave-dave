@@ -205,13 +205,14 @@ func _create_lobby() -> void:
 
 
 
+
 func _leave_lobby() -> void:
 	Steam.leaveLobby(network_editor.lobby_id)
 	for member_id in get_lobby_member_ids():
-		Steam.closeP2PSessionWithUser(member_id)
+		var _success = Steam.closeP2PSessionWithUser(member_id)
 	network_editor.set_connected_players([])
 	network_editor.set_lobby_id(0)
-
+	print("leafe lobby completed")
 
 
 

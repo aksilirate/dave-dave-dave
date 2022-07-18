@@ -3,8 +3,10 @@
 [ext_resource path="res://scenes/objects/FinishArea/FinishArea.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 520, 105 )
 
 [node name="FinishArea" type="Area2D"]
+position = Vector2( 24680, 12160 )
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 1 )

@@ -5,9 +5,10 @@ onready var options_data: OptionsData = DataLoader.options_data
 
 var target_location: Vector2
 
+var _signal
 
 func _ready():
-	options_data.connect("hide_pet_changed", self, "_on_hide_pet_changed")
+	_signal = options_data.connect("hide_pet_changed", self, "_on_hide_pet_changed")
 	set_as_toplevel(true)
 	modulate.a = 0
 
