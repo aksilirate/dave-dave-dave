@@ -31,7 +31,6 @@
 [ext_resource path="res://scenes/objects/RotatingSpikes/RotatingSpikes.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/objects/Sign/Sign.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/objects/GreenGate/GreenGate.tscn" type="PackedScene" id=31]
-[ext_resource path="res://scenes/objects/_LockedDoor/LockedDoor.tscn" type="PackedScene" id=32]
 [ext_resource path="res://assets/textures/tree.png" type="Texture" id=33]
 [ext_resource path="res://assets/textures/lab_capsule_empty.png" type="Texture" id=34]
 [ext_resource path="res://assets/textures/lab_capsule.png" type="Texture" id=35]
@@ -40,6 +39,7 @@
 [ext_resource path="res://content/items/CyanKey.tres" type="Resource" id=38]
 [ext_resource path="res://content/items/BrownKey.tres" type="Resource" id=39]
 [ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=40]
+[ext_resource path="res://content/items/GrayKey.tres" type="Resource" id=41]
 
 [sub_resource type="DynamicFont" id=124]
 size = 8
@@ -7201,6 +7201,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("RedMan:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=171]
 resource_name = "start"
@@ -7248,6 +7260,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("RedMan:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [node name="ClassicWorldScene" instance=ExtResource( 1 )]
@@ -8009,65 +8033,65 @@ keep trying"
 [node name="LockedDoors" type="Node2D" parent="." index="16"]
 position = Vector2( -12560, 7680 )
 
-[node name="GrayLockedDoor" parent="LockedDoors" index="0" instance=ExtResource( 32 )]
-modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
-position = Vector2( 26120, -8240 )
-required_item = "gray_key"
-
-[node name="LockedDoor14" parent="LockedDoors" index="1" instance=ExtResource( 5 )]
+[node name="LockedDoor14" parent="LockedDoors" index="0" instance=ExtResource( 5 )]
 modulate = Color( 0.972549, 0.972549, 0, 1 )
 position = Vector2( 10920, -720 )
 item_to_remove = ExtResource( 2 )
 
-[node name="LockedDoor16" parent="LockedDoors" index="2" instance=ExtResource( 5 )]
+[node name="LockedDoor16" parent="LockedDoors" index="1" instance=ExtResource( 5 )]
 modulate = Color( 0.972549, 0, 0.972549, 1 )
 position = Vector2( 12050, -3920 )
 item_to_remove = ExtResource( 8 )
 
-[node name="LockedDoor18" parent="LockedDoors" index="3" instance=ExtResource( 5 )]
+[node name="LockedDoor18" parent="LockedDoors" index="2" instance=ExtResource( 5 )]
 modulate = Color( 0.972549, 0, 0.972549, 1 )
 position = Vector2( 14920, -5360 )
 item_to_remove = ExtResource( 8 )
 
-[node name="LockedDoor20" parent="LockedDoors" index="4" instance=ExtResource( 5 )]
+[node name="LockedDoor20" parent="LockedDoors" index="3" instance=ExtResource( 5 )]
 modulate = Color( 0.972549, 0, 0.972549, 1 )
 position = Vector2( 12360, -10400 )
 item_to_remove = ExtResource( 8 )
 
-[node name="LockedDoor22" parent="LockedDoors" index="5" instance=ExtResource( 5 )]
+[node name="LockedDoor22" parent="LockedDoors" index="4" instance=ExtResource( 5 )]
 modulate = Color( 0, 0.972549, 0.972549, 1 )
 position = Vector2( 13400, -10400 )
 item_to_remove = ExtResource( 38 )
 
-[node name="LockedDoor17" parent="LockedDoors" index="6" instance=ExtResource( 5 )]
+[node name="LockedDoor17" parent="LockedDoors" index="5" instance=ExtResource( 5 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 12350, -4320 )
 item_to_remove = ExtResource( 15 )
 
-[node name="LockedDoor25" parent="LockedDoors" index="7" instance=ExtResource( 5 )]
+[node name="LockedDoor25" parent="LockedDoors" index="6" instance=ExtResource( 5 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 12350, -9600 )
 item_to_remove = ExtResource( 15 )
 
-[node name="LockedDoor23" parent="LockedDoors" index="8" instance=ExtResource( 5 )]
+[node name="LockedDoor23" parent="LockedDoors" index="7" instance=ExtResource( 5 )]
 modulate = Color( 0, 0.972549, 0, 1 )
 position = Vector2( 14400, 1520 )
 item_to_remove = ExtResource( 15 )
 
-[node name="LockedDoor24" parent="LockedDoors" index="9" instance=ExtResource( 5 )]
+[node name="LockedDoor24" parent="LockedDoors" index="8" instance=ExtResource( 5 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 17840, -520 )
 rotation = -1.5708
 item_to_remove = ExtResource( 39 )
 
-[node name="LockedDoor26" parent="LockedDoors" index="10" instance=ExtResource( 5 )]
+[node name="LockedDoor26" parent="LockedDoors" index="9" instance=ExtResource( 5 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 20480, -6000 )
 item_to_remove = ExtResource( 39 )
 
-[node name="LockedDoor27" parent="LockedDoors" index="11" instance=ExtResource( 5 )]
+[node name="LockedDoor27" parent="LockedDoors" index="10" instance=ExtResource( 5 )]
 modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 22000, -4400 )
+item_to_remove = ExtResource( 39 )
+
+[node name="LockedDoor28" parent="LockedDoors" index="11" instance=ExtResource( 5 )]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
+position = Vector2( 26120, -8240 )
 item_to_remove = ExtResource( 39 )
 
 [node name="LockedDoor19" parent="LockedDoors" index="12" instance=ExtResource( 5 )]
@@ -8149,9 +8173,10 @@ modulate = Color( 0.501961, 0.501961, 0, 1 )
 position = Vector2( 22000, -6250 )
 item = ExtResource( 39 )
 
-[node name="BrownKey2" parent="Items" index="12" instance=ExtResource( 19 )]
+[node name="GrayKey" parent="Items" index="12" instance=ExtResource( 19 )]
 modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
 position = Vector2( 26360, -7080 )
+item = ExtResource( 41 )
 
 [node name="PurpleKey3" parent="Items" index="13" instance=ExtResource( 19 )]
 modulate = Color( 0.972549, 0, 0.972549, 1 )
@@ -13107,6 +13132,7 @@ scale = Vector2( 10, 10 )
 texture = ExtResource( 37 )
 
 [node name="RedMan" parent="." index="39" instance=ExtResource( 24 )]
+visible = false
 position = Vector2( -13480, 7950 )
 flip_h = true
 
@@ -13251,6 +13277,7 @@ position = Vector2( 24680, 12160 )
 position = Vector2( 0, 80 )
 
 [connection signal="ready" from="." to="CutsceneAnimationPlayer" method="_on_ClassicWorldScene_ready"]
+[connection signal="item_removed" from="LockedDoors/LockedDoor28" to="CutsceneAnimationPlayer" method="_on_LockedDoor28_item_removed"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
@@ -13357,5 +13384,7 @@ position = Vector2( 0, 80 )
 [editable path="RedMan"]
 [editable path="RedMan2"]
 [editable path="RedMan3"]
+[editable path="WorldCanvasLayer"]
+[editable path="WorldCanvasLayer/EscMenu"]
 [editable path="ReplicatedPlayerBodyFactory"]
 [editable path="FinishArea"]

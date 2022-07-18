@@ -5,8 +5,12 @@ extends Node
 var _signal
 
 
+
+
 func _ready():
 	DataLoader.connect("all_data_initialized", self, "_on_all_data_initialized")
+
+
 
 
 func _on_all_data_initialized():
@@ -19,14 +23,14 @@ func _on_all_data_initialized():
 
 
 func _on_collected_diamonds_changed():
-	pass
+	_unlock_achievement("FIRST_DIAMOND")
 
 
 
 
 
 func _unlock_achievement(name: String):
-	if is_owned():
+	if Steamworks.is_owned():
 # warning-ignore:return_value_discarded
 		Steam.setAchievement(name)
 # warning-ignore:return_value_discarded

@@ -553,11 +553,6 @@ _global_script_classes=[ {
 "class": "WorldScene",
 "language": "GDScript",
 "path": "res://scenes/objects/WorldScene/WorldScene.gd"
-}, {
-"base": "StaticBody2D",
-"class": "_LockedDoor",
-"language": "GDScript",
-"path": "res://scenes/objects/_LockedDoor/LockedDoor.gd"
 } ]
 _global_script_class_icons={
 "Achievements": "",
@@ -668,8 +663,7 @@ _global_script_class_icons={
 "WorldData": "",
 "WorldEditor": "",
 "WorldGameState": "",
-"WorldScene": "",
-"_LockedDoor": ""
+"WorldScene": ""
 }
 
 [admob]
@@ -745,7 +739,7 @@ default_bus_layout="res://resources/audio_bus_layouts/default_bus_layout.tres"
 
 [autoload]
 
-Steamworks="*res://singletons/Steamworks/Steamworks.gd"
+Steamworks="*res://singletons/Steamworks/Steamworks.tscn"
 DataLoader="*res://singletons/DataLoader/DataLoader.tscn"
 ContentManager="*res://singletons/ContentManager/ContentManager.tscn"
 

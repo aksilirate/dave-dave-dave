@@ -5,6 +5,8 @@ extends Node
 
 enum LobbyAvailability {PRIVATE, FRIENDS, PUBLIC, INVISIBLE}
 
+onready var game_state_data: GameStateData = DataLoader.game_state_data as GameStateData
+
 onready var network_editor = DataLoader.network_data as NetworkEditor
 onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
@@ -23,8 +25,15 @@ func _ready():
 	_signal = Steam.connect("lobby_chat_update", self, "_on_lobby_chat_update")
 	_signal = network_editor.connect("packet_received", self, "_on_packet_received")
 	_signal = chat_input_data.connect("activated", self, "_on_chat_input_activated")
+	
+	_signal = game_state_data.connect("current_state_changed", self, "_on_current_state_changed")
 
 
+
+
+func _on_current_state_changed():
+	if game_state_data.current_game_state == DataLoader.game_states.title_state:
+		_leave_lobby()
 
 
 
@@ -62,6 +71,8 @@ func _on_lobby_joined(_lobby_id: int, _permissions: int, _locked: bool, response
 	
 	if error:
 		print(error)
+
+
 
 
 
@@ -192,6 +203,14 @@ func _read_packet() -> void:
 func _create_lobby() -> void:
 	Steam.createLobby(LobbyAvailability.PUBLIC, 100)
 
+
+
+func _leave_lobby() -> void:
+	Steam.leaveLobby(network_editor.lobby_id)
+	for member_id in get_lobby_member_ids():
+		Steam.closeP2PSessionWithUser(member_id)
+	network_editor.set_connected_players([])
+	network_editor.set_lobby_id(0)
 
 
 

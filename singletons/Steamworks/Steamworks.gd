@@ -1,7 +1,7 @@
 extends Node
 
 
-onready var achievements = $Achievements
+onready var achievements: Achievements = $Achievements
 
 var steam_id: int
 

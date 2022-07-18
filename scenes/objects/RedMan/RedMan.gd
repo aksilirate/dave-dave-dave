@@ -7,6 +7,7 @@ onready var animation_player = $AnimationPlayer
 
 
 
+
 func _play_animation(animation_name: String):
 	animation_player.play(animation_name)
 
