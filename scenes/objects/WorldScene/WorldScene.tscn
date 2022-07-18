@@ -29,6 +29,7 @@ anims/finish = SubResource( 1 )
 
 [connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/StartServerGenericButton" to="WorldNetworkManager" method="_on_StartServerGenericButton_pressed"]
 [connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/ExitToTitleGenericButton" to="GameStateManager" method="_on_ExitToTitleGenericButton_pressed"]
+[connection signal="animation_finished" from="CutsceneAnimationPlayer" to="." method="_on_CutsceneAnimationPlayer_animation_finished"]
 
 [editable path="WorldCanvasLayer"]
 [editable path="WorldCanvasLayer/EscMenu"]

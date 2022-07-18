@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://scenes/objects/WorldScene/WorldScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://content/items/YellowKey.tres" type="Resource" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://content/items/PurpleKey.tres" type="Resource" id=8]
 [ext_resource path="res://scenes/objects/MoverBlock/MoverBlock.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/objects/WeakBlock/WeakBlock.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/objects/PetChamber/PetChamber.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/objects/FinishArea/FinishArea.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/objects/ButtonLockedDoor/ButtonLockedDoor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/objects/CyanGate/CyanGate.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/objects/HiddenArea/HiddenArea.tscn" type="PackedScene" id=14]
@@ -27,6 +27,7 @@
 [ext_resource path="res://scenes/objects/WallGun/WallGun.tscn" type="PackedScene" id=25]
 [ext_resource path="res://scenes/objects/Rotation/Rotation.tscn" type="PackedScene" id=26]
 [ext_resource path="res://scenes/objects/MovingPlatform/MovingPlatform.tscn" type="PackedScene" id=27]
+[ext_resource path="res://assets/textures/end_0.png" type="Texture" id=28]
 [ext_resource path="res://scenes/objects/RotatingSpikes/RotatingSpikes.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/objects/Sign/Sign.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/objects/GreenGate/GreenGate.tscn" type="PackedScene" id=31]
@@ -38,6 +39,7 @@
 [ext_resource path="res://assets/textures/spikes.png" type="Texture" id=37]
 [ext_resource path="res://content/items/CyanKey.tres" type="Resource" id=38]
 [ext_resource path="res://content/items/BrownKey.tres" type="Resource" id=39]
+[ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=40]
 
 [sub_resource type="DynamicFont" id=124]
 size = 8
@@ -7091,6 +7093,114 @@ tracks/1/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CutsceneCanvasLayer/CutsceneControl/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label2:percent_visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label3:percent_visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CutsceneCanvasLayer/CutsceneControl/ColorRect:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CutsceneCanvasLayer/CutsceneControl/Label:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=171]
 resource_name = "start"
@@ -7396,95 +7506,100 @@ position = Vector2( -12560, 7680 )
 position = Vector2( 11340, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite3" type="AnimatedSprite" parent="Sprites" index="1"]
 position = Vector2( 13450, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite6" type="AnimatedSprite" parent="Sprites" index="2"]
 position = Vector2( 13720, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite7" type="AnimatedSprite" parent="Sprites" index="3"]
 position = Vector2( 14000, -4580 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite9" type="AnimatedSprite" parent="Sprites" index="4"]
 position = Vector2( 14835, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite10" type="AnimatedSprite" parent="Sprites" index="5"]
 position = Vector2( 15075, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite17" type="AnimatedSprite" parent="Sprites" index="6"]
 position = Vector2( 15680, -8420 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 155 )
+frame = 1
 playing = true
 
 [node name="Sprite14" type="AnimatedSprite" parent="Sprites" index="7"]
 position = Vector2( 16035, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite15" type="AnimatedSprite" parent="Sprites" index="8"]
 position = Vector2( 16275, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite16" type="AnimatedSprite" parent="Sprites" index="9"]
 position = Vector2( 16525, -8340 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite2" type="AnimatedSprite" parent="Sprites" index="10"]
 position = Vector2( 11600, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite4" type="AnimatedSprite" parent="Sprites" index="11"]
 position = Vector2( 11840, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
+frame = 1
 playing = true
 
 [node name="Sprite8" type="AnimatedSprite" parent="Sprites" index="12"]
 position = Vector2( 12080, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite11" type="AnimatedSprite" parent="Sprites" index="13"]
 position = Vector2( 12320, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite12" type="AnimatedSprite" parent="Sprites" index="14"]
 position = Vector2( 12560, -740 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 154 )
-frame = 1
 playing = true
 
 [node name="Sprite5" type="Sprite" parent="Sprites" index="15"]
@@ -7538,9 +7653,6 @@ after falling
 
 [node name="Sign23" parent="Signs" index="4" instance=ExtResource( 30 )]
 position = Vector2( 3720, -2120 )
-
-[node name="CollisionShape2D" parent="Signs/Sign23" index="1"]
-scale = Vector2( 1, 1 )
 
 [node name="TextLabel" parent="Signs/Sign23" index="2"]
 text = "they lie
@@ -10225,42 +10337,42 @@ rotation = 3.14159
 position = Vector2( 13240, -9350 )
 rotation = 3.14159
 
-[node name="ShootTimer" parent="WallGuns/WallGun19" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun19" index="2"]
 wait_time = 1.0
 
 [node name="WallGun20" parent="WallGuns" index="13" instance=ExtResource( 25 )]
 position = Vector2( 13240, -9830 )
 rotation = 3.14159
 
-[node name="ShootTimer" parent="WallGuns/WallGun20" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun20" index="2"]
 wait_time = 1.0
 
 [node name="WallGun22" parent="WallGuns" index="14" instance=ExtResource( 25 )]
 position = Vector2( 13000, -8620 )
 rotation = 6.28319
 
-[node name="ShootTimer" parent="WallGuns/WallGun22" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun22" index="2"]
 wait_time = 1.0
 
 [node name="WallGun23" parent="WallGuns" index="15" instance=ExtResource( 25 )]
 position = Vector2( 13000, -9110 )
 rotation = 6.28319
 
-[node name="ShootTimer" parent="WallGuns/WallGun23" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun23" index="2"]
 wait_time = 1.0
 
 [node name="WallGun25" parent="WallGuns" index="16" instance=ExtResource( 25 )]
 position = Vector2( 13000, -10060 )
 rotation = 6.28319
 
-[node name="ShootTimer" parent="WallGuns/WallGun25" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun25" index="2"]
 wait_time = 1.0
 
 [node name="WallGun17" parent="WallGuns" index="17" instance=ExtResource( 25 )]
 position = Vector2( 9560, -3020 )
 rotation = 3.14159
 
-[node name="ShootTimer" parent="WallGuns/WallGun17" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun17" index="2"]
 wait_time = 1.0
 
 [node name="WallGun4" parent="WallGuns" index="18" instance=ExtResource( 25 )]
@@ -10357,7 +10469,7 @@ rotation = 1.5708
 position = Vector2( 12200, -2680 )
 rotation = 1.5708
 
-[node name="ShootTimer" parent="WallGuns/WallGun6" index="1"]
+[node name="ShootTimer" parent="WallGuns/WallGun6" index="2"]
 wait_time = 1.0
 
 [node name="Diamonds" type="Node2D" parent="." index="22"]
@@ -13035,26 +13147,92 @@ anims/move = SubResource( 170 )
 modulate = Color( 0.752941, 0.752941, 0.752941, 1 )
 position = Vector2( 12360, 5950 )
 
-[node name="PetChamber" parent="." index="43" instance=ExtResource( 11 )]
-position = Vector2( 6530, 640 )
-collision_layer = 2
-collision_mask = 0
-
-[node name="Tree" type="Sprite" parent="." index="44"]
+[node name="Tree" type="Sprite" parent="." index="43"]
 position = Vector2( -5030, 8010 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 33 )
 offset = Vector2( -24, 8 )
 
-[node name="Tree3" type="Sprite" parent="." index="45"]
+[node name="Tree3" type="Sprite" parent="." index="44"]
 position = Vector2( -3000, 3210 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 33 )
 offset = Vector2( -24, 8 )
 flip_h = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="46"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="45"]
 environment = ExtResource( 3 )
+
+[node name="CutsceneCanvasLayer" type="CanvasLayer" parent="." index="49"]
+
+[node name="CutsceneControl" type="Control" parent="CutsceneCanvasLayer" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 40 )
+
+[node name="ColorRect" type="ColorRect" parent="CutsceneCanvasLayer/CutsceneControl" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="CutsceneCanvasLayer/CutsceneControl" index="1"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -150.0
+margin_top = -150.0
+margin_right = 150.0
+margin_bottom = 150.0
+texture = ExtResource( 28 )
+
+[node name="Label" type="Label" parent="CutsceneCanvasLayer/CutsceneControl" index="2"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -284.0
+margin_top = -119.0
+margin_right = 284.0
+margin_bottom = 119.0
+text = "Dave was falling for a long time."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 0.0
+
+[node name="Label2" type="Label" parent="CutsceneCanvasLayer/CutsceneControl" index="3"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -284.0
+margin_top = -119.0
+margin_right = 284.0
+margin_bottom = 119.0
+text = "It was so long, he thought he would never see freedom."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 0.0
+
+[node name="Label3" type="Label" parent="CutsceneCanvasLayer/CutsceneControl" index="4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -284.0
+margin_top = -119.0
+margin_right = 284.0
+margin_bottom = 119.0
+text = "He promised to himself that if he would ever see freedom, he would do anything to help the other Daves reach freedom as well."
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 0.0
 
 [node name="LocalPlayerBody" parent="." index="50"]
 position = Vector2( -14290, 8280 )
@@ -13065,6 +13243,12 @@ position = Vector2( -14290, 8280 )
 [node name="CutsceneAnimationPlayer" parent="." index="52"]
 anims/RESET = SubResource( 172 )
 anims/start = SubResource( 171 )
+
+[node name="FinishArea" parent="." index="53" instance=ExtResource( 11 )]
+position = Vector2( 24680, 12160 )
+
+[node name="CollisionShape2D" parent="FinishArea" index="0"]
+position = Vector2( 0, 80 )
 
 [connection signal="ready" from="." to="CutsceneAnimationPlayer" method="_on_ClassicWorldScene_ready"]
 
@@ -13173,6 +13357,5 @@ anims/start = SubResource( 171 )
 [editable path="RedMan"]
 [editable path="RedMan2"]
 [editable path="RedMan3"]
-[editable path="WorldCanvasLayer"]
-[editable path="WorldCanvasLayer/EscMenu"]
 [editable path="ReplicatedPlayerBodyFactory"]
+[editable path="FinishArea"]

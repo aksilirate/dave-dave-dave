@@ -4,7 +4,7 @@ extends DataResource
 
 signal online_player_bodies_data_changed
 signal online_player_bodies_data_loaded
-
+signal completed_changed
 
 export(Resource) var local_player_body_data = local_player_body_data as PlayerBodyData setget _local_player_body_data
 

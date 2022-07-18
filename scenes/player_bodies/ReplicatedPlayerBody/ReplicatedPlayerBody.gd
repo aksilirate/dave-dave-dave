@@ -53,7 +53,11 @@ func _on_packet_received():
 		if packet.player_id == player_id:
 			player_body_editor.set_haste_time(packet.haste_time)
 			return
-
+	
+	if packet is PlayerBodyDeathSyncPacket:
+		if packet.player_id == player_id:
+			_die()
+			return
 
 
 

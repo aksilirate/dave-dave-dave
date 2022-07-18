@@ -2,10 +2,10 @@ class_name CutsceneAnimationPlayer
 extends AnimationPlayer
 
 
+onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
+onready var world_editor = current_game_state.world_data as WorldEditor
 onready var finish_area_data: FinishAreaData = DataLoader.finish_area_data
-
 onready var cutscene_animation_player_editor = DataLoader.cutscene_animation_player_data as CutsceneAnimationPlayerEditor
-
 
 
 func _ready():
@@ -26,4 +26,5 @@ func _on_CutsceneAnimationPlayer_animation_finished(_anim_name):
 
 
 func _on_ClassicWorldScene_ready():
-	play("start")
+	if not world_editor.played:
+		play("start")

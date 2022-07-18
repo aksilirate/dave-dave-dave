@@ -30,4 +30,5 @@ func set_played(value):
 
 func set_completed(value):
 	completed = value
+	emit_signal("completed_changed")
 	emit_changed()

@@ -3,9 +3,7 @@ extends Node2D
 
 
 onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
-
 onready var world_editor = current_game_state.world_data as WorldEditor
-
 onready var network_data: NetworkData = DataLoader.network_data
 
 
@@ -14,3 +12,8 @@ onready var network_data: NetworkData = DataLoader.network_data
 func _ready():
 	world_editor.set_played(true)
 
+
+
+func _on_CutsceneAnimationPlayer_animation_finished(anim_name):
+	if anim_name == "finished":
+		world_editor.set_completed(true)
