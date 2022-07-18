@@ -1,6 +1,7 @@
 extends Node
 
 
+onready var achievements = $Achievements
 
 var steam_id: int
 
@@ -26,20 +27,6 @@ func _initialize_steam() -> void:
 	print("Did Steam initialize?: "+str(init))
 	if init['status'] != 1:
 		print("Failed to initialize Steam. "+str(init['verbal'])+" Shutting down...")
-
-
-
-
-
-
-func _unlock_achievement(name: String):
-	if is_owned():
-# warning-ignore:return_value_discarded
-		Steam.setAchievement(name)
-# warning-ignore:return_value_discarded
-		Steam.storeStats()
-
-
 
 
 
