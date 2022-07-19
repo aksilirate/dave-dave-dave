@@ -61,7 +61,7 @@ var double_jumped: bool = false
 
 var packet_history: Array
 
-
+var target_position: Vector2
 
 var latest_sync_tick: int
 var last_input_recieved: Vector2
@@ -211,6 +211,43 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	if network_data.lobby_id:
+		if not Steamworks.steam_id == player_id:
+			
+			if not packet_history.size():
+				return
+			
+			var packets: Array = packet_history.pop_front()
+				
+			for element in packets:
+				var packet: Packet = element
+				
+				if packet is PlayerBodyPositionSyncPacket:
+					player_body_editor.set_displacement(Vector2.ZERO)
+					
+					if global_position.distance_to(packet.position) > 10:
+						player_body_editor.set_displacement(global_position.direction_to(packet.position) * 35)
+						
+					
+					global_position = packet.position
+					
+					
+					
+				if packet is PlayerBodyInventorySyncPacket:
+					player_body_editor.set_inventory(packet.inventory)
+					continue
+					
+				if packet is PlayerBodyHasteTimeSyncPacket:
+					player_body_editor.set_haste_time(packet.haste_time)
+					continue
+						
+				if packet is PlayerBodyDeathSyncPacket:
+					_die()
+					continue
+					
+	
+	
+	
 	_simulate_displacement(delta, last_input_recieved)
 	
 	animation_player.playback_speed = (1.0 / speed) * float(get_speed())
@@ -251,41 +288,8 @@ func _physics_process(delta):
 func _simulate_displacement(delta, arg_input: Vector2):
 	if network_data.lobby_id:
 		if not Steamworks.steam_id == player_id:
-			for element in packet_history[0]:
-				var packet: Packet = element
-				
-				if packet is PlayerBodyPositionSyncPacket:
-					if not packet_history.size():
-						return
-						
-					player_body_editor.set_displacement(Vector2.ZERO)
-					
-					if global_position.distance_to(packet.position) > 10:
-						player_body_editor.set_displacement(global_position.direction_to(packet.position) * 35)
-						
-					#var _weight = min(1.0, delta * position_history.size())
-						
-					global_position = lerp(global_position, packet.position, 1)
-					
-					
-					if global_position.distance_to(packet.position) < 15:
-						packet_history.remove(0)
-						
-					return
-				if packet is PlayerBodyInventorySyncPacket:
-					player_body_editor.set_inventory(packet.inventory)
-					return
-					
-				if packet is PlayerBodyHasteTimeSyncPacket:
-					player_body_editor.set_haste_time(packet.haste_time)
-					return
-						
-				if packet is PlayerBodyDeathSyncPacket:
-					_die()
-					return
-	
-	
-	
+			return
+			
 	var gravity: float = player_body_editor.gravity
 	
 	_move(int(arg_input.x))
@@ -295,9 +299,11 @@ func _simulate_displacement(delta, arg_input: Vector2):
 		_jump()
 		
 		
+	if is_playing_death_animation():
+		player_body_editor.set_velocity_y(0)
 	if not is_controllable():
 		player_body_editor.set_velocity_x(0)
-		
+	
 	player_body_editor.set_displacement(
 		move_and_slide_with_snap(
 						get_velocity(), 

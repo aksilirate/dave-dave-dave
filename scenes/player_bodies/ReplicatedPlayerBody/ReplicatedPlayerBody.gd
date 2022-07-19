@@ -29,6 +29,7 @@ func _on_packet_received():
 	if not packet is PlayerBodySyncPacket:
 		return
 	
+	
 	if packet.player_id == player_id:
 		if packet is PlayerBodyPositionSyncPacket:
 			if global_position == packet.position:
@@ -36,14 +37,14 @@ func _on_packet_received():
 				
 			packet_history.push_back([packet])
 			return
-				
-		if packet is PlayerBodyInventorySyncPacket:
-			if packet_history.size():
-				packet_history[packet_history.size() - 1].push_back(packet)
-				return
-			
-			packet_history.push_back([packet])
+		
+		
+		if packet_history.size():
+			packet_history[packet_history.size() - 1].push_back(packet)
 			return
+		
+		packet_history.push_back([packet])
+		return
 
 
 
