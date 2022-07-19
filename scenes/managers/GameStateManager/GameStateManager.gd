@@ -68,3 +68,4 @@ func _on_ExitToTitleGenericButton_pressed():
 func _on_CutsceneAnimationPlayer_animation_finished(anim_name: String):
 	if "finish" in anim_name:
 		game_state_editor.set_current_game_state(DataLoader.game_states.title_state)
+

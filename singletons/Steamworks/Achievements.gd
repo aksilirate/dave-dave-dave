@@ -8,7 +8,7 @@ var _signal
 
 
 func _ready():
-	DataLoader.connect("all_data_initialized", self, "_on_all_data_initialized")
+	_signal = DataLoader.connect("all_data_initialized", self, "_on_all_data_initialized")
 
 
 
