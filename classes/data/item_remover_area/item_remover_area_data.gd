@@ -7,6 +7,7 @@ signal activated
 
 
 var entered_body setget _entered_body
+var position: Vector2 setget _position
 var item setget _item
 
 
@@ -15,7 +16,8 @@ var item setget _item
 func _entered_body(_value):
 	return
 
-
+func _position(value):
+	return
 
 func _item(_value):
 	return

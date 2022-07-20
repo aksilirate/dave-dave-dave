@@ -27,7 +27,6 @@ var checkpoint_data: CheckpointData
 var diamond_data: DiamondData
 var item_area_data: ItemAreaData
 var item_remover_area_data: ItemRemoverAreaData
-var locked_door_data: LockedDoorData
 var second_jump_data: SecondJumpData
 var mover_block_data: MoverBlockData
 var green_gate_data: GreenGateData
@@ -88,7 +87,6 @@ func _init_all_data():
 	diamond_data = DataResource.init_data(data_path + "/Diamond.tres", DiamondEditor.new()) as DiamondData
 	item_area_data = DataResource.init_data(data_path + "/ItemArea.tres", ItemAreaEditor.new()) as ItemAreaData
 	item_remover_area_data = DataResource.init_data(data_path + "/ItemRemoverArea.tres", ItemRemoverAreaEditor.new()) as ItemRemoverAreaData
-	locked_door_data = DataResource.init_data(data_path + "/LockedDoorData.tres", LockedDoorEditor.new()) as LockedDoorData
 	second_jump_data = DataResource.init_data(data_path + "/SecondJump.tres", SecondJumpEditor.new()) as SecondJumpData
 	mover_block_data = DataResource.init_data(data_path + "/MoverBlock.tres", MoverBlockEditor.new()) as MoverBlockData
 	green_gate_data = DataResource.init_data(data_path + "/GreenGate.tres", GreenGateEditor.new()) as GreenGateData

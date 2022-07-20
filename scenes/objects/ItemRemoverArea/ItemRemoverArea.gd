@@ -13,7 +13,7 @@ export(Resource) var item_to_remove
 
 
 
-
+var _signal
 
 
 func _on_ItemRemoverArea_body_entered(body):
@@ -22,6 +22,7 @@ func _on_ItemRemoverArea_body_entered(body):
 			return
 			
 		item_remover_area_editor.set_entered_body(body)
+		item_remover_area_editor.set_position(global_position)
 		item_remover_area_editor.set_item(item_to_remove)
 		item_remover_area_editor.emit_signal("activated")
 		emit_signal("item_removed")

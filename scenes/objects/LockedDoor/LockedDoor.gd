@@ -2,10 +2,22 @@ class_name LockedDoor
 extends ItemRemoverArea
 
 
-onready var locked_door_editor = DataLoader.locked_door_data as LockedDoorEditor
 
 
 
-func _on_LockedDoor_item_removed():
-	locked_door_editor.set_last_unlock_position(global_position)
-	hide()
+func _ready():
+	_signal = local_player_body_data.connect("activated_item_removers_changed", self, "_on_local_player_body_activated_item_removers_changed")
+	update_locked_door()
+
+
+
+func _on_local_player_body_activated_item_removers_changed():
+	update_locked_door()
+
+
+func update_locked_door():
+	if local_player_body_data.activated_item_removers.has(global_position):
+		hide()
+		return
+		
+	show()

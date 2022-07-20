@@ -117,9 +117,10 @@ func set_body(arg_body: Node2D):
 
 
 func set_activated_checkpoints(value):
-	activated_checkpoints = value
-	emit_signal("activated_checkpoints_set")
-	emit_changed()
+	if not activated_checkpoints == value:
+		activated_checkpoints = value
+		emit_signal("activated_checkpoints_changed")
+		emit_changed()
 
 
 
@@ -128,6 +129,28 @@ func add_to_activated_checkpoints(value):
 		activated_checkpoints.push_back(value)
 		emit_signal("activated_checkpoints_changed")
 		emit_changed()
+
+
+
+
+
+func set_activated_item_removers(value):
+	if not activated_item_removers == value:
+		activated_item_removers = value
+		emit_signal("activated_item_removers_changed")
+		emit_changed()
+
+
+
+func add_to_activated_item_removers(value):
+	if not activated_item_removers.has(value):
+		activated_item_removers.push_back(value)
+		emit_signal("activated_item_removers_changed")
+		emit_changed()
+
+
+
+
 
 
 

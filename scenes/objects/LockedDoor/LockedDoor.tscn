@@ -22,6 +22,3 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="LockedDoorStaticBody" parent="." index="2" instance=ExtResource( 3 )]
-
-[connection signal="item_removed" from="." to="." method="_on_LockedDoor_item_removed"]
-[connection signal="item_removed" from="." to="LockedDoorStaticBody" method="_on_LockedDoor_item_removed"]

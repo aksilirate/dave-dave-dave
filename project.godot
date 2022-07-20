@@ -294,16 +294,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/objects/LockedDoor/LockedDoor.gd"
 }, {
-"base": "DataResource",
-"class": "LockedDoorData",
-"language": "GDScript",
-"path": "res://classes/data/locked_door/locked_door_data.gd"
-}, {
-"base": "LockedDoorData",
-"class": "LockedDoorEditor",
-"language": "GDScript",
-"path": "res://classes/data/locked_door/locked_door_editor.gd"
-}, {
 "base": "Area2D",
 "class": "MoverBlock",
 "language": "GDScript",
@@ -622,8 +612,6 @@ _global_script_class_icons={
 "Items": "",
 "LocalPlayerBody": "",
 "LockedDoor": "",
-"LockedDoorData": "",
-"LockedDoorEditor": "",
 "MoverBlock": "",
 "MoverBlockData": "",
 "MoverBlockEditor": "",

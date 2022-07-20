@@ -19,13 +19,13 @@ var _signal
 
 
 func _ready():
-	_signal = local_player_body_data.connect("activated_checkpoints_set", self, "_on_activated_checkpoints_set")
+	_signal = local_player_body_data.connect("activated_checkpoints_changed", self, "_on_activated_checkpoints_changed")
 	checkpoint_editor.connect("activated", self, "_on_checkpoint_activated")
 	_update_checkpoint()
 
 
 
-func _on_activated_checkpoints_set():
+func _on_activated_checkpoints_changed():
 	_update_checkpoint()
 
 

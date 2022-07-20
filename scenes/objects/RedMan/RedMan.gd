@@ -3,8 +3,19 @@ extends Sprite
 
 signal died
 
+onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
+
 onready var animation_player = $AnimationPlayer
 
+export(bool) var hide_on_continue
+
+
+
+
+func _ready():
+	if current_game_state.reset_data:
+		if hide_on_continue:
+			hide()
 
 
 

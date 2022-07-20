@@ -16,10 +16,10 @@ signal collected_diamonds_changed
 signal haste_time_changed
 signal deaths_changed
 
-signal activated_checkpoints_set
+
 signal activated_checkpoints_changed
 
-
+signal activated_item_removers_changed
 
 
 signal respawn_location_changed

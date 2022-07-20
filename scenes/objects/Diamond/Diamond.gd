@@ -7,6 +7,7 @@ onready var local_player_body_data = current_game_state.world_data.local_player_
 
 onready var diamond_editor = DataLoader.diamond_data as DiamondEditor
 
+onready var collision_shape = $CollisionShape2D
 
 var _signal
 
@@ -26,8 +27,13 @@ func _on_local_player_body_collected_diamonds_changed():
 
 func update_diamond():
 	if local_player_body_data.collected_diamonds.has(global_position):
-		queue_free()
-
+		collision_shape.set_deferred("disabled", true)
+		hide()
+		return
+	
+	
+	collision_shape.set_deferred("disabled", false)
+	show()
 
 
 func _on_Diamond_body_entered(_body):
