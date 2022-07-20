@@ -29,4 +29,4 @@ func _on_diamonds_changed():
 
 
 func _update_text():
-	text = str(local_player_body_data.collected_diamonds) + "/" + str(diamonds_data.diamonds.size())
+	text = str(local_player_body_data.collected_diamonds.size()) + "/" + str(diamonds_data.diamonds.size())

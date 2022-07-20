@@ -19,6 +19,9 @@ signal deaths_changed
 signal activated_checkpoints_set
 signal activated_checkpoints_changed
 
+
+
+
 signal respawn_location_changed
 
 signal last_position_set
@@ -38,13 +41,15 @@ export(Array) var inventory: Array setget _inventory
 
 export(Array) var collected_items: Array setget _collected_items
 
-export(int) var collected_diamonds setget _collected_diamonds
+export(Array) var collected_diamonds: Array setget _collected_diamonds
 
 var haste_time: float setget _haste_time 
 
 export(int) var deaths setget _deaths
 
 export(Array) var activated_checkpoints: Array setget _activated_checkpoints
+
+export(Array) var activated_item_removers: Array setget _activated_item_removers
 
 export(Vector2) var respawn_location setget _respawn_location
 
@@ -86,7 +91,8 @@ func _collected_items(value):
 
 func _collected_diamonds(value):
 	if not DataLoader.finished:
-		collected_diamonds = value
+		if value is Array:
+			collected_diamonds = value
 
 
 func _haste_time(value):
@@ -102,6 +108,12 @@ func _deaths(value):
 func _activated_checkpoints(value):
 	if not DataLoader.finished:
 		activated_checkpoints = value
+
+
+func _activated_item_removers(value):
+	if not DataLoader.finished:
+		activated_item_removers = value
+
 
 
 func _respawn_location(value):

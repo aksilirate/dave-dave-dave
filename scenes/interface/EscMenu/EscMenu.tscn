@@ -34,6 +34,8 @@ custom_constants/separation = 21
 
 [node name="ResumeGenericButton" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_bottom = 16.0
+focus_neighbour_top = NodePath("../ExitToTitleGenericButton")
+focus_neighbour_bottom = NodePath("../StartServerGenericButton")
 text = "resume"
 align = 1
 initial_focus_grab = true
@@ -41,16 +43,22 @@ initial_focus_grab = true
 [node name="StartServerGenericButton" parent="VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 37.0
 margin_bottom = 53.0
+focus_neighbour_top = NodePath("../ResumeGenericButton")
+focus_neighbour_bottom = NodePath("../OptionsGenericButton")
 
 [node name="OptionsGenericButton" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 74.0
 margin_bottom = 90.0
+focus_neighbour_top = NodePath("../StartServerGenericButton")
+focus_neighbour_bottom = NodePath("../ExitToTitleGenericButton")
 text = "options"
 align = 1
 
 [node name="ExitToTitleGenericButton" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 111.0
 margin_bottom = 127.0
+focus_neighbour_top = NodePath("../OptionsGenericButton")
+focus_neighbour_bottom = NodePath("../ResumeGenericButton")
 text = "exit"
 align = 1
 

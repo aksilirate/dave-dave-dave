@@ -13192,7 +13192,6 @@ scale = Vector2( 10, 10 )
 texture = ExtResource( 37 )
 
 [node name="RedMan" parent="." index="39" instance=ExtResource( 24 )]
-visible = false
 position = Vector2( -13480, 7950 )
 flip_h = true
 
@@ -13253,10 +13252,6 @@ flip_h = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="45"]
 environment = ExtResource( 3 )
-
-[node name="StartServerGenericButton" parent="WorldCanvasLayer/EscMenu/VBoxContainer" index="1"]
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../NewGameButton")
 
 [node name="CutsceneCanvasLayer" type="CanvasLayer" parent="." index="49"]
 

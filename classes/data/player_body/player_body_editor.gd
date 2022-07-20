@@ -57,15 +57,16 @@ func add_to_collected_items(collected_item):
 
 
 
-func set_collected_diamonds(value: int):
-	collected_diamonds = value
-	emit_signal("collected_diamonds_changed")
-	emit_changed()
+func set_collected_diamonds(value: Array):
+	if not collected_diamonds == value:
+		collected_diamonds = value
+		emit_signal("collected_diamonds_changed")
+		emit_changed()
 
 
 
-func add_to_collected_diamonds(amount: int):
-	collected_diamonds += amount
+func add_to_collected_diamonds(value: Vector2):
+	collected_diamonds.push_back(value)
 	emit_signal("collected_diamonds_changed")
 	emit_changed()
 

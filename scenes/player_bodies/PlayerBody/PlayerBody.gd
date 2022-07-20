@@ -90,7 +90,7 @@ func _ready():
 	
 	if current_game_state.reset_data:
 		player_body_editor.set_play_time(0)
-		player_body_editor.set_collected_diamonds(0)
+		player_body_editor.set_collected_diamonds([])
 		player_body_editor.set_deaths(0)
 		player_body_editor.set_inventory([])
 		player_body_editor.set_collected_items([])
@@ -139,7 +139,7 @@ func _on_damage_area_collided_body_set():
 
 
 func _on_last_collected_diamond_position_set():
-	player_body_editor.add_to_collected_diamonds(1)
+	player_body_editor.add_to_collected_diamonds(diamond_data.last_collected_diamond_position)
 	emit_signal("diamond_collected")
 
 
@@ -186,7 +186,7 @@ func _on_green_gate_entered_body_changed():
 
 
 func _on_cyan_gate_entered_body_changed():
-	if player_body_editor.collected_diamonds < diamond_data.diamonds.size():
+	if player_body_editor.collected_diamonds.size() < diamond_data.diamonds.size():
 		_die()
 
 
