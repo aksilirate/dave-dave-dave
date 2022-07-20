@@ -25,7 +25,7 @@ func _on_interface_selection_changed():
 func update_focus():
 	if options_data.interface_selection:
 		focus_mode = Control.FOCUS_ALL
-		if visible:
+		if is_visible_in_tree():
 			if initial_focus_grab:
 				grab_focus()
 		return

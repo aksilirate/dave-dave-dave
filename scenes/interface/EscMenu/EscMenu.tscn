@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/interface/EscMenu/EscMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/generic_buttons/GenericButton/GenericButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/generic_buttons/StartServerGenericButton/StartServerGenericButton.tscn" type="PackedScene" id=4]
 
 [node name="EscMenu" type="Control"]
@@ -12,6 +12,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="GameStateManager" parent="." instance=ExtResource( 3 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -26,13 +28,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.0
+margin_left = -147.0
 margin_top = -63.5
-margin_right = 96.0
+margin_right = 147.0
 margin_bottom = 63.5
 custom_constants/separation = 21
 
 [node name="ResumeGenericButton" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 294.0
 margin_bottom = 16.0
 focus_neighbour_top = NodePath("../ExitToTitleGenericButton")
 focus_neighbour_bottom = NodePath("../StartServerGenericButton")
@@ -42,12 +45,15 @@ initial_focus_grab = true
 
 [node name="StartServerGenericButton" parent="VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 37.0
+margin_right = 294.0
 margin_bottom = 53.0
 focus_neighbour_top = NodePath("../ResumeGenericButton")
 focus_neighbour_bottom = NodePath("../OptionsGenericButton")
+align = 1
 
 [node name="OptionsGenericButton" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 74.0
+margin_right = 294.0
 margin_bottom = 90.0
 focus_neighbour_top = NodePath("../StartServerGenericButton")
 focus_neighbour_bottom = NodePath("../ExitToTitleGenericButton")
@@ -56,14 +62,11 @@ align = 1
 
 [node name="ExitToTitleGenericButton" parent="VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 111.0
+margin_right = 294.0
 margin_bottom = 127.0
 focus_neighbour_top = NodePath("../OptionsGenericButton")
 focus_neighbour_bottom = NodePath("../ResumeGenericButton")
-text = "exit"
+text = "save and exit"
 align = 1
 
-[node name="OptionsScene" parent="." instance=ExtResource( 3 )]
-visible = false
-
-[connection signal="pressed" from="VBoxContainer/ResumeGenericButton" to="." method="_on_ResumeGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitToTitleGenericButton" to="GameStateManager" method="_on_ExitToTitleGenericButton_pressed"]

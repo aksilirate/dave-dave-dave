@@ -42,6 +42,7 @@ margin_bottom = 149.0
 rect_scale = Vector2( 4, 4 )
 
 [node name="FullscreenOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 10 )]
+focus_neighbour_top = NodePath("../../OptionsBackGenericButton")
 focus_neighbour_right = NodePath("../../SliderOptions/MusicOptionHSlider")
 initial_focus_grab = true
 
@@ -100,4 +101,3 @@ focus_neighbour_right = NodePath("../SliderOptions/MusicOptionHSlider")
 focus_neighbour_bottom = NodePath("../ToggleOptions/FullscreenOptionCheckBox")
 
 [connection signal="toggled" from="ToggleOptions/InterfaceSelectionOptionCheckBox" to="." method="_on_InterfaceSelectionOptionCheckBox_toggled"]
-[connection signal="pressed" from="OptionsBackGenericButton" to="." method="_on_OptionsBackGenericButton_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/TitleTabContainer/TitleTabContainer.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/TitleScene/TitleScene.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="TitleTabContainer" type="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+tabs_visible = false
+script = ExtResource( 2 )
+
+[node name="TitleScene" parent="." instance=ExtResource( 5 )]
+
+[node name="PlayGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="0"]
+margin_top = 0.0
+margin_right = 192.0
+margin_bottom = 16.0
+
+[node name="OptionsGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="1"]
+margin_top = 37.0
+margin_right = 192.0
+margin_bottom = 53.0
+
+[node name="ExtrasGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="2"]
+margin_top = 74.0
+margin_right = 192.0
+margin_bottom = 90.0
+
+[node name="ExitGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="3"]
+margin_top = 111.0
+margin_right = 192.0
+margin_bottom = 127.0
+
+[node name="OptionsScene" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[connection signal="pressed" from="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer/OptionsGenericButton" to="." method="_on_OptionsGenericButton_pressed"]
+[connection signal="pressed" from="OptionsScene/OptionsBackGenericButton" to="." method="_on_OptionsBackGenericButton_pressed"]
+
+[editable path="TitleScene"]
+[editable path="TitleScene/VBoxContainer/TitleButtonsTabContainer"]
+[editable path="OptionsScene"]

@@ -5,7 +5,7 @@ extends PlayerBody
 
 onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
-
+var esc_menu_open: bool
 
 
 func _physics_process(_delta):
@@ -36,14 +36,27 @@ func get_player_id() -> int:
 
 
 func is_controllable() -> bool:
-	if chat_input_data.shown:
-		return false
+#	if chat_input_data.shown:
+#		return false
 	
 	if cutscene_animation_player_data.playing:
 		return false
-		
+	
+	if esc_menu_open:
+		return false
+	
 	return .is_controllable()
 
 
 
+
+
+
+func _on_WorldEscTabContainer_opened():
+	esc_menu_open = true
+
+
+
+func _on_WorldEscTabContainer_closed():
+	esc_menu_open = false
 

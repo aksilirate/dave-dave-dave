@@ -21,7 +21,7 @@ export(bool) var smooth_camera = true setget _smooth_camera
 
 export(bool) var hide_pet = false setget _hide_pet
 
-export(bool) var interface_selection = false setget _interface_selection
+export(bool) var interface_selection = true setget _interface_selection
 
 
 export(float) var music_volume_db setget _music_volume_db

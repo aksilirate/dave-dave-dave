@@ -36,6 +36,8 @@ func _on_CutsceneAnimationPlayer_animation_finished(_anim_name):
 func _on_ClassicWorldScene_ready():
 	if current_game_state.reset_data:
 		play("start")
+		return
+	cutscene_animation_player_editor.set_playing(false)
 
 
 func _on_LockedDoor28_item_removed():

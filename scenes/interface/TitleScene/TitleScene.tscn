@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/interface/TitleButtonsTabContainer/TitleButtonsTabContainer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/WorldStatsRichTextLabel/WorldStatsRichTextLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/managers/NetworkManager/NetworkManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
-[ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=15]
 
 [sub_resource type="DynamicFont" id=1]
@@ -24,8 +22,6 @@ __meta__ = {
 }
 
 [node name="NetworkManager" parent="." instance=ExtResource( 6 )]
-
-[node name="GameStateManager" parent="." instance=ExtResource( 8 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_bottom = 1.0
@@ -59,12 +55,11 @@ border_color = Color( 1, 0, 0, 0 )
 border_width = 0.0
 
 [node name="TitleButtonsTabContainer" parent="VBoxContainer" instance=ExtResource( 2 )]
-
-[node name="AdventureContinueGenericButton" parent="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer" index="0"]
-initial_focus_grab = true
-
-[node name="AdventureNewGameGenericButton" parent="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer" index="1"]
-initial_focus_grab = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 120.0
+margin_right = 192.0
+margin_bottom = 247.0
 
 [node name="WorldStatsRichTextLabel" parent="." instance=ExtResource( 4 )]
 
@@ -74,12 +69,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
-
-[node name="OptionsScene" parent="." instance=ExtResource( 9 )]
-visible = false
-
-[connection signal="pressed" from="VBoxContainer/TitleButtonsTabContainer/MainTitleButtonsVBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer/AdventureContinueGenericButton" to="GameStateManager" method="_on_AdventureContinueGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer/AdventureNewGameGenericButton" to="GameStateManager" method="_on_AdventureNewGameGenericButton_pressed"]
-
-[editable path="VBoxContainer/TitleButtonsTabContainer"]

@@ -13,7 +13,7 @@ export(bool) var hide_on_continue
 
 
 func _ready():
-	if current_game_state.reset_data:
+	if not current_game_state.reset_data:
 		if hide_on_continue:
 			hide()
 
