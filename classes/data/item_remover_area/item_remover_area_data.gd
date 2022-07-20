@@ -16,7 +16,7 @@ var item setget _item
 func _entered_body(_value):
 	return
 
-func _position(value):
+func _position(_value):
 	return
 
 func _item(_value):
