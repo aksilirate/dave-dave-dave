@@ -17,7 +17,7 @@ func _ready():
 	world_editor.set_played(true)
 	if current_game_state.reset_data:
 		world_editor.set_completed(false)
-		world_editor.set_online_player_bodies_data([])
+		world_editor.set_online_player_bodies_data({})
 	
 	_update_online_player_data()
 

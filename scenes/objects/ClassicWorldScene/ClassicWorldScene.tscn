@@ -7759,6 +7759,8 @@ better."
 position = Vector2( 19790, -200 )
 
 [node name="TextLabel" parent="Signs/Sign44" index="2"]
+margin_top = -30.1
+margin_bottom = 15.9
 text = "you are important to us, dave"
 
 [node name="Sign49" parent="Signs" index="9" instance=ExtResource( 30 )]
@@ -9660,49 +9662,49 @@ position = Vector2( 31089.8, -649.887 )
 position = Vector2( 31219.8, -649.928 )
 
 [node name="SpikeBlock191" parent="Spikes" index="463" instance=ExtResource( 17 )]
-position = Vector2( 31359.9, -169.973 )
+position = Vector2( 31360, -89.9731 )
 
 [node name="SpikeBlock192" parent="Spikes" index="464" instance=ExtResource( 17 )]
-position = Vector2( 31229.9, -169.931 )
+position = Vector2( 31230, -89.9312 )
 
 [node name="SpikeBlock193" parent="Spikes" index="465" instance=ExtResource( 17 )]
-position = Vector2( 31099.9, -169.89 )
+position = Vector2( 31100, -89.8901 )
 
 [node name="SpikeBlock194" parent="Spikes" index="466" instance=ExtResource( 17 )]
-position = Vector2( 30960.1, 390.154 )
+position = Vector2( 30960.2, 470.154 )
 
 [node name="SpikeBlock195" parent="Spikes" index="467" instance=ExtResource( 17 )]
-position = Vector2( 31090.1, 390.113 )
+position = Vector2( 31090.2, 470.113 )
 
 [node name="SpikeBlock196" parent="Spikes" index="468" instance=ExtResource( 17 )]
-position = Vector2( 31220.1, 390.072 )
+position = Vector2( 31220.2, 470.072 )
 
 [node name="SpikeBlock197" parent="Spikes" index="469" instance=ExtResource( 17 )]
-position = Vector2( 31360.3, 950.027 )
+position = Vector2( 31360.4, 1030.03 )
 
 [node name="SpikeBlock198" parent="Spikes" index="470" instance=ExtResource( 17 )]
-position = Vector2( 31230.3, 950.068 )
+position = Vector2( 31230.4, 1030.07 )
 
 [node name="SpikeBlock199" parent="Spikes" index="471" instance=ExtResource( 17 )]
-position = Vector2( 31100.3, 950.11 )
+position = Vector2( 31100.4, 1030.11 )
 
 [node name="SpikeBlock200" parent="Spikes" index="472" instance=ExtResource( 17 )]
-position = Vector2( 30960.5, 1510.15 )
+position = Vector2( 30960.6, 1590.15 )
 
 [node name="SpikeBlock201" parent="Spikes" index="473" instance=ExtResource( 17 )]
-position = Vector2( 31090.5, 1510.11 )
+position = Vector2( 31090.6, 1590.11 )
 
 [node name="SpikeBlock202" parent="Spikes" index="474" instance=ExtResource( 17 )]
-position = Vector2( 31220.5, 1510.07 )
+position = Vector2( 31220.6, 1590.07 )
 
 [node name="SpikeBlock203" parent="Spikes" index="475" instance=ExtResource( 17 )]
-position = Vector2( 31360.7, 2070.03 )
+position = Vector2( 31360.8, 2150.03 )
 
 [node name="SpikeBlock204" parent="Spikes" index="476" instance=ExtResource( 17 )]
-position = Vector2( 31230.7, 2070.07 )
+position = Vector2( 31230.8, 2150.07 )
 
 [node name="SpikeBlock205" parent="Spikes" index="477" instance=ExtResource( 17 )]
-position = Vector2( 31100.7, 2070.11 )
+position = Vector2( 31100.8, 2150.11 )
 
 [node name="SpikeBlock186" parent="Spikes" index="478" instance=ExtResource( 17 )]
 position = Vector2( 31229.6, -1209.93 )
@@ -10073,19 +10075,19 @@ position = Vector2( 31220, -1320 )
 position = Vector2( 31100, -760 )
 
 [node name="SecondJump98" parent="SecondJumps" index="43" instance=ExtResource( 23 )]
-position = Vector2( 31220, -280 )
+position = Vector2( 31220, -200 )
 
 [node name="SecondJump99" parent="SecondJumps" index="44" instance=ExtResource( 23 )]
-position = Vector2( 31100, 280 )
+position = Vector2( 31100, 360 )
 
 [node name="SecondJump100" parent="SecondJumps" index="45" instance=ExtResource( 23 )]
-position = Vector2( 31220, 839.999 )
+position = Vector2( 31220, 919.999 )
 
 [node name="SecondJump101" parent="SecondJumps" index="46" instance=ExtResource( 23 )]
-position = Vector2( 31100, 1400 )
+position = Vector2( 31100, 1480 )
 
 [node name="SecondJump102" parent="SecondJumps" index="47" instance=ExtResource( 23 )]
-position = Vector2( 31220, 1960 )
+position = Vector2( 31220, 2040 )
 
 [node name="SecondJump82" parent="SecondJumps" index="48" instance=ExtResource( 23 )]
 position = Vector2( 27920, -3680 )
@@ -12862,52 +12864,56 @@ position = Vector2( -12560, 7680 )
 
 [node name="HastePotion" parent="HastePotions" index="0" instance=ExtResource( 20 )]
 position = Vector2( -2640, 320 )
-haste_time = 10.0
+haste_time = 5.0
 
-[node name="HastePotion8" parent="HastePotions" index="1" instance=ExtResource( 20 )]
+[node name="HastePotion14" parent="HastePotions" index="1" instance=ExtResource( 20 )]
+position = Vector2( 2200, 180 )
+haste_time = 5.0
+
+[node name="HastePotion8" parent="HastePotions" index="2" instance=ExtResource( 20 )]
 position = Vector2( 5920, -2470 )
 
-[node name="HastePotion6" parent="HastePotions" index="2" instance=ExtResource( 20 )]
+[node name="HastePotion6" parent="HastePotions" index="3" instance=ExtResource( 20 )]
 position = Vector2( 19240, -600 )
 haste_time = 3.0
 
-[node name="HastePotion2" parent="HastePotions" index="3" instance=ExtResource( 20 )]
+[node name="HastePotion2" parent="HastePotions" index="4" instance=ExtResource( 20 )]
 position = Vector2( 12480, 800 )
 haste_time = 1.5
 
-[node name="HastePotion9" parent="HastePotions" index="4" instance=ExtResource( 20 )]
+[node name="HastePotion9" parent="HastePotions" index="5" instance=ExtResource( 20 )]
 position = Vector2( 11120, -1200 )
-haste_time = 2.0
+haste_time = 1.0
 
-[node name="HastePotion10" parent="HastePotions" index="5" instance=ExtResource( 20 )]
+[node name="HastePotion10" parent="HastePotions" index="6" instance=ExtResource( 20 )]
 position = Vector2( 12320, -800 )
 haste_time = 3.0
 
-[node name="HastePotion11" parent="HastePotions" index="6" instance=ExtResource( 20 )]
+[node name="HastePotion11" parent="HastePotions" index="7" instance=ExtResource( 20 )]
 position = Vector2( 13200, -1200 )
 haste_time = 10.0
 
-[node name="HastePotion13" parent="HastePotions" index="7" instance=ExtResource( 20 )]
+[node name="HastePotion13" parent="HastePotions" index="8" instance=ExtResource( 20 )]
 position = Vector2( 9170, -2410 )
 haste_time = 5.0
 
-[node name="HastePotion12" parent="HastePotions" index="8" instance=ExtResource( 20 )]
+[node name="HastePotion12" parent="HastePotions" index="9" instance=ExtResource( 20 )]
 position = Vector2( 14640, -3600 )
 haste_time = 15.0
 
-[node name="HastePotion7" parent="HastePotions" index="9" instance=ExtResource( 20 )]
+[node name="HastePotion7" parent="HastePotions" index="10" instance=ExtResource( 20 )]
 position = Vector2( 7760, -11360 )
 haste_time = 10.0
 
-[node name="HastePotion4" parent="HastePotions" index="10" instance=ExtResource( 20 )]
+[node name="HastePotion4" parent="HastePotions" index="11" instance=ExtResource( 20 )]
 position = Vector2( 25520, -6960 )
 haste_time = 1.0
 
-[node name="HastePotion5" parent="HastePotions" index="11" instance=ExtResource( 20 )]
+[node name="HastePotion5" parent="HastePotions" index="12" instance=ExtResource( 20 )]
 position = Vector2( 25990, -6960 )
 haste_time = 1.0
 
-[node name="HastePotion3" parent="HastePotions" index="12" instance=ExtResource( 20 )]
+[node name="HastePotion3" parent="HastePotions" index="13" instance=ExtResource( 20 )]
 position = Vector2( 23640, -8280 )
 haste_time = 2.0
 
