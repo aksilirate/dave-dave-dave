@@ -6,6 +6,7 @@ signal fullscreen_changed
 signal v_sync_changed 
 signal smooth_camera_changed
 signal hide_pet_changed
+signal interface_selection_changed
 
 signal music_volume_db_changed
 signal sfx_volume_db_changed

@@ -30,3 +30,5 @@ valign = 1
 __meta__ = {
 "_editor_description_": ""
 }
+
+[connection signal="visibility_changed" from="." to="." method="_on_OptionCheckBox_visibility_changed"]

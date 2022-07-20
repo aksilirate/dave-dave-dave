@@ -7,8 +7,6 @@
 [node name="GenericButton" type="Button"]
 margin_right = 192.0
 margin_bottom = 20.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../NewGameButton")
 theme = ExtResource( 2 )
 align = 0
 script = ExtResource( 1 )
@@ -20,3 +18,4 @@ __meta__ = {
 
 [connection signal="pressed" from="." to="." method="_on_GenericButton_pressed"]
 [connection signal="pressed" from="." to="SfxAudioStreamPlayerFactory" method="_on_GenericButton_pressed"]
+[connection signal="visibility_changed" from="." to="." method="_on_GenericButton_visibility_changed"]

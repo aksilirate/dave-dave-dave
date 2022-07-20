@@ -1,7 +1,6 @@
 extends OptionCheckBox
 
 
-var _signal
 
 
 func _ready():

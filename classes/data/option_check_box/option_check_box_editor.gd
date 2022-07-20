@@ -30,3 +30,11 @@ func set_hide_pet_pressed(value):
 	if hide_pet_pressed != value:
 		hide_pet_pressed = value
 		emit_signal("hide_pet_pressed_changed")
+
+
+
+
+func set_interface_selection_pressed(value):
+	if interface_selection_pressed != value:
+		interface_selection_pressed = value
+		emit_signal("interface_selection_pressed_changed")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=2]
+[gd_scene load_steps=177 format=2]
 
 [ext_resource path="res://scenes/objects/WorldScene/WorldScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://content/items/YellowKey.tres" type="Resource" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://content/items/GrayKey.tres" type="Resource" id=41]
 [ext_resource path="res://resources/animations/GrayDaveSuicideAnimation.tres" type="Animation" id=42]
 [ext_resource path="res://resources/animations/FinishRedAnimation.tres" type="Animation" id=43]
+[ext_resource path="res://scenes/objects/AchievementArea/AchievementArea.tscn" type="PackedScene" id=44]
 
 [sub_resource type="DynamicFont" id=124]
 size = 8
@@ -7325,6 +7326,18 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="RectangleShape2D" id=173]
+resource_local_to_scene = true
+extents = Vector2( 35, 40 )
+
+[sub_resource type="RectangleShape2D" id=174]
+resource_local_to_scene = true
+extents = Vector2( 60, 50 )
+
+[sub_resource type="RectangleShape2D" id=175]
+resource_local_to_scene = true
+extents = Vector2( 40, 30 )
+
 [node name="ClassicWorldScene" instance=ExtResource( 1 )]
 
 [node name="MovementHelp" type="Label" parent="." index="0"]
@@ -13179,6 +13192,7 @@ scale = Vector2( 10, 10 )
 texture = ExtResource( 37 )
 
 [node name="RedMan" parent="." index="39" instance=ExtResource( 24 )]
+visible = false
 position = Vector2( -13480, 7950 )
 flip_h = true
 
@@ -13239,6 +13253,10 @@ flip_h = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="45"]
 environment = ExtResource( 3 )
+
+[node name="StartServerGenericButton" parent="WorldCanvasLayer/EscMenu/VBoxContainer" index="1"]
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../NewGameButton")
 
 [node name="CutsceneCanvasLayer" type="CanvasLayer" parent="." index="49"]
 
@@ -13333,10 +13351,30 @@ position = Vector2( 24680, 12460 )
 [node name="CollisionShape2D" parent="FinishArea" index="0"]
 position = Vector2( 0, -5 )
 
+[node name="AchievementArea" parent="." index="55" instance=ExtResource( 44 )]
+position = Vector2( 2440, 760 )
+achievement_to_unlock = "DOUBLE_JUMP"
+
+[node name="CollisionShape2D" parent="AchievementArea" index="0"]
+position = Vector2( -5, 0 )
+shape = SubResource( 173 )
+
+[node name="AchievementArea2" parent="." index="56" instance=ExtResource( 44 )]
+position = Vector2( -1190, 1800 )
+achievement_to_unlock = "WHO_IS_DAVE"
+
+[node name="CollisionShape2D" parent="AchievementArea2" index="0"]
+position = Vector2( 0, -10 )
+shape = SubResource( 174 )
+
+[node name="AchievementArea3" parent="." index="57" instance=ExtResource( 44 )]
+position = Vector2( 9760, -1430 )
+
+[node name="CollisionShape2D" parent="AchievementArea3" index="0"]
+shape = SubResource( 175 )
+
 [connection signal="ready" from="." to="CutsceneAnimationPlayer" method="_on_ClassicWorldScene_ready"]
 [connection signal="item_removed" from="LockedDoors/LockedDoor28" to="CutsceneAnimationPlayer" method="_on_LockedDoor28_item_removed"]
-[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/StartServerGenericButton" to="WorldNetworkManager" method="_on_StartServerGenericButton_pressed"]
-[connection signal="pressed" from="WorldCanvasLayer/EscMenu/VBoxContainer/ExitToTitleGenericButton" to="GameStateManager" method="_on_ExitToTitleGenericButton_pressed"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
@@ -13448,3 +13486,6 @@ position = Vector2( 0, -5 )
 [editable path="WorldCanvasLayer/EscMenu"]
 [editable path="ReplicatedPlayerBodyFactory"]
 [editable path="FinishArea"]
+[editable path="AchievementArea"]
+[editable path="AchievementArea2"]
+[editable path="AchievementArea3"]

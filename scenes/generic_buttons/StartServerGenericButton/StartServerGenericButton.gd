@@ -5,7 +5,6 @@ extends GenericButton
 onready var network_data: NetworkData = DataLoader.network_data
 
 
-var _signal
 
 
 func _ready():

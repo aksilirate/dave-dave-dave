@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/objects/MusicAudioStreamPlayer/MusicAudioStreamPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/objects/MusicPlayerTimer/MusicPlayerTimer.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/ambient.wav" type="AudioStream" id=3]
+
+[node name="MusicPlayerTimer" type="Timer"]
+wait_time = 180.0
+autostart = true
+script = ExtResource( 2 )
+
+[node name="MusicAudioStreamPlayer" parent="." instance=ExtResource( 1 )]
+stream = ExtResource( 3 )
+autoplay = true
+
+[connection signal="timeout" from="." to="MusicAudioStreamPlayer" method="_on_MusicPlayerTimer_timeout"]

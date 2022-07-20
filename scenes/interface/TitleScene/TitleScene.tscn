@@ -1,10 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/objects/PlayTitleButtonsVBoxContainer/PlayTitleButtonsVBoxContainer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/objects/MainTitleButtonsVBoxContainer/MainTitleButtonsVBoxContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/interface/TitleButtonsTabContainer/TitleButtonsTabContainer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/WorldStatsRichTextLabel/WorldStatsRichTextLabel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/objects/AdvantureVBoxContainer/AdvantureVBoxContainer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/managers/NetworkManager/NetworkManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
 [ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=8]
@@ -60,23 +58,13 @@ margin_bottom = 99.0
 border_color = Color( 1, 0, 0, 0 )
 border_width = 0.0
 
-[node name="ButtonsVBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
-margin_top = 120.0
-margin_right = 192.0
-margin_bottom = 247.0
-custom_constants/separation = 21
+[node name="TitleButtonsTabContainer" parent="VBoxContainer" instance=ExtResource( 2 )]
 
-[node name="MainTitleButtonsVBoxContainer" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 3 )]
+[node name="AdventureContinueGenericButton" parent="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer" index="0"]
+initial_focus_grab = true
 
-[node name="PlayTitleButtonsVBoxContainer" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 2 )]
-visible = false
-margin_top = 148.0
-margin_bottom = 201.0
-
-[node name="AdvantureVBoxContainer" parent="VBoxContainer/ButtonsVBoxContainer" instance=ExtResource( 5 )]
-visible = false
-margin_top = 222.0
-margin_bottom = 312.0
+[node name="AdventureNewGameGenericButton" parent="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer" index="1"]
+initial_focus_grab = false
 
 [node name="WorldStatsRichTextLabel" parent="." instance=ExtResource( 4 )]
 
@@ -90,19 +78,8 @@ color = Color( 0, 0, 0, 1 )
 [node name="OptionsScene" parent="." instance=ExtResource( 9 )]
 visible = false
 
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/PlayGenericButton" to="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer" method="_on_PlayGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/PlayGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_PlayGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer/ExitGenericButton" to="GameStateManager" method="_on_ExitGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_AdvantureGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" method="_on_AdvantureGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer" method="_on_PlayBackGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_PlayBackGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdventureContinueGenericButton" to="GameStateManager" method="_on_AdventureContinueGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdventureNewGameGenericButton" to="GameStateManager" method="_on_AdventureNewGameGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdvantureBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer" method="_on_AdvantureBackGenericButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer/AdvantureBackGenericButton" to="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer" method="_on_AdvantureBackGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleButtonsTabContainer/MainTitleButtonsVBoxContainer/OptionsGenericButton" to="OptionsScene" method="_on_OptionsGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer/AdventureContinueGenericButton" to="GameStateManager" method="_on_AdventureContinueGenericButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleButtonsTabContainer/AdvantureVBoxContainer/AdventureNewGameGenericButton" to="GameStateManager" method="_on_AdventureNewGameGenericButton_pressed"]
 
-[editable path="VBoxContainer/ButtonsVBoxContainer/MainTitleButtonsVBoxContainer"]
-[editable path="VBoxContainer/ButtonsVBoxContainer/PlayTitleButtonsVBoxContainer"]
-[editable path="VBoxContainer/ButtonsVBoxContainer/AdvantureVBoxContainer"]
+[editable path="VBoxContainer/TitleButtonsTabContainer"]

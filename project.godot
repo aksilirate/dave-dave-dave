@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "DataResource",
+"class": "AchievementAreaData",
+"language": "GDScript",
+"path": "res://classes/data/achievement_area/achievement_area_data.gd"
+}, {
+"base": "AchievementAreaData",
+"class": "AchievementAreaEditor",
+"language": "GDScript",
+"path": "res://classes/data/achievement_area/achievement_area_editor.gd"
+}, {
 "base": "Node",
 "class": "Achievements",
 "language": "GDScript",
@@ -555,6 +565,8 @@ _global_script_classes=[ {
 "path": "res://scenes/objects/WorldScene/WorldScene.gd"
 } ]
 _global_script_class_icons={
+"AchievementAreaData": "",
+"AchievementAreaEditor": "",
 "Achievements": "",
 "AdventureWorld": "",
 "AudioManager": "",

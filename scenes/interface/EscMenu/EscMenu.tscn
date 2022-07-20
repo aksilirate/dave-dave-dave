@@ -36,6 +36,7 @@ custom_constants/separation = 21
 margin_bottom = 16.0
 text = "resume"
 align = 1
+initial_focus_grab = true
 
 [node name="StartServerGenericButton" parent="VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 37.0

@@ -12,3 +12,4 @@ func _on_AdventureContinueGenericButton_visibility_changed():
 		return
 		
 	disabled = !adventure_world_data.played
+

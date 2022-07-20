@@ -33,11 +33,20 @@ func set_hide_pet(value):
 
 
 
+
+func set_interface_selection(value):
+	if interface_selection != value:
+		interface_selection = value
+		emit_signal("interface_selection_changed")
+		emit_changed()
+
+
 func set_music_volume_db(value):
 	if music_volume_db != value:
 		music_volume_db = value
 		emit_signal("music_volume_db_changed")
 		emit_changed()
+
 
 
 func set_sfx_volume_db(value):

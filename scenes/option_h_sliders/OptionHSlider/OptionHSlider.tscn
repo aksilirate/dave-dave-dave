@@ -23,3 +23,5 @@ margin_bottom = 25.0
 rect_scale = Vector2( 0.5, 0.5 )
 text = "Option Name"
 valign = 2
+
+[connection signal="visibility_changed" from="." to="." method="_on_OptionHSlider_visibility_changed"]

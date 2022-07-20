@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/interface/TitleButtonsTabContainer/TitleButtonsTabContainer.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/AdventureNewGameGenericButton/AdventureNewGameGenericButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/generic_buttons/AdvantureGenericButton/AdvantureGenericButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/generic_buttons/ExtrasGenericButton/ExtrasGenericButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/generic_buttons/OptionsGenericButton/OptionsGenericButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/generic_buttons/PlayGenericButton/PlayGenericButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/generic_buttons/ExitGenericButton/ExitGenericButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/generic_buttons/PlayBackGenericButton/PlayBackGenericButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/generic_buttons/AdvantureBackGenericButton/AdvantureBackGenericButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/generic_buttons/AdventureContinueGenericButton/AdventureContinueGenericButton.tscn" type="PackedScene" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="TitleButtonsTabContainer" type="TabContainer"]
+margin_top = 120.0
+margin_right = 192.0
+margin_bottom = 247.0
+custom_styles/panel = SubResource( 1 )
+tabs_visible = false
+script = ExtResource( 2 )
+
+[node name="MainTitleButtonsVBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 21
+
+[node name="PlayGenericButton" parent="MainTitleButtonsVBoxContainer" instance=ExtResource( 7 )]
+margin_bottom = 16.0
+focus_neighbour_top = NodePath("../ExitGenericButton")
+focus_neighbour_bottom = NodePath("../OptionsGenericButton")
+initial_focus_grab = true
+
+[node name="OptionsGenericButton" parent="MainTitleButtonsVBoxContainer" instance=ExtResource( 6 )]
+margin_top = 37.0
+margin_bottom = 53.0
+focus_neighbour_top = NodePath("../PlayGenericButton")
+focus_neighbour_bottom = NodePath("../ExtrasGenericButton")
+
+[node name="ExtrasGenericButton" parent="MainTitleButtonsVBoxContainer" instance=ExtResource( 5 )]
+margin_top = 74.0
+margin_bottom = 90.0
+focus_neighbour_top = NodePath("../OptionsGenericButton")
+focus_neighbour_bottom = NodePath("../ExitGenericButton")
+
+[node name="ExitGenericButton" parent="MainTitleButtonsVBoxContainer" instance=ExtResource( 8 )]
+margin_top = 111.0
+margin_bottom = 127.0
+focus_neighbour_top = NodePath("../ExtrasGenericButton")
+focus_neighbour_bottom = NodePath("../PlayGenericButton")
+
+[node name="PlayTitleButtonsVBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 21
+
+[node name="AdvantureGenericButton" parent="PlayTitleButtonsVBoxContainer" instance=ExtResource( 4 )]
+margin_bottom = 16.0
+focus_neighbour_top = NodePath("../PlayBackGenericButton")
+focus_neighbour_bottom = NodePath("../PlayBackGenericButton")
+initial_focus_grab = true
+
+[node name="PlayBackGenericButton" parent="PlayTitleButtonsVBoxContainer" instance=ExtResource( 9 )]
+margin_top = 37.0
+margin_bottom = 53.0
+focus_neighbour_top = NodePath("../AdvantureGenericButton")
+focus_neighbour_bottom = NodePath("../AdvantureGenericButton")
+
+[node name="AdvantureVBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 21
+
+[node name="AdventureContinueGenericButton" parent="AdvantureVBoxContainer" instance=ExtResource( 11 )]
+margin_bottom = 16.0
+
+[node name="AdventureNewGameGenericButton" parent="AdvantureVBoxContainer" instance=ExtResource( 3 )]
+margin_top = 37.0
+margin_bottom = 53.0
+initial_focus_grab = true
+
+[node name="AdvantureBackGenericButton" parent="AdvantureVBoxContainer" instance=ExtResource( 10 )]
+margin_top = 74.0
+margin_bottom = 90.0
+
+[connection signal="pressed" from="MainTitleButtonsVBoxContainer/PlayGenericButton" to="." method="_on_PlayGenericButton_pressed"]
+[connection signal="pressed" from="PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="." method="_on_AdvantureGenericButton_pressed"]
+[connection signal="pressed" from="PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="." method="_on_PlayBackGenericButton_pressed"]
+[connection signal="pressed" from="AdvantureVBoxContainer/AdvantureBackGenericButton" to="." method="_on_AdvantureBackGenericButton_pressed"]

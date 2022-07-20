@@ -2,6 +2,16 @@ class_name Achievements
 extends Node
 
 
+
+
+var adventure_world_data: WorldData
+var adventure_local_player_body: PlayerBodyData
+var diamond_data: DiamondData
+var achievement_area_data: AchievementAreaData
+
+
+
+var _success
 var _signal
 
 
@@ -14,12 +24,12 @@ func _ready():
 
 
 func _on_all_data_initialized():
-	var adventure_world_data = DataLoader.adventure_world_data as WorldData
-	var adventure_local_player_body = adventure_world_data.local_player_body_data as PlayerBodyData
-	
+	adventure_world_data = DataLoader.adventure_world_data as WorldData
+	adventure_local_player_body = adventure_world_data.local_player_body_data as PlayerBodyData
+	achievement_area_data = DataLoader.achievement_area_data as AchievementAreaData
 	
 	_signal = adventure_local_player_body.connect("collected_diamonds_changed", self, "_on_collected_diamonds_changed")
-
+	_signal = achievement_area_data.connect("activated", self, "_on_achievement_area_activated")
 
 
 func _on_collected_diamonds_changed():
@@ -27,11 +37,13 @@ func _on_collected_diamonds_changed():
 
 
 
+func _on_achievement_area_activated():
+	_unlock_achievement(achievement_area_data.achievement_to_unlock)
 
 
-func _unlock_achievement(name: String):
+
+func _unlock_achievement(achievement_name: String):
 	if Steamworks.is_owned():
-# warning-ignore:return_value_discarded
-		Steam.setAchievement(name)
-# warning-ignore:return_value_discarded
-		Steam.storeStats()
+		print(achievement_name + " is unlocked")
+		_success = Steam.setAchievement(achievement_name)
+		_success = Steam.storeStats()
