@@ -8,7 +8,6 @@ extends PlayerBody
 func _ready():
 	_signal = network_data.connect("connected_players_changed", self, "_on_connected_players_changed")
 	_signal = network_data.connect("packet_received", self, "_on_packet_received")
-	
 
 
 

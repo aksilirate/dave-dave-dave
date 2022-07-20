@@ -28,6 +28,10 @@ script = ExtResource( 1 )
 
 [connection signal="closed" from="WorldCanvasLayer/WorldEscTabContainer" to="LocalPlayerBody" method="_on_WorldEscTabContainer_closed"]
 [connection signal="opened" from="WorldCanvasLayer/WorldEscTabContainer" to="LocalPlayerBody" method="_on_WorldEscTabContainer_opened"]
+[connection signal="pressed" from="WorldCanvasLayer/WorldEscTabContainer/EscMenu/VBoxContainer/StartServerGenericButton" to="WorldNetworkManager" method="_on_StartServerGenericButton_pressed"]
 [connection signal="animation_finished" from="CutsceneAnimationPlayer" to="GameStateManager" method="_on_CutsceneAnimationPlayer_animation_finished"]
 
 [editable path="WorldCanvasLayer"]
+[editable path="WorldCanvasLayer/WorldEscTabContainer"]
+[editable path="WorldCanvasLayer/WorldEscTabContainer/EscMenu"]
+[editable path="WorldCanvasLayer/WorldEscTabContainer/OptionsScene"]

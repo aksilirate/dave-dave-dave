@@ -26,8 +26,12 @@ func _ready():
 	spawn_missing_player_bodies()
 
 
+
+
 func _on_online_player_bodies_data_loaded():
 	spawn_missing_player_bodies()
+
+
 
 
 func spawn_missing_player_bodies():

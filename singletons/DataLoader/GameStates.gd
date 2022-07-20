@@ -33,7 +33,7 @@ func _on_all_data_initialized():
 
 func _init_all_states():
 	title_state = _init_game_state(title_state_path)
-	online_play_state = _init_world_game_state(new_adventure_play_state_path, DataLoader.adventure_world_data, true)
+	online_play_state = _init_world_game_state(new_adventure_play_state_path, DataLoader.online_world_data, true)
 	new_adventure_play_state = _init_world_game_state(new_adventure_play_state_path, DataLoader.adventure_world_data, true)
 	adventure_play_state = _init_world_game_state(adventure_play_state_path, DataLoader.adventure_world_data)
 
