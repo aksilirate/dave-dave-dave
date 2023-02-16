@@ -14,5 +14,5 @@ func _ready():
 		
 	text = "latest run:" + "\n" + "\n" + "\n" + \
 	"completed: " + completed + "\n" + "\n" +\
-	"time: " + Time.get_formatted(local_player_body.play_time) + "\n" + "\n" +\
+	"time: " + TimeUtil.get_formatted(local_player_body.play_time) + "\n" + "\n" +\
 	"deaths: " + str(local_player_body.deaths)

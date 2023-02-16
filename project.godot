@@ -510,7 +510,7 @@ _global_script_classes=[ {
 "path": "res://scenes/generic_buttons/StartServerGenericButton/StartServerGenericButton.gd"
 }, {
 "base": "Reference",
-"class": "Time",
+"class": "TimeUtil",
 "language": "GDScript",
 "path": "res://classes/utility/time.gd"
 }, {
@@ -655,7 +655,7 @@ _global_script_class_icons={
 "SfxAudioStreamPlayer2DFactory": "",
 "SfxAudioStreamPlayerFactory": "",
 "StartServerGenericButton": "",
-"Time": "",
+"TimeUtil": "",
 "TitleMusicAudioStreamPlayer": "",
 "TitleMusicPlayer": "",
 "WallGun": "",

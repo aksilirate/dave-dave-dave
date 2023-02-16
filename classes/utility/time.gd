@@ -1,4 +1,4 @@
-class_name Time
+class_name TimeUtil
 
 
 

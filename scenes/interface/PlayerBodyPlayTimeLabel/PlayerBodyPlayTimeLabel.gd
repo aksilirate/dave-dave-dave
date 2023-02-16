@@ -13,6 +13,6 @@ func _ready():
 
 
 func _on_local_player_body_play_time_changed():
-	text = Time.get_formatted(local_player_body_data.play_time)
+	text = TimeUtil.get_formatted(local_player_body_data.play_time)
 
 
