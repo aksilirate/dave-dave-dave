@@ -9027,805 +9027,802 @@ position = Vector2( 7959.78, -682.531 )
 [node name="Spikes24" parent="Spikes" index="246" instance=ExtResource( 16 )]
 position = Vector2( 7169.45, -1722.28 )
 
-[node name="Spikes28" parent="Spikes" index="247" instance=ExtResource( 16 )]
-position = Vector2( 7758.92, -3402.47 )
-
-[node name="Spikes30" parent="Spikes" index="248" instance=ExtResource( 16 )]
+[node name="Spikes30" parent="Spikes" index="247" instance=ExtResource( 16 )]
 position = Vector2( 8158.92, -3402.59 )
 
-[node name="Spikes31" parent="Spikes" index="249" instance=ExtResource( 16 )]
+[node name="Spikes31" parent="Spikes" index="248" instance=ExtResource( 16 )]
 position = Vector2( 6999.07, -2922.23 )
 
-[node name="Spikes32" parent="Spikes" index="250" instance=ExtResource( 16 )]
+[node name="Spikes32" parent="Spikes" index="249" instance=ExtResource( 16 )]
 position = Vector2( 6759.07, -2922.15 )
 
-[node name="Spikes33" parent="Spikes" index="251" instance=ExtResource( 16 )]
+[node name="Spikes33" parent="Spikes" index="250" instance=ExtResource( 16 )]
 position = Vector2( 6279.05, -3002 )
 
-[node name="Spikes72" parent="Spikes" index="252" instance=ExtResource( 16 )]
+[node name="Spikes72" parent="Spikes" index="251" instance=ExtResource( 16 )]
 position = Vector2( 5490, -3000 )
 
-[node name="Spikes73" parent="Spikes" index="253" instance=ExtResource( 16 )]
+[node name="Spikes73" parent="Spikes" index="252" instance=ExtResource( 16 )]
 position = Vector2( 5570, -3000 )
 
-[node name="Spikes74" parent="Spikes" index="254" instance=ExtResource( 16 )]
+[node name="Spikes74" parent="Spikes" index="253" instance=ExtResource( 16 )]
 position = Vector2( 5650, -3000 )
 
-[node name="Spikes75" parent="Spikes" index="255" instance=ExtResource( 16 )]
+[node name="Spikes75" parent="Spikes" index="254" instance=ExtResource( 16 )]
 position = Vector2( 5730, -3000 )
 
-[node name="Spikes76" parent="Spikes" index="256" instance=ExtResource( 16 )]
+[node name="Spikes76" parent="Spikes" index="255" instance=ExtResource( 16 )]
 position = Vector2( 5810, -3000 )
 
-[node name="Spikes77" parent="Spikes" index="257" instance=ExtResource( 16 )]
+[node name="Spikes77" parent="Spikes" index="256" instance=ExtResource( 16 )]
 position = Vector2( 5890, -3000 )
 
-[node name="Spikes34" parent="Spikes" index="258" instance=ExtResource( 16 )]
+[node name="Spikes34" parent="Spikes" index="257" instance=ExtResource( 16 )]
 position = Vector2( 7239.07, -2922.3 )
 
-[node name="Spikes78" parent="Spikes" index="259" instance=ExtResource( 16 )]
+[node name="Spikes78" parent="Spikes" index="258" instance=ExtResource( 16 )]
 position = Vector2( 7007.23, -2442.23 )
 
-[node name="Spikes80" parent="Spikes" index="260" instance=ExtResource( 16 )]
+[node name="Spikes80" parent="Spikes" index="259" instance=ExtResource( 16 )]
 position = Vector2( 6527.22, -2442.08 )
 
-[node name="Spikes82" parent="Spikes" index="261" instance=ExtResource( 16 )]
+[node name="Spikes82" parent="Spikes" index="260" instance=ExtResource( 16 )]
 position = Vector2( 7479.23, -2442.38 )
 
-[node name="Spikes83" parent="Spikes" index="262" instance=ExtResource( 16 )]
+[node name="Spikes83" parent="Spikes" index="261" instance=ExtResource( 16 )]
 position = Vector2( 7959.23, -2442.53 )
 
-[node name="Spikes84" parent="Spikes" index="263" instance=ExtResource( 16 )]
+[node name="Spikes84" parent="Spikes" index="262" instance=ExtResource( 16 )]
 position = Vector2( 7807.1, -2842.48 )
 
-[node name="Spikes14" parent="Spikes" index="264" instance=ExtResource( 16 )]
+[node name="Spikes14" parent="Spikes" index="263" instance=ExtResource( 16 )]
 position = Vector2( 14119.6, -1404.49 )
 
-[node name="Spikes23" parent="Spikes" index="265" instance=ExtResource( 16 )]
+[node name="Spikes23" parent="Spikes" index="264" instance=ExtResource( 16 )]
 position = Vector2( 14023.6, -1164.46 )
 rotation = -3.14159
 
-[node name="Spikes256" parent="Spikes" index="266" instance=ExtResource( 16 )]
+[node name="Spikes256" parent="Spikes" index="265" instance=ExtResource( 16 )]
 position = Vector2( 15799.5, -1485.02 )
 rotation = -1.57079
 
-[node name="Spikes257" parent="Spikes" index="267" instance=ExtResource( 16 )]
+[node name="Spikes257" parent="Spikes" index="266" instance=ExtResource( 16 )]
 position = Vector2( 15799.5, -1685.02 )
 rotation = -1.57079
 
-[node name="Spikes0" parent="Spikes" index="268" instance=ExtResource( 16 )]
+[node name="Spikes0" parent="Spikes" index="267" instance=ExtResource( 16 )]
 position = Vector2( 1000.14, 439.682 )
 
-[node name="SpikeBlock" parent="Spikes" index="269" instance=ExtResource( 17 )]
+[node name="SpikeBlock" parent="Spikes" index="268" instance=ExtResource( 17 )]
 position = Vector2( 9478.35, -5203.01 )
 
-[node name="SpikeBlock5" parent="Spikes" index="270" instance=ExtResource( 17 )]
+[node name="SpikeBlock5" parent="Spikes" index="269" instance=ExtResource( 17 )]
 position = Vector2( 5368.65, -4261.71 )
 
-[node name="SpikeBlock15" parent="Spikes" index="271" instance=ExtResource( 17 )]
+[node name="SpikeBlock15" parent="Spikes" index="270" instance=ExtResource( 17 )]
 position = Vector2( 5598.89, -3501.78 )
 
-[node name="SpikeBlock6" parent="Spikes" index="272" instance=ExtResource( 17 )]
+[node name="SpikeBlock6" parent="Spikes" index="271" instance=ExtResource( 17 )]
 position = Vector2( 5268.76, -3911.68 )
 
-[node name="SpikeBlock3" parent="Spikes" index="273" instance=ExtResource( 17 )]
+[node name="SpikeBlock3" parent="Spikes" index="272" instance=ExtResource( 17 )]
 position = Vector2( 10128.3, -5203.02 )
 
-[node name="SpikeBlock4" parent="Spikes" index="274" instance=ExtResource( 17 )]
+[node name="SpikeBlock4" parent="Spikes" index="273" instance=ExtResource( 17 )]
 position = Vector2( 10448.3, -5203.01 )
 
-[node name="SpikeBlock91" parent="Spikes" index="275" instance=ExtResource( 17 )]
+[node name="SpikeBlock91" parent="Spikes" index="274" instance=ExtResource( 17 )]
 position = Vector2( 15280.2, 715.14 )
 
-[node name="SpikeBlock92" parent="Spikes" index="276" instance=ExtResource( 17 )]
+[node name="SpikeBlock92" parent="Spikes" index="275" instance=ExtResource( 17 )]
 position = Vector2( 16080.2, 714.886 )
 
-[node name="SpikeBlock93" parent="Spikes" index="277" instance=ExtResource( 17 )]
+[node name="SpikeBlock93" parent="Spikes" index="276" instance=ExtResource( 17 )]
 position = Vector2( 16880.2, 714.632 )
 
-[node name="SpikeBlock96" parent="Spikes" index="278" instance=ExtResource( 17 )]
+[node name="SpikeBlock96" parent="Spikes" index="277" instance=ExtResource( 17 )]
 position = Vector2( 17640.1, 234.39 )
 
-[node name="SpikeBlock97" parent="Spikes" index="279" instance=ExtResource( 17 )]
+[node name="SpikeBlock97" parent="Spikes" index="278" instance=ExtResource( 17 )]
 position = Vector2( 17640, -5.6096 )
 
-[node name="SpikeBlock102" parent="Spikes" index="280" instance=ExtResource( 17 )]
+[node name="SpikeBlock102" parent="Spikes" index="279" instance=ExtResource( 17 )]
 position = Vector2( 17840, -5.67325 )
 
-[node name="SpikeBlock7" parent="Spikes" index="281" instance=ExtResource( 17 )]
+[node name="SpikeBlock7" parent="Spikes" index="280" instance=ExtResource( 17 )]
 position = Vector2( 10236.8, -9923.26 )
 
-[node name="SpikeBlock8" parent="Spikes" index="282" instance=ExtResource( 17 )]
+[node name="SpikeBlock8" parent="Spikes" index="281" instance=ExtResource( 17 )]
 position = Vector2( 10077, -9443.2 )
 
-[node name="SpikeBlock9" parent="Spikes" index="283" instance=ExtResource( 17 )]
+[node name="SpikeBlock9" parent="Spikes" index="282" instance=ExtResource( 17 )]
 position = Vector2( 10237.1, -8963.26 )
 
-[node name="SpikeBlock78" parent="Spikes" index="284" instance=ExtResource( 17 )]
+[node name="SpikeBlock78" parent="Spikes" index="283" instance=ExtResource( 17 )]
 position = Vector2( 20557.2, -9606.66 )
 
-[node name="SpikeBlock86" parent="Spikes" index="285" instance=ExtResource( 17 )]
+[node name="SpikeBlock86" parent="Spikes" index="284" instance=ExtResource( 17 )]
 position = Vector2( 20717.2, -9126.67 )
 
-[node name="SpikeBlock89" parent="Spikes" index="286" instance=ExtResource( 17 )]
+[node name="SpikeBlock89" parent="Spikes" index="285" instance=ExtResource( 17 )]
 position = Vector2( 21197.2, -8806.67 )
 
-[node name="SpikeBlock16" parent="Spikes" index="287" instance=ExtResource( 17 )]
+[node name="SpikeBlock16" parent="Spikes" index="286" instance=ExtResource( 17 )]
 position = Vector2( 14077.2, -8804.48 )
 
-[node name="SpikeBlock17" parent="Spikes" index="288" instance=ExtResource( 17 )]
+[node name="SpikeBlock17" parent="Spikes" index="287" instance=ExtResource( 17 )]
 position = Vector2( 14077.2, -9284.48 )
 
-[node name="SpikeBlock18" parent="Spikes" index="289" instance=ExtResource( 17 )]
+[node name="SpikeBlock18" parent="Spikes" index="288" instance=ExtResource( 17 )]
 position = Vector2( 14077.2, -9764.48 )
 
-[node name="SpikeBlock19" parent="Spikes" index="290" instance=ExtResource( 17 )]
+[node name="SpikeBlock19" parent="Spikes" index="289" instance=ExtResource( 17 )]
 position = Vector2( 15836.8, -9924.99 )
 
-[node name="SpikeBlock25" parent="Spikes" index="291" instance=ExtResource( 17 )]
+[node name="SpikeBlock25" parent="Spikes" index="290" instance=ExtResource( 17 )]
 position = Vector2( 15676.8, -9924.99 )
 
-[node name="SpikeBlock30" parent="Spikes" index="292" instance=ExtResource( 17 )]
+[node name="SpikeBlock30" parent="Spikes" index="291" instance=ExtResource( 17 )]
 position = Vector2( 14636.6, -10774.5 )
 
-[node name="SpikeBlock63" parent="Spikes" index="293" instance=ExtResource( 17 )]
+[node name="SpikeBlock63" parent="Spikes" index="292" instance=ExtResource( 17 )]
 position = Vector2( 14156.6, -10774.5 )
 
-[node name="SpikeBlock64" parent="Spikes" index="294" instance=ExtResource( 17 )]
+[node name="SpikeBlock64" parent="Spikes" index="293" instance=ExtResource( 17 )]
 position = Vector2( 14396.6, -10774.5 )
 
-[node name="SpikeBlock32" parent="Spikes" index="295" instance=ExtResource( 17 )]
+[node name="SpikeBlock32" parent="Spikes" index="294" instance=ExtResource( 17 )]
 position = Vector2( 15996.8, -9924.99 )
 
-[node name="SpikeBlock20" parent="Spikes" index="296" instance=ExtResource( 17 )]
+[node name="SpikeBlock20" parent="Spikes" index="295" instance=ExtResource( 17 )]
 position = Vector2( 16716.8, -10165.2 )
 
-[node name="SpikeBlock21" parent="Spikes" index="297" instance=ExtResource( 17 )]
+[node name="SpikeBlock21" parent="Spikes" index="296" instance=ExtResource( 17 )]
 position = Vector2( 16876.8, -10165.2 )
 
-[node name="SpikeBlock22" parent="Spikes" index="298" instance=ExtResource( 17 )]
+[node name="SpikeBlock22" parent="Spikes" index="297" instance=ExtResource( 17 )]
 position = Vector2( 16236.8, -10165.2 )
 
-[node name="SpikeBlock23" parent="Spikes" index="299" instance=ExtResource( 17 )]
+[node name="SpikeBlock23" parent="Spikes" index="298" instance=ExtResource( 17 )]
 position = Vector2( 16396.8, -10165.2 )
 
-[node name="SpikeBlock24" parent="Spikes" index="300" instance=ExtResource( 17 )]
+[node name="SpikeBlock24" parent="Spikes" index="299" instance=ExtResource( 17 )]
 position = Vector2( 16556.8, -10165.2 )
 
-[node name="SpikeBlock26" parent="Spikes" index="301" instance=ExtResource( 17 )]
+[node name="SpikeBlock26" parent="Spikes" index="300" instance=ExtResource( 17 )]
 position = Vector2( 15436.9, -9684.91 )
 
-[node name="SpikeBlock27" parent="Spikes" index="302" instance=ExtResource( 17 )]
+[node name="SpikeBlock27" parent="Spikes" index="301" instance=ExtResource( 17 )]
 position = Vector2( 15596.9, -9684.91 )
 
-[node name="SpikeBlock28" parent="Spikes" index="303" instance=ExtResource( 17 )]
+[node name="SpikeBlock28" parent="Spikes" index="302" instance=ExtResource( 17 )]
 position = Vector2( 15756.9, -9684.91 )
 
-[node name="SpikeBlock29" parent="Spikes" index="304" instance=ExtResource( 17 )]
+[node name="SpikeBlock29" parent="Spikes" index="303" instance=ExtResource( 17 )]
 position = Vector2( 15916.9, -9684.91 )
 
-[node name="SpikeBlock44" parent="Spikes" index="305" instance=ExtResource( 17 )]
+[node name="SpikeBlock44" parent="Spikes" index="304" instance=ExtResource( 17 )]
 position = Vector2( 16236.9, -9685.16 )
 
-[node name="SpikeBlock46" parent="Spikes" index="306" instance=ExtResource( 17 )]
+[node name="SpikeBlock46" parent="Spikes" index="305" instance=ExtResource( 17 )]
 position = Vector2( 16080, -9360 )
 
-[node name="SpikeBlock45" parent="Spikes" index="307" instance=ExtResource( 17 )]
+[node name="SpikeBlock45" parent="Spikes" index="306" instance=ExtResource( 17 )]
 position = Vector2( 16876.9, -9685.37 )
 
-[node name="SpikeBlock54" parent="Spikes" index="308" instance=ExtResource( 17 )]
+[node name="SpikeBlock54" parent="Spikes" index="307" instance=ExtResource( 17 )]
 position = Vector2( 17917.3, -8966.11 )
 
-[node name="SpikeBlock55" parent="Spikes" index="309" instance=ExtResource( 17 )]
+[node name="SpikeBlock55" parent="Spikes" index="308" instance=ExtResource( 17 )]
 position = Vector2( 17917.3, -8806.11 )
 
-[node name="SpikeBlock57" parent="Spikes" index="310" instance=ExtResource( 17 )]
+[node name="SpikeBlock57" parent="Spikes" index="309" instance=ExtResource( 17 )]
 position = Vector2( 18157.3, -8646.11 )
 
-[node name="SpikeBlock56" parent="Spikes" index="311" instance=ExtResource( 17 )]
+[node name="SpikeBlock56" parent="Spikes" index="310" instance=ExtResource( 17 )]
 position = Vector2( 18157.3, -8806.11 )
 
-[node name="SpikeBlock31" parent="Spikes" index="312" instance=ExtResource( 17 )]
+[node name="SpikeBlock31" parent="Spikes" index="311" instance=ExtResource( 17 )]
 position = Vector2( 16316.8, -9925.19 )
 
-[node name="SpikeBlock34" parent="Spikes" index="313" instance=ExtResource( 17 )]
+[node name="SpikeBlock34" parent="Spikes" index="312" instance=ExtResource( 17 )]
 position = Vector2( 16476.8, -9925.19 )
 
-[node name="SpikeBlock35" parent="Spikes" index="314" instance=ExtResource( 17 )]
+[node name="SpikeBlock35" parent="Spikes" index="313" instance=ExtResource( 17 )]
 position = Vector2( 16636.8, -9925.19 )
 
-[node name="SpikeBlock36" parent="Spikes" index="315" instance=ExtResource( 17 )]
+[node name="SpikeBlock36" parent="Spikes" index="314" instance=ExtResource( 17 )]
 position = Vector2( 16796.8, -9925.19 )
 
-[node name="SpikeBlock10" parent="Spikes" index="316" instance=ExtResource( 17 )]
+[node name="SpikeBlock10" parent="Spikes" index="315" instance=ExtResource( 17 )]
 position = Vector2( 10077.3, -8483.21 )
 
-[node name="SpikeBlock11" parent="Spikes" index="317" instance=ExtResource( 17 )]
+[node name="SpikeBlock11" parent="Spikes" index="316" instance=ExtResource( 17 )]
 position = Vector2( 10237.5, -8003.26 )
 
-[node name="SpikeBlock12" parent="Spikes" index="318" instance=ExtResource( 17 )]
+[node name="SpikeBlock12" parent="Spikes" index="317" instance=ExtResource( 17 )]
 position = Vector2( 10077.6, -7533.21 )
 
-[node name="SpikeBlock14" parent="Spikes" index="319" instance=ExtResource( 17 )]
+[node name="SpikeBlock14" parent="Spikes" index="318" instance=ExtResource( 17 )]
 position = Vector2( 10237.8, -7043.26 )
 
-[node name="SpikeBlock2" parent="Spikes" index="320" instance=ExtResource( 17 )]
+[node name="SpikeBlock2" parent="Spikes" index="319" instance=ExtResource( 17 )]
 position = Vector2( 9808.35, -5203.02 )
 
-[node name="SpikeBlock33" parent="Spikes" index="321" instance=ExtResource( 17 )]
+[node name="SpikeBlock33" parent="Spikes" index="320" instance=ExtResource( 17 )]
 position = Vector2( 17436.8, -9925.5 )
 
-[node name="SpikeBlock37" parent="Spikes" index="322" instance=ExtResource( 17 )]
+[node name="SpikeBlock37" parent="Spikes" index="321" instance=ExtResource( 17 )]
 position = Vector2( 17276.8, -9925.49 )
 
-[node name="SpikeBlock38" parent="Spikes" index="323" instance=ExtResource( 17 )]
+[node name="SpikeBlock38" parent="Spikes" index="322" instance=ExtResource( 17 )]
 position = Vector2( 17596.8, -9925.5 )
 
-[node name="SpikeBlock39" parent="Spikes" index="324" instance=ExtResource( 17 )]
+[node name="SpikeBlock39" parent="Spikes" index="323" instance=ExtResource( 17 )]
 position = Vector2( 17036.9, -9685.37 )
 
-[node name="SpikeBlock40" parent="Spikes" index="325" instance=ExtResource( 17 )]
+[node name="SpikeBlock40" parent="Spikes" index="324" instance=ExtResource( 17 )]
 position = Vector2( 17196.9, -9685.37 )
 
-[node name="SpikeBlock41" parent="Spikes" index="326" instance=ExtResource( 17 )]
+[node name="SpikeBlock41" parent="Spikes" index="325" instance=ExtResource( 17 )]
 position = Vector2( 17356.9, -9685.37 )
 
-[node name="SpikeBlock42" parent="Spikes" index="327" instance=ExtResource( 17 )]
+[node name="SpikeBlock42" parent="Spikes" index="326" instance=ExtResource( 17 )]
 position = Vector2( 17516.9, -9685.37 )
 
-[node name="SpikeBlock43" parent="Spikes" index="328" instance=ExtResource( 17 )]
+[node name="SpikeBlock43" parent="Spikes" index="327" instance=ExtResource( 17 )]
 position = Vector2( 17676.9, -9685.37 )
 
-[node name="SpikeBlock47" parent="Spikes" index="329" instance=ExtResource( 17 )]
+[node name="SpikeBlock47" parent="Spikes" index="328" instance=ExtResource( 17 )]
 position = Vector2( 17836.9, -9685.37 )
 
-[node name="SpikeBlock48" parent="Spikes" index="330" instance=ExtResource( 17 )]
+[node name="SpikeBlock48" parent="Spikes" index="329" instance=ExtResource( 17 )]
 position = Vector2( 17996.9, -9765.73 )
 
-[node name="SpikeBlock49" parent="Spikes" index="331" instance=ExtResource( 17 )]
+[node name="SpikeBlock49" parent="Spikes" index="330" instance=ExtResource( 17 )]
 position = Vector2( 18157, -9445.83 )
 
-[node name="SpikeBlock58" parent="Spikes" index="332" instance=ExtResource( 17 )]
+[node name="SpikeBlock58" parent="Spikes" index="331" instance=ExtResource( 17 )]
 position = Vector2( 18637.3, -8886.11 )
 
-[node name="SpikeBlock60" parent="Spikes" index="333" instance=ExtResource( 17 )]
+[node name="SpikeBlock60" parent="Spikes" index="332" instance=ExtResource( 17 )]
 position = Vector2( 18397.3, -8966.11 )
 
-[node name="SpikeBlock59" parent="Spikes" index="334" instance=ExtResource( 17 )]
+[node name="SpikeBlock59" parent="Spikes" index="333" instance=ExtResource( 17 )]
 position = Vector2( 18877.3, -8966.11 )
 
-[node name="SpikeBlock65" parent="Spikes" index="335" instance=ExtResource( 17 )]
+[node name="SpikeBlock65" parent="Spikes" index="334" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -8566.66 )
 
-[node name="SpikeBlock73" parent="Spikes" index="336" instance=ExtResource( 17 )]
+[node name="SpikeBlock73" parent="Spikes" index="335" instance=ExtResource( 17 )]
 position = Vector2( 20557.2, -8566.67 )
 
-[node name="SpikeBlock74" parent="Spikes" index="337" instance=ExtResource( 17 )]
+[node name="SpikeBlock74" parent="Spikes" index="336" instance=ExtResource( 17 )]
 position = Vector2( 20717.2, -8566.67 )
 
-[node name="SpikeBlock75" parent="Spikes" index="338" instance=ExtResource( 17 )]
+[node name="SpikeBlock75" parent="Spikes" index="337" instance=ExtResource( 17 )]
 position = Vector2( 20877.2, -8566.66 )
 
-[node name="SpikeBlock85" parent="Spikes" index="339" instance=ExtResource( 17 )]
+[node name="SpikeBlock85" parent="Spikes" index="338" instance=ExtResource( 17 )]
 position = Vector2( 21037.2, -8566.67 )
 
-[node name="SpikeBlock87" parent="Spikes" index="340" instance=ExtResource( 17 )]
+[node name="SpikeBlock87" parent="Spikes" index="339" instance=ExtResource( 17 )]
 position = Vector2( 21197.2, -8566.67 )
 
-[node name="SpikeBlock88" parent="Spikes" index="341" instance=ExtResource( 17 )]
+[node name="SpikeBlock88" parent="Spikes" index="340" instance=ExtResource( 17 )]
 position = Vector2( 21357.2, -8566.66 )
 
-[node name="SpikeBlock66" parent="Spikes" index="342" instance=ExtResource( 17 )]
+[node name="SpikeBlock66" parent="Spikes" index="341" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -8726.66 )
 
-[node name="SpikeBlock76" parent="Spikes" index="343" instance=ExtResource( 17 )]
+[node name="SpikeBlock76" parent="Spikes" index="342" instance=ExtResource( 17 )]
 position = Vector2( 20197.2, -8926.67 )
 
-[node name="SpikeBlock67" parent="Spikes" index="344" instance=ExtResource( 17 )]
+[node name="SpikeBlock67" parent="Spikes" index="343" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -8886.66 )
 
-[node name="SpikeBlock68" parent="Spikes" index="345" instance=ExtResource( 17 )]
+[node name="SpikeBlock68" parent="Spikes" index="344" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -9046.66 )
 
-[node name="SpikeBlock69" parent="Spikes" index="346" instance=ExtResource( 17 )]
+[node name="SpikeBlock69" parent="Spikes" index="345" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -9206.66 )
 
-[node name="SpikeBlock70" parent="Spikes" index="347" instance=ExtResource( 17 )]
+[node name="SpikeBlock70" parent="Spikes" index="346" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -9366.66 )
 
-[node name="SpikeBlock71" parent="Spikes" index="348" instance=ExtResource( 17 )]
+[node name="SpikeBlock71" parent="Spikes" index="347" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -9526.66 )
 
-[node name="SpikeBlock72" parent="Spikes" index="349" instance=ExtResource( 17 )]
+[node name="SpikeBlock72" parent="Spikes" index="348" instance=ExtResource( 17 )]
 position = Vector2( 20397.2, -9686.66 )
 
-[node name="SpikeBlock79" parent="Spikes" index="350" instance=ExtResource( 17 )]
+[node name="SpikeBlock79" parent="Spikes" index="349" instance=ExtResource( 17 )]
 position = Vector2( 20957.2, -9046.67 )
 
-[node name="SpikeBlock80" parent="Spikes" index="351" instance=ExtResource( 17 )]
+[node name="SpikeBlock80" parent="Spikes" index="350" instance=ExtResource( 17 )]
 position = Vector2( 20957.2, -9206.67 )
 
-[node name="SpikeBlock81" parent="Spikes" index="352" instance=ExtResource( 17 )]
+[node name="SpikeBlock81" parent="Spikes" index="351" instance=ExtResource( 17 )]
 position = Vector2( 20957.2, -9366.67 )
 
-[node name="SpikeBlock82" parent="Spikes" index="353" instance=ExtResource( 17 )]
+[node name="SpikeBlock82" parent="Spikes" index="352" instance=ExtResource( 17 )]
 position = Vector2( 20957.2, -9526.67 )
 
-[node name="SpikeBlock83" parent="Spikes" index="354" instance=ExtResource( 17 )]
+[node name="SpikeBlock83" parent="Spikes" index="353" instance=ExtResource( 17 )]
 position = Vector2( 20957.2, -9686.67 )
 
-[node name="SpikeBlock84" parent="Spikes" index="355" instance=ExtResource( 17 )]
+[node name="SpikeBlock84" parent="Spikes" index="354" instance=ExtResource( 17 )]
 position = Vector2( 20957.2, -9846.67 )
 
-[node name="SpikeBlock61" parent="Spikes" index="356" instance=ExtResource( 17 )]
+[node name="SpikeBlock61" parent="Spikes" index="355" instance=ExtResource( 17 )]
 position = Vector2( 19036.9, -9686.06 )
 
-[node name="SpikeBlock62" parent="Spikes" index="357" instance=ExtResource( 17 )]
+[node name="SpikeBlock62" parent="Spikes" index="356" instance=ExtResource( 17 )]
 position = Vector2( 19197.3, -9126.11 )
 
-[node name="SpikeBlock50" parent="Spikes" index="358" instance=ExtResource( 17 )]
+[node name="SpikeBlock50" parent="Spikes" index="357" instance=ExtResource( 17 )]
 position = Vector2( 18317, -9445.83 )
 
-[node name="SpikeBlock51" parent="Spikes" index="359" instance=ExtResource( 17 )]
+[node name="SpikeBlock51" parent="Spikes" index="358" instance=ExtResource( 17 )]
 position = Vector2( 18317, -9605.83 )
 
-[node name="SpikeBlock52" parent="Spikes" index="360" instance=ExtResource( 17 )]
+[node name="SpikeBlock52" parent="Spikes" index="359" instance=ExtResource( 17 )]
 position = Vector2( 18317, -9765.83 )
 
-[node name="SpikeBlock53" parent="Spikes" index="361" instance=ExtResource( 17 )]
+[node name="SpikeBlock53" parent="Spikes" index="360" instance=ExtResource( 17 )]
 position = Vector2( 18317, -9925.83 )
 
-[node name="SpikeBlock77" parent="Spikes" index="362" instance=ExtResource( 17 )]
+[node name="SpikeBlock77" parent="Spikes" index="361" instance=ExtResource( 17 )]
 position = Vector2( 20197.2, -9416.67 )
 
-[node name="SpikeBlock90" parent="Spikes" index="363" instance=ExtResource( 17 )]
+[node name="SpikeBlock90" parent="Spikes" index="362" instance=ExtResource( 17 )]
 position = Vector2( 21367.2, -9096.66 )
 
-[node name="RotatingSpikes" parent="Spikes" index="364" instance=ExtResource( 29 )]
+[node name="RotatingSpikes" parent="Spikes" index="363" instance=ExtResource( 29 )]
 position = Vector2( 19680, -8800 )
 
-[node name="RotatingSpikes2" parent="Spikes" index="365" instance=ExtResource( 29 )]
+[node name="RotatingSpikes2" parent="Spikes" index="364" instance=ExtResource( 29 )]
 position = Vector2( 10480, 560 )
 
-[node name="RotatingSpikes3" parent="Spikes" index="366" instance=ExtResource( 29 )]
+[node name="RotatingSpikes3" parent="Spikes" index="365" instance=ExtResource( 29 )]
 position = Vector2( 25757.8, -7048.19 )
 
-[node name="RotatingSpikes4" parent="Spikes" index="367" instance=ExtResource( 29 )]
+[node name="RotatingSpikes4" parent="Spikes" index="366" instance=ExtResource( 29 )]
 position = Vector2( 10970.2, 556.512 )
 
-[node name="RotatingSpikes5" parent="Spikes" index="368" instance=ExtResource( 29 )]
+[node name="RotatingSpikes5" parent="Spikes" index="367" instance=ExtResource( 29 )]
 position = Vector2( 11440, 560 )
 
-[node name="RotatingSpikes6" parent="Spikes" index="369" instance=ExtResource( 29 )]
+[node name="RotatingSpikes6" parent="Spikes" index="368" instance=ExtResource( 29 )]
 position = Vector2( 21359.8, -646.793 )
 
-[node name="SpikeBlock94" parent="Spikes" index="370" instance=ExtResource( 17 )]
+[node name="SpikeBlock94" parent="Spikes" index="369" instance=ExtResource( 17 )]
 position = Vector2( 18860.2, 584.002 )
 
-[node name="SpikeBlock95" parent="Spikes" index="371" instance=ExtResource( 17 )]
+[node name="SpikeBlock95" parent="Spikes" index="370" instance=ExtResource( 17 )]
 position = Vector2( 19660.2, 583.749 )
 
-[node name="SpikeBlock98" parent="Spikes" index="372" instance=ExtResource( 17 )]
+[node name="SpikeBlock98" parent="Spikes" index="371" instance=ExtResource( 17 )]
 position = Vector2( 17639.9, -165.61 )
 
-[node name="SpikeBlock99" parent="Spikes" index="373" instance=ExtResource( 17 )]
+[node name="SpikeBlock99" parent="Spikes" index="372" instance=ExtResource( 17 )]
 position = Vector2( 17559.9, -405.584 )
 
-[node name="SpikeBlock101" parent="Spikes" index="374" instance=ExtResource( 17 )]
+[node name="SpikeBlock101" parent="Spikes" index="373" instance=ExtResource( 17 )]
 position = Vector2( 17679.9, -405.622 )
 
-[node name="SpikeBlock103" parent="Spikes" index="375" instance=ExtResource( 17 )]
+[node name="SpikeBlock103" parent="Spikes" index="374" instance=ExtResource( 17 )]
 position = Vector2( 17679.8, -725.622 )
 
-[node name="SpikeBlock110" parent="Spikes" index="376" instance=ExtResource( 17 )]
+[node name="SpikeBlock110" parent="Spikes" index="375" instance=ExtResource( 17 )]
 position = Vector2( 18689.8, -775.943 )
 
-[node name="SpikeBlock112" parent="Spikes" index="377" instance=ExtResource( 17 )]
+[node name="SpikeBlock112" parent="Spikes" index="376" instance=ExtResource( 17 )]
 position = Vector2( 18689.7, -1045.94 )
 
-[node name="SpikeBlock115" parent="Spikes" index="378" instance=ExtResource( 17 )]
+[node name="SpikeBlock115" parent="Spikes" index="377" instance=ExtResource( 17 )]
 position = Vector2( 20639.5, -1526.56 )
 
-[node name="SpikeBlock116" parent="Spikes" index="379" instance=ExtResource( 17 )]
+[node name="SpikeBlock116" parent="Spikes" index="378" instance=ExtResource( 17 )]
 position = Vector2( 20399.5, -1526.49 )
 
-[node name="SpikeBlock117" parent="Spikes" index="380" instance=ExtResource( 17 )]
+[node name="SpikeBlock117" parent="Spikes" index="379" instance=ExtResource( 17 )]
 position = Vector2( 20519.5, -1526.53 )
 
-[node name="SpikeBlock133" parent="Spikes" index="381" instance=ExtResource( 17 )]
+[node name="SpikeBlock133" parent="Spikes" index="380" instance=ExtResource( 17 )]
 position = Vector2( 24638.8, -3927.84 )
 
-[node name="SpikeBlock134" parent="Spikes" index="382" instance=ExtResource( 17 )]
+[node name="SpikeBlock134" parent="Spikes" index="381" instance=ExtResource( 17 )]
 position = Vector2( 24799, -3287.89 )
 
-[node name="SpikeBlock207" parent="Spikes" index="383" instance=ExtResource( 17 )]
+[node name="SpikeBlock207" parent="Spikes" index="382" instance=ExtResource( 17 )]
 position = Vector2( 21998.7, -4167 )
 
-[node name="SpikeBlock209" parent="Spikes" index="384" instance=ExtResource( 17 )]
+[node name="SpikeBlock209" parent="Spikes" index="383" instance=ExtResource( 17 )]
 position = Vector2( 21278.4, -4886.77 )
 
-[node name="SpikeBlock210" parent="Spikes" index="385" instance=ExtResource( 17 )]
+[node name="SpikeBlock210" parent="Spikes" index="384" instance=ExtResource( 17 )]
 position = Vector2( 21198.3, -5366.74 )
 
-[node name="SpikeBlock211" parent="Spikes" index="386" instance=ExtResource( 17 )]
+[node name="SpikeBlock211" parent="Spikes" index="385" instance=ExtResource( 17 )]
 position = Vector2( 21278.1, -5846.77 )
 
-[node name="SpikeBlock208" parent="Spikes" index="387" instance=ExtResource( 17 )]
+[node name="SpikeBlock208" parent="Spikes" index="386" instance=ExtResource( 17 )]
 position = Vector2( 21998.7, -4037 )
 
-[node name="SpikeBlock135" parent="Spikes" index="388" instance=ExtResource( 17 )]
+[node name="SpikeBlock135" parent="Spikes" index="387" instance=ExtResource( 17 )]
 position = Vector2( 24798.9, -3607.89 )
 
-[node name="SpikeBlock118" parent="Spikes" index="389" instance=ExtResource( 17 )]
+[node name="SpikeBlock118" parent="Spikes" index="388" instance=ExtResource( 17 )]
 position = Vector2( 26878.6, -4408.55 )
 
-[node name="SpikeBlock119" parent="Spikes" index="390" instance=ExtResource( 17 )]
+[node name="SpikeBlock119" parent="Spikes" index="389" instance=ExtResource( 17 )]
 position = Vector2( 26878.6, -4248.55 )
 
-[node name="SpikeBlock120" parent="Spikes" index="391" instance=ExtResource( 17 )]
+[node name="SpikeBlock120" parent="Spikes" index="390" instance=ExtResource( 17 )]
 position = Vector2( 26878.7, -4088.55 )
 
-[node name="SpikeBlock121" parent="Spikes" index="392" instance=ExtResource( 17 )]
+[node name="SpikeBlock121" parent="Spikes" index="391" instance=ExtResource( 17 )]
 position = Vector2( 26878.7, -3928.55 )
 
-[node name="SpikeBlock122" parent="Spikes" index="393" instance=ExtResource( 17 )]
+[node name="SpikeBlock122" parent="Spikes" index="392" instance=ExtResource( 17 )]
 position = Vector2( 26878.8, -3768.55 )
 
-[node name="SpikeBlock124" parent="Spikes" index="394" instance=ExtResource( 17 )]
+[node name="SpikeBlock124" parent="Spikes" index="393" instance=ExtResource( 17 )]
 position = Vector2( 26878.9, -3608.55 )
 
-[node name="SpikeBlock125" parent="Spikes" index="395" instance=ExtResource( 17 )]
+[node name="SpikeBlock125" parent="Spikes" index="394" instance=ExtResource( 17 )]
 position = Vector2( 26878.9, -3448.55 )
 
-[node name="SpikeBlock126" parent="Spikes" index="396" instance=ExtResource( 17 )]
+[node name="SpikeBlock126" parent="Spikes" index="395" instance=ExtResource( 17 )]
 position = Vector2( 26879, -3288.55 )
 
-[node name="SpikeBlock127" parent="Spikes" index="397" instance=ExtResource( 17 )]
+[node name="SpikeBlock127" parent="Spikes" index="396" instance=ExtResource( 17 )]
 position = Vector2( 26879, -3128.55 )
 
-[node name="SpikeBlock123" parent="Spikes" index="398" instance=ExtResource( 17 )]
+[node name="SpikeBlock123" parent="Spikes" index="397" instance=ExtResource( 17 )]
 position = Vector2( 26479.1, -2728.42 )
 
-[node name="SpikeBlock128" parent="Spikes" index="399" instance=ExtResource( 17 )]
+[node name="SpikeBlock128" parent="Spikes" index="398" instance=ExtResource( 17 )]
 position = Vector2( 26639.1, -2728.47 )
 
-[node name="SpikeBlock129" parent="Spikes" index="400" instance=ExtResource( 17 )]
+[node name="SpikeBlock129" parent="Spikes" index="399" instance=ExtResource( 17 )]
 position = Vector2( 26799.1, -2728.52 )
 
-[node name="SpikeBlock130" parent="Spikes" index="401" instance=ExtResource( 17 )]
+[node name="SpikeBlock130" parent="Spikes" index="400" instance=ExtResource( 17 )]
 position = Vector2( 26959.1, -2728.57 )
 
-[node name="SpikeBlock131" parent="Spikes" index="402" instance=ExtResource( 17 )]
+[node name="SpikeBlock131" parent="Spikes" index="401" instance=ExtResource( 17 )]
 position = Vector2( 27119.1, -2728.62 )
 
-[node name="SpikeBlock132" parent="Spikes" index="403" instance=ExtResource( 17 )]
+[node name="SpikeBlock132" parent="Spikes" index="402" instance=ExtResource( 17 )]
 position = Vector2( 27279.1, -2728.68 )
 
-[node name="SpikeBlock136" parent="Spikes" index="404" instance=ExtResource( 17 )]
+[node name="SpikeBlock136" parent="Spikes" index="403" instance=ExtResource( 17 )]
 position = Vector2( 27439.1, -2728.73 )
 
-[node name="SpikeBlock138" parent="Spikes" index="405" instance=ExtResource( 17 )]
+[node name="SpikeBlock138" parent="Spikes" index="404" instance=ExtResource( 17 )]
 position = Vector2( 27599.1, -2728.78 )
 
-[node name="SpikeBlock139" parent="Spikes" index="406" instance=ExtResource( 17 )]
+[node name="SpikeBlock139" parent="Spikes" index="405" instance=ExtResource( 17 )]
 position = Vector2( 27759.1, -2728.83 )
 
-[node name="SpikeBlock141" parent="Spikes" index="407" instance=ExtResource( 17 )]
+[node name="SpikeBlock141" parent="Spikes" index="406" instance=ExtResource( 17 )]
 position = Vector2( 27919.1, -2728.88 )
 
-[node name="SpikeBlock143" parent="Spikes" index="408" instance=ExtResource( 17 )]
+[node name="SpikeBlock143" parent="Spikes" index="407" instance=ExtResource( 17 )]
 position = Vector2( 28079.1, -2728.93 )
 
-[node name="SpikeBlock144" parent="Spikes" index="409" instance=ExtResource( 17 )]
+[node name="SpikeBlock144" parent="Spikes" index="408" instance=ExtResource( 17 )]
 position = Vector2( 28239.1, -2728.98 )
 
-[node name="SpikeBlock145" parent="Spikes" index="410" instance=ExtResource( 17 )]
+[node name="SpikeBlock145" parent="Spikes" index="409" instance=ExtResource( 17 )]
 position = Vector2( 28399.1, -2729.03 )
 
-[node name="SpikeBlock146" parent="Spikes" index="411" instance=ExtResource( 17 )]
+[node name="SpikeBlock146" parent="Spikes" index="410" instance=ExtResource( 17 )]
 position = Vector2( 28399.1, -2889.03 )
 
-[node name="SpikeBlock147" parent="Spikes" index="412" instance=ExtResource( 17 )]
+[node name="SpikeBlock147" parent="Spikes" index="411" instance=ExtResource( 17 )]
 position = Vector2( 28399, -3049.03 )
 
-[node name="SpikeBlock148" parent="Spikes" index="413" instance=ExtResource( 17 )]
+[node name="SpikeBlock148" parent="Spikes" index="412" instance=ExtResource( 17 )]
 position = Vector2( 28399, -3209.03 )
 
-[node name="SpikeBlock149" parent="Spikes" index="414" instance=ExtResource( 17 )]
+[node name="SpikeBlock149" parent="Spikes" index="413" instance=ExtResource( 17 )]
 position = Vector2( 28398.9, -3369.03 )
 
-[node name="SpikeBlock150" parent="Spikes" index="415" instance=ExtResource( 17 )]
+[node name="SpikeBlock150" parent="Spikes" index="414" instance=ExtResource( 17 )]
 position = Vector2( 28398.9, -3529.03 )
 
-[node name="SpikeBlock152" parent="Spikes" index="416" instance=ExtResource( 17 )]
+[node name="SpikeBlock152" parent="Spikes" index="415" instance=ExtResource( 17 )]
 position = Vector2( 28398.8, -3689.03 )
 
-[node name="SpikeBlock151" parent="Spikes" index="417" instance=ExtResource( 17 )]
+[node name="SpikeBlock151" parent="Spikes" index="416" instance=ExtResource( 17 )]
 position = Vector2( 28078.8, -3688.93 )
 
-[node name="SpikeBlock153" parent="Spikes" index="418" instance=ExtResource( 17 )]
+[node name="SpikeBlock153" parent="Spikes" index="417" instance=ExtResource( 17 )]
 position = Vector2( 27758.8, -3688.83 )
 
-[node name="SpikeBlock154" parent="Spikes" index="419" instance=ExtResource( 17 )]
+[node name="SpikeBlock154" parent="Spikes" index="418" instance=ExtResource( 17 )]
 position = Vector2( 27438.8, -3688.73 )
 
-[node name="SpikeBlock155" parent="Spikes" index="420" instance=ExtResource( 17 )]
+[node name="SpikeBlock155" parent="Spikes" index="419" instance=ExtResource( 17 )]
 position = Vector2( 27118.8, -3688.62 )
 
-[node name="SpikeBlock156" parent="Spikes" index="421" instance=ExtResource( 17 )]
+[node name="SpikeBlock156" parent="Spikes" index="420" instance=ExtResource( 17 )]
 position = Vector2( 27118.7, -4168.62 )
 
-[node name="SpikeBlock140" parent="Spikes" index="422" instance=ExtResource( 17 )]
+[node name="SpikeBlock140" parent="Spikes" index="421" instance=ExtResource( 17 )]
 position = Vector2( 27759.1, -2968.83 )
 
-[node name="SpikeBlock142" parent="Spikes" index="423" instance=ExtResource( 17 )]
+[node name="SpikeBlock142" parent="Spikes" index="422" instance=ExtResource( 17 )]
 position = Vector2( 28079.1, -2968.93 )
 
-[node name="SpikeBlock137" parent="Spikes" index="424" instance=ExtResource( 17 )]
+[node name="SpikeBlock137" parent="Spikes" index="423" instance=ExtResource( 17 )]
 position = Vector2( 27439.1, -2888.73 )
 
-[node name="SpikeBlock111" parent="Spikes" index="425" instance=ExtResource( 17 )]
+[node name="SpikeBlock111" parent="Spikes" index="424" instance=ExtResource( 17 )]
 position = Vector2( 18549.7, -1045.9 )
 
-[node name="SpikeBlock109" parent="Spikes" index="426" instance=ExtResource( 17 )]
+[node name="SpikeBlock109" parent="Spikes" index="425" instance=ExtResource( 17 )]
 position = Vector2( 18689.8, -515.944 )
 
-[node name="SpikeBlock114" parent="Spikes" index="427" instance=ExtResource( 17 )]
+[node name="SpikeBlock114" parent="Spikes" index="426" instance=ExtResource( 17 )]
 position = Vector2( 18559.8, -515.902 )
 
-[node name="SpikeBlock113" parent="Spikes" index="428" instance=ExtResource( 17 )]
+[node name="SpikeBlock113" parent="Spikes" index="427" instance=ExtResource( 17 )]
 position = Vector2( 18809.8, -775.982 )
 
-[node name="SpikeBlock104" parent="Spikes" index="429" instance=ExtResource( 17 )]
+[node name="SpikeBlock104" parent="Spikes" index="428" instance=ExtResource( 17 )]
 position = Vector2( 17679.7, -1045.62 )
 
-[node name="SpikeBlock105" parent="Spikes" index="430" instance=ExtResource( 17 )]
+[node name="SpikeBlock105" parent="Spikes" index="429" instance=ExtResource( 17 )]
 position = Vector2( 17519.6, -1365.57 )
 
-[node name="SpikeBlock106" parent="Spikes" index="431" instance=ExtResource( 17 )]
+[node name="SpikeBlock106" parent="Spikes" index="430" instance=ExtResource( 17 )]
 position = Vector2( 17679.5, -1685.62 )
 
-[node name="SpikeBlock233" parent="Spikes" index="432" instance=ExtResource( 17 )]
+[node name="SpikeBlock233" parent="Spikes" index="431" instance=ExtResource( 17 )]
 position = Vector2( 16318.9, -3635.19 )
 
-[node name="SpikeBlock234" parent="Spikes" index="433" instance=ExtResource( 17 )]
+[node name="SpikeBlock234" parent="Spikes" index="432" instance=ExtResource( 17 )]
 position = Vector2( 16478.8, -3635.24 )
 
-[node name="SpikeBlock107" parent="Spikes" index="434" instance=ExtResource( 17 )]
+[node name="SpikeBlock107" parent="Spikes" index="433" instance=ExtResource( 17 )]
 position = Vector2( 17839.5, -1685.67 )
 
-[node name="SpikeBlock100" parent="Spikes" index="435" instance=ExtResource( 17 )]
+[node name="SpikeBlock100" parent="Spikes" index="434" instance=ExtResource( 17 )]
 position = Vector2( 17439.9, -405.546 )
 
-[node name="SpikeBlock157" parent="Spikes" index="436" instance=ExtResource( 17 )]
+[node name="SpikeBlock157" parent="Spikes" index="435" instance=ExtResource( 17 )]
 position = Vector2( 27438.7, -4168.73 )
 
-[node name="SpikeBlock158" parent="Spikes" index="437" instance=ExtResource( 17 )]
+[node name="SpikeBlock158" parent="Spikes" index="436" instance=ExtResource( 17 )]
 position = Vector2( 27758.7, -4168.83 )
 
-[node name="SpikeBlock159" parent="Spikes" index="438" instance=ExtResource( 17 )]
+[node name="SpikeBlock159" parent="Spikes" index="437" instance=ExtResource( 17 )]
 position = Vector2( 28078.7, -4168.93 )
 
-[node name="SpikeBlock160" parent="Spikes" index="439" instance=ExtResource( 17 )]
+[node name="SpikeBlock160" parent="Spikes" index="438" instance=ExtResource( 17 )]
 position = Vector2( 29118.6, -4409.26 )
 
-[node name="SpikeBlock161" parent="Spikes" index="440" instance=ExtResource( 17 )]
+[node name="SpikeBlock161" parent="Spikes" index="439" instance=ExtResource( 17 )]
 position = Vector2( 29118.7, -4089.26 )
 
-[node name="SpikeBlock164" parent="Spikes" index="441" instance=ExtResource( 17 )]
+[node name="SpikeBlock164" parent="Spikes" index="440" instance=ExtResource( 17 )]
 position = Vector2( 29278.7, -4089.31 )
 
-[node name="SpikeBlock162" parent="Spikes" index="442" instance=ExtResource( 17 )]
+[node name="SpikeBlock162" parent="Spikes" index="441" instance=ExtResource( 17 )]
 position = Vector2( 29438.6, -4409.36 )
 
-[node name="SpikeBlock163" parent="Spikes" index="443" instance=ExtResource( 17 )]
+[node name="SpikeBlock163" parent="Spikes" index="442" instance=ExtResource( 17 )]
 position = Vector2( 29438.7, -4089.36 )
 
-[node name="SpikeBlock165" parent="Spikes" index="444" instance=ExtResource( 17 )]
+[node name="SpikeBlock165" parent="Spikes" index="443" instance=ExtResource( 17 )]
 position = Vector2( 29598.7, -4089.41 )
 
-[node name="SpikeBlock166" parent="Spikes" index="445" instance=ExtResource( 17 )]
+[node name="SpikeBlock166" parent="Spikes" index="444" instance=ExtResource( 17 )]
 position = Vector2( 29758.6, -4409.46 )
 
-[node name="SpikeBlock168" parent="Spikes" index="446" instance=ExtResource( 17 )]
+[node name="SpikeBlock168" parent="Spikes" index="445" instance=ExtResource( 17 )]
 position = Vector2( 30958.7, -3959.85 )
 
-[node name="SpikeBlock169" parent="Spikes" index="447" instance=ExtResource( 17 )]
+[node name="SpikeBlock169" parent="Spikes" index="446" instance=ExtResource( 17 )]
 position = Vector2( 31088.7, -3959.89 )
 
-[node name="SpikeBlock174" parent="Spikes" index="448" instance=ExtResource( 17 )]
+[node name="SpikeBlock174" parent="Spikes" index="447" instance=ExtResource( 17 )]
 position = Vector2( 31218.7, -4089.93 )
 
-[node name="SpikeBlock175" parent="Spikes" index="449" instance=ExtResource( 17 )]
+[node name="SpikeBlock175" parent="Spikes" index="448" instance=ExtResource( 17 )]
 position = Vector2( 31218.7, -4219.93 )
 
-[node name="SpikeBlock170" parent="Spikes" index="450" instance=ExtResource( 17 )]
+[node name="SpikeBlock170" parent="Spikes" index="449" instance=ExtResource( 17 )]
 position = Vector2( 31218.7, -3959.93 )
 
-[node name="SpikeBlock171" parent="Spikes" index="451" instance=ExtResource( 17 )]
+[node name="SpikeBlock171" parent="Spikes" index="450" instance=ExtResource( 17 )]
 position = Vector2( 30959.1, -2889.85 )
 
-[node name="SpikeBlock177" parent="Spikes" index="452" instance=ExtResource( 17 )]
+[node name="SpikeBlock177" parent="Spikes" index="451" instance=ExtResource( 17 )]
 position = Vector2( 31089.1, -2889.89 )
 
-[node name="SpikeBlock178" parent="Spikes" index="453" instance=ExtResource( 17 )]
+[node name="SpikeBlock178" parent="Spikes" index="452" instance=ExtResource( 17 )]
 position = Vector2( 31219.1, -2889.93 )
 
-[node name="SpikeBlock179" parent="Spikes" index="454" instance=ExtResource( 17 )]
+[node name="SpikeBlock179" parent="Spikes" index="453" instance=ExtResource( 17 )]
 position = Vector2( 31359.3, -2329.97 )
 
-[node name="SpikeBlock180" parent="Spikes" index="455" instance=ExtResource( 17 )]
+[node name="SpikeBlock180" parent="Spikes" index="454" instance=ExtResource( 17 )]
 position = Vector2( 31229.3, -2329.93 )
 
-[node name="SpikeBlock181" parent="Spikes" index="456" instance=ExtResource( 17 )]
+[node name="SpikeBlock181" parent="Spikes" index="455" instance=ExtResource( 17 )]
 position = Vector2( 31099.3, -2329.89 )
 
-[node name="SpikeBlock182" parent="Spikes" index="457" instance=ExtResource( 17 )]
+[node name="SpikeBlock182" parent="Spikes" index="456" instance=ExtResource( 17 )]
 position = Vector2( 30959.4, -1769.85 )
 
-[node name="SpikeBlock183" parent="Spikes" index="458" instance=ExtResource( 17 )]
+[node name="SpikeBlock183" parent="Spikes" index="457" instance=ExtResource( 17 )]
 position = Vector2( 31089.4, -1769.89 )
 
-[node name="SpikeBlock184" parent="Spikes" index="459" instance=ExtResource( 17 )]
+[node name="SpikeBlock184" parent="Spikes" index="458" instance=ExtResource( 17 )]
 position = Vector2( 31219.4, -1769.93 )
 
-[node name="SpikeBlock185" parent="Spikes" index="460" instance=ExtResource( 17 )]
+[node name="SpikeBlock185" parent="Spikes" index="459" instance=ExtResource( 17 )]
 position = Vector2( 31359.6, -1209.97 )
 
-[node name="SpikeBlock188" parent="Spikes" index="461" instance=ExtResource( 17 )]
+[node name="SpikeBlock188" parent="Spikes" index="460" instance=ExtResource( 17 )]
 position = Vector2( 30959.8, -649.846 )
 
-[node name="SpikeBlock189" parent="Spikes" index="462" instance=ExtResource( 17 )]
+[node name="SpikeBlock189" parent="Spikes" index="461" instance=ExtResource( 17 )]
 position = Vector2( 31089.8, -649.887 )
 
-[node name="SpikeBlock190" parent="Spikes" index="463" instance=ExtResource( 17 )]
+[node name="SpikeBlock190" parent="Spikes" index="462" instance=ExtResource( 17 )]
 position = Vector2( 31219.8, -649.928 )
 
-[node name="SpikeBlock191" parent="Spikes" index="464" instance=ExtResource( 17 )]
+[node name="SpikeBlock191" parent="Spikes" index="463" instance=ExtResource( 17 )]
 position = Vector2( 31360, -89.9731 )
 
-[node name="SpikeBlock192" parent="Spikes" index="465" instance=ExtResource( 17 )]
+[node name="SpikeBlock192" parent="Spikes" index="464" instance=ExtResource( 17 )]
 position = Vector2( 31230, -89.9312 )
 
-[node name="SpikeBlock193" parent="Spikes" index="466" instance=ExtResource( 17 )]
+[node name="SpikeBlock193" parent="Spikes" index="465" instance=ExtResource( 17 )]
 position = Vector2( 31100, -89.8901 )
 
-[node name="SpikeBlock194" parent="Spikes" index="467" instance=ExtResource( 17 )]
+[node name="SpikeBlock194" parent="Spikes" index="466" instance=ExtResource( 17 )]
 position = Vector2( 30960.2, 470.154 )
 
-[node name="SpikeBlock195" parent="Spikes" index="468" instance=ExtResource( 17 )]
+[node name="SpikeBlock195" parent="Spikes" index="467" instance=ExtResource( 17 )]
 position = Vector2( 31090.2, 470.113 )
 
-[node name="SpikeBlock196" parent="Spikes" index="469" instance=ExtResource( 17 )]
+[node name="SpikeBlock196" parent="Spikes" index="468" instance=ExtResource( 17 )]
 position = Vector2( 31220.2, 470.072 )
 
-[node name="SpikeBlock197" parent="Spikes" index="470" instance=ExtResource( 17 )]
+[node name="SpikeBlock197" parent="Spikes" index="469" instance=ExtResource( 17 )]
 position = Vector2( 31360.4, 1030.03 )
 
-[node name="SpikeBlock198" parent="Spikes" index="471" instance=ExtResource( 17 )]
+[node name="SpikeBlock198" parent="Spikes" index="470" instance=ExtResource( 17 )]
 position = Vector2( 31230.4, 1030.07 )
 
-[node name="SpikeBlock199" parent="Spikes" index="472" instance=ExtResource( 17 )]
+[node name="SpikeBlock199" parent="Spikes" index="471" instance=ExtResource( 17 )]
 position = Vector2( 31100.4, 1030.11 )
 
-[node name="SpikeBlock200" parent="Spikes" index="473" instance=ExtResource( 17 )]
+[node name="SpikeBlock200" parent="Spikes" index="472" instance=ExtResource( 17 )]
 position = Vector2( 30960.6, 1590.15 )
 
-[node name="SpikeBlock201" parent="Spikes" index="474" instance=ExtResource( 17 )]
+[node name="SpikeBlock201" parent="Spikes" index="473" instance=ExtResource( 17 )]
 position = Vector2( 31090.6, 1590.11 )
 
-[node name="SpikeBlock202" parent="Spikes" index="475" instance=ExtResource( 17 )]
+[node name="SpikeBlock202" parent="Spikes" index="474" instance=ExtResource( 17 )]
 position = Vector2( 31220.6, 1590.07 )
 
-[node name="SpikeBlock203" parent="Spikes" index="476" instance=ExtResource( 17 )]
+[node name="SpikeBlock203" parent="Spikes" index="475" instance=ExtResource( 17 )]
 position = Vector2( 31360.8, 2150.03 )
 
-[node name="SpikeBlock204" parent="Spikes" index="477" instance=ExtResource( 17 )]
+[node name="SpikeBlock204" parent="Spikes" index="476" instance=ExtResource( 17 )]
 position = Vector2( 31230.8, 2150.07 )
 
-[node name="SpikeBlock205" parent="Spikes" index="478" instance=ExtResource( 17 )]
+[node name="SpikeBlock205" parent="Spikes" index="477" instance=ExtResource( 17 )]
 position = Vector2( 31100.8, 2150.11 )
 
-[node name="SpikeBlock186" parent="Spikes" index="479" instance=ExtResource( 17 )]
+[node name="SpikeBlock186" parent="Spikes" index="478" instance=ExtResource( 17 )]
 position = Vector2( 31229.6, -1209.93 )
 
-[node name="SpikeBlock187" parent="Spikes" index="480" instance=ExtResource( 17 )]
+[node name="SpikeBlock187" parent="Spikes" index="479" instance=ExtResource( 17 )]
 position = Vector2( 31099.6, -1209.89 )
 
-[node name="SpikeBlock172" parent="Spikes" index="481" instance=ExtResource( 17 )]
+[node name="SpikeBlock172" parent="Spikes" index="480" instance=ExtResource( 17 )]
 position = Vector2( 31228.9, -3449.93 )
 
-[node name="SpikeBlock206" parent="Spikes" index="482" instance=ExtResource( 17 )]
+[node name="SpikeBlock206" parent="Spikes" index="481" instance=ExtResource( 17 )]
 position = Vector2( 31218.8, -3829.93 )
 
-[node name="SpikeBlock176" parent="Spikes" index="483" instance=ExtResource( 17 )]
+[node name="SpikeBlock176" parent="Spikes" index="482" instance=ExtResource( 17 )]
 position = Vector2( 31098.9, -3449.89 )
 
-[node name="SpikeBlock173" parent="Spikes" index="484" instance=ExtResource( 17 )]
+[node name="SpikeBlock173" parent="Spikes" index="483" instance=ExtResource( 17 )]
 position = Vector2( 31358.9, -3449.97 )
 
-[node name="SpikeBlock167" parent="Spikes" index="485" instance=ExtResource( 17 )]
+[node name="SpikeBlock167" parent="Spikes" index="484" instance=ExtResource( 17 )]
 position = Vector2( 29758.7, -4089.46 )
 
-[node name="SpikeBlock13" parent="Spikes" index="486" instance=ExtResource( 17 )]
+[node name="SpikeBlock13" parent="Spikes" index="485" instance=ExtResource( 17 )]
 position = Vector2( 7996.74, -10242.5 )
 
-[node name="SpikeBlock214" parent="Spikes" index="487" instance=ExtResource( 17 )]
+[node name="SpikeBlock214" parent="Spikes" index="486" instance=ExtResource( 17 )]
 position = Vector2( 7996.79, -10082.5 )
 
-[node name="SpikeBlock215" parent="Spikes" index="488" instance=ExtResource( 17 )]
+[node name="SpikeBlock215" parent="Spikes" index="487" instance=ExtResource( 17 )]
 position = Vector2( 8156.79, -10082.6 )
 
-[node name="SpikeBlock216" parent="Spikes" index="489" instance=ExtResource( 17 )]
+[node name="SpikeBlock216" parent="Spikes" index="488" instance=ExtResource( 17 )]
 position = Vector2( 8316.79, -10082.6 )
 
-[node name="SpikeBlock217" parent="Spikes" index="490" instance=ExtResource( 17 )]
+[node name="SpikeBlock217" parent="Spikes" index="489" instance=ExtResource( 17 )]
 position = Vector2( 8476.79, -10082.7 )
 
-[node name="SpikeBlock218" parent="Spikes" index="491" instance=ExtResource( 17 )]
+[node name="SpikeBlock218" parent="Spikes" index="490" instance=ExtResource( 17 )]
 position = Vector2( 8636.79, -10082.7 )
 
-[node name="SpikeBlock219" parent="Spikes" index="492" instance=ExtResource( 17 )]
+[node name="SpikeBlock219" parent="Spikes" index="491" instance=ExtResource( 17 )]
 position = Vector2( 8796.79, -10082.8 )
 
-[node name="SpikeBlock220" parent="Spikes" index="493" instance=ExtResource( 17 )]
+[node name="SpikeBlock220" parent="Spikes" index="492" instance=ExtResource( 17 )]
 position = Vector2( 8956.85, -10083.2 )
 
-[node name="SpikeBlock108" parent="Spikes" index="494" instance=ExtResource( 17 )]
+[node name="SpikeBlock108" parent="Spikes" index="493" instance=ExtResource( 17 )]
 position = Vector2( 8636.75, -10242.7 )
 
-[node name="SpikeBlock212" parent="Spikes" index="495" instance=ExtResource( 17 )]
+[node name="SpikeBlock212" parent="Spikes" index="494" instance=ExtResource( 17 )]
 position = Vector2( 8956.74, -10242.8 )
 
-[node name="SpikeBlock221" parent="Spikes" index="496" instance=ExtResource( 17 )]
+[node name="SpikeBlock221" parent="Spikes" index="495" instance=ExtResource( 17 )]
 position = Vector2( 9116.79, -10082.9 )
 
-[node name="SpikeBlock222" parent="Spikes" index="497" instance=ExtResource( 17 )]
+[node name="SpikeBlock222" parent="Spikes" index="496" instance=ExtResource( 17 )]
 position = Vector2( 9116.75, -10242.9 )
 
-[node name="SpikeBlock213" parent="Spikes" index="498" instance=ExtResource( 17 )]
+[node name="SpikeBlock213" parent="Spikes" index="497" instance=ExtResource( 17 )]
 position = Vector2( 8316.75, -10242.6 )
 
-[node name="SpikeBlock223" parent="Spikes" index="499" instance=ExtResource( 17 )]
+[node name="SpikeBlock223" parent="Spikes" index="498" instance=ExtResource( 17 )]
 position = Vector2( 7996.97, -9522.54 )
 
-[node name="SpikeBlock224" parent="Spikes" index="500" instance=ExtResource( 17 )]
+[node name="SpikeBlock224" parent="Spikes" index="499" instance=ExtResource( 17 )]
 position = Vector2( 7997.02, -9362.54 )
 
-[node name="SpikeBlock225" parent="Spikes" index="501" instance=ExtResource( 17 )]
+[node name="SpikeBlock225" parent="Spikes" index="500" instance=ExtResource( 17 )]
 position = Vector2( 8157.02, -9362.6 )
 
-[node name="SpikeBlock226" parent="Spikes" index="502" instance=ExtResource( 17 )]
+[node name="SpikeBlock226" parent="Spikes" index="501" instance=ExtResource( 17 )]
 position = Vector2( 8317.02, -9362.64 )
 
-[node name="SpikeBlock227" parent="Spikes" index="503" instance=ExtResource( 17 )]
+[node name="SpikeBlock227" parent="Spikes" index="502" instance=ExtResource( 17 )]
 position = Vector2( 8477.02, -9362.69 )
 
-[node name="SpikeBlock228" parent="Spikes" index="504" instance=ExtResource( 17 )]
+[node name="SpikeBlock228" parent="Spikes" index="503" instance=ExtResource( 17 )]
 position = Vector2( 8637.02, -9362.75 )
 
-[node name="SpikeBlock229" parent="Spikes" index="505" instance=ExtResource( 17 )]
+[node name="SpikeBlock229" parent="Spikes" index="504" instance=ExtResource( 17 )]
 position = Vector2( 8797.02, -9362.8 )
 
-[node name="SpikeBlock230" parent="Spikes" index="506" instance=ExtResource( 17 )]
+[node name="SpikeBlock230" parent="Spikes" index="505" instance=ExtResource( 17 )]
 position = Vector2( 8957.07, -9363.16 )
 
-[node name="SpikeBlock231" parent="Spikes" index="507" instance=ExtResource( 17 )]
+[node name="SpikeBlock231" parent="Spikes" index="506" instance=ExtResource( 17 )]
 position = Vector2( 8636.97, -9522.75 )
 
-[node name="SpikeBlock232" parent="Spikes" index="508" instance=ExtResource( 17 )]
+[node name="SpikeBlock232" parent="Spikes" index="507" instance=ExtResource( 17 )]
 position = Vector2( 8956.97, -9522.85 )
 
-[node name="SpikeBlock235" parent="Spikes" index="509" instance=ExtResource( 17 )]
+[node name="SpikeBlock235" parent="Spikes" index="508" instance=ExtResource( 17 )]
 position = Vector2( 8316.97, -9522.64 )
 
-[node name="SpikeBlock236" parent="Spikes" index="510" instance=ExtResource( 17 )]
+[node name="SpikeBlock236" parent="Spikes" index="509" instance=ExtResource( 17 )]
 position = Vector2( 23598.4, -5207.75 )
 
-[node name="SpikeBlock237" parent="Spikes" index="511" instance=ExtResource( 17 )]
+[node name="SpikeBlock237" parent="Spikes" index="510" instance=ExtResource( 17 )]
 position = Vector2( 23598.4, -5697.75 )
 
-[node name="SpikeBlock238" parent="Spikes" index="512" instance=ExtResource( 17 )]
+[node name="SpikeBlock238" parent="Spikes" index="511" instance=ExtResource( 17 )]
 position = Vector2( 23593.2, -6167.75 )
 
 [node name="MovingPlatforms" type="Node2D" parent="." index="19"]

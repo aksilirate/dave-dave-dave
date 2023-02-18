@@ -15,6 +15,9 @@ script = ExtResource( 2 )
 
 [node name="TitleScene" parent="." instance=ExtResource( 5 )]
 
+[node name="TitleButtonsTabContainer" parent="TitleScene/VBoxContainer" index="2"]
+margin_bottom = 210.0
+
 [node name="PlayGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="0"]
 margin_top = 0.0
 margin_right = 192.0
@@ -25,15 +28,13 @@ margin_top = 37.0
 margin_right = 192.0
 margin_bottom = 53.0
 
-[node name="ExtrasGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="2"]
+[node name="ExitGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="2"]
 margin_top = 74.0
 margin_right = 192.0
 margin_bottom = 90.0
 
-[node name="ExitGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/MainTitleVBoxContainer" index="3"]
-margin_top = 111.0
-margin_right = 192.0
-margin_bottom = 127.0
+[node name="AdvantureGenericButton" parent="TitleScene/VBoxContainer/TitleButtonsTabContainer/PlayTitleButtonsVBoxContainer" index="0"]
+text = "adaventure"
 
 [node name="OptionsScene" parent="." instance=ExtResource( 1 )]
 visible = false

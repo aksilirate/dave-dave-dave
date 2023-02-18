@@ -185,50 +185,14 @@ position = Vector2( 12780, -3880 )
 [node name="Checkpoint6" parent="Checkpoints" index="52" instance=ExtResource( 6 )]
 position = Vector2( 13290, -2920 )
 
-[node name="Sprite" parent="Sprites" index="0"]
-frame = 0
-
-[node name="Sprite3" parent="Sprites" index="1"]
-frame = 0
-
-[node name="Sprite6" parent="Sprites" index="2"]
-frame = 0
-
-[node name="Sprite7" parent="Sprites" index="3"]
-frame = 0
-
-[node name="Sprite9" parent="Sprites" index="4"]
-frame = 0
-
-[node name="Sprite10" parent="Sprites" index="5"]
-frame = 1
-
-[node name="Sprite17" parent="Sprites" index="6"]
-frame = 0
-
-[node name="Sprite14" parent="Sprites" index="7"]
-frame = 1
-
-[node name="Sprite15" parent="Sprites" index="8"]
-frame = 0
-
-[node name="Sprite16" parent="Sprites" index="9"]
-frame = 0
-
-[node name="Sprite2" parent="Sprites" index="10"]
-frame = 0
-
-[node name="Sprite4" parent="Sprites" index="11"]
-frame = 0
-
-[node name="Sprite8" parent="Sprites" index="12"]
-frame = 1
-
-[node name="Sprite12" parent="Sprites" index="13"]
-frame = 1
-
 [node name="Sign36" parent="Signs" index="1"]
 position = Vector2( 1120, -1240 )
+
+[node name="Spikes32" parent="Spikes" index="249"]
+position = Vector2( 6735.07, -2922.14 )
+
+[node name="Spikes33" parent="Spikes" index="250"]
+position = Vector2( 6223.05, -3001.98 )
 
 [node name="CollisionShape2D" parent="AchievementArea" index="0"]
 shape = SubResource( 1 )
