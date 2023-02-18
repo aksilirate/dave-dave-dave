@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/objects/ClassicWorldScene/ClassicWorldScene.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/objects/AdventureWorldScene/AdventureWorldScene.gd" type="Script" id=5]
@@ -15,6 +15,10 @@ extents = Vector2( 60, 50 )
 [sub_resource type="RectangleShape2D" id=3]
 resource_local_to_scene = true
 extents = Vector2( 40, 30 )
+
+[sub_resource type="RectangleShape2D" id=4]
+resource_local_to_scene = true
+extents = Vector2( 160, 140 )
 
 [node name="AdventureWorldScene" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
@@ -181,11 +185,50 @@ position = Vector2( 12780, -3880 )
 [node name="Checkpoint6" parent="Checkpoints" index="52" instance=ExtResource( 6 )]
 position = Vector2( 13290, -2920 )
 
+[node name="Sprite" parent="Sprites" index="0"]
+frame = 0
+
+[node name="Sprite3" parent="Sprites" index="1"]
+frame = 0
+
+[node name="Sprite6" parent="Sprites" index="2"]
+frame = 0
+
+[node name="Sprite7" parent="Sprites" index="3"]
+frame = 0
+
+[node name="Sprite9" parent="Sprites" index="4"]
+frame = 0
+
+[node name="Sprite10" parent="Sprites" index="5"]
+frame = 1
+
+[node name="Sprite17" parent="Sprites" index="6"]
+frame = 0
+
+[node name="Sprite14" parent="Sprites" index="7"]
+frame = 1
+
+[node name="Sprite15" parent="Sprites" index="8"]
+frame = 0
+
+[node name="Sprite16" parent="Sprites" index="9"]
+frame = 0
+
+[node name="Sprite2" parent="Sprites" index="10"]
+frame = 0
+
+[node name="Sprite4" parent="Sprites" index="11"]
+frame = 0
+
+[node name="Sprite8" parent="Sprites" index="12"]
+frame = 1
+
+[node name="Sprite12" parent="Sprites" index="13"]
+frame = 1
+
 [node name="Sign36" parent="Signs" index="1"]
 position = Vector2( 1120, -1240 )
-
-[node name="RedMan" parent="." index="40"]
-visible = true
 
 [node name="CollisionShape2D" parent="AchievementArea" index="0"]
 shape = SubResource( 1 )
@@ -195,6 +238,9 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="AchievementArea3" index="0"]
 shape = SubResource( 3 )
+
+[node name="CollisionShape2D" parent="AchievementArea4" index="0"]
+shape = SubResource( 4 )
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]
@@ -302,8 +348,13 @@ shape = SubResource( 3 )
 [editable path="RedMan2"]
 [editable path="SuicidalDave"]
 [editable path="RedMan4"]
+[editable path="WorldCanvasLayer"]
+[editable path="WorldCanvasLayer/WorldEscTabContainer"]
+[editable path="WorldCanvasLayer/WorldEscTabContainer/EscMenu"]
+[editable path="WorldCanvasLayer/WorldEscTabContainer/OptionsScene"]
 [editable path="ReplicatedPlayerBodyFactory"]
 [editable path="FinishArea"]
 [editable path="AchievementArea"]
 [editable path="AchievementArea2"]
 [editable path="AchievementArea3"]
+[editable path="AchievementArea4"]
