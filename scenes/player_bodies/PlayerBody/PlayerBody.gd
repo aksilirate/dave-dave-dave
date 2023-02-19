@@ -17,7 +17,6 @@ signal died
 enum {IDLE, MOVING, AIR}
 
 
-onready var network_data: NetworkData = DataLoader.network_data
 
 onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
 
@@ -58,8 +57,6 @@ var double_jumped: bool = false
 
 
 
-
-var packet_history: Array
 
 var target_position: Vector2
 
@@ -214,42 +211,6 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if network_data.lobby_id:
-		if not Steamworks.steam_id == player_id:
-			
-			if not packet_history.size():
-				return
-			
-			var packets: Array = packet_history.pop_front()
-				
-			for element in packets:
-				var packet: Packet = element
-				
-				if packet is PlayerBodyPositionSyncPacket:
-					player_body_editor.set_displacement(Vector2.ZERO)
-					
-					if global_position.distance_to(packet.position) > 10:
-						player_body_editor.set_displacement(global_position.direction_to(packet.position) * 35)
-						
-					
-					global_position = packet.position
-					
-					
-					
-				if packet is PlayerBodyInventorySyncPacket:
-					player_body_editor.set_inventory(packet.inventory)
-					continue
-					
-				if packet is PlayerBodyHasteTimeSyncPacket:
-					player_body_editor.set_haste_time(packet.haste_time)
-					continue
-						
-				if packet is PlayerBodyDeathSyncPacket:
-					_die()
-					continue
-					
-	
-	
 	
 	_simulate_displacement(delta, last_input_recieved)
 	
@@ -289,10 +250,6 @@ func _physics_process(delta):
 
 
 func _simulate_displacement(delta, arg_input: Vector2):
-	if network_data.lobby_id:
-		if not Steamworks.steam_id == player_id:
-			return
-			
 	var gravity: float = player_body_editor.gravity
 	
 	_move(int(arg_input.x))
@@ -338,10 +295,6 @@ func _simulate_displacement(delta, arg_input: Vector2):
 
 
 func _apply_impulses():
-	if network_data.lobby_id:
-		if Steamworks.steam_id != player_id:
-			return
-			
 	for index in get_slide_count():
 		var collision = get_slide_collision(index)
 		if collision.collider is RigidBody2D:

@@ -4,8 +4,6 @@ extends Sprite
 
 onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
 
-onready var replicated_player_body_factory_data: ReplicatedPlayerBodyFactoryData = DataLoader.replicated_player_body_factory_data
-
 onready var player_body_data: PlayerBodyData = current_game_state.world_data.local_player_body_data
 
 
@@ -13,9 +11,6 @@ var _signal
 
 
 func _ready():
-	if replicated_player_body_factory_data.lastest_spawned_player_id:
-		player_body_data = current_game_state.world_data.online_player_bodies_data[replicated_player_body_factory_data.lastest_spawned_player_id]
-		
 	_signal = player_body_data.connect("deaths_changed", self, "_on_player_body_deaths_changed")
 	_signal = player_body_data.connect("haste_time_changed", self, "_on_player_body_haste_time_changed")
 	_update_sprite()

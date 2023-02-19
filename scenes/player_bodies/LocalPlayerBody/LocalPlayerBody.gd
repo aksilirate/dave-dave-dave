@@ -3,7 +3,6 @@ extends PlayerBody
 
 
 
-onready var chat_input_data: ChatInputData = DataLoader.chat_input_data
 
 var esc_menu_open: bool
 

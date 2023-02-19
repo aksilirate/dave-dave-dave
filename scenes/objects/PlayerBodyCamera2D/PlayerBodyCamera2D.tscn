@@ -5,6 +5,7 @@
 [node name="PlayerBodyCamera2D" type="Camera2D"]
 current = true
 zoom = Vector2( 2.5, 2.5 )
+process_mode = 0
 limit_left = -250000
 limit_top = -7120
 limit_right = 250000

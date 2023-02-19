@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/objects/ClassicWorldScene/ClassicWorldScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/damage_areas/Bullet/Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/objects/AdventureWorldScene/AdventureWorldScene.gd" type="Script" id=5]
 [ext_resource path="res://scenes/objects/Checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=5]
+resource_local_to_scene = true
+extents = Vector2( 2, 1 )
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
@@ -230,11 +235,18 @@ frame = 0
 [node name="Sign36" parent="Signs" index="1"]
 position = Vector2( 1120, -1240 )
 
-[node name="Spikes32" parent="Spikes" index="249"]
+[node name="Spikes32" parent="Spikes" index="259"]
 position = Vector2( 6735.07, -2922.14 )
 
-[node name="Spikes33" parent="Spikes" index="250"]
+[node name="Spikes33" parent="Spikes" index="260"]
 position = Vector2( 6223.05, -3001.98 )
+
+[node name="WorldNetworkManager" parent="." index="50" instance=ExtResource( 2 )]
+
+[node name="ReplicatedPlayerBodyFactory" parent="." index="54" instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" parent="ReplicatedPlayerBodyFactory" index="1"]
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D" parent="AchievementArea" index="0"]
 shape = SubResource( 1 )
@@ -247,6 +259,10 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="AchievementArea4" index="0"]
 shape = SubResource( 4 )
+
+[connection signal="closed" from="WorldCanvasLayer/WorldEscTabContainer" to="LocalPlayerBody" method="_on_WorldEscTabContainer_closed"]
+[connection signal="opened" from="WorldCanvasLayer/WorldEscTabContainer" to="LocalPlayerBody" method="_on_WorldEscTabContainer_opened"]
+[connection signal="animation_finished" from="CutsceneAnimationPlayer" to="GameStateManager" method="_on_CutsceneAnimationPlayer_animation_finished"]
 
 [editable path="ButtonLockedDoor"]
 [editable path="ButtonLockedDoor9"]

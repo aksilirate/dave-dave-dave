@@ -19,3 +19,4 @@ func _on_smooth_camera_changed():
 
 func update_smoothing() -> void:
 	smoothing_enabled = options_data.smooth_camera
+	current = true

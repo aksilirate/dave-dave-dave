@@ -19,7 +19,7 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="PlayerBodyCamera2D" parent="." index="7" instance=ExtResource( 3 )]
-process_mode = 0
+smoothing_enabled = false
 
 [node name="LocalPlayerBodyCanvasLayer" parent="." index="8" instance=ExtResource( 4 )]
 

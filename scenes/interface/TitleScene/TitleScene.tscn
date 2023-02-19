@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/PressStart2P-vaV7.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/interface/TitleButtonsTabContainer/TitleButtonsTabContainer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/WorldStatsRichTextLabel/WorldStatsRichTextLabel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/managers/NetworkManager/NetworkManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/interface/TitleScene/TitleScene.gd" type="Script" id=7]
 [ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=15]
 
@@ -20,8 +19,6 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
-
-[node name="NetworkManager" parent="." instance=ExtResource( 6 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_bottom = 1.0
@@ -59,7 +56,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 120.0
 margin_right = 192.0
-margin_bottom = 247.0
+margin_bottom = 210.0
 
 [node name="WorldStatsRichTextLabel" parent="." instance=ExtResource( 4 )]
 

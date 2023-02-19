@@ -9,9 +9,6 @@ onready var game_states: GameStates = $GameStates
 
 var game_state_data: GameStateData
 
-var network_data: NetworkData
-
-var chat_input_data: ChatInputData
 
 var options_data: OptionsData
 var generic_button_data: GenericButtonData
@@ -19,8 +16,6 @@ var option_check_box_data: OptionCheckBoxData
 var option_h_slider_data: OptionHSliderData
 
 var cutscene_animation_player_data: CutsceneAnimationPlayerData
-
-var replicated_player_body_factory_data: ReplicatedPlayerBodyFactoryData
 
 var damage_area_data: DamageAreaData
 var checkpoint_data: CheckpointData
@@ -70,8 +65,6 @@ func _init_folders():
 
 func _init_all_data():
 	game_state_data = DataResource.init_data(data_path + "/GameState.tres", GameStateEditor.new()) as GameStateData
-	network_data = DataResource.init_data(data_path + "/Network.tres", NetworkEditor.new()) as NetworkData
-	chat_input_data = DataResource.init_data(data_path + "/ChatInputData.tres", ChatInputEditor.new()) as ChatInputData
 	options_data = DataResource.init_data(data_path + "/Options.tres", OptionsEditor.new()) as OptionsData
 	generic_button_data = DataResource.init_data(data_path + "/GenericButton.tres", GenericButtonEditor.new()) as GenericButtonData
 	option_check_box_data = DataResource.init_data(data_path + "/OptionCheckBox.tres", OptionCheckBoxEditor.new()) as OptionCheckBoxData
@@ -80,7 +73,6 @@ func _init_all_data():
 	
 	cutscene_animation_player_data = DataResource.init_data(data_path + "/CutsceneAnimationPlayer.tres", CutsceneAnimationPlayerEditor.new()) as CutsceneAnimationPlayerData
 	
-	replicated_player_body_factory_data = DataResource.init_data(data_path + "/ReplicatedPlayerBodyFactory.tres", ReplicatedPlayerBodyFactoryEditor.new()) as ReplicatedPlayerBodyFactoryData
 	
 	damage_area_data = DataResource.init_data(data_path + "/DamageArea.tres", DamageAreaEditor.new()) as DamageAreaData
 	checkpoint_data = DataResource.init_data(data_path + "/Checkpoint.tres", CheckpointEditor.new()) as CheckpointData

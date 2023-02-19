@@ -3,7 +3,6 @@ extends Node
 
 
 onready var game_state_editor = DataLoader.game_state_data as GameStateEditor
-onready var network_data: NetworkData = DataLoader.network_data
 
 var world_data: WorldData
 
@@ -13,7 +12,6 @@ var _signal
 
 func _ready():
 	_signal = game_state_editor.connect("current_state_changed", self, "_on_current_state_changed")
-	_signal = network_data.connect("packet_received", self, "_packet_received")
 
 
 
@@ -30,16 +28,6 @@ func _on_current_state_changed():
 #	world_data = game_state_editor.current_game_state.world_data as WorldData
 #	_signal = world_data.connect("completed_changed", self, "_on_world_completed_changed")
 
-
-
-
-
-
-func _packet_received():
-	var packet = network_data.received_packet
-	if packet is GameStatePacket:
-		print(packet.scene_path)
-		game_state_editor.set_current_game_state(DataLoader.game_states.online_play_state)
 
 
 
