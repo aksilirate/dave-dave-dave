@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/interface/OptionsScene/OptionsScene.gd" type="Script" id=1]
 [ext_resource path="res://scenes/option_check_boxes/VSyncOptionCheckBox/VSyncOptionCheckBox.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scenes/option_check_boxes/SmoothCameraOptionCheckBox/SmoothCameraOptionCheckBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/option_h_sliders/SFXOptionHSlider/SFXOptionHSlider.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/generic_buttons/OptionsBackGenericButton/OptionsBackGenericButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/option_check_boxes/HidePetOptionCheckBox/HidePetOptionCheckBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/option_check_boxes/FullscreenOptionCheckBox/FullscreenOptionCheckBox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/managers/OptionsManager/OptionsManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://resources/themes/default_theme.tres" type="Theme" id=12]
@@ -18,9 +17,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 12 )
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 90.0 ],
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 90.0 ]
 }
 
 [node name="OptionsManager" parent="." instance=ExtResource( 11 )]
@@ -56,17 +53,9 @@ margin_top = 40.0
 margin_bottom = 56.0
 focus_neighbour_right = NodePath("../../SliderOptions/MusicOptionHSlider")
 
-[node name="HidePetOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 9 )]
+[node name="InterfaceSelectionOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 3 )]
 margin_top = 60.0
 margin_bottom = 76.0
-focus_neighbour_top = NodePath("../SmoothCameraOptionCheckBox")
-focus_neighbour_right = NodePath("../../SliderOptions/MusicOptionHSlider")
-focus_neighbour_bottom = NodePath("../InterfaceSelectionOptionCheckBox")
-
-[node name="InterfaceSelectionOptionCheckBox" parent="ToggleOptions" instance=ExtResource( 3 )]
-margin_top = 80.0
-margin_bottom = 96.0
-focus_neighbour_top = NodePath("../HidePetOptionCheckBox")
 focus_neighbour_right = NodePath("../../SliderOptions/MusicOptionHSlider")
 focus_neighbour_bottom = NodePath("../../OptionsBackGenericButton")
 
@@ -99,5 +88,3 @@ margin_bottom = -40.0
 focus_neighbour_top = NodePath("../ToggleOptions/InterfaceSelectionOptionCheckBox")
 focus_neighbour_right = NodePath("../SliderOptions/MusicOptionHSlider")
 focus_neighbour_bottom = NodePath("../ToggleOptions/FullscreenOptionCheckBox")
-
-[connection signal="toggled" from="ToggleOptions/InterfaceSelectionOptionCheckBox" to="." method="_on_InterfaceSelectionOptionCheckBox_toggled"]

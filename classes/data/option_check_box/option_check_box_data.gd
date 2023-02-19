@@ -9,7 +9,6 @@ signal v_sync_pressed_changed
 
 signal smooth_camera_pressed_changed
 
-signal hide_pet_pressed_changed
 
 signal interface_selection_pressed_changed
 
@@ -20,7 +19,6 @@ var v_sync_pressed: bool setget _v_sync_pressed
 
 var smooth_camera_pressed: bool setget _smooth_camera_pressed
 
-var hide_pet_pressed: bool setget _hide_pet_pressed
 
 var interface_selection_pressed: bool setget _interface_selection_pressed
 
