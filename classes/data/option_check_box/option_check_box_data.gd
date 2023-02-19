@@ -36,9 +36,5 @@ func _smooth_camera_pressed(_value):
 	return
 
 
-
-func _hide_pet_pressed(_value):
-	return
-
 func _interface_selection_pressed(_value):
 	return

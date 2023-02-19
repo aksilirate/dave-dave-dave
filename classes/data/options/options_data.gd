@@ -19,10 +19,7 @@ export(bool) var v_sync = true setget _v_sync
 
 export(bool) var smooth_camera = true setget _smooth_camera
 
-export(bool) var hide_pet = false setget _hide_pet
-
 export(bool) var interface_selection = true setget _interface_selection
-
 
 export(float) var music_volume_db setget _music_volume_db
 
@@ -45,11 +42,6 @@ func _v_sync(value):
 func _smooth_camera(value):
 	if not DataLoader.finished:
 		smooth_camera = value
-
-
-func _hide_pet(value):
-	if not DataLoader.finished:
-		hide_pet = value
 
 
 func _interface_selection(value):
