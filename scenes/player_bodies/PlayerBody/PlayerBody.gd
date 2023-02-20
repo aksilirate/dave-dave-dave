@@ -85,6 +85,9 @@ func _ready():
 	_signal = player_body_editor.connect("inventory_changed", self, "_on_inventory_changed")
 	player_body_editor.set_body(self)
 	
+	
+	player_body_editor.set_haste_time(0)
+	
 	if current_game_state.reset_data:
 		player_body_editor.set_play_time(0)
 		player_body_editor.set_collected_diamonds([])

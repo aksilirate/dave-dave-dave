@@ -4,6 +4,9 @@ extends Area2D
 
 onready var haste_potion_editor = DataLoader.haste_potion_data as HastePotionEditor
 
+onready var current_game_state: WorldGameState = DataLoader.game_state_data.current_game_state as WorldGameState
+onready var local_player_body_data: PlayerBodyData = current_game_state.world_data.local_player_body_data
+
 
 export(float) var haste_time 
 
@@ -17,7 +20,7 @@ func _ready():
 func consume() -> void:
 #	Audio.play("res://assets/sounds/collect_haste_potion.wav")
 	collision_shape.set_deferred("disabled", true)
-	respawn_timer.start(haste_time)
+	respawn_timer.start(local_player_body_data.haste_time)
 	hide()
 
 
