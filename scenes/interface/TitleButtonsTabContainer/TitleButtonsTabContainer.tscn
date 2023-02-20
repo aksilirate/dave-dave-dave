@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/interface/TitleButtonsTabContainer/TitleButtonsTabContainer.gd" type="Script" id=2]
 [ext_resource path="res://scenes/interface/AdventureNewGameGenericButton/AdventureNewGameGenericButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/generic_buttons/AdvantureGenericButton/AdvantureGenericButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/generic_buttons/OptionsGenericButton/OptionsGenericButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/generic_buttons/PlayGenericButton/PlayGenericButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/generic_buttons/ExitGenericButton/ExitGenericButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/generic_buttons/PlayBackGenericButton/PlayBackGenericButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/generic_buttons/AdvantureBackGenericButton/AdvantureBackGenericButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/generic_buttons/AdventureContinueGenericButton/AdventureContinueGenericButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/managers/GameStateManager/GameStateManager.tscn" type="PackedScene" id=12]
@@ -49,28 +47,6 @@ margin_right = 1024.0
 margin_bottom = 345.0
 focus_neighbour_bottom = NodePath("../PlayGenericButton")
 
-[node name="PlayTitleButtonsVBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/separation = 21
-alignment = 1
-
-[node name="AdvantureGenericButton" parent="PlayTitleButtonsVBoxContainer" instance=ExtResource( 4 )]
-margin_top = 273.0
-margin_right = 1024.0
-margin_bottom = 289.0
-focus_neighbour_top = NodePath("../PlayBackGenericButton")
-focus_neighbour_bottom = NodePath("../PlayBackGenericButton")
-initial_focus_grab = true
-
-[node name="PlayBackGenericButton" parent="PlayTitleButtonsVBoxContainer" instance=ExtResource( 9 )]
-margin_top = 310.0
-margin_right = 1024.0
-margin_bottom = 326.0
-focus_neighbour_top = NodePath("../AdvantureGenericButton")
-focus_neighbour_bottom = NodePath("../AdvantureGenericButton")
-
 [node name="AdvantureVBoxContainer" type="VBoxContainer" parent="."]
 visible = false
 anchor_right = 1.0
@@ -96,8 +72,6 @@ margin_bottom = 345.0
 
 [connection signal="pressed" from="MainTitleVBoxContainer/PlayGenericButton" to="." method="_on_PlayGenericButton_pressed"]
 [connection signal="pressed" from="MainTitleVBoxContainer/ExitGenericButton" to="GameStateManager" method="_on_ExitGenericButton_pressed"]
-[connection signal="pressed" from="PlayTitleButtonsVBoxContainer/AdvantureGenericButton" to="." method="_on_AdvantureGenericButton_pressed"]
-[connection signal="pressed" from="PlayTitleButtonsVBoxContainer/PlayBackGenericButton" to="." method="_on_PlayBackGenericButton_pressed"]
 [connection signal="pressed" from="AdvantureVBoxContainer/AdventureContinueGenericButton" to="GameStateManager" method="_on_AdventureContinueGenericButton_pressed"]
 [connection signal="pressed" from="AdvantureVBoxContainer/AdventureNewGameGenericButton" to="GameStateManager" method="_on_AdventureNewGameGenericButton_pressed"]
 [connection signal="pressed" from="AdvantureVBoxContainer/AdvantureBackGenericButton" to="." method="_on_AdvantureBackGenericButton_pressed"]
