@@ -691,6 +691,10 @@ chat={
 2d_physics/layer_1="Default"
 2d_physics/layer_2="Player"
 
+[mono]
+
+project/assembly_name="Dave Dave Dave"
+
 [physics]
 
 common/enable_pause_aware_picking=true

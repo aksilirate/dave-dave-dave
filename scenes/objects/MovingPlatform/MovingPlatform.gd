@@ -14,9 +14,12 @@ export(bool) var start_with_player = false
 var follow = Vector2.ZERO
 var started: bool = false
 
+
+
 func _ready():
 	if not start_with_player and not started:
 		start_platform()
+
 
 
 func start_platform():
@@ -32,6 +35,9 @@ func start_platform():
 
 func _physics_process(_delta):
 	kinematic_body.position = kinematic_body.position.linear_interpolate(follow, 0.075)
+
+
+
 
 func _on_Area2D_body_entered(_body):
 	if start_with_player and not started:
