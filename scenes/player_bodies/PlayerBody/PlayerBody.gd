@@ -159,7 +159,8 @@ func _on_item_area_activated():
 
 func _on_item_remover_area_activated():
 	if item_remover_area_data.entered_body == self:
-		player_body_editor.remove_from_inventory(item_remover_area_data.item)
+		if is_instance_valid(item_remover_area_data.item):
+			player_body_editor.remove_from_inventory(item_remover_area_data.item)
 		player_body_editor.add_to_activated_item_removers(item_remover_area_data.position)
 		emit_signal("item_removed")
 

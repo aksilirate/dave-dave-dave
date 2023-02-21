@@ -18,11 +18,21 @@ var _signal
 
 func _on_ItemRemoverArea_body_entered(body):
 	if local_player_body_data.body == body:
+		
+		if not is_instance_valid(item_to_remove):
+			unlock(body)
+			return
+		
 		if not local_player_body_data.inventory.has(item_to_remove.resource_path):
 			return
-			
-		item_remover_area_editor.set_entered_body(body)
-		item_remover_area_editor.set_position(global_position)
-		item_remover_area_editor.set_item(item_to_remove)
-		item_remover_area_editor.emit_signal("activated")
-		emit_signal("item_removed")
+		
+		unlock(body)
+
+
+
+func unlock(body) -> void:
+	item_remover_area_editor.set_entered_body(body)
+	item_remover_area_editor.set_position(global_position)
+	item_remover_area_editor.set_item(item_to_remove)
+	item_remover_area_editor.emit_signal("activated")
+	emit_signal("item_removed")

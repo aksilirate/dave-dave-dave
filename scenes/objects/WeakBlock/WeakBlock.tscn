@@ -114,7 +114,7 @@ bus = "SFX"
 
 [node name="RebuildTimer" type="Timer" parent="."]
 process_mode = 0
-wait_time = 3.0
+wait_time = 1.95
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
