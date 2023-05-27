@@ -1,6 +1,9 @@
 extends TabContainer
 
 
+func _ready():
+	$MainTitleVBoxContainer/ExitGenericButton.visible = false
+
 
 
 func _on_PlayGenericButton_pressed():

@@ -15,7 +15,6 @@ func _ready():
 	_signal = options_data.connect("interface_selection_changed", self, "_on_interface_selection_changed")
 
 
-
 func _on_interface_selection_changed():
 	update_focus()
 

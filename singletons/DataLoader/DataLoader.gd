@@ -3,7 +3,7 @@ extends Node
 
 signal all_data_initialized
 
-onready var data_path: String = Steamworks.get_user_path() + "/data"
+onready var data_path: String = "user://data"
 
 onready var game_states: GameStates = $GameStates
 
@@ -55,7 +55,7 @@ func _ready():
 
 
 func _init_folders():
-	directory.open(Steamworks.get_user_path())
+	directory.open("user://")
 	directory.make_dir("data")
 	directory.make_dir("data/online_world")
 	directory.make_dir("data/adventure_world")

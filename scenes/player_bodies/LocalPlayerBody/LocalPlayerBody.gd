@@ -30,7 +30,7 @@ func get_player_body_editor() -> PlayerBodyEditor:
 
 
 func get_player_id() -> int:
-	return Steamworks.steam_id
+	return 0
 
 
 

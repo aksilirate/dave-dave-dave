@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://classes/data/achievement_area/achievement_area_editor.gd"
 }, {
-"base": "Node",
-"class": "Achievements",
-"language": "GDScript",
-"path": "res://singletons/Steamworks/Achievements.gd"
-}, {
 "base": "WorldScene",
 "class": "AdventureWorld",
 "language": "GDScript",
@@ -442,7 +437,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AchievementAreaData": "",
 "AchievementAreaEditor": "",
-"Achievements": "",
 "AdventureWorld": "",
 "AudioManager": "",
 "AudioPlayer": "",
@@ -601,7 +595,6 @@ default_bus_layout="res://resources/audio_bus_layouts/default_bus_layout.tres"
 
 [autoload]
 
-Steamworks="*res://singletons/Steamworks/Steamworks.tscn"
 DataLoader="*res://singletons/DataLoader/DataLoader.tscn"
 ContentManager="*res://singletons/ContentManager/ContentManager.tscn"
 
